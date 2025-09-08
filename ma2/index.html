@@ -609,6 +609,8 @@
             const resultModal = document.getElementById('resultModalOverlay');
             const progressBar = document.getElementById('progressBar');
             
+            // Reset progress bar to 0% first
+            progressBar.style.width = '0%';
             progressModal.style.display = 'flex';
             
             // Animate progress bar
@@ -629,8 +631,6 @@
             // Trigger the analysis
             ajd();
         }
-
-
 
         function redirectToWhatsApp() {
             // This would redirect to WhatsApp - placeholder for actual WhatsApp link
