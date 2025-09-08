@@ -106,8 +106,29 @@
         }
 
         @keyframes quantum-pulse {
-            0% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.6); }
-            100% { box-shadow: 0 0 50px rgba(0, 212, 255, 0.9); }
+            0% { 
+                box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+                transform: scale(1);
+            }
+            100% { 
+                box-shadow: 0 0 50px rgba(0, 212, 255, 0.9);
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes breath-glow {
+            0% { 
+                box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+                transform: translateY(0px);
+            }
+            50% { 
+                box-shadow: 0 15px 35px rgba(0, 212, 255, 0.5);
+                transform: translateY(-1px);
+            }
+            100% { 
+                box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+                transform: translateY(0px);
+            }
         }
 
         .metrics-constellation-grid {
@@ -185,6 +206,7 @@
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
+            animation: breath-glow 3s infinite;
         }
 
         .quantum-action-button::before {
@@ -333,10 +355,46 @@
             background: var(--gradient-nebula);
             border: 2px solid var(--accent-quantum-cyan);
             border-radius: 20px;
-            padding: 2rem;
-            max-width: 400px;
+            padding: 1.5rem;
+            max-width: 320px;
+            width: 90%;
             text-align: center;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--text-cosmic-gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close-button:hover {
+            color: var(--accent-quantum-cyan);
+        }
+
+        .modal-quantum-button {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, var(--accent-quantum-cyan), var(--highlight-stellar-gold));
+            color: var(--primary-cosmic-blue);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            animation: breath-glow 3s infinite;
         }
 
         .progress-quantum-container {
@@ -438,7 +496,6 @@
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1.5rem; color: var(--text-cosmic-gray); font-size: 0.9rem;">
                 <span style="color: var(--highlight-stellar-gold);">Big Data</span>
                 <span style="color: var(--highlight-stellar-gold);">🤖 Intelligent Quantification</span>
-                <span style="color: var(--warning-solar-yellow);">⚠️ Risk Alert</span>
             </div>
         </section>
 
@@ -450,7 +507,7 @@
                     <thead>
                         <tr>
                             <th class="table-header-quantum">Rank</th>
-                            <th class="table-header-quantum">Symbol</th>
+                            <th class="table-header-quantum">Stock Name</th>
                             <th class="table-header-quantum">Score</th>
                         </tr>
                     </thead>
@@ -470,7 +527,7 @@
                     <thead>
                         <tr>
                             <th class="table-header-quantum">Rank</th>
-                            <th class="table-header-quantum">Symbol</th>
+                            <th class="table-header-quantum">Stock Name</th>
                             <th class="table-header-quantum">Score</th>
                         </tr>
                     </thead>
@@ -490,7 +547,7 @@
                     <thead>
                         <tr>
                             <th class="table-header-quantum">Rank</th>
-                            <th class="table-header-quantum">Symbol</th>
+                            <th class="table-header-quantum">Stock Name</th>
                             <th class="table-header-quantum">Score</th>
                         </tr>
                     </thead>
@@ -525,6 +582,7 @@
     <!-- Progress Modal -->
     <div id="progressModalOverlay" class="modal-overlay-cosmic">
         <div class="modal-content-nebula">
+            <button class="modal-close-button" onclick="closeModal('progressModalOverlay')">&times;</button>
             <h3 style="color: var(--accent-quantum-cyan); margin-bottom: 1rem;">AI System Processing</h3>
             <p style="color: var(--text-cosmic-gray); margin-bottom: 1rem;">Combining: Market Analysis, Latest News Analysis, Historical Data Analysis</p>
             <div class="progress-quantum-container">
@@ -536,10 +594,11 @@
     <!-- Result Modal -->
     <div id="resultModalOverlay" class="modal-overlay-cosmic">
         <div class="modal-content-nebula">
+            <button class="modal-close-button" onclick="closeModal('resultModalOverlay')">&times;</button>
             <h3 style="color: var(--accent-quantum-cyan); margin-bottom: 1rem;">Your Stock Analysis Report is Complete</h3>
             <p style="color: var(--text-stellar-white); margin-bottom: 1rem;">Get your personalized report and our exclusive Top 10 Stock Picks for 2025 - Free!</p>
             <p style="color: var(--text-cosmic-gray); margin-bottom: 1.5rem;">※ Click to redirect to official WhatsApp account</p>
-            <button class="quantum-action-button" onclick="redirectToWhatsApp()">Click Here to Receive Report</button>
+            <button class="modal-quantum-button" onclick="redirectToWhatsApp()">Click Here to Receive Report</button>
         </div>
     </div>
 
@@ -576,6 +635,10 @@
         function redirectToWhatsApp() {
             // This would redirect to WhatsApp - placeholder for actual WhatsApp link
             window.open('https://wa.me/your_whatsapp_number', '_blank');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
         }
 
         // Close modals when clicking outside
