@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-169085291"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-169085215');
+    </script>
+    
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-169085291/8nWBCNjX-5EbEPvczv4-',
+          'transaction_id': '',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+
+<script>
+function h2() {
+           gtag_report_conversion('https://www.qq.com');
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣同胞海外學習資源分享</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        warm: {
+                            50: '#fef7ee',
+                            100: '#fdedd3',
+                            200: '#fbd6a5',
+                            300: '#f7b96d',
+                            400: '#f39333',
+                            500: '#f17316',
+                            600: '#e2570c',
+                            700: '#bb400c',
+                            800: '#953311',
+                            900: '#792b11',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', 'Noto Sans TC', sans-serif;
+            background: #fafafa;
+            color: #2d3748;
+            line-height: 1.7;
+        }
+        
+        .page-wrapper {
+            width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2px;
+        }
+        
+        .section-block {
+            background: white;
+            margin-bottom: 2px;
+            overflow: hidden;
+        }
+        
+        .section-inner {
+            padding: 48px 12px;
+        }
+        
+        .action-button {
+            background: linear-gradient(45deg, #f17316, #e2570c);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: block;
+        }
+        
+        .action-button:hover {
+            background: linear-gradient(45deg, #e2570c, #bb400c);
+            transform: translateY(-1px);
+        }
+        
+        .text-accent {
+            color: #f17316;
+        }
+        
+        .bg-accent {
+            background: #f17316;
+        }
+        
+        .bg-light-accent {
+            background: #fef7ee;
+        }
+        
+        .border-accent {
+            border-color: #f17316;
+        }
+        
+        .floating-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: white;
+            border-top: 2px solid #f17316;
+            padding: 12px 2px;
+        }
+        
+        @media (min-width: 768px) {
+            .content-wrapper {
+                padding: 0 24px;
+            }
+            
+            .section-inner {
+                padding: 64px 32px;
+            }
+            
+            .floating-cta {
+                position: static;
+                background: transparent;
+                border: none;
+                padding: 0;
+            }
+            
+            .action-button {
+                width: auto;
+                padding: 20px 48px;
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .content-wrapper {
+                padding: 0;
+            }
+            
+            .section-inner {
+                padding: 32px 8px;
+            }
+            
+            .mobile-zero {
+                margin: 0;
+                border-radius: 0;
+            }
+        }
+        
+        input, textarea {
+            font-size: 16px;
+        }
+        
+        .timeline-connector {
+            background: linear-gradient(180deg, #f17316, #bb400c);
+            width: 4px;
+            height: 60px;
+            margin: 16px auto;
+        }
+        
+        .step-number {
+            background: #f17316;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 16px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        @media (min-width: 768px) {
+            .feature-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.6s ease-out forwards;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="page-wrapper">
+    <!-- Header -->
+    <header class="section-block bg-white shadow-sm sticky top-0 z-40">
+        <div class="content-wrapper">
+            <div class="flex items-center justify-between h-16 px-4 md:px-8">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-accent text-white flex items-center justify-center font-bold">
+                        📖
+                    </div>
+                    <div>
+                        <h1 class="text-gray-800 font-semibold text-sm md:text-base">海外學習資源</h1>
+                        <p class="text-gray-600 text-xs">AI應用指南</p>
+                    </div>
+                </div>
+                <button onclick="h2()" class="bg-accent text-white px-3 py-1 text-sm font-medium hover:bg-warm-600 transition-colors">
+                    申請
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section-block bg-light-accent">
+        <div class="content-wrapper">
+            <div class="section-inner text-center mobile-zero">
+                <!-- Badge -->
+                <div class="inline-block bg-white border-2 border-accent text-accent px-6 py-3 mb-12 font-medium mobile-zero">
+                    📚 申請《AI股市應用指南》學習版
+                </div>
+                
+                <!-- Main Title -->
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight slide-in">
+                    為海外的<br>
+                    <span class="text-accent">台灣同胞</span><br>
+                    提供學習資源分享
+                </h1>
+                
+                <!-- Description Box -->
+                <div class="bg-white p-8 mb-12 border-l-4 border-accent mobile-zero slide-in">
+                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                        這本《AI股市應用指南》希望能成為海外台灣同胞的學習參考資料。書中分享一些在學習工作中，面對語言、文化和職場挑戰時的經驗和思考。
+                    </p>
+                </div>
+                
+                <!-- CTA Button -->
+                <button onclick="h2()" class="action-button mb-16">
+                    申請學習資料
+                </button>
+                
+                <!-- Trust Points -->
+                <div class="feature-grid">
+                    <div class="bg-white p-6 text-center mobile-zero">
+                        <div class="step-number">✓</div>
+                        <h3 class="font-bold text-lg mb-2">教育分享</h3>
+                        <p class="text-gray-600 text-sm">這是一個教育性質的學習資源分享活動。</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 text-center mobile-zero">
+                        <div class="step-number">🌍</div>
+                        <h3 class="font-bold text-lg mb-2">海外配送</h3>
+                        <p class="text-gray-600 text-sm">如果您在海外，我們會協助將學習資料送達。</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 text-center mobile-zero">
+                        <div class="step-number">📚</div>
+                        <h3 class="font-bold text-lg mb-2">學習資料</h3>
+                        <p class="text-gray-600 text-sm">本活動提供限量學習版本，視情況提供。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section class="section-block">
+        <div class="content-wrapper">
+            <div class="section-inner mobile-zero">
+                <!-- Header -->
+                <div class="text-center mb-16">
+                    <div class="inline-block bg-red-100 text-red-700 px-4 py-2 mb-6 text-sm font-medium">
+                        共同的學習挑戰
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900">
+                        海外學習工作時可能面對的挑戰
+                    </h2>
+                </div>
+                
+                <!-- Challenge Items -->
+                <div class="space-y-8">
+                    <!-- Challenge 1 -->
+                    <div class="bg-red-50 p-8 border-l-4 border-red-500 mobile-zero">
+                        <div class="mb-4">
+                            <span class="bg-red-500 text-white px-4 py-2 text-sm font-bold">語言適應</span>
+                            <h3 class="text-2xl font-bold text-gray-800 mt-4">溝通方面的學習</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed text-lg">
+                            在接收到房東的文件卻理解困難時，就像我初到美國時的學習過程。那時候，每一封信都需要花時間理解和學習。
+                        </p>
+                    </div>
+                    
+                    <div class="timeline-connector"></div>
+                    
+                    <!-- Challenge 2 -->
+                    <div class="bg-orange-50 p-8 border-l-4 border-orange-500 mobile-zero">
+                        <div class="mb-4">
+                            <span class="bg-orange-500 text-white px-4 py-2 text-sm font-bold">文化學習</span>
+                            <h3 class="text-2xl font-bold text-gray-800 mt-4">文化適應的過程</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed text-lg">
+                            作為外國學生或工作者，可能會遇到文化差異的學習過程，當同事對你的表達方式有不同理解時，這讓我想起自己的學習經歷。
+                        </p>
+                    </div>
+                    
+                    <div class="timeline-connector"></div>
+                    
+                    <!-- Challenge 3 -->
+                    <div class="bg-purple-50 p-8 border-l-4 border-purple-500 mobile-zero">
+                        <div class="mb-4">
+                            <span class="bg-purple-500 text-white px-4 py-2 text-sm font-bold">職場學習</span>
+                            <h3 class="text-2xl font-bold text-gray-800 mt-4">專業發展的學習</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed text-lg">
+                            當你準備工作提案時，可能會收到「需要更本土化」的建議，如我曾經在推介技術時的學習經驗，這些都是成長過程中的學習機會。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="section-block bg-gray-50">
+        <div class="content-wrapper">
+            <div class="section-inner mobile-zero">
+                <!-- Header -->
+                <div class="text-center mb-16">
+                    <div class="inline-block bg-accent text-white px-4 py-2 mb-6 text-sm font-medium">
+                        學習工具分享
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                        這本書分享一些學習經驗
+                    </h2>
+                    <h3 class="text-xl md:text-2xl font-semibold text-accent">
+                        《AI股市應用指南》：學習資源參考，可能對職場與生活學習有所幫助
+                    </h3>
+                </div>
+                
+                <!-- Workplace Solutions -->
+                <div class="bg-white mb-12 mobile-zero">
+                    <div class="bg-accent text-white p-8 text-center">
+                        <div class="flex flex-col md:flex-row items-center gap-6">
+                            <div class="w-16 h-16 bg-white/20 flex items-center justify-center text-4xl">💼</div>
+                            <h3 class="text-2xl md:text-3xl font-bold">
+                                職場學習：分享AI工具的使用經驗，希望科技能成為學習的幫手
+                            </h3>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="feature-grid">
+                            <!-- Feature 1 -->
+                            <div class="text-center p-4">
+                                <div class="w-16 h-16 bg-warm-100 text-accent flex items-center justify-center text-3xl mx-auto mb-4">🌐</div>
+                                <h4 class="text-lg font-bold text-accent mb-4">語言學習參考</h4>
+                                <div class="w-12 h-1 bg-accent mx-auto mb-4"></div>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    分享如何嘗試使用AI工具進行文件翻譯，讓溝通學習更順暢（書中P.124頁有相關內容）。這些經驗可能對適應工作環境有幫助。
+                                </p>
+                            </div>
+                            
+                            <!-- Feature 2 -->
+                            <div class="text-center p-4">
+                                <div class="w-16 h-16 bg-blue-100 text-blue-600 flex items-center justify-center text-3xl mx-auto mb-4">🤝</div>
+                                <h4 class="text-lg font-bold text-blue-600 mb-4">職場溝通學習</h4>
+                                <div class="w-12 h-1 bg-blue-500 mx-auto mb-4"></div>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    分享嘗試透過AI分析公司文化，學習如何撰寫合適的求職信，這些學習心得希望能為職場發展提供一些參考。
+                                </p>
+                            </div>
+                            
+                            <!-- Feature 3 -->
+                            <div class="text-center p-4">
+                                <div class="w-16 h-16 bg-green-100 text-green-600 flex items-center justify-center text-3xl mx-auto mb-4">🎯</div>
+                                <h4 class="text-lg font-bold text-green-600 mb-4">學習方向參考</h4>
+                                <div class="w-12 h-1 bg-green-500 mx-auto mb-4"></div>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    這些不僅是技術學習的分享，更是對未來學習方向的思考。希望這些內容能在快速變化的時代中提供學習參考。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Emotional Solutions -->
+                <div class="bg-white mobile-zero">
+                    <div class="bg-pink-500 text-white p-8 text-center">
+                        <div class="flex flex-col md:flex-row items-center gap-6">
+                            <div class="w-16 h-16 bg-white/20 flex items-center justify-center text-4xl">❤️</div>
+                            <h3 class="text-2xl md:text-3xl font-bold">身份認同的學習思考</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-8">海外學習生活中可能遇到的情況：</h4>
+                        
+                        <!-- Solutions Flow -->
+                        <div class="space-y-12">
+                            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+                                <div class="bg-red-50 border-l-4 border-red-500 p-6">
+                                    <div class="flex items-center mb-4">
+                                        <span class="text-lg mr-2 font-semibold">情況</span>
+                                        <h5 class="font-bold text-red-600">思鄉情結</h5>
+                                    </div>
+                                    <p class="text-gray-600 text-sm">孩子問「為什麼要離開台灣」這可能反映對家庭的思念，以及對文化連結的渴望。</p>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <div class="w-12 h-12 bg-accent text-white flex items-center justify-center mx-auto font-bold text-lg">→</div>
+                                </div>
+                                
+                                <div class="bg-green-50 border-l-4 border-green-500 p-6">
+                                    <div class="flex items-center mb-4">
+                                        <span class="text-lg mr-2 font-semibold">方法</span>
+                                        <h5 class="font-bold text-green-600">AI學習嘗試</h5>
+                                    </div>
+                                    <p class="text-gray-600 text-sm">嘗試用AI生成雙語故事：幫助維持與家鄉的文化連結（書中P.215有相關分享）。這可能是一種情感表達的方式。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+                                <div class="bg-blue-50 border-l-4 border-blue-500 p-6">
+                                    <div class="flex items-center mb-4">
+                                        <span class="text-lg mr-2 font-semibold">挑戰</span>
+                                        <h5 class="font-bold text-blue-600">文化適應</h5>
+                                    </div>
+                                    <p class="text-gray-600 text-sm">在異國過節時，面對不同的食物選擇，這些日常小事可能觸動思鄉的情感。</p>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <div class="w-12 h-12 bg-accent text-white flex items-center justify-center mx-auto font-bold text-lg">→</div>
+                                </div>
+                                
+                                <div class="bg-green-50 border-l-4 border-green-500 p-6">
+                                    <div class="flex items-center mb-4">
+                                        <span class="text-lg mr-2 font-semibold">嘗試</span>
+                                        <h5 class="font-bold text-green-600">家鄉味道</h5>
+                                    </div>
+                                    <p class="text-gray-600 text-sm">家傳食譜的學習：嘗試搭配當地食材，重現家鄉的味道，讓每一餐都可能充滿溫暖的回憶。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Section -->
+    <section class="section-block bg-light-accent">
+        <div class="content-wrapper">
+            <div class="section-inner mobile-zero">
+                <!-- Header -->
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                        關於這本學習資料
+                    </h2>
+                    <p class="text-xl text-accent font-semibold">
+                        這是一本學習參考書，希望能在學習路上提供一些參考
+                    </p>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="bg-white mobile-zero">
+                    <!-- Book Showcase -->
+                    <div class="text-center p-12 bg-gray-50">
+                        <img src="img/3.jpg" alt="AI股市應用指南" class="w-64 md:w-80 h-40 md:h-52 mx-auto object-cover shadow-2xl">
+                    </div>
+                    
+                    <div class="p-8">
+                        <!-- Values -->
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                            <!-- Value 1 -->
+                            <div class="border-l-4 border-accent pl-8">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-warm-100 text-accent flex items-center justify-center font-bold text-xl">✍️</div>
+                                    <div>
+                                        <h4 class="text-2xl font-bold text-gray-800 mb-4">學習版本</h4>
+                                        <p class="text-gray-600 leading-relaxed">
+                                            每本書都有編號，見證學習過程，這是一份學習資源的分享與交流。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Value 2 -->
+                            <div class="border-l-4 border-blue-500 pl-8">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xl">🛠️</div>
+                                    <div>
+                                        <h4 class="text-2xl font-bold text-gray-800 mb-4">附加學習材料</h4>
+                                        <div class="space-y-3">
+                                            <div class="flex items-start">
+                                                <span class="text-accent mr-3 mt-1">•</span>
+                                                <span class="text-gray-600">《海外台灣人AI應用參考》電子版：包含一些學習模板和參考資料</span>
+                                            </div>
+                                            <div class="flex items-start">
+                                                <span class="text-accent mr-3 mt-1">•</span>
+                                                <span class="text-gray-600">「12組學習情境參考」：一些實際應用的學習案例（例：#07 租房相關文件的理解）</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Encouragement -->
+                        <div class="bg-green-50 border-l-4 border-green-500 p-8 mb-12">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-green-100 text-green-600 flex items-center justify-center font-bold text-xl">💪</div>
+                                <div>
+                                    <h4 class="text-2xl font-bold text-gray-800 mb-6">學習路上的陪伴</h4>
+                                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                                        <p>無論在倫敦的雨中，還是在東京的繁忙街頭，翻開這本書，希望能聽到：「在學習路上持續前進，面對困難時不要放棄」</p>
+                                        <p class="font-bold text-green-600 text-lg">這句話希望能是一種鼓勵，一種信念，在困難的學習過程中提供一些支持。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- CTA -->
+                        <div class="text-center">
+                            <p class="text-2xl font-bold text-red-600 mb-8">歡迎申請學習資料</p>
+                            <button onclick="h2()" class="action-button">
+                                申請學習資源
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section-block">
+        <div class="content-wrapper">
+            <div class="section-inner mobile-zero">
+                <!-- Header -->
+                <div class="text-center mb-16">
+                    <div class="inline-block bg-accent text-white px-4 py-2 mb-6 text-sm font-medium">
+                        活動說明
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900">
+                        學習資源分享活動
+                    </h2>
+                </div>
+                
+                <!-- Benefits Cards -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                    <!-- Benefit 1 -->
+                    <div class="bg-white border-l-4 border-blue-500 p-8 mobile-zero">
+                        <div class="flex items-start gap-4">
+                            <div class="w-16 h-16 bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xl">✓</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-3">學習版本</h3>
+                                <p class="text-blue-600 font-semibold mb-3">繁體版本的學習資料</p>
+                                <p class="text-gray-600 leading-relaxed">
+                                    提供學習專用的版本，讓每一次閱讀都能有學習的體驗。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefit 2 -->
+                    <div class="bg-white border-l-4 border-green-500 p-8 mobile-zero">
+                        <div class="flex items-start gap-4">
+                            <div class="w-16 h-16 bg-green-100 text-green-600 flex items-center justify-center font-bold text-xl">✓</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-3">學習交流群</h3>
+                                <p class="text-green-600 font-semibold mb-3">學習討論社群</p>
+                                <p class="text-gray-600 leading-relaxed">
+                                    可選擇加入學習交流群，與其他讀者分享學習心得，這將是一個互相學習和交流的平台。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity Details -->
+                <div class="bg-white mobile-zero">
+                    <!-- Header -->
+                    <div class="bg-accent text-white p-8 text-center">
+                        <h3 class="text-3xl md:text-4xl font-bold">活動詳情</h3>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="grid grid-cols-1 xl:grid-cols-2 gap-12">
+                            <!-- Left Column -->
+                            <div class="space-y-6">
+                                <div class="bg-green-50 border-l-4 border-green-500 p-6">
+                                    <div class="flex items-center">
+                                        <span class="text-green-600 mr-4 text-2xl">✓</span>
+                                        <span class="text-gray-800 font-semibold text-lg">教育性學習資源分享</span>
+                                    </div>
+                                </div>
+                                <div class="bg-blue-50 border-l-4 border-blue-500 p-6">
+                                    <div class="flex items-center">
+                                        <span class="text-green-600 mr-4 text-2xl">✓</span>
+                                        <span class="text-gray-800 font-semibold text-lg">海外配送服務</span>
+                                    </div>
+                                </div>
+                                <div class="bg-orange-50 border-l-4 border-orange-500 p-6">
+                                    <div class="flex items-center">
+                                        <span class="text-green-600 mr-4 text-2xl">✓</span>
+                                        <span class="text-gray-800 font-semibold text-lg">限量學習版本，視情況提供</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Column -->
+                            <div class="bg-gray-50 p-8">
+                                <div class="flex items-start gap-4 mb-8">
+                                    <div class="w-12 h-12 bg-orange-500 text-white flex items-center justify-center font-bold text-xl">📝</div>
+                                    <h4 class="text-2xl font-bold text-orange-700">申請方式</h4>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <span class="text-green-600 mr-3 mt-1 text-xl">✓</span>
+                                        <span class="text-gray-600 text-lg">點擊申請按鈕</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="text-green-600 mr-3 mt-1 text-xl">✓</span>
+                                        <span class="text-gray-600 text-lg">填寫相關資訊</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="text-green-600 mr-3 mt-1 text-xl">✓</span>
+                                        <span class="text-gray-600 text-lg">等待審核與配送安排</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Final CTA -->
+                        <div class="text-center mt-16 p-8 bg-gray-50">
+                            <h3 class="text-3xl font-bold text-gray-700 mb-8">
+                                歡迎申請學習資源
+                            </h3>
+                            <p class="text-gray-600 mb-12 text-lg leading-relaxed max-w-4xl mx-auto">
+                                無論您身在何處，我們會盡力將這份學習資源送達。這是一本學習參考書，希望能提供一些學習上的幫助。
+                            </p>
+                            
+                            <button onclick="h2()" class="action-button mb-8">
+                                聯絡我們申請
+                            </button>
+                            
+                            <div class="bg-blue-50 border-l-4 border-blue-500 p-6">
+                                <p class="text-blue-600 leading-relaxed text-lg">
+                                    說明：本活動為教育性質的學習資源分享，旨在為海外台灣同胞提供學習參考。歡迎把握這個學習機會。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Warning Section -->
+    <section class="section-block bg-red-50">
+        <div class="content-wrapper">
+            <div class="section-inner mobile-zero">
+                <!-- Header -->
+                <div class="text-center mb-16">
+                    <div class="inline-block bg-red-100 text-red-700 px-4 py-2 mb-6 text-sm font-medium">
+                        重要聲明
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-red-700">
+                        重要免責聲明
+                    </h2>
+                </div>
+                
+                <!-- Warning Content -->
+                <div class="bg-white mobile-zero">
+                    <!-- Header -->
+                    <div class="bg-red-500 text-white p-8 text-center">
+                        <p class="text-2xl md:text-3xl font-bold">投資有風險，請謹慎決策</p>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <!-- Left Column -->
+                            <div class="space-y-6">
+                                <div class="bg-red-50 border-l-4 border-red-500 p-6">
+                                    <div class="flex items-start">
+                                        <span class="text-red-600 mr-3 mt-1 text-lg">•</span>
+                                        <span class="text-gray-700 text-lg">股票投資存在市場風險，投資價值可能上升或下降，過往績效不代表未來表現。</span>
+                                    </div>
+                                </div>
+                                <div class="bg-orange-50 border-l-4 border-orange-500 p-6">
+                                    <div class="flex items-start">
+                                        <span class="text-red-600 mr-3 mt-1 text-lg">•</span>
+                                        <span class="text-gray-700 text-lg">投資前請詳細了解相關金融商品的性質、風險及費用，並評估是否適合自身的財務狀況和投資目標。</span>
+                                    </div>
+                                </div>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6">
+                                    <div class="flex items-start">
+                                        <span class="text-red-600 mr-3 mt-1 text-lg">•</span>
+                                        <span class="text-gray-700 text-lg">本資料僅供教育學習參考，不構成投資建議或招攬。任何投資決策應基於您自己的判斷和風險承受能力。</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Column -->
+                            <div class="space-y-6">
+                                <div class="bg-purple-50 border-l-4 border-purple-500 p-6">
+                                    <div class="flex items-start">
+                                        <span class="text-red-600 mr-3 mt-1 text-lg">•</span>
+                                        <span class="text-gray-700 text-lg">投資可能導致本金損失，請在充分了解風險的前提下進行投資決策，並建議諮詢專業投資顧問的意見。</span>
+                                    </div>
+                                </div>
+                                <div class="bg-blue-50 border-l-4 border-blue-500 p-6">
+                                    <div class="flex items-start">
+                                        <span class="text-red-600 mr-3 mt-1 text-lg">•</span>
+                                        <span class="text-gray-700 text-lg">市場波動、經濟環境變化、政策調整等因素都可能影響投資表現，請謹慎評估相關風險。</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Final Warning -->
+                        <div class="mt-12 bg-orange-50 border-l-4 border-orange-500 p-8">
+                            <p class="text-orange-700 font-bold text-center text-xl leading-relaxed">
+                                聲明：投資理財有賺有賠，申購前應詳閱公開說明書或投資須知。本書僅為教育學習目的，不構成任何形式的投資建議或保證。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section-block bg-gray-900 text-white">
+        <div class="content-wrapper">
+            <div class="section-inner text-center mobile-zero">
+                <div class="mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6">感謝您的關注</h3>
+                    <p class="text-xl text-gray-300">希望這本學習資料能為您的海外學習路上提供一些參考</p>
+                </div>
+                <div class="border-t border-gray-700 pt-12">
+                    <p class="text-gray-400 text-lg">© 2024 台灣同胞海外學習資源分享活動. 版權所有.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <div class="content-wrapper">
+            <button onclick="h2()" class="action-button">
+                申請學習資源
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        
+    </script>
+</body>
+</html>
