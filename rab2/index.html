@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI時代の投資を勝ち抜く3つの理由</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(102, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(102, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Animated stars */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero-section {
+            padding: 40px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(102, 255, 255, 0.2);
+            box-shadow: 0 0 30px rgba(102, 255, 255, 0.1);
+        }
+
+        .main-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #66ffff, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(102, 255, 255, 0.5);
+            line-height: 1.3;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 20px auto;
+            border: 3px solid #66ffff;
+            box-shadow: 0 0 30px rgba(102, 255, 255, 0.3);
+            object-fit: cover;
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .subtitle {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #66ffff;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(102, 255, 255, 0.5);
+        }
+
+        .features-section {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+            border: 1px solid rgba(102, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 255, 255, 0.2);
+            border-color: #ff6b6b;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ff6b6b;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+        }
+
+        .feature-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .feature-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #e0e0e0;
+        }
+
+        .emoji {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        .cta-section {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(255, 107, 107, 0.5); }
+            to { box-shadow: 0 0 30px rgba(77, 208, 196, 0.5); }
+        }
+
+        .cta-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-subtitle {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            color: #66ffff;
+            border: 2px solid #66ffff;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(102, 255, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(45deg, #66ffff, #4ecdc4);
+            color: #1a1a2e;
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(102, 255, 255, 0.6);
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: #ffffff;
+            border: none;
+            border-radius: 30px;
+            padding: 15px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+            animation: floatBreathe 2.5s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .floating-button:hover {
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.6);
+        }
+
+        @keyframes floatBreathe {
+            0%, 100% { 
+                transform: translateX(-50%) translateY(0) scale(1);
+                box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+            }
+            50% { 
+                transform: translateX(-50%) translateY(-5px) scale(1.02);
+                box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 24px;
+            }
+            
+            .hero-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .container {
+                padding: 15px;
+                padding-bottom: 80px;
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+
+            .floating-button {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <div class="hero-section">
+            <h1 class="main-title">AI時代の投資を勝ち抜く<br>3つの理由</h1>
+            <img src="https://www.jacmsotck.online/415rirenshen/15.jpg" alt="AI株式アシスタント" class="hero-image" onerror="this.style.display='none'">
+            <p class="subtitle">（AI 株式 アシスタント）</p>
+        </div>
+
+        <div class="features-section">
+            <div class="feature-card">
+                <h3 class="feature-title">一、無料で始める充実コンテンツ</h3>
+                <ul class="feature-list">
+                    <li><span class="emoji">📊</span>AIが厳選！ 注目の銘柄を毎日5本無料提供</li>
+                    <li><span class="emoji">💼</span>投資未経験の方でも安心</li>
+                    <li><span class="emoji">🎁</span>すべての診断とサービスは完全無料</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="feature-title">二、プロ予測✕AI技術の融合</h3>
+                <ul class="feature-list">
+                    <li><span class="emoji">📈</span>テレビ出演のカリスマ講師陣が市場を解説</li>
+                    <li><span class="emoji">🤖</span>10年分の市場データを学習したAIが銘柄スコアを生成</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="feature-title">三、法規制の専門家監修</h3>
+                <ul class="feature-list">
+                    <li><span class="emoji">⚖️</span>金融庁OB監修のコンテンツ</li>
+                    <li><span class="emoji">📚</span>全講座が金商法・景品表示法に完全準拠</li>
+                    <li><span class="emoji">🔒</span>ユーザー資産保護のため「投資助言」と「情報提供」を明確区別</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta-section pulse">
+            <h2 class="cta-title">今すぐLINEを追加して</h2>
+            <p class="cta-subtitle">無料AI診断を始めよう</p>
+            <button onclick="k2()" class="cta-button">LINE追加で無料開始</button>
+        </div>
+    </div>
+
+    <button onclick="k2()" class="floating-button">今すぐLINEを追加して</button>
+
+    <script>
+        // Create animated stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 50;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Add smooth scroll and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            
+            // Add hover effects to feature cards
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+
+        // k2 function to redirect to qq.com
+        function k2() {
+            window.location.href = 'https://www.qq.com';
+        }
+
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>
