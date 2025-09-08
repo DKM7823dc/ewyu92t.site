@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用規約 - 投資学習コミュニティ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .content h2 {
+            color: #1e3c72;
+            font-size: 24px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+        }
+
+        .content h3 {
+            color: #333;
+            font-size: 18px;
+            margin: 30px 0 15px 0;
+            padding: 10px 0;
+            border-left: 4px solid #007bff;
+            padding-left: 15px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .content p {
+            margin-bottom: 15px;
+            text-align: justify;
+            color: #555;
+        }
+
+        .content ul {
+            margin: 15px 0 20px 30px;
+        }
+
+        .content li {
+            margin-bottom: 8px;
+            color: #555;
+            position: relative;
+        }
+
+        .content li::before {
+            content: "•";
+            color: #007bff;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+        .update-info {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+        }
+
+        .back-link a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,123,255,0.4);
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+                color: #fff;
+            }
+
+            .container {
+                background: #1a1a1a;
+            }
+
+            .content h3 {
+                color: #ffffff;
+                background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            }
+
+            .content p,
+            .content li {
+                color: #cccccc;
+            }
+
+            .update-info {
+                background: #2a2a2a;
+                border-color: #444;
+                color: #ccc;
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 10px;
+            }
+
+            .header,
+            .content {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .content h2 {
+                font-size: 20px;
+            }
+
+            .content h3 {
+                font-size: 16px;
+            }
+
+            .content ul {
+                margin-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>利用規約</h1>
+            <p>投資学習コミュニティサービスの利用条件</p>
+        </header>
+
+        <!-- Content -->
+        <div class="content">
+            <h2>利用規約</h2>
+            
+            <h3>第1条（適用）</h3>
+            <p>本利用規約（以下「本規約」といいます）は、当投資学習コミュニティ（以下「当サービス」といいます）の利用条件を定めるものです。利用者（以下「ユーザー」といいます）は、本規約に同意の上、当サービスをご利用ください。</p>
+
+            <h3>第2条（利用登録）</h3>
+            <p>当サービスの利用を希望する方は、本規約に同意の上、必要な情報を登録することで利用者となることができます。当サービスは、利用登録の申し込みについて、独自の判断で承認・拒否することができます。</p>
+
+            <h3>第3条（サービス内容）</h3>
+            <p>当サービスは、投資に関する教育情報の提供、学習コミュニティの運営を主な内容とします：</p>
+            <ul>
+                <li>投資に関する基礎的な教育コンテンツの提供</li>
+                <li>市場分析やリスク管理に関する情報提供</li>
+                <li>オンラインセミナーやイベントの開催</li>
+                <li>学習者同士の交流機会の提供</li>
+                <li>投資ツールやリソースの提供</li>
+                <li>専門家による指導やアドバイスの提供</li>
+            </ul>
+
+            <h3>第4条（利用料金）</h3>
+            <p>当サービスの基本的な利用は無料です。ただし、一部の特別なサービスや機能については有料となる場合があります。有料サービスを利用する際は、事前に料金体系を明示し、ユーザーの同意を得るものとします。</p>
+
+            <h3>第5条（ユーザーの責任）</h3>
+            <p>ユーザーは、以下の事項について責任を負うものとします：</p>
+            <ul>
+                <li>登録情報の正確性の維持および適時更新</li>
+                <li>アカウント情報の適切な管理と秘匿</li>
+                <li>当サービスの適切な利用</li>
+                <li>投資判断の最終的な責任</li>
+                <li>他のユーザーとの適切なコミュニケーション</li>
+                <li>学習コミュニティでのマナーの遵守</li>
+                <li>提供された情報の適切な利用</li>
+            </ul>
+
+            <h3>第6条（禁止事項）</h3>
+            <p>ユーザーは、当サービスの利用にあたり、以下の行為を行ってはなりません：</p>
+            <ul>
+                <li>法令または公序良俗に反する行為</li>
+                <li>犯罪行為に関連する行為</li>
+                <li>他のユーザーまたは第三者の知的財産権を侵害する行為</li>
+                <li>他のユーザーまたは第三者を誹謗中傷する行為</li>
+                <li>虚偽の情報を投稿または提供する行為</li>
+                <li>営利を目的とした行為（当方が認めたものを除く）</li>
+                <li>当サービスの運営を妨害する行為</li>
+                <li>不正アクセスまたはこれに類する行為</li>
+                <li>個別の投資推奨や助言を行う行為</li>
+                <li>他のユーザーの個人情報を収集する行為</li>
+                <li>スパムメッセージの送信や迷惑行為</li>
+                <li>システムに過度な負荷をかける行為</li>
+            </ul>
+
+            <h3>第7条（知的財産権）</h3>
+            <p>当サービスに含まれるコンテンツ、情報、材料、ソフトウェア等の知的財産権は、当サービス運営者または正当な権利者に帰属します。ユーザーは、これらを当サービスの利用目的の範囲内でのみ使用することができ、無断での複製、転載、配布等は禁止されています。</p>
+
+            <h3>第8条（免責事項）</h3>
+            <p>当サービスについて、以下の事項を明示します：</p>
+            <ul>
+                <li>当サービスは教育目的の情報提供のみを行い、個別の投資助言は行いません</li>
+                <li>提供される情報の正確性、完全性、有用性について保証いたしません</li>
+                <li>ユーザーの投資判断および結果についての責任は負いません</li>
+                <li>サービスの中断、遅延、データの消失等について責任を負いません</li>
+                <li>ユーザー間のトラブルについて責任を負いません</li>
+                <li>第三者のサイトやサービスへのリンクについて責任を負いません</li>
+                <li>市場の変動による損失について責任を負いません</li>
+            </ul>
+
+            <h3>第9条（サービスの変更・中止）</h3>
+            <p>当サービスは、ユーザーへの事前通知をもって、サービス内容の変更、追加、廃止を行うことができます。また、システムメンテナンスその他の理由により、サービスを一時的に中止する場合があります。これらによりユーザーに生じた損害について、当サービスは責任を負いません。</p>
+
+            <h3>第10条（利用停止・退会）</h3>
+            <p>ユーザーが本規約に違反した場合、当サービスは事前の通知なく、該当ユーザーのサービス利用を停止または契約を解除することができます。ユーザーは、いつでも所定の手続きにより退会することができます。退会後も、本規約の関連条項は引き続き効力を有します。</p>
+
+            <h3>第11条（個人情報の取扱い）</h3>
+            <p>当サービスは、ユーザーの個人情報を別途定めるプライバシーポリシーに従って適切に取り扱います。ユーザーは、プライバシーポリシーの内容を確認し、同意の上でサービスを利用するものとします。</p>
+
+            <h3>第12条（コンテンツの取扱い）</h3>
+            <p>ユーザーが当サービスに投稿したコンテンツについて、ユーザーは以下に同意します：</p>
+            <ul>
+                <li>投稿内容に関する責任はユーザーが負うこと</li>
+                <li>当サービスがコンテンツを削除する権利を有すること</li>
+                <li>適切でないコンテンツの報告に協力すること</li>
+                <li>他のユーザーの権利を尊重すること</li>
+            </ul>
+
+            <h3>第13条（規約の変更）</h3>
+            <p>本規約は、法令の変更やサービス内容の変更等により、予告なく変更する場合があります。変更後の規約は、当サイトに掲載した時点から効力を生じるものとします。重要な変更については、適切な方法でユーザーに通知します。</p>
+
+            <h3>第14条（準拠法・管轄裁判所）</h3>
+            <p>本規約は、日本法に基づいて解釈されます。当サービスに関して紛争が生じた場合は、当サービスの運営者の所在地を管轄する裁判所を専属的合意管轄裁判所とします。</p>
+
+            <h3>第15条（分離可能性）</h3>
+            <p>本規約のいずれかの条項が無効とされた場合でも、規約の他の条項は引き続き有効とします。無効とされた条項については、その趣旨に最も近い有効な条項に置き換えられるものとします。</p>
+
+            <h3>第16条（譲渡の禁止）</h3>
+            <p>ユーザーは、当サービスの利用に関する権利義務を第三者に譲渡し、または担保に供することはできません。</p>
+
+            <h3>第17条（存続条項）</h3>
+            <p>本規約の終了後も、第7条（知的財産権）、第8条（免責事項）、第14条（準拠法・管轄裁判所）その他の性質上存続すべき条項は、引き続き効力を有します。</p>
+
+            <div class="update-info">
+                <p><strong>制定日：</strong>2024年12月</p>
+                <p><strong>最終更新日：</strong>2024年12月</p>
+                <p>本利用規約は、サービスの改善と法令遵守のため、必要に応じて更新されます。</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 投資学習コミュニティ. All rights reserved.</p>
+            <p>本サービスは教育目的のみを提供しており、投資判断は自己責任で行ってください。</p>
+        </footer>
+    </div>
+
+    <script>
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
