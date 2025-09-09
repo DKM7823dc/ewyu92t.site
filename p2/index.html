@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Converting Sales Funnels - Boost Your Business Revenue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#1a1a2e',
+                        accent: '#16213e'
+                    },
+                    fontFamily: {
+                        'display': ['Georgia', 'serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .shine-effect:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Hero Section -->
+    <section class="gradient-bg relative overflow-hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div class="relative z-10 container mx-auto px-3 md:px-6 py-12 md:py-20">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                <!-- Left Content -->
+                <div class="flex-1 text-white fade-in">
+                    <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                        How to Build High-Converting 
+                        <span class="text-yellow-300">Sales Funnels</span>
+                        That Boost Your Revenue?
+                    </h1>
+                    <div class="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 space-y-2 md:space-y-4 opacity-90">
+                        <p class="font-light">✓ You have your audience.</p>
+                        <p class="font-light">✓ Your product is ready to launch.</p>
+                        <p class="font-medium text-red-300">✗ But your sales funnel? No progress.</p>
+                    </div>
+                    <button onclick="k2()" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shine-effect shadow-2xl">
+                        Contact Me Now
+                    </button>
+                </div>
+                
+                <!-- Right Image -->
+                <div class="flex-1">
+                    <div class="glass-effect rounded-3xl p-4 md:p-8 shadow-2xl -mx-3 md:mx-0">
+                        <img src="img/1.jpg" 
+                             alt="Professional Business Consultant" 
+                             class="w-full h-auto rounded-2xl shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-12 md:py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-3 md:px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-12 text-red-600 dark:text-red-400">
+                    The Harsh Reality
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="text-red-500 text-6xl mb-4">❌</div>
+                        <h3 class="text-xl font-bold mb-4">No Design</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Your funnel looks unprofessional and fails to inspire confidence.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="text-red-500 text-6xl mb-4">❌</div>
+                        <h3 class="text-xl font-bold mb-4">No Process</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Visitors get confused and leave without taking action.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="text-red-500 text-6xl mb-4">❌</div>
+                        <h3 class="text-xl font-bold mb-4">No Conversions</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Your efforts don't translate into sales and revenue.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-red-500 to-pink-500 text-white p-8 rounded-2xl shadow-xl">
+                    <h3 class="text-3xl font-bold mb-4">Your Sales Funnel is Your First Impression</h3>
+                    <p class="text-xl opacity-90">It's the difference between success and failure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-12 md:py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-3 md:px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl lg:text-5xl font-bold text-center mb-16">
+                    The <span class="text-primary">Solution</span> You Need
+                </h2>
+                
+                <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
+                    <div class="flex-1 -mx-3 md:mx-0">
+                        <img src="img/2.jpg" 
+                             alt="Sales Funnel Strategy" 
+                             class="w-full h-auto rounded-2xl shadow-2xl">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-3xl font-bold mb-6 text-green-600 dark:text-green-400">How to Master It?</h3>
+                        <div class="space-y-6 text-lg">
+                            <div class="flex items-start gap-4">
+                                <div class="text-green-500 text-2xl">✓</div>
+                                <p>Build trust with your audience from the first interaction</p>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="text-green-500 text-2xl">✓</div>
+                                <p>Guide buyers through a seamless journey</p>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="text-green-500 text-2xl">✓</div>
+                                <p>Close deals effortlessly without hard selling</p>
+                            </div>
+                        </div>
+                        <button onclick="k2()" class="mt-8 bg-primary hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Let's Work Together
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-12 md:py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-3 md:px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl lg:text-5xl font-bold text-center mb-16">
+                    What I Deliver
+                </h2>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-3xl p-6 md:p-12 shadow-2xl mb-16 -mx-3 md:mx-0">
+                    <h3 class="text-3xl font-bold mb-8 text-center text-primary">High-Converting Sales Funnels & Landing Pages</h3>
+                    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black p-6 rounded-2xl mb-8 text-center">
+                        <h4 class="text-2xl md:text-3xl font-bold mb-2">⚡ 5 HOURS COMPLETION ⚡</h4>
+                        <p class="text-lg font-semibold">Get your landing page designed and delivered in just 5 hours!</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-green-600 dark:text-green-400">✓ Clean & Strategic Design</h4>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6">No bloated layouts or confusing user experiences. Just strategy, structure, and irresistible design.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-green-600 dark:text-green-400">✓ Platform Flexibility</h4>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6">Whether you use Systeme.io, ClickFunnels, or Figma - I create funnels that look great and perform even better.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 -mx-6 md:mx-0">
+                        <img src="img/3.jpg" 
+                             alt="Funnel Design Process" 
+                             class="w-full h-64 object-cover rounded-2xl shadow-lg">
+                    </div>
+                </div>
+
+                <!-- Perfect For Section -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-lg text-center hover:shadow-xl transition-all duration-300">
+                        <div class="text-4xl mb-4">🎯</div>
+                        <h4 class="font-bold mb-2">Landing Pages</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Convert visitors into customers</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-lg text-center hover:shadow-xl transition-all duration-300">
+                        <div class="text-4xl mb-4">💰</div>
+                        <h4 class="font-bold mb-2">Sales Pages</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">For products and courses</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-lg text-center hover:shadow-xl transition-all duration-300">
+                        <div class="text-4xl mb-4">🎓</div>
+                        <h4 class="font-bold mb-2">Webinar Funnels</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Challenge and event funnels</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-lg text-center hover:shadow-xl transition-all duration-300">
+                        <div class="text-4xl mb-4">🛒</div>
+                        <h4 class="font-bold mb-2">Checkout Pages</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Thank you & upsell pages</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-12 md:py-20 gradient-bg relative">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div class="relative z-10 container mx-auto px-3 md:px-6">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h2 class="text-4xl lg:text-6xl font-bold mb-8">
+                    Ready to Turn Your Funnel Into a 
+                    <span class="text-yellow-300">Sales Machine?</span>
+                </h2>
+                
+                <div class="mb-12 -mx-3 md:mx-0">
+                    <img src="img/4.jpg" 
+                         alt="Sales Success" 
+                         class="w-full max-w-md mx-auto h-48 object-cover rounded-2xl shadow-2xl">
+                </div>
+                
+                <p class="text-xl lg:text-2xl mb-8 opacity-90">
+                    Send me a message and let's create something that sells!
+                </p>
+                
+                <button onclick="k2()" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-6 px-12 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shine-effect shadow-2xl">
+                    Contact Me Now
+                </button>
+                
+                <div class="mt-8 flex justify-center space-x-8 text-sm opacity-75">
+                    <span>✓ Quick Response</span>
+                    <span>✓ Professional Results</span>
+                    <span>✓ Proven Track Record</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Contact Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button onclick="k2()" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-6 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105 shine-effect whitespace-nowrap">
+            Contact Me
+        </button>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Function for button click redirect
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        // Smooth scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s ease-in';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section > div');
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
