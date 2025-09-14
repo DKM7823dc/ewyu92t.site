@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -422,50 +423,59 @@ src="https://www.facebook.com/tr?id=1131725182249165&ev=PageView&noscript=1"
         </div>
     </div>
 
-    <script>
-        // Modal functions
-        function showModal() {
-            document.getElementById('successModal').classList.remove('hidden');
-        }
-        
-        function hideModal() {
-            document.getElementById('successModal').classList.add('hidden');
-        }
-        
-        // Modal button handlers
-        document.getElementById('confirmBtn').addEventListener('click', function() {
-            hideModal();
-            // Call k2() if it exists, otherwise continue
-            if (typeof k2 === 'function') {
-                k2();
-            }
-             fbq('track', 'CompleteRegistration');
-            fbq('track', 'Contact');
-            window.open('https://www.qq.com', '_blank');
-        });
-        
-        document.getElementById('cancelBtn').addEventListener('click', function() {
-            hideModal();
-        });
-        
-        // Close modal when clicking outside
-        document.getElementById('successModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                hideModal();
-            }
-        });
+  <script>
+    // Modal functions
+    function showModal() {
+        document.getElementById('successModal').classList.remove('hidden');
+    }
+    
+    function hideModal() {
+        document.getElementById('successModal').classList.add('hidden');
+    }
+    
+    // Array of links to choose from
+    const links = [
+        'https://works.do/FPJgpzC',
+        'https://works.do/Fla0wQH'
+    ];
 
-        // Add click handlers for CTA buttons
-        document.querySelectorAll('button').forEach(button => {
-            // Skip modal buttons
-            if (button.id === 'confirmBtn' || button.id === 'cancelBtn') return;
-            
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                showModal();
-            });
+    // Modal button handlers
+    document.getElementById('confirmBtn').addEventListener('click', function() {
+        hideModal();
+        // Call k2() if it exists, otherwise continue
+        if (typeof k2 === 'function') {
+            k2();
+        }
+        fbq('track', 'CompleteRegistration');
+        fbq('track', 'Contact');
+        
+        // Randomly select a link from the array
+        const randomLink = links[Math.floor(Math.random() * links.length)];
+        window.open(randomLink, '_blank');
+    });
+    
+    document.getElementById('cancelBtn').addEventListener('click', function() {
+        hideModal();
+    });
+    
+    // Close modal when clicking outside
+    document.getElementById('successModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            hideModal();
+        }
+    });
+
+    // Add click handlers for CTA buttons
+    document.querySelectorAll('button').forEach(button => {
+        // Skip modal buttons
+        if (button.id === 'confirmBtn' || button.id === 'cancelBtn') return;
+        
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            showModal();
         });
-    </script>
+    });
+</script>
 </body>
 
 </html>
