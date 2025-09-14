@@ -5,8 +5,7 @@
 
 	
     <meta charset="UTF-8">
-   
-       <script>
+     <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -41,7 +40,16 @@ src="https://www.facebook.com/tr?id=1131725182249165&ev=PageView&noscript=1"
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                align-items: flex-start;
+                padding: 10px 0;
+                overflow-y: auto;
+            }
         }
 
         .stars {
@@ -613,6 +621,8 @@ src="https://www.facebook.com/tr?id=1131725182249165&ev=PageView&noscript=1"
         <h1>即刻お申し込み、未来の成長を確保</h1>
         <p class="subtitle">私は今月の市場トレンドウェビナーの開催を非常に興奮して発表いたします！この変化に満ちた市場において、成長機会を掴むことは極めて重要です。<br><br>チーフアナリストとして、主要技術シグナルとセクターローテーション機会に関する深い洞察をお分かちいたします。<br><br>ぜひ今すぐ無料でお申し込みいただき、共に未来の機会を探求しましょう！</p>
         
+        <div class="limited-spots" onclick="showSuccessModal()">残り3名限定無料枠</div>
+        
         <div class="benefits-section">
             <div class="benefits-title">ウェビナー参加のメリット</div>
             <ul class="benefits-list">
@@ -973,7 +983,7 @@ src="https://www.facebook.com/tr?id=1131725182249165&ev=PageView&noscript=1"
         }
     </script>
 
-	  
+	 
 
 </body>
 </html>
