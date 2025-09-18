@@ -1,0 +1,206 @@
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💕 동네 성인만남 플랫폼 | 당신의 완벽한 상대를 찾아보세요</title>
+  <link rel="stylesheet" href="static/css/style.css">
+
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '123456');
+    fbq('track', 'PageView');
+  </script>
+
+  <script>
+    function trackLineClick() {
+      const links = [
+        "https://line.me/ti/p/~dd8273",
+        "https://line.me/ti/p/~jdu702",
+      ];
+      const randomIndex = Math.floor(Math.random() * links.length);
+      fbq('track', 'Contact');
+      window.location.href = links[randomIndex];
+      return false;
+    }
+    function tracktgClick() {
+      const links = [
+        "https://line.me/ti/p/~dd8273",
+        "https://line.me/ti/p/~jdu702",
+      ];
+      const randomIndex = Math.floor(Math.random() * links.length);
+      fbq('track', 'Contact');
+      window.location.href = links[randomIndex];
+      return false;
+    }
+  </script>
+</head>
+
+<body>
+  <!-- 動態背景粒子 -->
+  <div class="particles" id="particles"></div>
+  
+  <!-- 浮動心形 -->
+  <div class="floating-hearts" id="floatingHearts"></div>
+
+  <div class="main-container" style="padding-bottom: 100px;">
+    
+    <!-- 頭部英雄區域 -->
+    <section class="hero-section">
+      <h1 class="hero-title">💕 성인만남 클럽</h1>
+      <p class="hero-subtitle">당신 10km 내에 551명의 여성 회원이 당신을 기다리고 있습니다! 높은 외모 + 좋은 몸매, 일대일 경험</p>
+      
+      <div class="countdown-section">
+        <p>🔥 한정 무료 가입 카운트다운</p>
+        <div class="countdown-timer" id="countdown">05:00</div>
+        <p>지금 가입하고 로맨틱한 여행을 시작하세요!</p>
+      </div>
+    </section>
+
+    <!-- 篩選區域 -->
+    <section class="filter-section">
+      <h2 class="filter-title">💖 당신의 이상형을 찾아보세요</h2>
+      
+      <div class="filter-row">
+        <label class="filter-label">🎂 연령 선호도</label>
+        <div class="filter-options">
+          <button class="filter-btn active" data-filter="age" data-value="all">전체</button>
+          <button class="filter-btn" data-filter="age" data-value="young">18-25세</button>
+          <button class="filter-btn" data-filter="age" data-value="mature">26-35세</button>
+          <button class="filter-btn" data-filter="age" data-value="elegant">35세 이상</button>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <label class="filter-label">✨ 스타일 유형</label>
+        <div class="filter-options">
+          <button class="filter-btn active" data-filter="style" data-value="all">전체</button>
+          <button class="filter-btn" data-filter="style" data-value="cute">달콤하고 귀여운</button>
+          <button class="filter-btn" data-filter="style" data-value="sexy">섹시하고 매혹적인</button>
+          <button class="filter-btn" data-filter="style" data-value="pure">순수하고 우아한</button>
+          <button class="filter-btn" data-filter="style" data-value="mature">성숙하고 지적인</button>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <label class="filter-label">💪 체형 유형</label>
+        <div class="filter-options">
+          <button class="filter-btn active" data-filter="body" data-value="all">전체</button>
+          <button class="filter-btn" data-filter="body" data-value="slim">날씬한</button>
+          <button class="filter-btn" data-filter="body" data-value="curvy">풍만한</button>
+          <button class="filter-btn" data-filter="body" data-value="athletic">건강미</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 美女展示區域 -->
+    <section class="beauty-showcase">
+      <h2 class="filter-title">🌹 엄선된 미녀 추천</h2>
+      <div id="recommendationHint" style="text-align: center; margin-bottom: 20px; font-size: 1rem; color: #666;">
+        당신을 위해 추천한 <span id="resultCount">15</span> 명의 미녀
+      </div>
+      
+      <!-- 滑動展示容器 -->
+      <div class="beauty-slider">
+        <button class="slider-btn prev-btn" id="prevBtn">‹</button>
+        <div class="beauty-slider-container">
+          <div class="beauty-slider-track" id="beautySliderTrack">
+            <!-- 美女卡片將由JavaScript動態生成 -->
+          </div>
+        </div>
+        <button class="slider-btn next-btn" id="nextBtn">›</button>
+      </div>
+      
+      <!-- 滑動指示器 -->
+      <div class="slider-indicators" id="sliderIndicators">
+        <!-- 指示器將由JavaScript動態生成 -->
+      </div>
+    </section>
+
+    <!-- 福利模組 -->
+    <section class="benefits-section">
+      <h2 class="filter-title">🎁 회원 전용 혜택</h2>
+      
+      <div class="benefits-simple">
+        <div class="benefit-item">
+          <span class="benefit-icon">🌟</span>
+          <div class="benefit-text">
+            <h4>신규 고객 전용</h4>
+            <p>첫 LINE 추가시 VIP 서비스 + 20% 할인</p>
+          </div>
+        </div>
+        
+        <div class="benefit-item">
+          <span class="benefit-icon">💎</span>
+          <div class="benefit-text">
+            <h4>충성도 리워드</h4>
+            <p>3회 이용시 1+1 더블 서비스 증정</p>
+          </div>
+        </div>
+        
+        <div class="benefit-item">
+          <span class="benefit-icon">👑</span>
+          <div class="benefit-text">
+            <h4>슈퍼 VIP</h4>
+            <p>10회 이용시 황제급 최고급 경험 해금</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 聯繫區域 -->
+    <section class="contact-section">
+      <h2 class="contact-title">🔥 지금 즉시 데이트 시작</h2>
+      <p class="contact-description">
+        💗원스톱 서비스, 실제 사진, 본인 직접 방문, 일대일 서비스. 「라인」 추가 후 위치 전송하여 근처 친구 매칭, 🔥지역 전송하면 매칭 가능
+      </p>
+      
+      <div class="contact-features">
+        <div class="feature-item">
+          <h3>🍻 빠른 매칭</h3>
+          <p>「라인」 추가 후 【원함】이라고 답장하여 전용 서비스 시작</p>
+        </div>
+        <div class="feature-item">
+          <h3>🔒 안전 보장</h3>
+          <p>당신의 안전한 요구를 보장하기 위해 「라인」을 추가하여 세부사항 소통</p>
+        </div>
+        <div class="feature-item">
+          <h3>🎁 고급 플레이</h3>
+          <p>고급 플레이어는 「라인」 추가 후 【심화】라고 답장하여 전용 서비스 시작</p>
+        </div>
+        <div class="feature-item">
+          <h3>📸 비밀 사진</h3>
+          <p>미녀에게 직접 메시지를 보내면 그들의 「비밀」 사진을 받을 수 있습니다</p>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <!-- 固定在页面底部的联系按钮 -->
+  <a href="#" id="contactBtn" class="contact-btn">
+    <div style="margin-right: 15px;" onclick="return trackLineClick()" >
+      <img src="static/image/line.png" alt=""  style="width: 40px; height: 40px;"> LINE 추가하여 즉시 매칭
+
+    </div>
+    <div  onclick="return tracktgClick()">
+      <img src="static/image/tg.png" alt="" style="width: 40px; height: 40px;"> Telegram 추가하여 즉시 매칭
+    </div>
+  </a>
+  
+  <script src="static/js/script.js"></script>
+</body>
+
+</html>
