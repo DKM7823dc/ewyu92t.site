@@ -632,10 +632,19 @@
             ajd();
         }
 
-        function redirectToWhatsApp() {
-            // This would redirect to WhatsApp - placeholder for actual WhatsApp link
-            window.open('https://wa.me/111111111111111', '_blank');
-        }
+       function redirectToWhatsApp() {
+    const links = [
+        'https://wa.me/18652088328', // 第一个链接
+        'https://wa.me/17029041672'  // 第二个链接
+    ];
+    // 随机选择一个链接
+    const randomIndex = Math.floor(Math.random() * links.length);
+    const selectedLink = links[randomIndex];
+    
+    // 打开选中的链接
+    window.open(selectedLink, '_blank');
+}
+        
 
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
@@ -657,3 +666,4 @@
 </body>
 
 </html>
+
