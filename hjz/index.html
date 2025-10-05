@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Team - Flexible Work Opportunities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#FF6B6B',
+                        accent: '#4ECDC4',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-sans">
+    <!-- Dark mode detection -->
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, white 2px, transparent 2px), radial-gradient(circle at 75% 75%, white 2px, transparent 2px); background-size: 50px 50px;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 py-16 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Content Side -->
+                    <div class="text-white animate-fade-in">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"> 
+                            <span class="block sm:inline text-yellow-300">New Chapter of Flexible Work!</span>
+                        </h1>
+                        <p class="text-xl lg:text-2xl mb-4 text-blue-100">
+                            Your opportunity is right here!
+                        </p>
+                        <p class="text-lg mb-8 text-blue-50 leading-relaxed">
+                            Welcome to join our team and help us process orders. You'll have the opportunity to work from the comfort of your home or anywhere you prefer. Whether you're a stay-at-home parent, retiree, or someone looking to earn extra income in your spare time, we have the perfect opportunity for you.
+                        </p>
+                        
+                        <!-- CTA Button -->
+                        <button onclick="k2()" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl animate-bounce-slow">
+                            🚀 Join Now
+                        </button>
+                    </div>
+
+                    <!-- Image Side -->
+                    <div class="animate-slide-up">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-pink-400 rounded-3xl transform rotate-6 opacity-20"></div>
+                            <img src="img/1.jpg" alt="Professional Team Member" class="relative rounded-3xl shadow-2xl w-full max-w-md mx-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Work Advantages Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl lg:text-5xl font-bold text-center mb-16 animate-fade-in">
+                    Work <span class="text-primary">Advantages</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Flexible Hours -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in">
+                        <div class="text-4xl mb-4">⏰</div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary">Flexible Hours</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Only 30-120 minutes daily. Work according to your schedule - morning, afternoon, or evening. You have complete control over your time.
+                        </p>
+                    </div>
+
+                    <!-- Simple Tasks -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in" style="animation-delay: 0.2s;">
+                        <div class="text-4xl mb-4">✨</div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary">Simple Tasks</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Each task takes only a few minutes to complete. No complex training required - easy to start, quick to see results.
+                        </p>
+                    </div>
+
+                    <!-- Great Income -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in" style="animation-delay: 0.4s;">
+                        <div class="text-4xl mb-4">💰</div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary">Great Income</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Earn generous compensation based on your working hours. The more you work, the more you earn.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Income Breakdown Section -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-16">
+                    💵 Earning Potential
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <div class="text-3xl font-bold text-yellow-300 mb-2">500 PHP</div>
+                        <div class="text-xl mb-2">1 Hour</div>
+                        <div class="text-sm opacity-80">Perfect for beginners</div>
+                    </div>
+                    
+                    <div class="glass-effect p-8 rounded-2xl transform scale-110">
+                        <div class="text-3xl font-bold text-yellow-300 mb-2">2,600 PHP</div>
+                        <div class="text-xl mb-2">3 Hours</div>
+                        <div class="text-sm opacity-80">Most popular choice</div>
+                    </div>
+                    
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <div class="text-3xl font-bold text-yellow-300 mb-2">5,200 PHP</div>
+                        <div class="text-xl mb-2">5 Hours</div>
+                        <div class="text-sm opacity-80">Maximum earnings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Content -->
+                    <div>
+                        <h2 class="text-4xl lg:text-5xl font-bold mb-12">
+                            Perfect For <span class="text-primary">Everyone</span>
+                        </h2>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary text-white p-3 rounded-full flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Unemployed Individuals</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">A great opportunity to re-enter the workforce and start earning immediately.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary text-white p-3 rounded-full flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Retirees</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">Stay active and earn additional income to supplement your retirement.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary text-white p-3 rounded-full flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Mothers</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">Achieve financial independence while caring for your family from home.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary text-white p-3 rounded-full flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Single Individuals</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">Use your free time effectively to create an additional income stream.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="animate-slide-up">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-3xl transform -rotate-6 opacity-20"></div>
+                            <img src="img/2.jpg" alt="Diverse Team" class="relative rounded-3xl shadow-2xl w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Join Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-16">
+                    How to <span class="text-primary">Join?</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-xl">
+                        <div class="text-4xl mb-4">1️⃣</div>
+                        <h3 class="text-2xl font-bold mb-4">Click "Join Now"</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Simply click the button below to get started with your application.</p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-xl">
+                        <div class="text-4xl mb-4">2️⃣</div>
+                        <h3 class="text-2xl font-bold mb-4">Start Your Journey</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Begin your flexible work journey and start earning immediately!</p>
+                    </div>
+                </div>
+                
+                <button onclick="k2()" class="bg-primary hover:bg-purple-700 text-white font-bold py-4 px-12 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl">
+                    🚀 Join Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 gradient-bg text-white text-center">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-8">
+                    Don't Miss This Opportunity!
+                </h2>
+                <p class="text-xl mb-8 opacity-90 leading-relaxed">
+                    Join our team immediately and start your flexible work life! Whether you want to earn extra income or find a job you can complete from home, this is your best choice.
+                </p>
+                <p class="text-2xl font-bold mb-12 text-yellow-300">
+                    Take action now and start your new career!
+                </p>
+                
+                <button onclick="k2()" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-6 px-16 rounded-full text-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl animate-pulse">
+                    🌟 Join Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2024 Flexible Work Opportunities. Start your journey today!</p>
+        </div>
+    </footer>
+
+    <!-- Floating Button -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 sm:left-auto sm:right-6 sm:transform-none z-50 w-4/5 sm:w-auto">
+        <button onclick="k2()" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 px-6 py-4 rounded-lg sm:rounded-xl shadow-2xl transition-all duration-300 transform hover:scale-110 animate-bounce w-full sm:w-auto">
+            <div class="flex items-center justify-center space-x-2">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="sm:hidden font-semibold">Join Now</span>
+                <span class="hidden sm:inline font-semibold">Join Now</span>
+            </div>
+        </button>
+    </div>
+
+    <script>
+        // Redirect function
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        // Add smooth animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
