@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Team - Flexible Work Opportunities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#F8FAFC',
+                        accent: '#10B981'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        @media (prefers-color-scheme: dark) {
+            .dark-mode-bg { background-color: #181818; }
+            .dark-mode-text { color: #e5e7eb; }
+            .dark-mode-card { background-color: #374151; }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 dark:bg-gray-900 dark-mode-bg transition-colors duration-300">
+    
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white">
+        <div class="container mx-auto px-6 py-16">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0">
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Join Us, Start Your New Chapter of 
+                        <span class="text-yellow-300">Flexible Work!</span>
+                    </h1>
+                    <p class="text-xl lg:text-2xl mb-8 opacity-90 leading-relaxed">
+                        Your opportunity is right here! Welcome to join our team and help us process orders from the comfort of your home.
+                    </p>
+                    <button onclick="k2()" class="bg-accent hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        🚀 Join Now
+                    </button>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="https://pfst.cf2.poecdn.net/base/image/1c588823a3a60a159c4edd4fd5d9ff261cd7fdc5e0942564091add863d9d9020?w=640&h=396" 
+                             alt="Professional businessman" 
+                             class="rounded-2xl shadow-2xl w-full max-w-md mx-auto hover-lift">
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent rounded-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Advantages Section -->
+    <section class="py-16 bg-white dark:bg-gray-800 dark-mode-card">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white dark-mode-text">
+                Work Advantages
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Flexible Time -->
+                <div class="text-center p-8 bg-blue-50 dark:bg-gray-700 rounded-2xl hover-lift card-shadow">
+                    <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl">⏰</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Flexible Work Hours</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Only 30-120 minutes per day. Work morning, afternoon, or evening - adjust according to your schedule.</p>
+                </div>
+
+                <!-- Simple Tasks -->
+                <div class="text-center p-8 bg-green-50 dark:bg-gray-700 rounded-2xl hover-lift card-shadow">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl">✅</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Simple & Easy Tasks</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Each task takes only a few minutes to complete. No complex training required - easy to start, quick results.</p>
+                </div>
+
+                <!-- High Income -->
+                <div class="text-center p-8 bg-yellow-50 dark:bg-gray-700 rounded-2xl hover-lift card-shadow">
+                    <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl">💰</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Generous Income</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Earn substantial rewards based on your working time with competitive rates.</p>
+                </div>
+            </div>
+
+            <!-- Income Structure -->
+            <div class="bg-gradient-to-r from-primary to-purple-600 rounded-3xl p-8 text-white text-center">
+                <h3 class="text-3xl font-bold mb-8">Earning Structure</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+                        <div class="text-3xl font-bold mb-2">500 PHP</div>
+                        <div class="text-lg opacity-90">1 Hour Work</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+                        <div class="text-3xl font-bold mb-2">2,600 PHP</div>
+                        <div class="text-lg opacity-90">3 Hours Work</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+                        <div class="text-3xl font-bold mb-2">5,200 PHP</div>
+                        <div class="text-lg opacity-90">5 Hours Work</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience Section -->
+    <section class="py-16 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0">
+                    <h2 class="text-4xl font-bold mb-8 text-gray-800 dark:text-white">Perfect For</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-white text-sm">👔</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800 dark:text-white">Unemployed Individuals</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Great opportunity to re-enter the workforce.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-white text-sm">👴</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800 dark:text-white">Retirees</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Stay active and earn additional income.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-white text-sm">👩</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800 dark:text-white">Mothers</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Achieve financial independence while caring for family.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-white text-sm">🙋</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800 dark:text-white">Single Individuals</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Use your free time to increase income sources.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <img src="https://www.jacmsotck.online/415rirenshen/15.jpg" 
+                         alt="Diverse team" 
+                         class="rounded-2xl shadow-2xl w-full hover-lift"
+                         onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Join Section -->
+    <section class="py-16 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-12 text-gray-800 dark:text-white">How to Join?</h2>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-gradient-to-r from-primary to-purple-600 rounded-3xl p-8 text-white mb-12">
+                    <h3 class="text-2xl font-bold mb-6">Simple 2-Step Process</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center font-bold">1</div>
+                            <span class="text-lg">Click "Join Now" button</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center font-bold">2</div>
+                            <span class="text-lg">Start your work journey!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="k2()" class="bg-accent hover:bg-green-600 text-white font-bold py-6 px-12 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mb-8">
+                    ✨ Join Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">Don't Miss This Opportunity!</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+                Join our team immediately and start your flexible work life! Whether you want to earn extra income or find work you can do from home, this is your best choice.
+            </p>
+            <p class="text-2xl font-semibold mb-8">
+                Take action now and start your new career!
+            </p>
+            
+            <button onclick="k2()" class="bg-white text-primary hover:bg-gray-100 font-bold py-6 px-12 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                🎯 Start Your Journey Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="opacity-75">© 2024 Flexible Work Opportunities. Start your journey today!</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Placeholder for k2 function - you'll need to implement this with your WhatsApp link
+        function k2() {
+            // Replace with your actual WhatsApp link
+            window.open('https://wa.me/your-whatsapp-number', '_blank');
+        }
+
+        // Smooth scroll for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
