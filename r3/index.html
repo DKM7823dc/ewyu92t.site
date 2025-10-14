@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>
+  function k2() {
+         window.open('https://www.qq.com', '_blank');
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>日本株式投資オンラインサロン</title>
+    <style>
+        :root {
+            --primary-navy: #1a237e;
+            --accent-gold: #ffc107;
+            --accent-orange: #ff6b35;
+            --success-green: #4caf50;
+            --text-dark: #212121;
+            --text-light: #757575;
+            --bg-light: #fafafa;
+            --white: #ffffff;
+            --shadow-subtle: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-deep: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Yu Gothic', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--bg-light) 0%, #e8eaf6 100%);
+            overflow-x: hidden;
+        }
+
+        .main-wrapper {
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .hero-area {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #3949ab 100%);
+            color: var(--white);
+            padding: 60px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255,193,7,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 500px; 
+            border-radius: 16px;
+            margin: 0 auto 30px;
+            object-fit: cover;
+            border: 3px solid var(--accent-gold);
+            box-shadow: var(--shadow-deep);
+            display: block;
+        }
+
+        .hero-title {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 3vw, 20px);
+            margin-bottom: 35px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--accent-orange), #ff8a65);
+            color: var(--white);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-deep);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .primary-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .primary-btn:hover::before {
+            left: 100%;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(255,107,53,0.4);
+        }
+
+        .features-section {
+            padding: 70px 20px;
+            background: var(--white);
+        }
+
+        .section-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: clamp(24px, 4vw, 32px);
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-subtle);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--success-green), var(--accent-gold));
+            border-radius: 16px 16px 0 0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-deep);
+            border-color: var(--accent-gold);
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--success-green);
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .problems-section {
+            padding: 70px 20px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+        }
+
+        .problems-title {
+            font-size: clamp(22px, 4vw, 28px);
+            color: var(--primary-navy);
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .problems-list {
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .problem-item {
+            background: var(--white);
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-subtle);
+            border-left: 5px solid var(--accent-orange);
+            transition: all 0.3s ease;
+        }
+
+        .problem-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-deep);
+        }
+
+        .risk-notice {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 40px 25px;
+            margin: 50px 0;
+            border-radius: 16px;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .risk-title {
+            color: var(--accent-orange);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .risk-content {
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .disclosure-section {
+            background: var(--primary-navy);
+            color: var(--white);
+            padding: 50px 20px;
+        }
+
+        .disclosure-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+        }
+
+        .disclosure-text {
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .footer-links {
+            background: #000;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-link {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 10px 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            background: var(--white);
+            color: #000;
+        }
+
+        .floating-action-btn {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, var(--accent-orange), #ff5722);
+            color: var(--white);
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 8px 25px rgba(255,107,53,0.4);
+            z-index: 1000;
+			white-space: nowrap;
+            border: none;
+            cursor: pointer;
+            animation: breathe 2s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { 
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 8px 25px rgba(255,107,53,0.4);
+            }
+            50% { 
+                transform: translateX(-50%) scale(1.05);
+                box-shadow: 0 12px 35px rgba(255,107,53,0.6);
+            }
+        }
+
+        .floating-action-btn:hover {
+            animation-play-state: paused;
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        .section-image {
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: var(--shadow-deep);
+        }
+
+        @media (max-width: 768px) {
+            .hero-area {
+                padding: 40px 15px 60px;
+            }
+            
+            .features-section,
+            .problems-section {
+                padding: 50px 15px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .floating-action-btn {
+                padding: 15px 35px;
+                font-size: 14px;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-light: #121212;
+                --white: #1e1e1e;
+                --text-dark: #ffffff;
+                --text-light: #b0b0b0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- Hero Section -->
+        <section class="hero-area">
+            <div class="hero-content">
+                <img src="img/1.png" alt="投資プロフェッショナル" class="hero-image">
+                <h1 class="hero-title">オンラインサロンに参加して、日本株式投資の機会を探索</h1>
+                <p class="hero-subtitle">日本の金融市場についてより深く理解したいとお考えですか？私たちの<strong>オンライン投資サロン</strong>は、専門的な交流プラットフォームを提供し、投資に対する認識を向上させるお手伝いをいたします。</p>
+                <button class="primary-btn" onclick="k2()">今すぐ私のLINEを追加</button>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">オンラインサロンの特色</h2>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3 class="feature-title">専門的市場分析</h3>
+                        <p class="feature-desc">日本株式市場のトレンド、業界政策、企業ファンダメンタルズを解説</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3 class="feature-title">理性的投資戦略</h3>
+                        <p class="feature-desc">データと論理に基づき、長期投資手法論を共有</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3 class="feature-title">インタラクティブ学習</h3>
+                        <p class="feature-desc">経験豊富な投資家と市場の洞察を討論し、投資思考を拡大</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚠️</div>
+                        <h3 class="feature-title">リスク意識育成</h3>
+                        <p class="feature-desc">市場変動を理解し、科学的な投資決定フレームワークを構築</p>
+                    </div>
+                </div>
+                
+                <img src="img/2.jpg" alt="専門的分析" class="section-image">
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <button class="primary-btn" onclick="k2()">私のLINEを追加</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problems Section -->
+        <section class="problems-section">
+            <div class="section-container">
+                <h2 class="problems-title">市場情報の取得が遅れ、投資判断に影響していませんか？</h2>
+                <p style="text-align: center; font-size: 18px; margin-bottom: 30px; color: var(--text-light);">投資において、これらの悩みを抱えていませんか？</p>
+                
+                <div class="problems-list">
+                    <div class="problem-item">
+                        <strong>•</strong> 市場情報が複雑で、重要な情報をタイムリーに取得できず、潜在的な機会を逃している
+                    </div>
+                    <div class="problem-item">
+                        <strong>•</strong> 様々な情報源の真偽を見分けるのが困難で、理性的な判断ができない
+                    </div>
+                    <div class="problem-item">
+                        <strong>•</strong> 専門的な分析ツールが不足し、市場データを効率的に処理できない
+                    </div>
+                    <div class="problem-item">
+                        <strong>•</strong> 業界政策や経済変化への反応が遅れ、投資のタイミングに影響
+                    </div>
+                    <div class="problem-item">
+                        <strong>•</strong> 独立した市場観点を形成することが困難で、外部の干渉を受けやすい
+                    </div>
+                </div>
+
+                <div class="risk-notice">
+                    <h3 class="risk-title">🔹 重要なリスク提示</h3>
+                    <div class="risk-content">
+                        <p><strong>• 市場にはリスクがあり、投資は慎重に</strong>、過去の実績は将来の成果を保証するものではありません。</p>
+                        <p><strong>• コース内容及びツールは参考用であり、個別の投資アドバイスを構成するものではありません</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disclosure Section -->
+        <section class="disclosure-section">
+            <div class="section-container">
+                <h3 class="disclosure-title">重要な開示</h3>
+                <p class="disclosure-text">
+                    本ウェブサイトは、日本の金融株式に興味のある投資家に学習と交流のプラットフォームを提供することを目的としています。グループメンバーが共有する市場観点、投資経験、関連情報は参考および討論用であり、いかなる形式の投資アドバイスや保証も構成しません。本交流グループは純粋に共有性質のものであり、いかなる形式の資産管理や投資アドバイスも構成しません。本サロンのすべての内容は教育目的であり、いかなる投資アドバイスも構成しません。株式市場には元本損失リスクが存在し、過去の実績は将来の成果を予示するものではありません。参加することで《リスク告知書》の全条項に同意したものとみなされます。
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-links">
+            <a href="#" class="footer-link" target="_blank">プライバシー協定</a>
+            <a href="#" class="footer-link" target="_blank">ユーザー協定</a>
+        </footer>
+
+        <!-- Floating Action Button -->
+        <button class="floating-action-btn" onclick="k2()">📱 今すぐLINE追加して参加</button>
+    </div>
+
+    <script>
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // LINE redirect function
+      
+
+        // Smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements
+            document.querySelectorAll('.feature-card, .problem-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
