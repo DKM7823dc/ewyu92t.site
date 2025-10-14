@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>
+ function kg2() {
+             window.open('https://line.me/your-line-url', '_blank');
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AI株式トレンド分析 - 日本市場専門</title>
+    <style>
+        :root {
+            --primary-dark: #0a0a23;
+            --secondary-dark: #1a1a3e;
+            --accent-blue: #00d4ff;
+            --accent-purple: #8b5cf6;
+            --accent-orange: #ff6b35;
+            --warning-yellow: #ffd700;
+            --text-light: #e5e7eb;
+            --text-muted: #9ca3af;
+            --grid-color: rgba(0, 212, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .background-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            animation: grid-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes grid-pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .space-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(2n) {
+            background: var(--accent-purple);
+            animation-delay: -2s;
+        }
+
+        .particle:nth-child(3n) {
+            background: var(--accent-orange);
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .main-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple), var(--accent-orange));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease-in-out infinite;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .main-content {
+            background: rgba(26, 26, 62, 0.8);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 3rem;
+        }
+
+        .profile-image-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-blue);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            animation: glow-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.4); }
+            50% { box-shadow: 0 0 50px rgba(0, 212, 255, 0.8); }
+        }
+
+        .input-section {
+            margin: 2rem 0;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .stock-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            border: 2px solid var(--accent-blue);
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .stock-input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .stock-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .disclaimer-text {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .analyze-button {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(45deg, var(--accent-orange), var(--accent-blue));
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .analyze-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .analyze-button:hover::before {
+            left: 100%;
+        }
+
+        .analyze-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .analyze-button:active {
+            transform: translateY(-1px);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--secondary-dark), var(--primary-dark));
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid var(--accent-blue);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .progress-container {
+            margin: 1.5rem 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+            width: 0%;
+            transition: width 2s ease;
+            border-radius: 4px;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-modal {
+            max-width: 600px;
+            padding: 2.5rem;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .ai-icon {
+            font-size: 2rem;
+            animation: rotate 2s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .progress-percentage {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-top: 0.5rem;
+        }
+
+        .analysis-steps {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+        }
+
+        .step-item.active {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .step-icon {
+            font-size: 1.5rem;
+        }
+
+        .step-text {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .modal-content {
+            position: relative;
+        }
+
+        .modal-button {
+            padding: 0.8rem 2rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-button.primary {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .modal-button.secondary {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--text-muted);
+        }
+
+        .modal-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .risk-disclosure {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            border-left: 4px solid var(--warning-yellow);
+        }
+
+        .risk-title {
+            color: var(--warning-yellow);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .risk-title::before {
+            content: "⚠️";
+            margin-right: 0.5rem;
+        }
+
+        .risk-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        .risk-text ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .risk-text li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .risk-text li::before {
+            content: "•";
+            color: var(--accent-blue);
+            position: absolute;
+            left: 0;
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-purple);
+        }
+
+        /* Report Modal Styles */
+        .report-modal {
+            max-width: 550px;
+            padding: 3rem 2.5rem;
+        }
+
+        .success-icon {
+            margin-bottom: 1.5rem;
+        }
+
+        .checkmark {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #10b981, #059669);
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            animation: pulse-success 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+
+        @keyframes pulse-success {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .report-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .report-main-text {
+            margin-bottom: 1.5rem;
+        }
+
+        .report-main-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .stock-highlight {
+            color: var(--accent-orange);
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--accent-orange), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .report-instruction {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .report-instruction p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .bonus-items {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .bonus-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .bonus-item:hover {
+            background: rgba(139, 92, 246, 0.2);
+            transform: translateX(5px);
+        }
+
+        .bonus-icon {
+            font-size: 1.3rem;
+            min-width: 30px;
+        }
+
+        .bonus-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .report-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+            border: none;
+            border-radius: 12px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .report-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .button-icon {
+            font-size: 1.2rem;
+        }
+
+        .navigation-disclaimer {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navigation-disclaimer a {
+            color: var(--accent-orange);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .navigation-disclaimer a:hover {
+            color: var(--warning-yellow);
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .main-content { padding: 2rem 1.5rem; }
+            .profile-image { width: 120px; height: 120px; }
+            .modal-content { padding: 1.5rem; }
+            .report-modal { padding: 2rem 1.5rem; }
+            .footer-links a { display: block; margin: 0.5rem 0; }
+            .bonus-items { text-align: center; }
+            .bonus-item { flex-direction: column; text-align: center; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-grid"></div>
+    <div class="space-particles" id="particles"></div>
+
+    <div class="container">
+        <header class="header-section">
+            <h1 class="main-title">人工知能トレンド分析</h1>
+        </header>
+
+        <main class="main-content">
+            <div class="profile-image-container">
+                <img src="img/1.jpg" alt="AI分析専門家" class="profile-image">
+            </div>
+
+            <div class="input-section">
+                <label for="stockInput" class="input-label">株式情報を入力してください</label>
+                <input type="text" id="stockInput" class="stock-input" placeholder="例：SONY等">
+                <p class="disclaimer-text">（データは参考情報であり、投資助言を意図するものではありません）</p>
+            </div>
+
+            <button class="analyze-button" onclick="startAnalysis()">AI分析を開始</button>
+        </main>
+
+        <section class="risk-disclosure">
+            <h3 class="risk-title">重要なリスク開示</h3>
+            <div class="risk-text">
+                <p>本サービスは一般的な市場情報のみを提供し、投資助言や推奨を提供するものではありません</p>
+                <ul>
+                    <li>金融市場にはリスクがあります、投資元本の一部または全部を失う可能性があります。表示されるすべての例は過去のデータに基づくもので、将来の収益を保証するものではありません</li>
+                    <li>投資家は自身のリスク許容度を考慮して慎重に判断するべきです。すべての情報は客観的な事実の陳述であり、投資助言を構成するものではありません。</li>
+                    <li>AI分析ツールは過去のデータとアルゴリズムモデルに基づく確率計算を提供するだけで、投資助言を提供するものではありません。</li>
+                    <li>過去の実績は将来の成績を保証するものではなく、実際の収益はAIの予測を下回ることも、上回ることもあります。</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer class="footer-links">
+            <a href="Privacy.html" target="_blank">プライバシーポリシー</a>
+            <a href="terms.html" target="_blank">利用規約</a>
+            <a href="Disclaimer.html" target="_blank">免責事項</a>
+        </footer>
+    </div>
+
+    <!-- Progress Modal -->
+    <div id="progressModal" class="modal-overlay">
+        <div class="modal-content progress-modal">
+            <div class="modal-header">
+                <h3>AI分析システム実行中</h3>
+                <div class="ai-icon">🤖</div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-text" id="progressText">市場分析を実行中...</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-percentage" id="progressPercentage">0%</div>
+            </div>
+            <div class="analysis-steps">
+                <div class="step-item" id="step1">
+                    <span class="step-icon">📊</span>
+                    <span class="step-text">市場分析</span>
+                </div>
+                <div class="step-item" id="step2">
+                    <span class="step-icon">📰</span>
+                    <span class="step-text">ニュース分析</span>
+                </div>
+                <div class="step-item" id="step3">
+                    <span class="step-icon">📈</span>
+                    <span class="step-text">履歴データ分析</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Ready Modal -->
+    <div id="reportModal" class="modal-overlay">
+        <div class="modal-content report-modal">
+            <div class="modal-close-btn" onclick="closeReportModal()">×</div>
+            
+            <div class="success-icon">
+                <div class="checkmark">✓</div>
+            </div>
+            
+            <h3 class="report-title">分析完了</h3>
+            
+            <div class="report-main-text">
+                <p>あなたの<span id="stockName" class="stock-highlight"></span>分析レポートが完成しました。</p>
+            </div>
+            
+            <div class="report-instruction">
+                <p>下記のリンクをクリックしてレポートを受信してください</p>
+            </div>
+            
+            <div class="bonus-items">
+                <div class="bonus-item">
+                    <span class="bonus-icon">📊</span>
+                    <span class="bonus-text">「2025年日本株式市場業界データ白書」も取得可能</span>
+                </div>
+                <div class="bonus-item">
+                    <span class="bonus-icon">📈</span>
+                    <span class="bonus-text">日次市場トレンド分析レポート</span>
+                </div>
+            </div>
+            
+            <button class="modal-button primary report-button" onclick="showNavigationModal()">
+                <span class="button-icon">📱</span>
+                レポートを受信する
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation Modal -->
+    <div id="navigationModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>外部サイトへの移動</h3>
+            <p>現在のページを離れ、Line公式アカウントにリダイレクトされます</p>
+            <div style="margin: 1.5rem 0;">
+                <button class="modal-button primary" onclick="kg2()">確認</button>
+                <button class="modal-button secondary" onclick="closeNavigationModal()">キャンセル</button>
+            </div>
+            <div class="navigation-disclaimer">
+                <small>
+                    続行することで、<a href="Privacy.html" target="_blank">プライバシーポリシー</a>、
+                    <a href="terms.html" target="_blank">利用規約</a>、
+                    <a href="Disclaimer.html" target="_blank">免責事項</a>に同意したものとみなされます
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Start analysis function
+        function startAnalysis() {
+            const stockInput = document.getElementById('stockInput').value.trim();
+            if (!stockInput) {
+                return;
+            }
+
+            const progressModal = document.getElementById('progressModal');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            
+            progressModal.classList.add('active');
+            
+            const steps = [
+                '市場分析を実行中...',
+                '最新ニュース分析中...',
+                '履歴データ分析中...'
+            ];
+
+            let currentStep = 0;
+            const stepDuration = 1000; // 3秒を3ステップで分割
+
+            const progressInterval = setInterval(() => {
+                if (currentStep < steps.length) {
+                    // Update active step
+                    document.querySelectorAll('.step-item').forEach((item, index) => {
+                        if (index <= currentStep) {
+                            item.classList.add('active');
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    });
+
+                    progressText.textContent = steps[currentStep];
+                    const percentage = ((currentStep + 1) / steps.length) * 100;
+                    progressFill.style.width = percentage + '%';
+                    document.getElementById('progressPercentage').textContent = Math.round(percentage) + '%';
+                    
+                    // If it's the last step, remove transition for instant completion
+                    if (currentStep === steps.length - 1) {
+                        setTimeout(() => {
+                            progressFill.style.transition = 'none';
+                            progressFill.style.width = '100%';
+                            document.getElementById('progressPercentage').textContent = '100%';
+                        }, 100);
+                    }
+                    
+                    currentStep++;
+                } else {
+                    clearInterval(progressInterval);
+                    progressModal.classList.remove('active');
+                    // Reset progress bar transition for next use
+                    progressFill.style.transition = 'width 2s ease';
+                    progressFill.style.width = '0%';
+                    document.getElementById('progressPercentage').textContent = '0%';
+                    showReportModal(stockInput);
+                }
+            }, stepDuration);
+        }
+
+        // Show report modal
+        function showReportModal(stockName) {
+            document.getElementById('stockName').textContent = stockName;
+            document.getElementById('reportModal').classList.add('active');
+        }
+
+        // Show navigation modal
+        function showNavigationModal() {
+            document.getElementById('reportModal').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('navigationModal').classList.add('active');
+            }, 300);
+        }
+
+        // Close navigation modal
+        function closeNavigationModal() {
+            document.getElementById('navigationModal').classList.remove('active');
+        }
+
+        // Close report modal
+        function closeReportModal() {
+            document.getElementById('reportModal').classList.remove('active');
+        }
+
+        // External function - kg2
+       
+
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Initialize particles on load
+        document.addEventListener('DOMContentLoaded', createParticles);
+
+        // Close modals when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-overlay')) {
+                e.target.classList.remove('active');
+            }
+        });
+
+        // Disable zoom
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
+</body>
+</html>

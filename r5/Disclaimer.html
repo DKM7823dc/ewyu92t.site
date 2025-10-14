@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免責事項 - AI分析サービス</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-2px);
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #a1a1a1;
+        }
+        
+        .dark .custom-scrollbar::-webkit-scrollbar-track {
+            background: #374151;
+        }
+        
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #6b7280;
+        }
+        
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+        }
+        
+        .dark .warning-box {
+            background: linear-gradient(135deg, #451a03 0%, #78350f 100%);
+            border: 2px solid #d97706;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 min-h-screen text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header with Back Button -->
+        <div class="mb-8 fade-in">
+            <button onclick="goBack()" class="inline-flex items-center text-orange-600 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-300 transition-colors duration-200 mb-6 hover-lift">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                戻る
+            </button>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+                <h1 class="text-4xl font-bold text-center bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-4">
+                    免責事項
+                </h1>
+                <p class="text-center text-gray-600 dark:text-gray-400 text-lg">
+                    AI分析サービス
+                </p>
+            </div>
+        </div>
+
+        <!-- Important Warning -->
+        <div class="warning-box rounded-2xl p-6 mb-8 fade-in" style="animation-delay: 0.1s;">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <svg class="w-8 h-8 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.232 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                    </svg>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-lg font-semibold text-amber-800 dark:text-amber-200 mb-2">重要なお知らせ</h3>
+                    <p class="text-amber-700 dark:text-amber-300 leading-relaxed">
+                        投資にはリスクが伴います。本サービスの情報は参考情報であり、投資の最終判断はお客様ご自身で行ってください。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer Content -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 fade-in custom-scrollbar" style="animation-delay: 0.2s;">
+            <div class="p-8 max-h-screen overflow-y-auto">
+                
+                <!-- Section 1 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-semibold text-red-600 dark:text-red-400 mb-4 border-b border-gray-200 dark:border-gray-600 pb-2">
+                        1. 情報の性質
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        本プラットフォーム「知能AI分析サービス」（以下「本プラットフォーム」という）が提供する情報は、人工知能によってデータを自動分析した投資判断の参考情報であり、投資勧誘を目的とするものではなく、投資判断の最終的な根拠となるものでもありません。
+                    </p>
+                    <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg">
+                        <p class="text-red-800 dark:text-red-200 font-medium">
+                            <strong>重要事項：</strong>本プラットフォームは金融商品取引業者として登録されておらず、投資助言や代理サービスは提供しておりません。すべての投資判断はお客様ご自身のリスクで行ってください。
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-semibold text-red-600 dark:text-red-400 mb-4 border-b border-gray-200 dark:border-gray-600 pb-2">
+                        2. 投資リスクに関する注意事項
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        株式投資には元本を毀損するリスクが伴います。投資判断はお客様ご自身のリスクで行ってください。過去の実績や分析結果は、将来の投資成果を保証するものではありません。
+                    </p>
+                    <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3 mt-1">⚠️</span>
+                            <span>市場価格の変動により損失が生じる可能性があります</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3 mt-1">⚠️</span>
+                            <span>経済・政治情勢の変化が投資成果に影響を与える可能性があります</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3 mt-1">⚠️</span>
+                            <span>企業業績の悪化により株価が下落する可能性があります</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3 mt-1">⚠️</span>
+                            <span>流動性リスクにより取引が困難になる可能性があります</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Section 3 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-semibold text-red-600 dark:text-red-400 mb-4 border-b border-gray-200 dark:border-gray-600 pb-2">
+                        3. 情報の限界
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        本サービスで表示される情報には以下の制限があります：
+                    </p>
+                    <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-orange-500 mr-3">📊</span>
+                            <span>公開されているデータのみを検索・整理しており、将来に関する予測や分析は行っておりません</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-orange-500 mr-3">📊</span>
+                            <span>表示される情報は参考情報であり、投資判断の根拠として使用すべきではありません</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-orange-500 mr-3">📊</span>
+                            <span>データの収集・表示にはタイムラグがあるため、情報が最新でない可能性があります</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-orange-500 mr-3">📊</span>
+                            <span>システムの制約により、一部の情報が欠落または不正確である可能性があります</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Section 4 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-semibold text-red-600 dark:text-red-400 mb-4 border-b border-gray-200 dark:border-gray-600 pb-2">
+                        4. 情報の正確性
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        当社は本サービスで提供する情報の正確性確保に努めておりますが、情報の完全性、正確性、有用性を保証するものではありません。情報の誤り、遅延、欠落等により生じたいかなる損失についても、当社は一切の責任を負いません。
+                    </p>
+                </section>
+
+                <!-- Section 5 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-semibold text-red-600 dark:text-red-400 mb-4 border-b border-gray-200 dark:border-gray-600 pb-2">
+                        5. 免責事項
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        当社は以下の事項について一切の責任を負いません：
+                    </p>
+                    <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-gray-500 mr-3">❌</span>
+                            <span>本サービスの利用により生じた直接的または間接的な損失</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-500 mr-3">❌</span>
+                            <span>投資判断により生じた損失</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-500 mr-3">❌</span>
+                            <span>システム障害や停止により生じた損害</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-500 mr-3">❌</span>
+                            <span>第三者による情報の改ざんや漏洩により生じた損失</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-500 mr-3">❌</span>
+                            <span>通信回線の障害により生じた損害</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Section 6 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-semibold text-red-600 dark:text-red-400 mb-4 border-b border-gray-200 dark:border-gray-600 pb-2">
+                        6. サービスの変更・中断
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        当社は事前の通知なく本サービスの内容を変更または提供を停止することがあります。当該変更によりユーザーに生じたいかなる損失についても、当社は一切の責任を負いません。
+                    </p>
+                </section>
+
+                <!-- Section 7 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-semibold text-red-600 dark:text-red-400 mb-4 border-b border-gray-200 dark:border-gray-600 pb-2">
+                        7. 外部リンク
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        本サービスには外部ウェブサイトへのリンクが含まれている場合がありますが、当社はリンク先サイトの内容について一切の責任を負いません。リンク先サイトのご利用にあたっては、各サイトの利用規約に従ってください。
+                    </p>
+                </section>
+
+                <!-- Section 8 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-semibold text-red-600 dark:text-red-400 mb-4 border-b border-gray-200 dark:border-gray-600 pb-2">
+                        8. 準拠法・管轄裁判所
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        本免責事項の解釈・適用については日本法が適用され、本プラットフォームに関する紛争については、東京地方裁判所を専属管轄裁判所とします。
+                    </p>
+                </section>
+
+                <!-- Footer -->
+                <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-600">
+                    <div class="flex flex-col sm:flex-row justify-between items-center">
+                        <div class="text-gray-600 dark:text-gray-400 mb-4 sm:mb-0">
+                            <p><strong>最終更新日：</strong>2025年5月</p>
+                        </div>
+                        <button onclick="goHome()" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 hover-lift">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                            </svg>
+                            メインページに戻る
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Top Button -->
+        <button onclick="scrollToTop()" id="backToTop" class="fixed bottom-8 right-8 bg-red-600 hover:bg-red-700 text-white p-3 rounded-full shadow-lg opacity-0 transition-all duration-300 hover-lift">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Back button functionality
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                // Fallback if no history
+                window.close();
+            }
+        }
+
+        // Go to home functionality
+        function goHome() {
+            // Replace with your actual home page URL
+            window.location.href = '/';
+        }
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button based on scroll position
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.opacity = '1';
+                backToTopButton.style.transform = 'translateY(0)';
+            } else {
+                backToTopButton.style.opacity = '0';
+                backToTopButton.style.transform = 'translateY(10px)';
+            }
+        });
+
+        // Smooth scroll behavior for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
