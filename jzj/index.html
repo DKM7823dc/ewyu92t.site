@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Part-Time Job Opportunities | Work From Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0a1828;
+            --primary-blue: #178582;
+            --accent-gold: #bfa181;
+            --text-light: #f8f9fa;
+            --text-gray: #c4c4c4;
+            --bg-overlay: rgba(10, 24, 40, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-light);
+            background: var(--primary-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a1828 0%, #1a3a52 50%, #0a1828 100%);
+            background-image: url('img/2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 24, 40, 0.92) 0%, rgba(10, 24, 40, 0.85) 50%, rgba(10, 24, 40, 0.92) 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-gold));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), #1fa39f);
+            color: white;
+            padding: 1.25rem 3rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(23, 133, 130, 0.4);
+            animation: fadeInUp 1s ease-out 0.8s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(23, 133, 130, 0.6);
+        }
+
+        .content-section {
+            background: var(--primary-dark);
+            padding: 6rem 2rem;
+        }
+
+        .feature-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .content-text {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-text p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .content-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, rgba(23, 133, 130, 0.1), rgba(191, 161, 129, 0.05));
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(23, 133, 130, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(23, 133, 130, 0.3);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .benefit-card p {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        .final-cta {
+            background: linear-gradient(135deg, #0a1828 0%, #178582 50%, #0a1828 100%);
+            background-image: url('img/1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 24, 40, 0.88);
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .final-cta p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .urgency-text {
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                background-attachment: scroll;
+                padding: 1.5rem;
+            }
+
+            .final-cta {
+                background-attachment: scroll;
+                padding: 4rem 1.5rem;
+            }
+
+            .content-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .benefit-card {
+                padding: 2rem;
+            }
+        }
+
+        /* Dark mode styles (already implemented as default) */
+        .dark body {
+            background: var(--primary-dark);
+            color: var(--text-light);
+        }
+
+        /* Footer Disclaimer Section */
+        .disclaimer-section {
+            background: #050f1a;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(23, 133, 130, 0.2);
+        }
+
+        .disclaimer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .disclaimer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .disclaimer-box {
+            background: rgba(23, 133, 130, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .disclaimer-box h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .disclaimer-box p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--text-gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .disclaimer-box ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .disclaimer-box ul li {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .disclaimer-box ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0.5rem;
+            color: var(--accent-gold);
+        }
+
+        .footer-links {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid rgba(23, 133, 130, 0.1);
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.875rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.875rem;
+            color: rgba(196, 196, 196, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .disclaimer-section {
+                padding: 3rem 1.5rem 1.5rem;
+            }
+
+            .disclaimer-grid {
+                gap: 2rem;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">Limited Opportunities Available</div>
+                <h1>
+                    Online Part-Time Job <span class="highlight">Opportunities</span> Available Now
+                </h1>
+                <p class="subtitle">
+                    Discover genuine work-from-home opportunities. Click here to explore these flexible part-time positions you can do from anywhere.
+                </p>
+                <a href="javascript:void(0);" onclick="k2()" class="cta-button">Start Here →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="feature-image">
+                <img src="img/1.jpg" alt="Online Part-Time Job Opportunities" loading="lazy">
+            </div>
+
+            <div class="content-text">
+                <p>
+                    For many, an online part-time job is a dream come true. For others, it's a necessary choice. Whatever your situation, there are <strong>genuine online part-time job opportunities available right now</strong>.
+                </p>
+
+                <p>
+                    We have access to exclusive work-from-home opportunities because our members are reliable, vetted professionals who are eager to work remotely. Companies typically don't publicly advertise these remote positions—they prefer to find qualified candidates through our trusted network.
+                </p>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3>Verified Opportunities</h3>
+                        <p>Access to pre-screened, legitimate remote positions from reputable companies.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Work From Anywhere</h3>
+                        <p>Complete flexibility to work from the comfort of your home or anywhere you choose.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Flexible Schedule</h3>
+                        <p>Part-time positions that fit around your lifestyle and existing commitments.</p>
+                    </div>
+                </div>
+
+                <h2>How to Get Started</h2>
+                <p>
+                    To start finding online part-time jobs, click the link above. You'll immediately receive access to the latest and most reliable online job opportunities. Whether you seize these opportunities is entirely up to you.
+                </p>
+
+                <p>
+                    Join us now to gain access to the latest, verified online part-time job opportunities. Work from home on your own schedule and browse all currently available remote positions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta" id="get-started">
+        <div class="final-cta-content">
+            <h2>Don't Let These Opportunities Slip Away</h2>
+            <p>
+                There are numerous work-from-home opportunities available right now, but <strong>positions are limited</strong>. Many companies are actively seeking talented individuals like you for online part-time work.
+            </p>
+            <p>
+                These opportunities are real, available now, and ready for you to apply. Don't wait and risk regretting it later.
+            </p>
+            <a href="javascript:void(0);" onclick="k2()" class="cta-button">Click Here to Start →</a> 
+        </div>
+    </section>
+
+    <footer class="disclaimer-section">
+        <div class="disclaimer-content">
+            <div class="disclaimer-grid">
+                <div class="disclaimer-box">
+                    <h3>⚠️ Important Disclaimer</h3>
+                    <p>This website provides information about potential online part-time job opportunities. We make no guarantees regarding:</p>
+                    <ul>
+                        <li>Employment or income levels</li>
+                        <li>Specific job placement or hiring outcomes</li>
+                        <li>Results, which may vary based on individual circumstances, qualifications, and effort</li>
+                    </ul>
+                    <p>Any decision to pursue these opportunities is solely your responsibility. We are not liable for any outcomes resulting from your use of this information.</p>
+                </div>
+
+                <div class="disclaimer-box">
+                    <h3>💯 Free Service Declaration</h3>
+                    <p><strong>This service is completely FREE.</strong> We do not charge any fees for:</p>
+                    <ul>
+                        <li>Access to job opportunity listings</li>
+                        <li>Registration or membership</li>
+                        <li>Connecting you with potential employers</li>
+                    </ul>
+                    <p>You should never be asked to pay for access to legitimate job opportunities through our platform. If you encounter any request for payment, please report it immediately.</p>
+                    <p><strong>Note:</strong> While our service is free, individual employers may have their own requirements and processes.</p>
+                </div>
+
+                <div class="disclaimer-box">
+                    <h3>📋 Terms & Conditions</h3>
+                    <p>By using this website, you acknowledge and agree that:</p>
+                    <ul>
+                        <li>You are solely responsible for evaluating any job opportunities</li>
+                        <li>You will conduct your own due diligence before applying to any position</li>
+                        <li>We are not an employment agency or recruiter</li>
+                        <li>We do not endorse or guarantee any specific employer or opportunity</li>
+                    </ul>
+                    <p>All third-party companies and job listings are independent of our platform. Please verify all information directly with the respective employers.</p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#about">About</a>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Online Part-Time Opportunities. All rights reserved. | For informational purposes only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // k2 method to jump to www.qq.com
+        function k2() {
+            window.location.href = 'https://www.qq.com';
+        }
+
+        // Dark mode detection (already implemented in CSS)
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.benefit-card, .content-text p, .content-text h2').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
