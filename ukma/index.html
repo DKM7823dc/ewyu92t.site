@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the stock exchange community!</title>
+     <!--像素-->
+        <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1983721762361977');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1983721762361977&ev=PageView&noscript=1"
+></noscript>
+<!-- End Meta Pixel Code -->
+ <!--像素-->
+         
+
+    <!--/像素-->
+    <script>
+        function showline() {
+            fbq('track', 'AddToCart');
+            window.location.href = "https://www.qq.com/";
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.min1.css" media="all">
+    <link rel="stylesheet" href="css/frontend-lite.min.css" media="all">
+    <link rel="stylesheet" href="css/post-7.css" media="all">
+    <link rel="stylesheet" href="css/post-2118.css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* WhatsApp Floating Button Styles */
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float i {
+            color: white;
+            font-size: 32px;
+        }
+
+        .whatsapp-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            border: 2px solid white;
+            animation: bounce 1s infinite;
+            box-shadow: 0 2px 8px rgba(255, 68, 68, 0.5);
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1) translateY(0);
+            }
+            50% {
+                transform: scale(1.2) translateY(-3px);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .whatsapp-float {
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 55px;
+                height: 55px;
+            }
+
+            .whatsapp-float i {
+                font-size: 28px;
+            }
+
+            .whatsapp-badge {
+                width: 22px;
+                height: 22px;
+                font-size: 13px;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            .whatsapp-float {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            }
+
+            .whatsapp-float:hover {
+                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            }
+        }
+
+        /* WhatsApp Bottom Floating Button Styles */
+        .whatsapp-bottom-btn {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 18px 30px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            cursor: pointer;
+            z-index: 9998;
+            box-shadow: 0 -4px 20px rgba(37, 211, 102, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            animation: breathe 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .whatsapp-bottom-btn i {
+            font-size: 24px;
+        }
+
+        .whatsapp-bottom-btn span {
+            white-space: nowrap;
+        }
+
+        .whatsapp-bottom-btn:hover {
+            background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+            box-shadow: 0 -6px 25px rgba(37, 211, 102, 0.6);
+            transform: translateY(-3px);
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                box-shadow: 0 -4px 20px rgba(37, 211, 102, 0.4);
+                transform: translateY(0);
+            }
+            50% {
+                box-shadow: 0 -6px 30px rgba(37, 211, 102, 0.7);
+                transform: translateY(-2px);
+            }
+        }
+
+        /* Responsive adjustments for bottom button */
+        @media screen and (max-width: 768px) {
+            .whatsapp-bottom-btn {
+                padding: 16px 20px;
+                font-size: 16px;
+                max-width: 100%;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+
+            .whatsapp-bottom-btn i {
+                font-size: 20px;
+            }
+
+            .whatsapp-bottom-btn span {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- WhatsApp Floating Button -->
+<div class="whatsapp-float" onclick="showline()">
+    <i class="fab fa-whatsapp"></i>
+    <div class="whatsapp-badge">1</div>
+</div>
+
+<!-- WhatsApp Bottom Floating Button -->
+<div class="whatsapp-bottom-btn" onclick="showline()">
+    <i class="fab fa-whatsapp"></i>
+    <span>Join WhatsApp Group</span>
+</div>
+
+<div data-elementor-type="wp-page" data-elementor-id="2118" class="elementor elementor-2118">
+    <div style="background: url(images/0_Commissions_ice.webp)  no-repeat ;background-position: center;text-align: center; background-size: cover; " class="topp1">
+        <div class="topdiv">
+            <div style="background-color: yellow;">
+                <h1 style="color: red;" class="th1">Join Our Elite Stock Group <br> Limited Access Today</h1>
+            </div>
+            <div>
+                <h2 style="color: white;" class="th2">We teach you how to make money from the stock market offering
+                    financial security strategies, stock investment techniques, stock selection methods, and investment
+                    philosophy education. Every week, we openly share stocks with expected returns of 10% or higher in
+                    our community.</h2>
+                <h3 style="color: white" class="th3">Get on board while there's still room! Limited to the first 200
+                    participants!</h3>
+            </div>
+            <div class="jsq1">
+                <div class="jsq2">
+                    <h1 style="color: white" class="jsqh1">00</h1>
+                    <p style="color: #30d5f1">DAYS</p>
+                </div>
+                <div class="jsq2">
+                    <h1 style="color: white" class="jsqh1">00</h1>
+                    <p style="color: #30d5f1">HOURS</p>
+                </div>
+                <div class="jsq2">
+                    <h1 style="color: white" class="jsqh1" id="min1">29</h1>
+                    <p style="color: #30d5f1">MINUTES</p>
+                </div>
+                <div class="jsq2">
+                    <h1 style="color: white" class="jsqh1" id="sec1">59</h1>
+                    <p style="color: #30d5f1">SECONDS</p>
+                </div>
+            </div>
+            <div>
+                <img src="images/btn11.jpg" alt="" style="border-radius: 20px" onclick="showline()">
+                <p style="margin-top: 20px; color: #fff;">Today's free slots: 200 |200 users joined successfully</p>
+            </div>
+        </div>
+    </div>
+
+    <script >
+        var sec1 = document.getElementById("sec1");
+        var min1 = document.getElementById("min1");
+        var sa = setInterval(function () {
+            --sec1.innerHTML;
+            if (sec1.innerHTML == 0) {
+                sec1.innerHTML = 59;
+                min1.innerHTML = parseInt(min1.innerHTML) - 1;
+            }
+        }, 1000);
+    </script>
+
+    <div class="elementor-element elementor-element-fdbe372 e-con-boxed e-flex e-con" data-id="fdbe372" data-element_type="container">
+        <div class="e-con-inner">
+            <div class="elementor-element elementor-element-b4dcaad e-con-full e-flex e-con" data-id="b4dcaad" style="text-align: center; width:90%; margin: 40px auto 0;" data-element_type="container">
+                <div class="elementor-element elementor-element-d9c8d6c elementor-widget elementor-widget-heading" data-id="d9c8d6c" data-element_type="widget" data-widget_type="heading.default">
+                    <div class="elementor-widget-container">
+                        <h2 class="elementor-heading-title elementor-size-default" style="color: #ffb123;">Why Join Us?</h2></div>
+                </div>
+                <div class="elementor-element elementor-element-b47c8da elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="b47c8da" data-element_type="widget" data-widget_type="icon-list.default">
+                    <div class="elementor-widget-container">
+                        <link rel="stylesheet" href="css/widget-icon-list.min.css">
+                        <ul class="elementor-icon-list-items" style="">
+                            <li class="elementor-icon-list-item">
+<span class="elementor-icon-list-icon">
+<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg> </span>
+                                <span class="elementor-icon-list-text">Real-time daily picks shared before 9:00AM</span>
+                            </li>
+                            <li class="elementor-icon-list-item">
+<span class="elementor-icon-list-icon">
+<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg> </span>
+                                <span class="elementor-icon-list-text">Stable monthly return of 15.6%-21.8%</span>
+                            </li>
+                            <li class="elementor-icon-list-item">
+<span class="elementor-icon-list-icon">
+<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg> </span>
+                                <span class="elementor-icon-list-text">No loss for 7 consecutive months</span>
+                            </li>
+                            <li class="elementor-icon-list-item">
+<span class="elementor-icon-list-icon">
+<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg> </span>
+                                <span class="elementor-icon-list-text">Private group of 9,000+ seasoned traders</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="elementor-element elementor-element-7679d54 elementor-widget elementor-widget-heading" data-id="7679d54" data-element_type="widget" data-widget_type="heading.default">
+                    <div class="elementor-widget-container">
+                        <h2 class="elementor-heading-title elementor-size-default" style="color: #ffb123;">Bonus Giveaway opportunity</h2></div>
+                </div>
+                <div class="elementor-element elementor-element-f2889a4 elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list">
+                    <div class="">
+                        <div class="elementor-element elementor-element-b47c8da elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="b47c8da" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-widget-container">
+
+                                <ul class="elementor-icon-list-items">
+                                    <li class="elementor-icon-list-item">
+                                        <span class="elementor-icon-list-text">  Join our group to get the latest strong stock analysis every day, and have the opportunity to participate inoccasional draws for 1 share of stock from well-known companies such as Coca-Cola or PayPal!</span>
+                                    </li>
+                                    <li class="elementor-icon-list-item">
+                                        <span class="elementor-icon-list-text">  Note: Only 200 spots available each day. First come, first served.</span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="elementor-element elementor-element-66d6492 e-con-boxed e-flex e-con" data-id="66d6492" data-element_type="container">
+        <div class="e-con-inner">
+            <div class="elementor-element elementor-element-b01ac91 elementor-widget elementor-widget-heading" data-id="b01ac91" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default">
+                        This Groundbreaking Stock Analysis Community Is For You. If You're ...... </h2></div>
+            </div>
+            <div class="elementor-element elementor-element-62da4d9 e-con-boxed e-flex e-con" data-id="62da4d9" data-element_type="container">
+                <div class="e-con-inner">
+                    <div class="elementor-element elementor-element-e33fb5c e-con-full e-flex e-con" data-id="e33fb5c" data-element_type="container">
+                        <div class="elementor-element elementor-element-b0b00cb elementor-widget elementor-widget-heading" data-id="b0b00cb" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">01</h2></div>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-42e7b7f e-con-boxed e-flex e-con" data-id="42e7b7f" data-element_type="container" data-settings="{" content_width":"boxed"}"="">
+                        <div class="e-con-inner">
+                            <div class="elementor-element elementor-element-221b008 elementor-widget elementor-widget-heading" data-id="221b008" data-element_type="widget" data-widget_type="heading.default">
+                                <div class="elementor-widget-container">
+                                    <h2 class="elementor-heading-title elementor-size-default">Just Getting Started
+                                    </h2></div>
+                            </div>
+                            <div class="elementor-element elementor-element-2db2e93 elementor-widget elementor-widget-text-editor" data-id="2db2e93" data-element_type="widget" data-widget_type="text-editor.default">
+                                <div class="elementor-widget-container">
+                                    <style>/*! elementor - v3.13.2 - 11-05-2023 */
+                                    .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {
+                                        background-color: #69727d;
+                                        color: #fff
+                                    }
+
+                                    .elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap {
+                                        color: #69727d;
+                                        border: 3px solid;
+                                        background-color: transparent
+                                    }
+
+                                    .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap {
+                                        margin-top: 8px
+                                    }
+
+                                    .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter {
+                                        width: 1em;
+                                        height: 1em
+                                    }
+
+                                    .elementor-widget-text-editor .elementor-drop-cap {
+                                        float: left;
+                                        text-align: center;
+                                        line-height: 1;
+                                        font-size: 50px
+                                    }
+
+                                    .elementor-widget-text-editor .elementor-drop-cap-letter {
+                                        display: inline-block
+                                    }</style>
+                                    You're a novice trader who don't know how to proceed in the market<br>
+                                    You're busy with office work/business and can't give time in the market<br>
+                                    You have capital but not confident enough to invest a huge capital<br>
+                                    You want to make active money with passive time & effort<br>
+                                    You can't do analysis on daily basis or learn overly technical jargon<br></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="elementor-element elementor-element-714cc17 e-con-boxed e-flex e-con" data-id="714cc17" data-element_type="container">
+                <div class="e-con-inner">
+                    <div class="elementor-element elementor-element-039f522 e-con-full e-flex e-con" data-id="039f522" data-element_type="container">
+                        <div class="elementor-element elementor-element-e05d9b2 elementor-widget elementor-widget-heading" data-id="e05d9b2" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">02</h2></div>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-a37c748 e-con-boxed e-flex e-con" data-id="a37c748" data-element_type="container" data-settings="{" content_width":"boxed"}"="">
+                        <div class="e-con-inner">
+                            <div class="elementor-element elementor-element-2984bad elementor-widget elementor-widget-heading" data-id="2984bad" data-element_type="widget" data-widget_type="heading.default">
+                                <div class="elementor-widget-container">
+                                    <h2 class="elementor-heading-title elementor-size-default">Sick Of Losing And Want
+                                        Expert Guidance</h2></div>
+                            </div>
+                            <div class="elementor-element elementor-element-bee66c6 elementor-widget elementor-widget-text-editor" data-id="bee66c6" data-element_type="widget" data-widget_type="text-editor.default">
+                                <div class="elementor-widget-container">
+                                    You're in the market for more than a year and you're still not profitable
+                                    <br>You keep on making and losing money despite what you try
+                                    <br>You want to learn what you're doing wrong and how to fix it
+                                    <br>You want to have a proven trading plan for any market – up, down, or sideways
+                                    <br>You're looking for strategies that truly fit your needs, and learn to master
+                                    them
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="elementor-element elementor-element-81259ab e-con-boxed e-flex e-con" data-id="81259ab" data-element_type="container">
+                <div class="e-con-inner">
+                    <div class="elementor-element elementor-element-61175b0 e-con-full e-flex e-con" data-id="61175b0" data-element_type="container">
+                        <div class="elementor-element elementor-element-b2d7d4a elementor-widget elementor-widget-heading" data-id="b2d7d4a" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">03</h2></div>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-be8b80d e-con-boxed e-flex e-con" data-id="be8b80d" data-element_type="container" data-settings="{" content_width":"boxed"}"="">
+                        <div class="e-con-inner">
+                            <div class="elementor-element elementor-element-322cbe7 elementor-widget elementor-widget-heading" data-id="322cbe7" data-element_type="widget" data-widget_type="heading.default">
+                                <div class="elementor-widget-container">
+                                    <h2 class="elementor-heading-title elementor-size-default">Already Killing It, But
+                                        Want To Up Your Game</h2></div>
+                            </div>
+                            <div class="elementor-element elementor-element-67831bd elementor-widget elementor-widget-text-editor" data-id="67831bd" data-element_type="widget" data-widget_type="text-editor.default">
+                                <div class="elementor-widget-container">
+                                    <p>You want to learn techniques & strategies the pros use to hunt for
+                                        breakouts<br>You don't need to be dependent on  anybody else for choosing the
+                                        right stock<br>You want to develop practical knowledge of equity and expand your
+                                        trading toolbox<br>You want to see how top floor traders run their
+                                        portfolios<br>You need a system that requires least amount of screen on time</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="elementor-element elementor-element-202851c e-con-boxed e-flex e-con" data-id="202851c" data-element_type="container">
+        <div class="e-con-inner">
+            <div class="elementor-element elementor-element-5b2c9fa elementor-widget elementor-widget-heading" data-id="5b2c9fa" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default">
+                        Then This Stock Analysis Community Will Help You Experience All That And So Much More
+                    </h2></div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: black;text-align: center" class="benifit1">
+        <img src="images/benifit1.jpg" alt="">
+        <img src="images/benifit2.jpg" alt="">
+    </div>
+    <div style="background-color: black;text-align: center" class="benifit2">
+        <img src="images/benifit3.jpg" alt="" style="max-width: 100%">
+        <img src="images/benifit4.jpg" alt="" style="max-width: 100%">
+        <img src="images/benifit5.jpg" alt="" style="max-width: 100%">
+        <img src="images/benifit6.jpg" alt="" style="max-width: 100%">
+        <img src="images/benifit7.jpg" alt="" style="max-width: 100%">
+        <img src="images/benifit8.jpg" alt="" style="max-width: 100%">
+    </div>
+    <div class="elementor-element elementor-element-4bf1614 e-con-boxed e-flex e-con" data-id="4bf1614" data-element_type="container">
+        <div class="e-con-inner">
+            <div class="elementor-element elementor-element-644e140 elementor-widget elementor-widget-heading" data-id="644e140" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default">
+                        Here are some of the results of our community tests, join us and you'll get something different
+                    </h2></div>
+            </div>
+            <div style="text-align: center">
+                <div style="" class="tupian1">
+                    <img src="images/shouyi11.png" alt="">
+                    <img src="images/shouyi22.png" alt="">
+
+                </div>
+
+            </div>
+            <style>
+                @media screen and (max-width: 768px) {
+                    .benifit1 {
+                        display: none;
+                    }
+
+                    #plun1 {
+                        display: none;
+                    }
+                }
+
+                @media screen and (min-width: 768px) {
+                    .benifit2 {
+                        display: none;
+                    }
+
+                    #plun2 {
+                        display: none;
+                    }
+
+                    .tupian1 {
+                        width: 74%;
+                        margin-left: 13%
+                    }
+                }
+
+            </style>
+            <div class="elementor-element elementor-element-dea5e20 elementor-align-justify elementor-widget elementor-widget-button" data-id="dea5e20" data-element_type="widget" data-widget_type="button.default">
+                <div class="elementor-widget-container">
+                    <div class="elementor-button-wrapper">
+                        <a onclick="showline()" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-icon elementor-align-icon-right">
+<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-right" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg> </span>
+<span class="elementor-button-text">Yes, I want to join!</span>
+</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="elementor-element elementor-element-a539b89 elementor-widget elementor-widget-heading" data-id="a539b89" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default">The results are amazing! I can't miss it
+                        out.</h2></div>
+            </div>
+        </div>
+    </div>
+    <div class="elementor-element elementor-element-9b0b9f8 e-con-boxed e-flex e-con" data-id="9b0b9f8" data-element_type="container">
+        <div class="e-con-inner">
+            <div class="elementor-element elementor-element-981580d elementor-widget elementor-widget-heading" data-id="981580d" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default">Follow This Proven Strategy Spending 10
+                        Minutes a Day
+                        For Long Term Wealth Creation</h2></div>
+            </div>
+        </div>
+    </div>
+    <div class="elementor-element elementor-element-be2363e e-con-boxed e-flex e-con" data-id="be2363e" data-element_type="container">
+        <div class="e-con-inner">
+            <div class="elementor-element elementor-element-10adc57 e-con-full e-flex e-con" data-id="10adc57" data-element_type="container" data-settings="{" content_width":"full"}"="">
+                <div class="elementor-element elementor-element-3be54c1 e-con-boxed e-flex e-con" data-id="3be54c1" data-element_type="container">
+                    <div class="e-con-inner">
+                        <div class="elementor-element elementor-element-c1ddee1 elementor-widget elementor-widget-heading" data-id="c1ddee1" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">Master the Basics of Stock
+                                    Market</h2></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-element elementor-element-df69e8c e-con-boxed e-flex e-con" data-id="df69e8c" data-element_type="container">
+                    <div class="e-con-inner">
+                        <div class="elementor-element elementor-element-7cf086d elementor-widget elementor-widget-heading" data-id="7cf086d" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">Learn Entry & Exit in Trading
+                                    Faster</h2></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-element elementor-element-39fdf3e e-con-boxed e-flex e-con" data-id="39fdf3e" data-element_type="container">
+                    <div class="e-con-inner">
+                        <div class="elementor-element elementor-element-744eec3 elementor-widget elementor-widget-heading" data-id="744eec3" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">Take Action in the Live
+                                    Market Without a Blink</h2></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="elementor-element elementor-element-7c2e93a e-con-full e-flex e-con" data-id="7c2e93a" data-element_type="container" data-settings="{" content_width":"full"}"="">
+                <div class="elementor-element elementor-element-5a2496e elementor-widget elementor-widget-image" data-id="5a2496e" data-element_type="widget" data-widget_type="image.default">
+                    <div class="elementor-widget-container">
+                        <img src="images/diqiu1.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="elementor-element elementor-element-3962f4a e-con-full e-flex e-con" data-id="3962f4a" data-element_type="container" data-settings="{" content_width":"full"}"="">
+                <div class="elementor-element elementor-element-b60d985 e-con-boxed e-flex e-con" data-id="b60d985" data-element_type="container">
+                    <div class="e-con-inner">
+                        <div class="elementor-element elementor-element-891b11f elementor-widget elementor-widget-heading" data-id="891b11f" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">Become a Pro in Risk & Money
+                                    Management</h2></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-element elementor-element-5cbd99f e-con-boxed e-flex e-con" data-id="5cbd99f" data-element_type="container">
+                    <div class="e-con-inner">
+                        <div class="elementor-element elementor-element-c19d41b elementor-widget elementor-widget-heading" data-id="c19d41b" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">Get the Tools to Make
+                                    Consistent Returns</h2></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-element elementor-element-c982c9e e-con-boxed e-flex e-con" data-id="c982c9e" data-element_type="container">
+                    <div class="e-con-inner">
+                        <div class="elementor-element elementor-element-307ad6e elementor-widget elementor-widget-heading" data-id="307ad6e" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">Make Profits With Low & High
+                                    Capital</h2></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="elementor-element elementor-element-b469773 e-con-boxed e-flex e-con" data-id="b469773" data-element_type="container">
+        <div class="e-con-inner">
+            <div class="elementor-element elementor-element-99e5434 elementor-widget elementor-widget-heading" data-id="99e5434" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default">Never Tried Trading Before?</h2></div>
+            </div>
+            <div class="elementor-element elementor-element-4163e80 elementor-widget elementor-widget-heading" data-id="4163e80" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default">No Problem. Even Working Professionals
+                        and Businessmen make 60% returns in trading
+                        using our proven strategy!</h2></div>
+            </div>
+            <div class="elementor-element elementor-element-9f5ff5e elementor-align-justify elementor-widget elementor-widget-button" data-id="9f5ff5e" data-element_type="widget" data-widget_type="button.default">
+                <div class="elementor-widget-container">
+                    <div class="elementor-button-wrapper">
+                        <a onclick="showline()" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-icon elementor-align-icon-right">
+<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-right" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg> </span>
+<span class="elementor-button-text">Join Us Now</span>
+</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="elementor-element elementor-element-2251cf9 elementor-widget elementor-widget-heading" data-id="2251cf9" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="elementor-element elementor-element-6a323d5 e-con-boxed e-flex e-con" data-id="6a323d5" id="plun1" data-element_type="container">
+        <img src="images/plun1.jpg" alt="">
+        <img src="images/plun2.jpg" alt="">
+        <img src="images/plun3.jpg" alt="">
+
+    </div>
+    <div id="plun2">
+        <img src="images/plun5.jpg" alt="">
+        <img src="images/plun6.jpg" alt="">
+        <img src="images/plun7.jpg" alt="">
+    </div>
+    <div class="elementor-element elementor-element-64b2902 e-con-boxed e-flex e-con" data-id="64b2902" data-element_type="container">
+        <div class="e-con-inner">
+            <div class="elementor-element elementor-element-0576554 elementor-widget elementor-widget-heading" data-id="0576554" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default">So What Do You Choose Now?</h2></div>
+            </div>
+            <div class="elementor-element elementor-element-f4f86d2 elementor-widget elementor-widget-heading" data-id="f4f86d2" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default">A Trading Journey Of Consistent Losses &
+                        Desperation?
+                        <br>Or
+                        An Opportunity To Make Consistent 60-80% Profits Spending Just 10 Minutes A Day?
+                    </h2></div>
+            </div>
+            <div class="elementor-element elementor-element-eb88ce5 elementor-align-justify elementor-widget elementor-widget-button" data-id="eb88ce5" data-element_type="widget" data-widget_type="button.default">
+                <div class="elementor-widget-container">
+                    <div class="elementor-button-wrapper">
+                        <a onclick="showline()" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-icon elementor-align-icon-right">
+<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-right" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg> </span>
+<span class="elementor-button-text">Join us before it's too late!</span>
+</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="elementor-element elementor-element-d4da3b8 elementor-widget elementor-widget-heading" data-id="d4da3b8" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div></body></html>
