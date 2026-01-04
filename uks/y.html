@@ -552,13 +552,11 @@
         .floating-cta {
             display: none;
             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 24px;
+            left: 16px;
+            right: 16px;
             z-index: 1000;
-            padding: 1rem;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 70%, transparent 100%);
-            padding-bottom: env(safe-area-inset-bottom, 1rem);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
         }
 
         .floating-cta-button {
@@ -567,7 +565,7 @@
             justify-content: center;
             gap: 0.75rem;
             width: 100%;
-            padding: 1rem 2rem;
+            padding: 1.1rem 2rem;
             background: var(--primary-green);
             color: var(--primary-black);
             text-decoration: none;
@@ -579,14 +577,15 @@
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            box-shadow: 0 8px 30px rgba(110, 210, 90, 0.5);
+            box-shadow: 0 8px 30px rgba(110, 210, 90, 0.5), 0 0 0 0 rgba(110, 210, 90, 0.4);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: floatingBreathe 2.5s ease-in-out infinite;
+            animation: floatingBreathe 2s ease-in-out infinite;
         }
 
         .floating-cta-button:active {
-            transform: scale(0.98);
+            transform: scale(0.96);
             box-shadow: 0 4px 20px rgba(110, 210, 90, 0.4);
+            animation: none;
         }
 
         .floating-cta-button svg {
@@ -597,10 +596,12 @@
 
         @keyframes floatingBreathe {
             0%, 100% {
-                box-shadow: 0 8px 30px rgba(110, 210, 90, 0.5);
+                transform: scale(1);
+                box-shadow: 0 8px 30px rgba(110, 210, 90, 0.5), 0 0 0 0 rgba(110, 210, 90, 0.4);
             }
             50% {
-                box-shadow: 0 12px 40px rgba(110, 210, 90, 0.7);
+                transform: scale(1.03);
+                box-shadow: 0 12px 50px rgba(110, 210, 90, 0.8), 0 0 20px 5px rgba(110, 210, 90, 0.3);
             }
         }
 
@@ -611,7 +612,7 @@
 
             /* Add padding to bottom of page to prevent content being hidden by floating button */
             body {
-                padding-bottom: 100px;
+                padding-bottom: 120px;
             }
 
             .final-cta {
