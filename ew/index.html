@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockAI - AI Stock Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #6366f1;
+            --primary-purple-dark: #4f46e5;
+            --teal: #10b981;
+            --bg-light: #e8f4fc;
+            --bg-gradient-start: #dbeafe;
+            --bg-gradient-end: #eff6ff;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --text-light-purple: #a5b4fc;
+            --border-light: #e2e8f0;
+            --feature-bg: #f0f4ff;
+            --feature-icon: #6366f1;
+        }
+
+        .dark {
+            --bg-light: #1e293b;
+            --bg-gradient-start: #0f172a;
+            --bg-gradient-end: #1e293b;
+            --white: #1e293b;
+            --text-dark: #f1f5f9;
+            --text-gray: #94a3b8;
+            --border-light: #334155;
+            --feature-bg: #334155;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            min-height: 100dvh;
+            background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 420px;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 32px 24px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-purple-dark) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .logo-icon i {
+            color: var(--white);
+            font-size: 20px;
+        }
+
+        .dark .logo-icon i {
+            color: #ffffff;
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--teal);
+        }
+
+        .title {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        /* Features */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 28px 0;
+        }
+
+        .feature {
+            flex: 1;
+            max-width: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 8px;
+            background: var(--feature-bg);
+            border-radius: 16px;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            color: var(--feature-icon);
+        }
+
+        .feature-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* Dots */
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+
+        .dot {
+            width: 24px;
+            height: 6px;
+            background: var(--border-light);
+            border-radius: 3px;
+        }
+
+        .dot.active {
+            background: var(--primary-purple);
+            width: 32px;
+        }
+
+        /* Input Section */
+        .input-section {
+            margin-bottom: 20px;
+        }
+
+        .stock-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            background: var(--white);
+            color: var(--text-dark);
+            outline: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .stock-input::placeholder {
+            color: var(--text-gray);
+        }
+
+        .stock-input:focus {
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .input-hint {
+            font-size: 13px;
+            color: var(--text-light-purple);
+            text-align: center;
+            margin: 12px 0 16px;
+        }
+
+        .analyze-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-purple-dark) 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+        }
+
+        .analyze-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .analyze-btn:active {
+            transform: translateY(0);
+        }
+
+        .analyze-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            display: none;
+            margin-top: 20px;
+            padding: 16px;
+            background: var(--feature-bg);
+            border-radius: 12px;
+        }
+
+        .progress-section.active {
+            display: block;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+        }
+
+        .progress-item.active {
+            opacity: 1;
+        }
+
+        .progress-item.completed {
+            opacity: 1;
+        }
+
+        .progress-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--border-light);
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        .progress-item.active .progress-icon {
+            background: var(--primary-purple);
+            color: #ffffff;
+            animation: pulse 1s infinite;
+        }
+
+        .progress-item.completed .progress-icon {
+            background: var(--teal);
+            color: #ffffff;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .progress-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 20px 0 16px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .badge i.fa-shield-alt {
+            color: var(--teal);
+        }
+
+        .badge i.fa-bolt {
+            color: #f59e0b;
+        }
+
+        .badge i.fa-gift {
+            color: #f97316;
+        }
+
+        /* Footer */
+        .disclaimer {
+            font-size: 11px;
+            color: var(--text-gray);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 32px 24px;
+            max-width: 340px;
+            width: 100%;
+            text-align: center;
+            animation: modalIn 0.3s ease;
+        }
+
+        .dark .modal {
+            background: #1e293b;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--teal) 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .modal-icon i {
+            font-size: 28px;
+            color: #ffffff;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .modal-text {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .whatsapp-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+        }
+
+        .whatsapp-btn i {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="logo-text">StockAI</div>
+            </div>
+            <h1 class="title">AI Stock Prediction</h1>
+            <p class="subtitle">Enter any stock symbol for instant AI-powered insights</p>
+        </header>
+
+        <!-- Features -->
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-bolt feature-icon"></i>
+                <span class="feature-text">Instant<br>Analysis</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-chart-line feature-icon"></i>
+                <span class="feature-text">Market<br>Insights</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-user feature-icon"></i>
+                <span class="feature-text">Expert<br>Advice</span>
+            </div>
+        </div>
+
+        <!-- Dots -->
+        <div class="dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-section">
+            <input
+                type="text"
+                class="stock-input"
+                id="stockInput"
+                placeholder="Enter stock symbol (e.g. AAPL, TSLA)"
+                autocomplete="off"
+            >
+            <p class="input-hint">Enter any stock symbol to analyze</p>
+            <button class="analyze-btn" id="analyzeBtn">
+                <i class="fas fa-chart-line"></i>
+                Analyze with AI
+            </button>
+
+            <!-- Progress Section -->
+            <div class="progress-section" id="progressSection">
+                <div class="progress-item" id="step1">
+                    <div class="progress-icon"><i class="fas fa-database"></i></div>
+                    <span class="progress-text">Analyzing historical data...</span>
+                </div>
+                <div class="progress-item" id="step2">
+                    <div class="progress-icon"><i class="fas fa-newspaper"></i></div>
+                    <span class="progress-text">Scanning latest news...</span>
+                </div>
+                <div class="progress-item" id="step3">
+                    <div class="progress-icon"><i class="fas fa-brain"></i></div>
+                    <span class="progress-text">AI generating insights...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+            <div class="badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-bolt"></i>
+                <span>Instant</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-gift"></i>
+                <span>Free</span>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <p class="disclaimer">This tool is for educational purposes only. Past performance is not indicative of future results.</p>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2 class="modal-title">Analysis Complete!</h2>
+            <p class="modal-text">Your analysis report is ready. Click the button below to receive it via WhatsApp.</p>
+            <button class="whatsapp-btn" id="whatsappBtn">
+                <i class="fab fa-whatsapp"></i>
+                Get Report on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        const stockInput = document.getElementById('stockInput');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const progressSection = document.getElementById('progressSection');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const whatsappBtn = document.getElementById('whatsappBtn');
+
+        const steps = [
+            document.getElementById('step1'),
+            document.getElementById('step2'),
+            document.getElementById('step3')
+        ];
+
+        function resetProgress() {
+            progressSection.classList.remove('active');
+            steps.forEach(step => {
+                step.classList.remove('active', 'completed');
+                const iconEl = step.querySelector('.progress-icon');
+                if (step.id === 'step1') iconEl.innerHTML = '<i class="fas fa-database"></i>';
+                if (step.id === 'step2') iconEl.innerHTML = '<i class="fas fa-newspaper"></i>';
+                if (step.id === 'step3') iconEl.innerHTML = '<i class="fas fa-brain"></i>';
+            });
+        }
+
+        function runAnalysis() {
+            const symbol = stockInput.value.trim().toUpperCase();
+            if (!symbol) {
+                stockInput.style.borderColor = '#ef4444';
+                stockInput.focus();
+                setTimeout(() => {
+                    stockInput.style.borderColor = '';
+                }, 2000);
+                return;
+            }
+
+            analyzeBtn.disabled = true;
+            analyzeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
+            progressSection.classList.add('active');
+
+            // Step 1: Historical data
+            setTimeout(() => {
+                steps[0].classList.add('active');
+            }, 100);
+
+            // Step 1 complete, Step 2 start
+            setTimeout(() => {
+                steps[0].classList.remove('active');
+                steps[0].classList.add('completed');
+                steps[0].querySelector('.progress-icon').innerHTML = '<i class="fas fa-check"></i>';
+                steps[1].classList.add('active');
+            }, 1000);
+
+            // Step 2 complete, Step 3 start
+            setTimeout(() => {
+                steps[1].classList.remove('active');
+                steps[1].classList.add('completed');
+                steps[1].querySelector('.progress-icon').innerHTML = '<i class="fas fa-check"></i>';
+                steps[2].classList.add('active');
+            }, 2000);
+
+            // Step 3 complete, show modal
+            setTimeout(() => {
+                steps[2].classList.remove('active');
+                steps[2].classList.add('completed');
+                steps[2].querySelector('.progress-icon').innerHTML = '<i class="fas fa-check"></i>';
+
+                // Show modal
+                setTimeout(() => {
+                    modalOverlay.classList.add('active');
+                    analyzeBtn.disabled = false;
+                    analyzeBtn.innerHTML = '<i class="fas fa-chart-line"></i> Analyze with AI';
+                }, 300);
+            }, 3000);
+        }
+
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        analyzeBtn.addEventListener('click', runAnalysis);
+
+        stockInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                runAnalysis();
+            }
+        });
+
+        whatsappBtn.addEventListener('click', () => {
+            k2();
+            modalOverlay.classList.remove('active');
+            resetProgress();
+        });
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+                resetProgress();
+            }
+        });
+    </script>
+</body>
+</html>
