@@ -94,8 +94,6 @@ select:focus{border-color:var(--pri)}
 .h1-len{font-size:10px;color:#3b82f6;font-weight:600;margin-top:4px}
 .h1-copy{flex-shrink:0;background:#fff;color:var(--pri);border:1.5px solid var(--pri);border-radius:7px;padding:5px 10px;font-size:11.5px;cursor:pointer;transition:all .2s;margin-top:2px}
 .h1-copy:hover{background:var(--pri);color:#fff}
-
-/* ===== H2 逻辑流程条 ===== */
 .h2-logic-bar{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;border-radius:10px;padding:10px 15px;margin-bottom:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .logic-bar-label{font-size:11px;font-weight:700;color:#15803d;white-space:nowrap;display:flex;align-items:center;gap:4px}
 .logic-phase{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:8px;white-space:nowrap}
@@ -106,13 +104,11 @@ select:focus{border-color:var(--pri)}
 .phase-use{background:#ede9fe;color:#5b21b6;border:1px solid #c4b5fd}
 .phase-support{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1}
 .logic-arrow{color:#94a3b8;font-size:10px;flex-shrink:0}
-
 .h2-hd{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .h2-hd-badge{background:#10b981;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;text-transform:none;letter-spacing:0}
 .h2-list{display:flex;flex-direction:column;gap:8px}
 .h2-item{display:flex;align-items:flex-start;gap:10px;padding:11px 13px;border:1.5px solid var(--border);border-radius:10px;transition:all .18s;position:relative}
 .h2-item:hover{border-color:#93c5fd;background:#f0f9ff;box-shadow:0 2px 8px rgba(37,99,235,.07)}
-/* 连接线 */
 .h2-item:not(:last-child)::after{content:'';position:absolute;left:22px;bottom:-9px;width:2px;height:9px;background:#e2e8f0;z-index:1}
 .h2-num{width:25px;height:25px;background:var(--pri);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:3px;z-index:2;position:relative}
 .h2-body{flex:1;min-width:0}
@@ -123,13 +119,10 @@ select:focus{border-color:var(--pri)}
 .h2-len{font-size:10px;color:var(--muted);margin-top:3px}
 .h2-copy{flex-shrink:0;background:none;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:11px;color:var(--muted);cursor:pointer;transition:all .2s;margin-top:2px}
 .h2-copy:hover{border-color:var(--pri);color:var(--pri);background:var(--pri-light)}
-
-/* 12类颜色 */
 .c-pur{background:#f97316}.c-act{background:#8b5cf6}.c-pri{background:#ef4444}
 .c-cov{background:#10b981}.c-faq{background:#3b82f6}.c-cmp{background:#6366f1}
 .c-pvd{background:#ec4899}.c-scn{background:#14b8a6}.c-tip{background:#f59e0b}
 .c-rev{background:#0891b2}.c-rec{background:#65a30d}.c-pre{background:#be185d}
-
 .seo-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
 .seo-tag{display:flex;align-items:center;gap:4px;background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:600}
 .seo-tag.warn{background:#fffbeb;border-color:#fde68a;color:#92400e}
@@ -191,7 +184,7 @@ select:focus{border-color:var(--pri)}
 <div class="header">
   <div class="hd-left">
     <h1>🌐 eSIM SEO 标题生成器</h1>
-    <p>基于读者旅程逻辑排序 · 12大分类 · 40套H1模板 · 156条H2模板 · 关键词智能植入 · 一键生成SEO写作Prompt</p>
+    <p>读者旅程逻辑排序 · 12大分类 · 40套H1 · 156条H2 · 关键词智能植入 · 一键生成写作Prompt</p>
   </div>
   <div class="hd-stats">
     <div class="stat-pill">已生成 <b id="sGenCount">0</b> 组</div>
@@ -202,8 +195,6 @@ select:focus{border-color:var(--pri)}
 </div>
 
 <div class="main">
-
-  <!-- Keyword Panel -->
   <div class="kw-panel" id="kwPanel">
     <div class="kw-panel-hd" onclick="toggleKwPanel()">
       <div class="kw-hd-l">
@@ -256,7 +247,6 @@ select:focus{border-color:var(--pri)}
     </div>
   </div>
 
-  <!-- Control Panel -->
   <div class="ctrl-panel">
     <div class="cg">
       <label>目标地区</label>
@@ -299,7 +289,6 @@ select:focus{border-color:var(--pri)}
     </div>
   </div>
 
-  <!-- Output Card -->
   <div class="ocard">
     <div class="card-hd">
       <div class="card-hd-l">
@@ -327,7 +316,6 @@ select:focus{border-color:var(--pri)}
     </div>
   </div>
 
-  <!-- History -->
   <div class="hist-outer" id="histSection" style="display:none">
     <div class="hist-toggle" onclick="toggleHist()">
       <h3>📚 历史记录 &nbsp;<span id="histCount" style="color:var(--pri);font-weight:700">0</span> 组</h3>
@@ -337,10 +325,8 @@ select:focus{border-color:var(--pri)}
       <div class="hist-grid" id="histGrid"></div>
     </div>
   </div>
-
 </div>
 
-<!-- Prompt Modal -->
 <div class="modal-overlay" id="promptModal" onclick="closePromptModalBg(event)">
   <div class="modal-box">
     <div class="modal-hd">
@@ -373,9 +359,6 @@ select:focus{border-color:var(--pri)}
 <div class="toast" id="toast"></div>
 
 <script>
-// ============================================================
-// 数据库
-// ============================================================
 var DB = {
   usa:{kw:'美国eSIM',name:'美国',
     cities:['纽约','洛杉矶','拉斯维加斯','旧金山','芝加哥','迈阿密','波士顿','西雅图','奥兰多','华盛顿DC'],
@@ -438,31 +421,23 @@ var COUNTS  = ['3','5','6','7','8','10'];
 var TOPICS  = ['价格与覆盖全析','购买激活攻略','套餐深度推荐','实地测评报告','省钱完全指南','真实使用评测','权威购买指南','全面深度解析'];
 
 // ============================================================
-// ★ 核心：读者旅程逻辑顺序定义
-// 6大阶段：认知→比较→决策→购买行动→激活使用→解惑支持
+// 读者旅程逻辑顺序
 // ============================================================
 var CAT_LOGICAL_ORDER = [
-  // 【阶段1：认知研究】了解市场，建立信任
-  'review',      // 用户真实评测 — 最先看真实口碑，建立信任
-  // 【阶段2：比较筛选】横向比较，锁定方向
-  'comparison',  // 产品对比     — 横向对比，了解选项
-  'price',       // 价格对比     — 预算规划，价格锚定
-  'coverage',    // 网速覆盖     — 质量验证，避免踩坑
-  'provider',    // 提供商评测   — 选定可信赖的服务商
-  // 【阶段3：决策确定】明确最终方案
-  'recommend',   // 套餐精选推荐 — 缩小选项，确定方案
-  // 【阶段4：购买行动】完成购买，出发准备
-  'purchase',    // 购买指南     — 完成下单购买
-  'prepare',     // 出行前准备   — 出发前检查清单
-  // 【阶段5：激活使用】抵达目的地后的操作
-  'activation',  // 激活教程     — 抵达后正确激活
-  'scenario',    // 使用场景     — 不同场景下的最优用法
-  'tips',        // 使用技巧     — 省钱技巧，价值最大化
-  // 【阶段6：解惑支持】解决疑问，消除顾虑
-  'faq'          // 常见问题     — 兜底答疑，清除障碍
+  'review',      // 阶段1 认知研究
+  'comparison',  // 阶段2 比较筛选
+  'price',
+  'coverage',
+  'provider',
+  'recommend',   // 阶段3 决策确定
+  'purchase',    // 阶段4 购买行动
+  'prepare',
+  'activation',  // 阶段5 激活使用
+  'scenario',
+  'tips',
+  'faq'          // 阶段6 解惑支持
 ];
 
-// 每个分类所属的阶段信息（用于显示）
 var CAT_PHASE = {
   review:     { phase:'认知研究', cls:'phase-research', icon:'🔍' },
   comparison: { phase:'比较筛选', cls:'phase-compare',  icon:'⚖️' },
@@ -479,7 +454,11 @@ var CAT_PHASE = {
 };
 
 // ============================================================
-// H2 分类数据库（12类，每类13条）
+// H2 分类模板（12类）
+// 修复说明：
+//   - {hKw} 只用于"关键词作为话题"的位置，不用于"需要品牌/服务商名"的比较句
+//   - 不在同一句中同时使用 {hKw} 和 {kw}（两者语义相近会造成重复）
+//   - 对等比较的两侧必须是同类型变量（服务商 vs 服务商，品类 vs 品类）
 // ============================================================
 var CATS = {
   purchase:{name:'购买指南',cls:'c-pur',t:[
@@ -495,7 +474,8 @@ var CATS = {
     '{kw}购买后多久到账？从下单到激活全流程',
     '海外购买vs国内提前购买{kw}：哪种更划算',
     '{kw}实体店vs网上购买：优缺点与适用场景对比',
-    '{hKw}购买教程：{year}{kw}完整下单操作步骤'
+    // ✅ 修复[12]：去掉 {kw}，避免 hKw≈kw 时标题重复
+    '{hKw}购买教程：{year}从注册到激活完整操作步骤'
   ]},
   activation:{name:'激活教程',cls:'c-act',t:[
     '{kw}激活全攻略：{device}逐步操作完整教程',
@@ -525,7 +505,8 @@ var CATS = {
     '免费试用{kw}？优惠活动与退款政策全解析',
     '{year}{kw}最新定价：各大平台价格横向对比',
     '{kw}流量包加购指南：超出套餐后如何最省钱',
-    '{hKw}真实价格测评：{year}{kw}套餐性价比深析'
+    // ✅ 修复[12]：去掉 {kw}，用 {dest} 替代避免重复
+    '{hKw}真实价格测评：{year}出行套餐性价比深度分析报告'
   ]},
   coverage:{name:'网速覆盖',cls:'c-cov',t:[
     '{kw}网速实测：{city} 5G和4G LTE覆盖测试报告',
@@ -565,12 +546,14 @@ var CATS = {
     '{dur}短途 vs 长期使用：{kw}套餐如何选',
     '顶级{kw}提供商大对比：覆盖、价格、服务综合评分',
     '{dest}本土运营商eSIM vs 国际eSIM平台深度对比',
-    '{c1}实体套餐 vs {kw}：功能与价格详细对比',
+    // ✅ 修复[7]：原"具体运营商套餐 vs 泛指eSIM品类"不对等 → 改为两个品类相比
+    '传统实体SIM卡 vs {kw}：功能、价格与便利性全面对比',
     '新手vs资深用户：不同需求下的{kw}选择差异',
     '{kw}三大主流方案横评：最适合{userType}的选择',
     '{year}{kw}五大平台横评：谁是真正的性价比之王',
     '预付费vs后付费：{kw}套餐类型与适用场景指南',
-    '{hKw} vs {p1}：{kw}两大平台深度横向全比较'
+    // ✅ 修复[12]：原"{hKw}(泛指关键词) vs {p1}(具体服务商)"类型不对等 → 改为服务商 vs 服务商
+    '{p1}与{p2}：{kw}两大热门平台深度横向全比较'
   ]},
   provider:{name:'提供商评测',cls:'c-pvd',t:[
     '{p1} {kw}深度评测：{year}综合使用体验报告',
@@ -585,7 +568,8 @@ var CATS = {
     '{year}{dest} eSIM市场动态：主要提供商最新变化',
     '{p1}新用户福利：{kw}首次购买优惠活动全解析',
     '小众但好用的{kw}提供商：被忽视的优质选择',
-    '{hKw}服务商评测：{year}{dest}使用口碑与综合排名'
+    // ✅ 修复[12]：去掉 {hKw}（不宜作服务商名），改用 {p1} 作为具体锚点
+    '{p1}领衔！{year}{dest}eSIM服务商使用口碑综合评分排名'
   ]},
   scenario:{name:'使用场景',cls:'c-scn',t:[
     '{dur}{dest}{scene}：{kw}套餐最优选择方案',
@@ -615,7 +599,8 @@ var CATS = {
     '{kw}节假日购买攻略：特价时机与优惠渠道汇总',
     '{kw}高效使用指南：{cnt}个你可能不知道的功能',
     '延长{kw}有效期的技巧：套餐到期前必看攻略',
-    '用{hKw}省更多钱：{dest}eSIM流量最大化实战攻略'
+    // ✅ 修复[12]：去掉字面"{dest}eSIM"，避免 hKw="目的地eSIM"时出现双重重复
+    '用{hKw}省更多钱：{dest}旅行流量费用最大化实战攻略'
   ]},
   review:{name:'用户真实评测',cls:'c-rev',t:[
     '{year}真实用户评测：{kw}综合口碑与体验总结',
@@ -645,7 +630,8 @@ var CATS = {
     '专家选出的{year}{kw}黑马套餐：低价高质精选',
     '{dur}旅行{kw}套餐推荐：流量、速度、价格最优解',
     '{userType}强推！{kw}最值得买的{cnt}款套餐盘点',
-    '{hKw}套餐精选推荐：{year}{kw}性价比最优方案汇总'
+    // ✅ 修复[12]：去掉 {kw}，用 {dest} 替代避免重复
+    '{hKw}套餐精选推荐：{year}出行性价比最优购买方案汇总'
   ]},
   prepare:{name:'出行前准备',cls:'c-pre',t:[
     '出发{dest}前{cnt}件必做：{kw}准备完整检查清单',
@@ -664,7 +650,7 @@ var CATS = {
   ]}
 };
 
-// H1模板库（40条）
+// H1模板（40条）
 var H1T = [
   '{year}年{kw}终极指南：{topic}',
   '{kw}完整攻略：{userType}必读手册',
@@ -701,45 +687,35 @@ var H1T = [
   '{kw}深度比较：{c1}还是{c2}更适合你',
   '{city}实测{kw}：真实网速与覆盖情况全记录',
   '{userType}首选{kw}：{year}专业推荐与实战心得',
-  '{hKw}完整攻略：{year}{kw}购买激活保姆级指南',
+  // ✅ 修复[35]：去掉 {kw}，避免与 {hKw} 重复
+  '{hKw}完整攻略：{year}购买激活全流程保姆级指南',
   '{dest}旅行必备｜{hKw}深度评测：{year}真实使用体验报告',
-  '{hKw} vs 主流{dest}eSIM：{year}性价比全方位横向对比',
+  // ✅ 修复[37]：原"{hKw} vs 主流{dest}eSIM"→ hKw="目的地eSIM"时自己和自己比 → 改为服务商 vs 品类
+  '{p1} vs 主流{dest}eSIM平台：{year}性价比全方位横向对比',
   '用{hKw}游{dest}：{year}购买激活使用全流程权威解析',
-  '{hKw}选购指南：{year}{dest}eSIM套餐综合测评与推荐'
+  // ✅ 修复[39]：去掉字面"{dest}eSIM"，避免 hKw="目的地eSIM"时二次重复
+  '{hKw}选购指南：{year}{dest}套餐综合测评与最优推荐方案'
 ];
 
 // ============================================================
-// ★ 核心函数：随机选取N个分类，按读者旅程逻辑顺序排列
-// 原理：先用种子洗牌随机选取N个，再按 CAT_LOGICAL_ORDER 排序
-// 结果：每次生成组合不同（随机性），但顺序永远符合逻辑（排序保证）
+// 逻辑排序核心
 // ============================================================
 function getLogicalCatSequence(n, seed) {
-  var allKeys = CAT_LOGICAL_ORDER.slice(); // 12个分类，已按逻辑排好
+  var allKeys = CAT_LOGICAL_ORDER.slice();
   var s = Math.abs(seed | 0);
-
-  // Step1: Fisher-Yates 洗牌（制造随机性）
   var arr = allKeys.slice();
   for (var i = arr.length - 1; i > 0; i--) {
     s = (s * 1664525 + 1013904223) & 0x7fffffff;
     var j = s % (i + 1);
     var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
   }
-
-  // Step2: 取前 n 个（随机选中的分类子集）
   var selected = arr.slice(0, Math.min(n, arr.length));
-
-  // Step3: ★ 关键步骤：按 CAT_LOGICAL_ORDER 的索引重新排序
-  // 确保最终顺序始终符合「认知→比较→决策→购买→激活→使用→解惑」
   selected.sort(function(a, b) {
     return CAT_LOGICAL_ORDER.indexOf(a) - CAT_LOGICAL_ORDER.indexOf(b);
   });
-
   return selected;
 }
 
-// ============================================================
-// 工具函数
-// ============================================================
 function pickItem(arr, n) {
   if (!arr || !arr.length) return '';
   return arr[((n % arr.length) + arr.length) % arr.length];
@@ -749,8 +725,8 @@ function pickHotKw(seed) {
   return userKws[Math.abs(seed) % userKws.length];
 }
 function buildCtx(destKey, year, seed) {
-  var d  = DB[destKey];
-  var s  = Math.abs(seed) | 0;
+  var d = DB[destKey];
+  var s = Math.abs(seed) | 0;
   var hl = d.carriers.length, pl = d.providers.length;
   var ci1 = s % hl, ci2 = (s + Math.ceil(hl/2)+1) % hl;
   if (ci2===ci1) ci2=(ci2+1)%hl;
@@ -789,14 +765,8 @@ function escHtml(s){
 }
 function deepCopy(o){return JSON.parse(JSON.stringify(o));}
 
-// ============================================================
-// 全局状态
-// ============================================================
 var genCount=0, curSet=null, hist=[], userKws=[], curUsedKwIndices=[], kwPanelOpen=false;
 
-// ============================================================
-// 关键词面板
-// ============================================================
 function toggleKwPanel(){
   kwPanelOpen=!kwPanelOpen;
   document.getElementById('kwInputSection').style.display=kwPanelOpen?'block':'none';
@@ -898,24 +868,17 @@ function renderAllKwUI(usedIndices){
   }
 }
 
-// ============================================================
-// 核心生成
-// ============================================================
 function generate(){
   var destKey=document.getElementById('selDest').value;
   var year=document.getElementById('selYear').value;
   var h2n=parseInt(document.getElementById('selH2n').value,10);
   var batch=parseInt(document.getElementById('selBatch').value,10);
-
   for(var b=0;b<batch;b++){
     var g=genCount;
     var h1tpl=pickItem(H1T,g);
     var h1ctx=buildCtx(destKey,year,g*17+5);
     var h1=fill(h1tpl,h1ctx);
-
-    // ★ 使用逻辑排序：随机选N类，按读者旅程重排
-    var selCats=getLogicalCatSequence(h2n, g*31+7);
-
+    var selCats=getLogicalCatSequence(h2n,g*31+7);
     var h2s=[];
     for(var j=0;j<selCats.length;j++){
       var ck=selCats[j];
@@ -923,10 +886,9 @@ function generate(){
       var cIdx=CAT_LOGICAL_ORDER.indexOf(ck);
       var tIdx=(g*3+j*7+cIdx)%cat.t.length;
       var lCtx=buildCtx(destKey,year,g*11+j*13+cIdx*5);
-      h2s.push({ck:ck, catName:cat.name, cls:cat.cls, text:fill(cat.t[tIdx],lCtx)});
+      h2s.push({ck:ck,catName:cat.name,cls:cat.cls,text:fill(cat.t[tIdx],lCtx)});
     }
     genCount++;
-
     var allTxt=h1+' '+h2s.map(function(h){return h.text;}).join(' ');
     var usedIdx=[];
     for(var k=0;k<userKws.length;k++){
@@ -937,54 +899,41 @@ function generate(){
     curSet=setItem;
     hist.unshift(deepCopy(setItem));
   }
-
   if(userKws.length>0)renderAllKwUI(curUsedKwIndices);
   renderOutput();
   renderHist();
   updateStats();
 }
 
-// ============================================================
-// 渲染输出（含逻辑流程可视化）
-// ============================================================
 function buildLogicFlowBar(h2s){
-  // 统计当前组用到了哪些阶段
-  var phasesSeen=[], phaseMap={};
+  var phasesSeen=[],phaseMap={};
   for(var i=0;i<h2s.length;i++){
     var ph=CAT_PHASE[h2s[i].ck];
-    if(ph&&!phaseMap[ph.phase]){
-      phaseMap[ph.phase]=true;
-      phasesSeen.push(ph);
-    }
+    if(ph&&!phaseMap[ph.phase]){phaseMap[ph.phase]=true;phasesSeen.push(ph);}
   }
-  var html='<div class="h2-logic-bar">'
-    +'<span class="logic-bar-label">📐 读者旅程：</span>';
+  var html='<div class="h2-logic-bar"><span class="logic-bar-label">📐 读者旅程：</span>';
   for(var i=0;i<phasesSeen.length;i++){
-    if(i>0) html+='<span class="logic-arrow">→</span>';
-    html+='<span class="logic-phase '+phasesSeen[i].cls+'">'
-      +phasesSeen[i].icon+' '+phasesSeen[i].phase+'</span>';
+    if(i>0)html+='<span class="logic-arrow">→</span>';
+    html+='<span class="logic-phase '+phasesSeen[i].cls+'">'+phasesSeen[i].icon+' '+phasesSeen[i].phase+'</span>';
   }
   html+='</div>';
   return html;
 }
 
 function renderOutput(){
-  var id=curSet.id, h1=curSet.h1, h2s=curSet.h2s;
+  var id=curSet.id,h1=curSet.h1,h2s=curSet.h2s;
   var usedCount=curSet.usedKwIndices?curSet.usedKwIndices.length:0;
-
   document.getElementById('genBadge').style.display='inline';
   document.getElementById('genBadge').textContent='第 '+id+' 组';
   document.getElementById('btnCopySet').style.display='inline-flex';
   document.getElementById('btnGenPrompt').style.display='inline-flex';
   document.getElementById('cardFt').style.display='flex';
-
   if(userKws.length>0&&usedCount>0){
     document.getElementById('kwUsedBadge').style.display='inline';
     document.getElementById('kwUsedBadge').textContent='🔑 关键词植入 '+usedCount+' 个';
   } else {
     document.getElementById('kwUsedBadge').style.display='none';
   }
-
   var h1Len=h1.length;
   var lenOk=(h1Len>=30&&h1Len<=70);
   var seoHtml='<div class="seo-bar">'
@@ -994,7 +943,6 @@ function renderOutput(){
     +'<span class="seo-tag">✓ 信息/商业/交易意图兼顾</span>'
     +(userKws.length>0?'<span class="seo-tag'+(usedCount>0?'':' warn')+'">🔑 '+(usedCount>0?'关键词植入 '+usedCount+'个':'关键词待匹配')+'</span>':'')
     +'</div>';
-
   var kwInfoHtml='';
   if(userKws.length>0){
     var classified=classifyKws(curSet.usedKwIndices||[]);
@@ -1011,20 +959,14 @@ function renderOutput(){
       +'<span class="kw-used-tag green">📝 内容重点词 '+cntC+' 个待植入</span>'
       +'</div><span style="font-size:11px;color:#92400e">→ 点击「生成写作Prompt」获取完整关键词写作指令</span></div>';
   }
-
   var h1Html='<div class="h1-block">'
     +'<span class="h1-lbl">H1</span>'
     +'<div><div class="h1-txt">'+escHtml(h1)+'</div>'
     +'<div class="h1-len">字符数：'+h1Len+'</div></div>'
     +'<button class="h1-copy" onclick="cpH1()">📋 复制</button>'
     +'</div>';
-
-  // 构建逻辑流程可视化条
   var logicBar=buildLogicFlowBar(h2s);
-
-  // 构建H2列表（含阶段标签）
   var h2Html='';
-  var prevPhase='';
   for(var m=0;m<h2s.length;m++){
     var item=h2s[m];
     var phInfo=CAT_PHASE[item.ck]||{phase:'',cls:'phase-support',icon:''};
@@ -1032,23 +974,18 @@ function renderOutput(){
     h2Html+='<div class="h2-item">'
       +'<div class="h2-num">'+(m+1)+'</div>'
       +'<div class="h2-body">'
-      +'<div class="h2-meta">'
-      +'<span class="cat-tag '+item.cls+'">'+item.catName+'</span>'
-      +phaseTag
-      +'</div>'
+      +'<div class="h2-meta"><span class="cat-tag '+item.cls+'">'+item.catName+'</span>'+phaseTag+'</div>'
       +'<div class="h2-txt">'+escHtml(item.text)+'</div>'
       +'<div class="h2-len">字符数：'+item.text.length+'</div>'
       +'</div>'
       +'<button class="h2-copy" onclick="cpH2('+m+')">📋 复制</button>'
       +'</div>';
   }
-
   var bannerHtml='<div class="prompt-banner">'
     +'<div><div class="pb-txt">📝 一键生成 SEO 写作 Prompt</div>'
     +'<div class="pb-sub">基于读者旅程结构'+(userKws.length>0?' + '+userKws.length+'个高流量关键词':'')+'，自动生成完整写作指令</div></div>'
     +'<button class="btn btn-purple" onclick="generatePrompt()" style="font-size:13px;padding:9px 18px">📝 生成写作 Prompt</button>'
     +'</div>';
-
   document.getElementById('outputBody').innerHTML=
     seoHtml+kwInfoHtml+h1Html
     +logicBar
@@ -1057,9 +994,6 @@ function renderOutput(){
     +bannerHtml;
 }
 
-// ============================================================
-// 历史记录
-// ============================================================
 function renderHist(){
   if(hist.length>1)document.getElementById('histSection').style.display='block';
   document.getElementById('histCount').textContent=hist.length;
@@ -1084,7 +1018,7 @@ function renderHist(){
 function viewHist(id){
   for(var p=0;p<hist.length;p++){
     if(hist[p].id===id){
-      curSet=hist[p]; curUsedKwIndices=curSet.usedKwIndices||[];
+      curSet=hist[p];curUsedKwIndices=curSet.usedKwIndices||[];
       if(userKws.length>0)renderAllKwUI(curUsedKwIndices);
       renderOutput();
       window.scrollTo({top:0,behavior:'smooth'});
@@ -1100,9 +1034,6 @@ function toggleHist(){
 }
 function updateStats(){document.getElementById('sGenCount').textContent=genCount;}
 
-// ============================================================
-// 复制 & 导出
-// ============================================================
 function cpH1(){if(curSet)copyText(curSet.h1);}
 function cpH2(i){if(curSet&&curSet.h2s[i])copyText(curSet.h2s[i].text);}
 function copySet(){
@@ -1139,19 +1070,15 @@ function exportAll(){
   showToast('✅ 已导出 '+hist.length+' 组标题');
 }
 
-// ============================================================
-// 生成 Prompt
-// ============================================================
 function generatePrompt(){
   if(!curSet){showToast('请先生成标题');return;}
-  var dk=curSet.destKey, d=DB[dk], h1=curSet.h1, h2s=curSet.h2s;
-  var dest=curSet.destName, yr=curSet.year, kw=d.kw;
+  var dk=curSet.destKey,d=DB[dk],h1=curSet.h1,h2s=curSet.h2s;
+  var dest=curSet.destName,yr=curSet.year,kw=d.kw;
   var city=pickItem(d.cities,curSet.id);
-  var c1=pickItem(d.carriers,curSet.id), c2=pickItem(d.carriers,curSet.id+3);
+  var c1=pickItem(d.carriers,curSet.id),c2=pickItem(d.carriers,curSet.id+3);
   if(c2===c1)c2=pickItem(d.carriers,curSet.id+4);
-  var p1=pickItem(d.providers,curSet.id), p2=pickItem(d.providers,curSet.id+2);
+  var p1=pickItem(d.providers,curSet.id),p2=pickItem(d.providers,curSet.id+2);
   if(p2===p1)p2=pickItem(d.providers,curSet.id+3);
-
   var ltPools={
     purchase:[dest+'eSIM在哪里买',dest+'eSIM购买教程'+yr,'去'+dest+'哪个eSIM好用'],
     activation:[dest+'eSIM激活步骤',dest+'eSIM怎么设置','iPhone激活'+dest+'eSIM'],
@@ -1192,7 +1119,6 @@ function generatePrompt(){
     var ck=h2s[i].ck;
     if(painMap[ck]&&!painSeen[ck]){painSeen[ck]=true;pains.push(painMap[ck]);}
   }
-
   var titleKwNames=[],contentKwNames=[],auxKwNames=[],suppKwNames=[],kwTotalCount=0;
   if(userKws.length>0){
     var classified=classifyKws(curSet.usedKwIndices||[]);
@@ -1205,7 +1131,6 @@ function generatePrompt(){
       else suppKwNames.push(item.kw);
     }
   }
-
   var outlineStr='';
   for(var i=0;i<h2s.length;i++){
     var ph=CAT_PHASE[h2s[i].ck]||{phase:'',icon:''};
@@ -1213,7 +1138,6 @@ function generatePrompt(){
   }
   var ltStr=''; for(var i=0;i<ltKws.length;i++)ltStr+='  · '+ltKws[i]+'\n';
   var painStr=''; for(var i=0;i<pains.length;i++)painStr+=pains[i]+'\n';
-
   var sep='================================================================\n';
   var sep2='----------------------------------------------------------------\n';
   var pt='';
@@ -1252,7 +1176,6 @@ function generatePrompt(){
   pt+='  · Trustworthiness：客观呈现优缺点，不夸大宣传\n\n';
   pt+='## 五、用户核心痛点（在对应章节着重解决）\n'+sep2;
   pt+=painStr+'\n';
-
   if(userKws.length>0){
     pt+='## 六、高流量关键词植入规范（共 '+kwTotalCount+' 个）\n'+sep2;
     if(titleKwNames.length>0){
@@ -1278,10 +1201,8 @@ function generatePrompt(){
     pt+='\n【6.5 总体原则】\n';
     pt+='  · 全部关键词总密度不超过 2.5%；同段落不超过 3 个；首次出现可加粗\n\n';
   }
-
   pt+=sep+'## 开始写作\n'+sep;
   pt+='请从【引言】开始依次展开，最后附：Meta Title、Meta 描述、Alt 文本建议、内链建议。\n'+sep;
-
   var approxWords=Math.round(pt.length/2.2);
   var infoHtml='<span class="p-stat">📊 Prompt约 '+approxWords+' 字</span>'
     +'<span class="p-stat">🔑 长尾词 '+ltKws.length+' 个</span>'
@@ -1291,16 +1212,12 @@ function generatePrompt(){
     infoHtml+='<span class="p-stat amber">🔑 高流量词 '+kwTotalCount+' 个</span>'
       +'<span class="p-stat amber">⭐ 内容重点 '+contentKwNames.length+' 个</span>';
   }
-
   document.getElementById('promptInfoBar').innerHTML=infoHtml;
   document.getElementById('promptText').value=pt;
   document.getElementById('promptModal').classList.add('open');
   document.body.style.overflow='hidden';
 }
 
-// ============================================================
-// Modal & 工具
-// ============================================================
 function closePromptModal(){document.getElementById('promptModal').classList.remove('open');document.body.style.overflow='';}
 function closePromptModalBg(e){if(e&&e.target===document.getElementById('promptModal'))closePromptModal();}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('promptModal').classList.contains('open'))closePromptModal();});
