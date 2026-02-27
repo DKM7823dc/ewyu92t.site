@@ -91,7 +91,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Micr
 .ctrl{background:var(--card);border-radius:14px;padding:13px 18px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:14px;display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
 .fg{display:flex;flex-direction:column;gap:4px}
 .fg label{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
-.dest-badge{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:linear-gradient(135deg,#1e3a8a,#2563eb);color:#fff;border-radius:9px;font-size:13px;font-weight:700;letter-spacing:.3px;box-shadow:0 2px 8px rgba(37,99,235,.28)}
 select{padding:8px 10px;border:1.5px solid var(--bdr);border-radius:8px;font-size:13px;color:var(--txt);outline:none;cursor:pointer;background:#fff;transition:border-color .2s;min-width:100px}
 select:focus{border-color:var(--pri)}
 .btn-grp{display:flex;gap:7px;align-items:flex-end;flex-wrap:wrap}
@@ -105,6 +104,42 @@ select:focus{border-color:var(--pri)}
 .btn-pur{background:linear-gradient(135deg,var(--pur),var(--pur-d));color:#fff;box-shadow:0 3px 10px rgba(124,58,237,.23)}
 .btn-pur:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(124,58,237,.36)}
 
+/* ====================== */
+/* STEP 1 FLOW UI         */
+/* ====================== */
+.s1-prog{display:flex;align-items:center;gap:0;margin-bottom:14px;padding:11px 16px;background:#f0f9ff;border:1.5px solid #bae6fd;border-radius:11px}
+.s1-step{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
+.s1-dot{width:28px;height:28px;border-radius:50%;background:var(--pri);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(37,99,235,.3)}
+.s1-dot-i{background:#e2e8f0;color:#94a3b8;box-shadow:none}
+.s1-lbl{font-size:11px;font-weight:700;color:#1d4ed8;white-space:nowrap}
+.s1-lbl-i{color:#94a3b8}
+.s1-line-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 10px;padding-bottom:16px}
+.s1-line{width:100%;height:2.5px;background:linear-gradient(90deg,#3b82f6,#e2e8f0);border-radius:2px;position:relative;overflow:visible}
+.s1-line-arr{position:absolute;right:-1px;top:-5px;color:#e2e8f0;font-size:12px}
+
+.s1-tip{padding:10px 14px;background:#fffbeb;border:1.5px solid #fde68a;border-radius:9px;font-size:12px;color:#92400e;line-height:1.7;margin-bottom:14px}
+.s1-list{display:flex;flex-direction:column;gap:11px;margin-bottom:14px}
+.s1-item{border:2px solid #bfdbfe;border-radius:13px;overflow:hidden;background:#fff;transition:box-shadow .2s}
+.s1-item:hover{box-shadow:0 3px 14px rgba(37,99,235,.1)}
+.s1-item-conv{border-color:#fdba74}
+.s1-item-conv:hover{box-shadow:0 3px 14px rgba(234,88,12,.1)}
+.s1-item-hd{padding:9px 15px;background:#eff6ff;border-bottom:1px solid #bfdbfe;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.s1-item-conv .s1-item-hd{background:#fff7ed;border-bottom-color:#fdba74}
+.s1-item-no{font-size:12px;font-weight:800;color:#1d4ed8}
+.s1-item-conv .s1-item-no{color:#c2410c}
+.s1-item-body{padding:15px 17px}
+.s1-h1-text{font-size:17px;font-weight:700;color:#1e3a8a;line-height:1.48;margin-bottom:9px}
+.s1-item-conv .s1-h1-text{color:#9a3412}
+.s1-h1-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.s1-item-actions{padding:10px 15px;background:#f8fafc;border-top:1px solid #e2e8f0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.s1-item-conv .s1-item-actions{background:#fffef9;border-top-color:#fde68a}
+
+.s1-confirm-bar{padding:15px 17px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #86efac;border-radius:13px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.s1-confirm-l .s1-confirm-title{font-size:13.5px;font-weight:800;color:#15803d;margin-bottom:3px}
+.s1-confirm-l .s1-confirm-hint{font-size:11.5px;color:#16a34a}
+.btn-confirm{background:linear-gradient(135deg,#10b981,#059669);color:#fff;border:none;border-radius:9px;padding:11px 22px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(16,185,129,.28);transition:all .2s;display:inline-flex;align-items:center;gap:7px}
+.btn-confirm:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(16,185,129,.4)}
+
 /* OUTPUT CARD */
 .ocard{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:14px;overflow:hidden;transition:box-shadow .4s}
 .ocard.flash{box-shadow:0 0 0 4px rgba(37,99,235,.45),0 4px 20px rgba(37,99,235,.2)}
@@ -113,6 +148,7 @@ select:focus{border-color:var(--pri)}
 .ocard-hd-r{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .bdg{font-size:11px;font-weight:700;padding:3px 9px;border-radius:10px;color:#fff;white-space:nowrap}
 .bg-pri{background:var(--pri)}.bg-grn{background:var(--grn)}.bg-amb{background:var(--amb)}.bg-pur{background:var(--pur)}.bg-orn{background:var(--orn)}
+.bg-step{background:linear-gradient(135deg,#0f766e,#14b8a6)}
 .ocard-title{font-size:14px;font-weight:700;color:#374151}
 .ocard-body{padding:18px 20px}
 .ocard-ft{padding:10px 18px;background:var(--light);border-top:1px solid var(--bdr);display:none;gap:6px;flex-wrap:wrap}
@@ -249,9 +285,7 @@ select:focus{border-color:var(--pri)}
 .hp-nav-next{background:var(--pri-l);color:var(--pri);border-color:#93c5fd}
 .hp-nav-next:hover{background:var(--pri);color:#fff}
 
-/* ====================== */
 /* CUSTOM KEYWORDS SECTION */
-/* ====================== */
 .ckw-outer{border-bottom:1px solid #e9d5ff;flex-shrink:0;background:#faf7ff}
 .ckw-hd{padding:9px 18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;transition:background .15s}
 .ckw-hd:hover{background:#f0e9ff}
@@ -294,12 +328,14 @@ select:focus{border-color:var(--pri)}
   .kw-col{border-right:none!important;border-bottom:1.5px solid #fde68a!important}
   .kw-col:last-child{border-bottom:none!important}
   .ckw-input-row{flex-direction:column}
+  .s1-confirm-bar{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:780px){
   .hdr{padding:12px 13px}.hdr-l h1{font-size:15px}
   .main{padding:10px 9px}.h1-txt{font-size:14px}
   .hist-grid{grid-template-columns:1fr}
   .modal-box{border-radius:14px;max-height:95vh}
+  .s1-h1-text{font-size:14px}
 }
 </style>
 </head>
@@ -308,7 +344,7 @@ select:focus{border-color:var(--pri)}
 <div class="hdr">
   <div class="hdr-l">
     <h1>🇷🇺 俄罗斯 eSIM SEO Blog 批量生成器</h1>
-    <p>4类关键词智能注入 · 高转化词优先驱动 · H1去重保障 · 读者旅程排序 · 自定义词Prompt</p>
+    <p>两步式生成：先确认H1 → 再围绕H1生成H2 · 4类关键词注入 · 高转化词优先 · 自定义词Prompt</p>
   </div>
   <div class="hdr-stats">
     <div class="stat-pill">已生成 <b id="sGen">0</b> 篇</div>
@@ -345,7 +381,6 @@ select:focus{border-color:var(--pri)}
       <span class="sum-chip sc-v" id="sumV">🔥 高转化词 0 · 已覆盖 0</span>
     </div>
     <div class="kw-cols" id="kwCols">
-      <!-- 功能词 -->
       <div class="kw-col">
         <div class="kw-col-hd">
           <div class="kw-col-title"><span class="col-ico ico-f">⚡</span><span style="color:#1d4ed8">功能词</span><span class="kw-col-lim lim-f">建议100个</span></div>
@@ -362,7 +397,6 @@ select:focus{border-color:var(--pri)}
           <div class="kw-cloud" id="cloudF"></div>
         </div>
       </div>
-      <!-- 竞品词 -->
       <div class="kw-col">
         <div class="kw-col-hd">
           <div class="kw-col-title"><span class="col-ico ico-c">🏆</span><span style="color:#be185d">竞品词</span><span class="kw-col-lim lim-c">建议10个</span></div>
@@ -379,7 +413,6 @@ select:focus{border-color:var(--pri)}
           <div class="kw-cloud" id="cloudC"></div>
         </div>
       </div>
-      <!-- 地区词 -->
       <div class="kw-col">
         <div class="kw-col-hd">
           <div class="kw-col-title"><span class="col-ico ico-l">📍</span><span style="color:#0f766e">地区词</span><span class="kw-col-lim lim-l">建议50个</span></div>
@@ -396,13 +429,12 @@ select:focus{border-color:var(--pri)}
           <div class="kw-cloud" id="cloudL"></div>
         </div>
       </div>
-      <!-- 高转化词 -->
       <div class="kw-col" style="background:linear-gradient(180deg,#fffaf5,#fff7ed)">
         <div class="kw-col-hd">
           <div class="kw-col-title"><span class="col-ico ico-v">🔥</span><span style="color:#c2410c">高转化词</span><span class="kw-col-lim lim-v">建议30个</span></div>
-          <div class="kw-col-desc">优惠码、最低价、折扣、购买推荐等高意向词，优先驱动H1主标题及促销类H2</div>
+          <div class="kw-col-desc">优惠码、最低价、折扣、购买推荐等高意向词，优先驱动H1主标题</div>
         </div>
-        <textarea class="kw-ta ta-v" id="taV" placeholder="每行一个，例如：&#10;俄罗斯eSIM优惠码&#10;俄罗斯eSIM最便宜&#10;买俄罗斯eSIM推荐&#10;俄罗斯上网卡折扣&#10;russia esim deal&#10;..."></textarea>
+        <textarea class="kw-ta ta-v" id="taV" placeholder="每行一个，例如：&#10;俄罗斯eSIM优惠码&#10;俄罗斯eSIM最便宜&#10;买俄罗斯eSIM推荐&#10;russia esim deal&#10;..."></textarea>
         <div class="kw-col-btns">
           <button class="bp bp-v" onclick="parseKw('conv')">✅ 导入高转化词</button>
           <button class="btn-sm-clr" onclick="clearKw('conv')">🗑 清空</button>
@@ -413,7 +445,7 @@ select:focus{border-color:var(--pri)}
           <div class="kw-cloud" id="cloudV"></div>
         </div>
         <div style="margin-top:9px;padding:7px 10px;background:#fff0e6;border:1px solid #fdba74;border-radius:8px;font-size:10.5px;color:#9a3412;line-height:1.6">
-          <b>🔥 高转化词优先级最高：</b>有高转化词时，H1优先使用高转化词模板；促销折扣章节专属注入，直接驱动转化
+          <b>🔥 高转化词优先级最高：</b>有高转化词时，H1优先使用高转化词模板；确认H1后，H2促销折扣章节专属注入
         </div>
       </div>
     </div>
@@ -421,10 +453,6 @@ select:focus{border-color:var(--pri)}
 
   <!-- CONTROL -->
   <div class="ctrl">
-    <div class="fg">
-      <label>目标地区</label>
-      <div class="dest-badge">🇷🇺 俄罗斯</div>
-    </div>
     <div class="fg">
       <label>年份</label>
       <select id="selYear"><option value="2026">2026</option><option value="2025">2025</option></select>
@@ -438,7 +466,7 @@ select:focus{border-color:var(--pri)}
       <select id="selBatch"><option value="1">单篇</option><option value="3">3 篇</option><option value="5">5 篇</option><option value="10">10 篇</option></select>
     </div>
     <div class="btn-grp">
-      <button class="btn btn-pri" onclick="generate()">⚡ 生成结构</button>
+      <button class="btn btn-pri" onclick="generateH1Step()">⚡ 生成H1标题</button>
       <button class="btn btn-out" onclick="doReset()">🔄 重置</button>
       <button class="btn btn-grn" id="btnExpAll" onclick="exportAll()" style="display:none">📥 导出全部</button>
     </div>
@@ -448,11 +476,12 @@ select:focus{border-color:var(--pri)}
   <div class="ocard" id="mainOCard">
     <div class="ocard-hd">
       <div class="ocard-hd-l">
-        <span class="bdg bg-pri" id="bdgGen" style="display:none">第 1 篇</span>
+        <span class="bdg bg-pri" id="bdgGen" style="display:none">步骤 1/2</span>
+        <span class="bdg bg-step" id="bdgStep" style="display:none">✅ H1已确认</span>
         <span class="bdg bg-orn" id="bdgConv" style="display:none">🔥 高转化词驱动</span>
         <span class="bdg bg-amb" id="bdgKw" style="display:none">🔑 关键词已注入</span>
         <span class="bdg bg-grn" id="bdgDed" style="display:none">✓ 标题唯一</span>
-        <span class="ocard-title">SEO Blog 文章结构</span>
+        <span class="ocard-title" id="ocardTitle">SEO Blog 文章结构</span>
       </div>
       <div class="ocard-hd-r">
         <button class="btn btn-pur" id="btnPrompt" onclick="generatePrompt()" style="display:none;padding:6px 12px;font-size:12px">📝 生成Prompt</button>
@@ -462,12 +491,17 @@ select:focus{border-color:var(--pri)}
     <div class="ocard-body" id="outputBody">
       <div class="empty">
         <div class="empty-ico">🇷🇺</div>
-        <h3>点击「生成结构」开始批量产出</h3>
-        <p>导入4类关键词（功能词·竞品词·地区词·<b style="color:#c2410c">高转化词</b>）<br>高转化词优先级最高，优先驱动H1标题与促销折扣章节<br>H1全局去重 · 标题精简优化 · 按读者旅程逻辑排序</p>
+        <h3>两步式生成，结构更精准</h3>
+        <p>
+          <b>① 点击「生成H1标题」</b> → 查看并确认主标题<br>
+          <b>② 点击「确认H1，生成H2」</b> → H2围绕H1自动匹配<br><br>
+          城市、服务商、关键词上下文与H1完全一致 · 读者旅程排序<br>
+          导入高转化词可优先驱动H1与促销章节
+        </p>
       </div>
     </div>
     <div class="ocard-ft" id="oFt">
-      <button class="btn btn-pri" onclick="generate()" style="font-size:13px;padding:9px 18px">⚡ 继续生成</button>
+      <button class="btn btn-pri" onclick="generateH1Step()" style="font-size:13px;padding:9px 18px">⚡ 继续生成</button>
       <button class="btn btn-out" onclick="copySet()">📋 复制本篇</button>
       <button class="btn btn-out" onclick="exportCurrent()">📤 导出本篇</button>
       <button class="btn btn-pur" onclick="generatePrompt()">📝 写作Prompt</button>
@@ -533,7 +567,6 @@ select:focus{border-color:var(--pri)}
     <div class="modal-info" id="mInfo"><span class="m-st msp">加载中...</span></div>
     <div class="modal-tip">💡 完整复制 Prompt → 粘贴到 AI → 自动生成 2500-3500 字 SEO 文章 &nbsp;|&nbsp; 修改自定义词后点「🔄 更新」即时刷新</div>
 
-    <!-- CUSTOM KEYWORDS SECTION -->
     <div class="ckw-outer">
       <div class="ckw-hd" onclick="toggleCKW()">
         <div class="ckw-hd-l">
@@ -601,7 +634,6 @@ var DEST_KEY = 'russia';
 
 // ============================================================
 // READER JOURNEY & PHASE MAPPING
-// NOTE: review & provider categories removed (fake content)
 // ============================================================
 var CAT_ORDER = ['comparison','price','coverage','recommend','deal','purchase','prepare','activation','scenario','tips','faq'];
 
@@ -619,10 +651,6 @@ var CAT_PHASE = {
   faq:        {phase:'解惑支持',  cls:'fp-sup',  icon:'💬'}
 };
 
-// ============================================================
-// CATEGORY TEMPLATES
-// NOTE: review (用户评测) and provider (提供商评测) removed
-// ============================================================
 var CATS = {
   purchase:{name:'购买指南',cls:'c-pur',kwType:'func',altKwType:'conv',
     tStd:['{kw}购买渠道对比{year}','{p1}如何购买？步骤详解','{kw}：官网vs第三方平台','{kw}购买前{cnt}大注意点','{dur}行程套餐怎么选'],
@@ -634,8 +662,8 @@ var CATS = {
     tStd:['{year}{kw}套餐价格横评','{kw}：{c1}vs{c2}收费对比','{dur}行程总花费测算','{kw}隐藏费用全揭秘'],
     tKw:['{injKw}价格{year}全对比','{injKw}多少钱合理','{injKw}隐藏费用须知','{injKw}折扣码省钱技巧']},
   coverage:{name:'网速覆盖',cls:'c-cov',kwType:'loc',
-    tStd:['{city}{kw}信号实地测试','{kw}：{c1}vs{c2}网速','{dest}各城市eSIM覆盖','{city}室内外信号表现'],
-    tKw:['{injKw}覆盖与网速实测','去{injKw}上网推荐','{injKw} 5G/4G覆盖报告','{injKw}城区vs郊区信号']},
+    tStd:['{city}{kw}信号覆盖报告','{kw}：{c1}vs{c2}网速','{dest}各城市eSIM覆盖','{city}室内外信号表现'],
+    tKw:['{injKw}覆盖与网速分析','去{injKw}上网推荐','{injKw} 5G/4G覆盖报告','{injKw}城区vs郊区信号']},
   faq:{name:'常见问题',cls:'c-faq',kwType:'func',
     tStd:['{kw}新手{cnt}大常见疑问','{kw}能打电话吗？','eSIM与实体SIM区别','{kw}安全性怎么样'],
     tKw:['{injKw}常见疑问解答','{cnt}个{injKw}常见误区','{injKw}安全性说明','{injKw}功能限制须知']},
@@ -659,33 +687,29 @@ var CATS = {
     tKw:['{injKw}折扣码使用教程','{injKw}最低价{year}购买','{injKw}限时优惠活动说明','如何用{injKw}省更多钱','{injKw}：{year}最新促销整理','{year}最划算{injKw}套餐']}
 };
 
-// ============================================================
-// H1 TEMPLATES
-// ============================================================
 var H1T_STD = [
   '{year}年{kw}：购买·激活·套餐全攻略',
-  '{kw}深度评测{year}：哪家最值',
+  '{kw}深度测评{year}：哪家最值',
   '{dest}旅行首选{kw}：{year}推荐',
-  '{year}最新{kw}：{city}实测报告',
+  '{year}最新{kw}：{city}报告',
   '{kw}选购指南{year}：{userType}版',
-  '{p1} vs {p2}：{dest}eSIM真实横评',
+  '{p1} vs {p2}：{dest}eSIM横评',
   '{kw}省钱攻略：{dur}最优套餐',
   '{device}激活{kw}全流程{year}',
   '{dest}商务出行{kw}精选{year}',
   '告别漫游：{year}年{kw}完整指南',
-  '{year}{kw}综合评测：速度·价格·覆盖',
+  '{year}{kw}综合分析：速度·价格·覆盖',
   '{kw}新手必读{year}：选购到激活',
-  '{kw}踩坑指南{year}：真实经验',
   '{dur}出行{kw}怎么选？{year}分析',
-  '{year}年{kw}：{city}地区实测',
+  '{year}年{kw}：{city}地区报告',
   '{kw}vs实体SIM：{year}综合比较',
   '{city}实测{kw}：{year}网速与覆盖',
-  '{year}{dest}最佳eSIM：{p1}评测',
+  '{year}{dest}最佳eSIM：{p1}指南',
   '{userType}专用{kw}推荐{year}'
 ];
 var H1T_KW = [
   '{injKw}：{year}完整使用指南',
-  '{injKw}深度测评{year}',
+  '{injKw}深度分析{year}',
   '{injKw}：{dest}最优上网方案',
   '{injKw}购买与激活全流程',
   '{injKw}性价比分析{year}',
@@ -703,7 +727,7 @@ var H1T_CONV = [
   '{injKw}折扣与省钱：{year}最新',
   '{dest}出行首选{injKw}：省钱版',
   '{injKw}vs普通方案：哪个更值',
-  '{year}{dest}推荐：{injKw}评测',
+  '{year}{dest}推荐：{injKw}指南',
   '{injKw}：激活·购买·省钱全攻略',
   '{injKw}用户指南：{year}完整版',
   '{injKw}购买指南：{year}最优渠道',
@@ -726,15 +750,20 @@ var hpItem = null;
 var hpIdx = 0;
 var ckwOpen = false;
 
+// ---- Two-step state ----
+var pendingH1s  = [];   // array of h1 result objects waiting for confirmation
+var pendingYear = '';
+var pendingH2n  = 8;
+var regenSeeds  = {};   // {idx: regenCount}
+
 // ============================================================
-// CUSTOM KEYWORDS SECTION
+// CUSTOM KEYWORDS
 // ============================================================
 function toggleCKW() {
   ckwOpen = !ckwOpen;
   document.getElementById('ckwBd').className = 'ckw-bd' + (ckwOpen ? ' open' : '');
   document.getElementById('ckwArr').textContent = ckwOpen ? '▲ 收起' : '▼ 展开输入';
 }
-
 function getCustomKws() {
   var raw = document.getElementById('ckwTa').value.trim();
   if (!raw) return [];
@@ -746,11 +775,7 @@ function getCustomKws() {
   }
   return result;
 }
-
-function onCKWInput() {
-  updateCKWPreview();
-}
-
+function onCKWInput() { updateCKWPreview(); }
 function updateCKWPreview() {
   var kws = getCustomKws();
   var cntBdg  = document.getElementById('ckwCntBdg');
@@ -758,35 +783,18 @@ function updateCKWPreview() {
   var title   = document.getElementById('ckwChipsTitle');
   var chips   = document.getElementById('ckwChips');
   if (kws.length > 0) {
-    cntBdg.style.display  = 'inline';
-    cntBdg.textContent    = kws.length + ' 个';
-    hintTxt.style.display = 'none';
-    title.style.display   = 'block';
+    cntBdg.style.display  = 'inline'; cntBdg.textContent = kws.length + ' 个';
+    hintTxt.style.display = 'none'; title.style.display = 'block';
     var html = '';
-    for (var i = 0; i < kws.length; i++) {
-      html += '<span class="kt kt-cu2">🎯 ' + escHtml(kws[i]) + '</span>';
-    }
+    for (var i = 0; i < kws.length; i++) html += '<span class="kt kt-cu2">🎯 ' + escHtml(kws[i]) + '</span>';
     chips.innerHTML = html;
   } else {
-    cntBdg.style.display  = 'none';
-    hintTxt.style.display = 'inline';
-    title.style.display   = 'none';
-    chips.innerHTML = '';
+    cntBdg.style.display  = 'none'; hintTxt.style.display = 'inline';
+    title.style.display   = 'none'; chips.innerHTML = '';
   }
 }
-
-function clearCKW() {
-  document.getElementById('ckwTa').value = '';
-  updateCKWPreview();
-  showToast('🗑 自定义关键词已清空');
-}
-
-function refreshPrompt() {
-  if (!curSet) { showToast('请先生成文章结构'); return; }
-  updateCKWPreview();
-  buildPromptContent();
-  showToast('✅ Prompt 已更新');
-}
+function clearCKW() { document.getElementById('ckwTa').value = ''; updateCKWPreview(); showToast('🗑 自定义关键词已清空'); }
+function refreshPrompt() { if (!curSet) { showToast('请先完成文章结构生成'); return; } updateCKWPreview(); buildPromptContent(); showToast('✅ Prompt 已更新'); }
 
 // ============================================================
 // KEYWORD MANAGEMENT
@@ -802,9 +810,7 @@ function parseKw(type) {
   var result = [], seen = {};
   for (var i = 0; i < parts.length; i++) {
     var kw = parts[i].trim();
-    if (kw.length > 0 && kw.length <= 100 && !seen[kw] && result.length < maxMap[type]) {
-      seen[kw] = true; result.push(kw);
-    }
+    if (kw.length > 0 && kw.length <= 100 && !seen[kw] && result.length < maxMap[type]) { seen[kw] = true; result.push(kw); }
   }
   if (!result.length) { showToast('未识别到有效关键词'); return; }
   kwPools[type] = result; kwUsed[type] = {}; kwRR[type] = 0;
@@ -813,7 +819,6 @@ function parseKw(type) {
   renderCloud(type); updateSummary();
   showToast('✅ ' + nameMap[type] + ' 导入 ' + result.length + ' 个');
 }
-
 function clearKw(type) {
   var taMap  = {func:'taF', comp:'taC', loc:'taL', conv:'taV'};
   var phMap  = {func:'phF', comp:'phC', loc:'phL', conv:'phV'};
@@ -824,19 +829,18 @@ function clearKw(type) {
   renderCloud(type); updateSummary();
   showToast('🗑 ' + nameMap[type] + ' 已清空');
 }
-
 function renderCloud(type) {
   var pool = kwPools[type], used = kwUsed[type];
-  var cloudMap = {func:'cloudF', comp:'cloudC', loc:'cloudL', conv:'cloudV'};
-  var wrapMap  = {func:'cwF',    comp:'cwC',    loc:'cwL',    conv:'cwV'};
-  var barMap   = {func:'cbF',    comp:'cbC',    loc:'cbL',    conv:'cbV'};
-  var pctMap   = {func:'cpF',    comp:'cpC',    loc:'cpL',    conv:'cpV'};
-  var uCls = {func:'kt-fu', comp:'kt-cu', loc:'kt-lu', conv:'kt-vu'}[type];
-  var nCls = {func:'kt-fn', comp:'kt-cn', loc:'kt-ln', conv:'kt-vn'}[type];
-  var cloudEl = document.getElementById(cloudMap[type]);
-  var wrapEl  = document.getElementById(wrapMap[type]);
-  var barEl   = document.getElementById(barMap[type]);
-  var pctEl   = document.getElementById(pctMap[type]);
+  var cloudMap = {func:'cloudF',comp:'cloudC',loc:'cloudL',conv:'cloudV'};
+  var wrapMap  = {func:'cwF',comp:'cwC',loc:'cwL',conv:'cwV'};
+  var barMap   = {func:'cbF',comp:'cbC',loc:'cbL',conv:'cbV'};
+  var pctMap   = {func:'cpF',comp:'cpC',loc:'cpL',conv:'cpV'};
+  var uCls = {func:'kt-fu',comp:'kt-cu',loc:'kt-lu',conv:'kt-vu'}[type];
+  var nCls = {func:'kt-fn',comp:'kt-cn',loc:'kt-ln',conv:'kt-vn'}[type];
+  var cloudEl=document.getElementById(cloudMap[type]);
+  var wrapEl=document.getElementById(wrapMap[type]);
+  var barEl=document.getElementById(barMap[type]);
+  var pctEl=document.getElementById(pctMap[type]);
   if (!pool.length) { if (wrapEl) wrapEl.classList.remove('show'); return; }
   var usedCnt = 0;
   for (var k in used) { if (used[k] > 0) usedCnt++; }
@@ -844,134 +848,123 @@ function renderCloud(type) {
   if (barEl) barEl.style.width = pct + '%';
   if (pctEl) pctEl.textContent = pct + '%';
   var html = '';
-  for (var i = 0; i < pool.length; i++) {
-    html += '<span class="kt ' + (used[i] > 0 ? uCls : nCls) + '">' + escHtml(pool[i]) + '</span>';
-  }
+  for (var i = 0; i < pool.length; i++) html += '<span class="kt ' + (used[i] > 0 ? uCls : nCls) + '">' + escHtml(pool[i]) + '</span>';
   if (cloudEl) cloudEl.innerHTML = html;
   if (wrapEl) wrapEl.classList.add('show');
 }
-
 function updateSummary() {
-  var types  = ['func','comp','loc','conv'];
-  var names  = {func:'功能词',comp:'竞品词',loc:'地区词',conv:'高转化词'};
-  var icons  = {func:'⚡',comp:'🏆',loc:'📍',conv:'🔥'};
-  var pillMap= {func:'pillF',comp:'pillC',loc:'pillL',conv:'pillV'};
-  var sumMap = {func:'sumF', comp:'sumC', loc:'sumL', conv:'sumV'};
-  var hdrMap = {func:'sFN',  comp:'sCN',  loc:'sLN',  conv:'sVN'};
+  var types=['func','comp','loc','conv'];
+  var names={func:'功能词',comp:'竞品词',loc:'地区词',conv:'高转化词'};
+  var icons={func:'⚡',comp:'🏆',loc:'📍',conv:'🔥'};
+  var pillMap={func:'pillF',comp:'pillC',loc:'pillL',conv:'pillV'};
+  var sumMap={func:'sumF',comp:'sumC',loc:'sumL',conv:'sumV'};
+  var hdrMap={func:'sFN',comp:'sCN',loc:'sLN',conv:'sVN'};
   var hasAny = false;
-  for (var i = 0; i < types.length; i++) {
-    var t = types[i];
-    var total = kwPools[t].length;
-    var usedCnt = 0;
-    for (var k in kwUsed[t]) { if (kwUsed[t][k] > 0) usedCnt++; }
-    var pill = document.getElementById(pillMap[t]);
-    var sum  = document.getElementById(sumMap[t]);
-    var hdr  = document.getElementById(hdrMap[t]);
-    if (pill) pill.textContent = names[t] + ' ' + total;
-    if (sum) sum.textContent = icons[t] + ' ' + names[t] + ' ' + total + ' · 已覆盖 ' + usedCnt;
-    if (hdr) hdr.textContent = total;
-    if (total > 0) hasAny = true;
+  for (var i=0;i<types.length;i++) {
+    var t=types[i];
+    var total=kwPools[t].length;
+    var usedCnt=0; for(var k in kwUsed[t]){if(kwUsed[t][k]>0)usedCnt++;}
+    var pill=document.getElementById(pillMap[t]);
+    var sum=document.getElementById(sumMap[t]);
+    var hdr=document.getElementById(hdrMap[t]);
+    if(pill) pill.textContent=names[t]+' '+total;
+    if(sum)  sum.textContent=icons[t]+' '+names[t]+' '+total+' · 已覆盖 '+usedCnt;
+    if(hdr)  hdr.textContent=total;
+    if(total>0) hasAny=true;
   }
-  var mgr = document.getElementById('kwMgr');
-  var hint = document.getElementById('kwHint');
-  var summary = document.getElementById('kwSummary');
-  if (hasAny) {
+  var mgr=document.getElementById('kwMgr');
+  var hint=document.getElementById('kwHint');
+  var summary=document.getElementById('kwSummary');
+  if(hasAny){
     mgr.classList.add('has-kws');
-    if (hint) hint.style.display = 'none';
-    if (!kwMgrOpen && summary) summary.classList.add('show');
+    if(hint) hint.style.display='none';
+    if(!kwMgrOpen&&summary) summary.classList.add('show');
   } else {
     mgr.classList.remove('has-kws');
-    if (hint) hint.style.display = 'inline';
-    if (summary) summary.classList.remove('show');
+    if(hint) hint.style.display='inline';
+    if(summary) summary.classList.remove('show');
   }
 }
-
 function toggleKwMgr() {
   kwMgrOpen = !kwMgrOpen;
-  var cols = document.getElementById('kwCols');
-  var btn  = document.getElementById('kwToggle');
-  var sum  = document.getElementById('kwSummary');
-  cols.className = 'kw-cols' + (kwMgrOpen ? ' open' : '');
-  btn.textContent = kwMgrOpen ? '▲ 收起' : '▼ 展开管理';
-  var hasAny = kwPools.func.length > 0 || kwPools.comp.length > 0 || kwPools.loc.length > 0 || kwPools.conv.length > 0;
-  if (hasAny) {
-    if (kwMgrOpen) sum.classList.remove('show');
-    else sum.classList.add('show');
-  }
+  var cols=document.getElementById('kwCols');
+  var btn=document.getElementById('kwToggle');
+  var sum=document.getElementById('kwSummary');
+  cols.className='kw-cols'+(kwMgrOpen?' open':'');
+  btn.textContent=kwMgrOpen?'▲ 收起':'▼ 展开管理';
+  var hasAny=kwPools.func.length>0||kwPools.comp.length>0||kwPools.loc.length>0||kwPools.conv.length>0;
+  if(hasAny){ if(kwMgrOpen) sum.classList.remove('show'); else sum.classList.add('show'); }
 }
 
 // ============================================================
 // GENERATION HELPERS
 // ============================================================
-function pickItem(arr, n) {
-  if (!arr || !arr.length) return '';
-  return arr[((n % arr.length) + arr.length) % arr.length];
+function pickItem(arr,n){ if(!arr||!arr.length) return ''; return arr[((n%arr.length)+arr.length)%arr.length]; }
+function getPoolKw(type,offset){
+  var pool=kwPools[type];
+  if(!pool||!pool.length) return null;
+  var idx=(kwRR[type]+(offset||0))%pool.length;
+  return {kw:pool[idx],idx:idx};
 }
-function getPoolKw(type, offset) {
-  var pool = kwPools[type];
-  if (!pool || !pool.length) return null;
-  var idx = (kwRR[type] + (offset || 0)) % pool.length;
-  return {kw: pool[idx], idx: idx};
-}
-function markUsed(type, idx) {
-  if (idx == null || idx < 0) return;
-  if (!kwUsed[type][idx]) kwUsed[type][idx] = 0;
+function markUsed(type,idx){
+  if(idx==null||idx<0) return;
+  if(!kwUsed[type][idx]) kwUsed[type][idx]=0;
   kwUsed[type][idx]++;
 }
-function advanceRR() {
-  var types = ['func','comp','loc','conv'];
-  for (var i = 0; i < types.length; i++) {
-    var t = types[i];
-    if (kwPools[t].length > 0) kwRR[t] = (kwRR[t] + 1) % kwPools[t].length;
+function advanceRR(){
+  var types=['func','comp','loc','conv'];
+  for(var i=0;i<types.length;i++){
+    var t=types[i];
+    if(kwPools[t].length>0) kwRR[t]=(kwRR[t]+1)%kwPools[t].length;
   }
 }
-function buildCtx(year, seed, injKw) {
-  var d = DB[DEST_KEY];
-  var s = Math.abs(seed) | 0;
-  var hl = d.carriers.length, pl = d.providers.length;
-  var ci1 = s % hl, ci2 = (s + Math.ceil(hl/2) + 1) % hl; if (ci2===ci1) ci2=(ci2+1)%hl;
-  var pi1 = s % pl, pi2 = (s + Math.ceil(pl/2) + 1) % pl; if (pi2===pi1) pi2=(pi2+1)%pl;
+function buildCtx(year,seed,injKw){
+  var d=DB[DEST_KEY];
+  var s=Math.abs(seed)|0;
+  var hl=d.carriers.length,pl=d.providers.length;
+  var ci1=s%hl,ci2=(s+Math.ceil(hl/2)+1)%hl; if(ci2===ci1) ci2=(ci2+1)%hl;
+  var pi1=s%pl,pi2=(s+Math.ceil(pl/2)+1)%pl; if(pi2===pi1) pi2=(pi2+1)%pl;
   return {
-    kw: d.kw, dest: d.name, year: year,
-    city: pickItem(d.cities, s), c1: d.carriers[ci1], c2: d.carriers[ci2],
-    p1: d.providers[pi1], p2: d.providers[pi2], device: pickItem(DEVICES, s),
-    dur: pickItem(d.durations, s), userType: pickItem(d.userTypes, s),
-    scene: pickItem(d.scenes, s+2), cnt: pickItem(COUNTS, s),
-    issue: pickItem(d.issues, s), park: pickItem(d.parks, s),
-    injKw: injKw || d.kw
+    kw:d.kw,dest:d.name,year:year,
+    city:pickItem(d.cities,s),c1:d.carriers[ci1],c2:d.carriers[ci2],
+    p1:d.providers[pi1],p2:d.providers[pi2],device:pickItem(DEVICES,s),
+    dur:pickItem(d.durations,s),userType:pickItem(d.userTypes,s),
+    scene:pickItem(d.scenes,s+2),cnt:pickItem(COUNTS,s),
+    issue:pickItem(d.issues,s),park:pickItem(d.parks,s),
+    injKw:injKw||d.kw
   };
 }
-function fill(tpl, ctx) {
-  var r = tpl;
-  var keys = ['kw','dest','year','city','c1','c2','p1','p2','device','dur','userType','scene','cnt','issue','park','injKw'];
-  for (var i = 0; i < keys.length; i++) r = r.split('{'+keys[i]+'}').join(ctx[keys[i]] || '');
+function fill(tpl,ctx){
+  var r=tpl;
+  var keys=['kw','dest','year','city','c1','c2','p1','p2','device','dur','userType','scene','cnt','issue','park','injKw'];
+  for(var i=0;i<keys.length;i++) r=r.split('{'+keys[i]+'}').join(ctx[keys[i]]||'');
   return r;
 }
-function escHtml(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-function getLogicalCats(n, seed) {
-  var all = CAT_ORDER.slice();
-  var s = Math.abs(seed) | 0;
-  for (var i = all.length-1; i > 0; i--) {
-    s = (s * 1664525 + 1013904223) & 0x7fffffff;
-    var j = s % (i+1); var tmp = all[i]; all[i] = all[j]; all[j] = tmp;
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function getLogicalCats(n,seed){
+  var all=CAT_ORDER.slice();
+  var s=Math.abs(seed)|0;
+  for(var i=all.length-1;i>0;i--){
+    s=(s*1664525+1013904223)&0x7fffffff;
+    var j=s%(i+1); var tmp=all[i]; all[i]=all[j]; all[j]=tmp;
   }
-  var selected = all.slice(0, Math.min(n, all.length));
-  selected.sort(function(a,b){ return CAT_ORDER.indexOf(a) - CAT_ORDER.indexOf(b); });
+  var selected=all.slice(0,Math.min(n,all.length));
+  selected.sort(function(a,b){ return CAT_ORDER.indexOf(a)-CAT_ORDER.indexOf(b); });
   return selected;
 }
 
 // ============================================================
-// H1 GENERATION
+// H1 GENERATION — returns ctx too
 // ============================================================
-function tryH1(year, seed, attempt) {
+function tryH1WithCtx(year, seed, attempt) {
   var d = DB[DEST_KEY];
   var s = Math.abs(seed * 7 + attempt * 19) | 0;
   var hasV = kwPools.conv.length > 0;
   var hasF = kwPools.func.length > 0;
-  var vkw = hasV ? getPoolKw('conv', attempt % kwPools.conv.length) : null;
-  var fkw = hasF ? getPoolKw('func', attempt % kwPools.func.length) : null;
+  var vOff = hasV ? attempt % kwPools.conv.length : 0;
+  var fOff = hasF ? attempt % kwPools.func.length : 0;
+  var vkw = hasV ? getPoolKw('conv', vOff) : null;
+  var fkw = hasF ? getPoolKw('func', fOff) : null;
   var mode;
   if (hasV && hasF) { mode = (s % 10 < 6) ? 'conv' : 'func'; }
   else if (hasV) { mode = (s % 10 < 8) ? 'conv' : 'std'; }
@@ -990,75 +983,304 @@ function tryH1(year, seed, attempt) {
   var tpl = arr[s % arr.length];
   var ctx = buildCtx(year, s, injKw);
   return {
-    text: fill(tpl, ctx), mode: mode,
-    funcIdx: funcIdx, convIdx: convIdx,
-    funcKw: funcIdx >= 0 ? kwPools.func[funcIdx] : null,
-    convKw: convIdx >= 0 ? kwPools.conv[convIdx] : null
+    text:     fill(tpl, ctx),
+    mode:     mode,
+    funcIdx:  funcIdx,
+    convIdx:  convIdx,
+    funcKw:   funcIdx >= 0 ? kwPools.func[funcIdx] : null,
+    convKw:   convIdx >= 0 ? kwPools.conv[convIdx] : null,
+    ctx:      ctx   // ← stored so H2 can reuse same context
   };
 }
 
 // ============================================================
-// MAIN GENERATION
+// STEP 1 — Generate H1 only, show for confirmation
 // ============================================================
-function generate() {
+function generateH1Step() {
   var year  = document.getElementById('selYear').value;
   var h2n   = parseInt(document.getElementById('selH2n').value, 10);
   var batch = parseInt(document.getElementById('selBatch').value, 10);
+
+  pendingYear = year;
+  pendingH2n  = h2n;
+  pendingH1s  = [];
+  regenSeeds  = {};
+
+  var baseSeed = ((Date.now() % 99991) + genCount * 41 + 1) | 0;
+
   for (var b = 0; b < batch; b++) {
-    var g = genCount;
-    var h1r = null;
+    regenSeeds[b] = 0;
+    var seed = baseSeed + b * 41;
+    var h1r  = null;
     for (var att = 0; att < 30; att++) {
-      var c = tryH1(year, g * 41 + b * 13, att);
-      if (!usedH1Set[c.text]) { h1r = c; break; }
-    }
-    if (!h1r) { h1r = tryH1(year, g * 41 + b * 13, 0); h1r.text = h1r.text + '（No.' + (g+1) + '）'; }
-    usedH1Set[h1r.text] = true;
-    if (h1r.funcIdx >= 0) markUsed('func', h1r.funcIdx);
-    if (h1r.convIdx >= 0) markUsed('conv', h1r.convIdx);
-    var srcPool = {
-      func: getPoolKw('func', 0), comp: getPoolKw('comp', 0),
-      loc:  getPoolKw('loc',  0), conv: getPoolKw('conv', 0)
-    };
-    var selCats = getLogicalCats(h2n, g * 53 + b * 17);
-    var h2s = [];
-    for (var j = 0; j < selCats.length; j++) {
-      var ck  = selCats[j];
-      var cat = CATS[ck];
-      var cSeed = Math.abs(g * 11 + j * 13 + CAT_ORDER.indexOf(ck) * 7) | 0;
-      var primarySrc = cat.kwType ? srcPool[cat.kwType] : null;
-      var altSrc = cat.altKwType ? srcPool[cat.altKwType] : null;
-      var src = null, activeKwType = null;
-      if (primarySrc && altSrc) {
-        if ((cSeed % 10) < 6) { src = primarySrc; activeKwType = cat.kwType; }
-        else { src = altSrc; activeKwType = cat.altKwType; }
-      } else if (primarySrc) { src = primarySrc; activeKwType = cat.kwType; }
-      else if (altSrc) { src = altSrc; activeKwType = cat.altKwType; }
-      var useKwTpl = src && cat.tKw && cat.tKw.length > 0 && ((cSeed % 10) < 7);
-      var tpl, injTxt, usedType = null;
-      if (useKwTpl) {
-        tpl = cat.tKw[cSeed % cat.tKw.length]; injTxt = src.kw; usedType = activeKwType;
-        markUsed(activeKwType, src.idx);
-      } else {
-        tpl = cat.tStd[cSeed % cat.tStd.length];
-        injTxt = src ? src.kw : DB[DEST_KEY].kw; usedType = null;
+      var c = tryH1WithCtx(year, seed + att * 7, att);
+      var conflict = !!usedH1Set[c.text];
+      if (!conflict) {
+        for (var m = 0; m < pendingH1s.length; m++) {
+          if (pendingH1s[m].text === c.text) { conflict = true; break; }
+        }
       }
-      var lCtx = buildCtx(year, cSeed, injTxt);
-      h2s.push({ ck: ck, catName: cat.name, cls: cat.cls, text: fill(tpl, lCtx), kwType: usedType, injKw: usedType ? injTxt : null });
+      if (!conflict) { h1r = c; h1r._seed = seed + att * 7; break; }
     }
-    advanceRR(); genCount++;
-    var item = {
-      id: genCount, destKey: DEST_KEY, destName: DB[DEST_KEY].name, year: year,
-      h1: h1r.text, h2s: h2s, h1Mode: h1r.mode,
-      mainFuncKw: h1r.funcKw, mainConvKw: h1r.convKw
-    };
-    curSet = item;
-    hist.unshift(JSON.parse(JSON.stringify(item)));
+    if (!h1r) {
+      h1r = tryH1WithCtx(year, seed, 0);
+      h1r = copyObj(h1r);
+      h1r.text  = h1r.text + '（No.' + (genCount + b + 1) + '）';
+      h1r._seed = seed;
+    }
+    pendingH1s.push(h1r);
   }
-  renderAllClouds(); updateSummary(); renderOutput(); renderHist(); updateHdrStats();
+
+  renderPendingH1View();
 }
 
-function renderAllClouds() {
-  renderCloud('func'); renderCloud('comp'); renderCloud('loc'); renderCloud('conv');
+function copyObj(o) {
+  var n = {};
+  for (var k in o) n[k] = o[k];
+  return n;
+}
+
+// ============================================================
+// Regenerate one H1 (called from step-1 view)
+// ============================================================
+function regenerateOneH1(idx) {
+  regenSeeds[idx] = (regenSeeds[idx] || 0) + 1;
+  var extra    = regenSeeds[idx];
+  var year     = pendingYear;
+  var prevSeed = pendingH1s[idx]._seed || 0;
+  var newBase  = (prevSeed + extra * 137 + (Date.now() % 1000)) | 0;
+
+  var h1r = null;
+  for (var att = 0; att < 30; att++) {
+    var c = tryH1WithCtx(year, newBase + att * 11, att + extra * 3);
+    var conflict = !!usedH1Set[c.text];
+    if (!conflict) {
+      for (var m = 0; m < pendingH1s.length; m++) {
+        if (m !== idx && pendingH1s[m].text === c.text) { conflict = true; break; }
+      }
+    }
+    if (!conflict) { h1r = c; h1r._seed = newBase + att * 11; break; }
+  }
+  if (!h1r) {
+    h1r = tryH1WithCtx(year, newBase, 0);
+    h1r = copyObj(h1r);
+    h1r.text  = h1r.text + '（v' + extra + '）';
+    h1r._seed = newBase;
+  }
+
+  // Preserve batchIdx
+  var bIdx = pendingH1s[idx].batchIdx;
+  pendingH1s[idx] = h1r;
+  pendingH1s[idx].batchIdx = bIdx;
+
+  renderPendingH1View();
+  showToast('🔄 第 ' + (idx + 1) + ' 篇H1已重新生成');
+}
+
+// ============================================================
+// Render step-1 confirmation view
+// ============================================================
+function renderPendingH1View() {
+  var n = pendingH1s.length;
+
+  // Update header
+  document.getElementById('bdgGen').style.display   = 'inline';
+  document.getElementById('bdgGen').textContent     = '步骤 1 / 2';
+  document.getElementById('bdgStep').style.display  = 'none';
+  document.getElementById('bdgConv').style.display  = 'none';
+  document.getElementById('bdgKw').style.display    = 'none';
+  document.getElementById('bdgDed').style.display   = 'none';
+  document.getElementById('btnCopySet').style.display = 'none';
+  document.getElementById('btnPrompt').style.display  = 'none';
+  document.getElementById('oFt').style.display        = 'none';
+  document.getElementById('ocardTitle').textContent   = 'H1 主标题确认';
+
+  var html = '';
+
+  // Progress indicator
+  html += '<div class="s1-prog">'
+    + '<div class="s1-step"><div class="s1-dot">1</div><div class="s1-lbl">确认 H1 标题</div></div>'
+    + '<div class="s1-line-wrap"><div class="s1-line"><span class="s1-line-arr">▶</span></div></div>'
+    + '<div class="s1-step"><div class="s1-dot s1-dot-i">2</div><div class="s1-lbl s1-lbl-i">生成 H2 子标题</div></div>'
+    + '</div>';
+
+  // Tip
+  var batchNote = n > 1 ? '（共 ' + n + ' 篇）' : '';
+  html += '<div class="s1-tip">💡 以下 H1 主标题已智能生成' + batchNote + '。<br>'
+    + '如满意请点击 <b>「✅ 确认H1，生成H2」</b>；如需更换请点击对应标题右侧的 <b>「🔄 重新生成」</b>。<br>'
+    + '<b>H2 子标题将严格围绕确认后的 H1 标题进行匹配生成</b>（城市、服务商、关键词等上下文与 H1 完全一致）。</div>';
+
+  // H1 list
+  html += '<div class="s1-list">';
+  for (var i = 0; i < pendingH1s.length; i++) {
+    var p = pendingH1s[i];
+    var isConv = p.mode === 'conv';
+    var h1Len  = p.text.length;
+    var lenOk  = h1Len >= 15 && h1Len <= 65;
+    var kwBdgs = '';
+    if (p.convKw) kwBdgs += '<span class="ki ki-v">🔥 ' + escHtml(p.convKw) + '</span>';
+    if (p.funcKw) kwBdgs += '<span class="ki ki-f">⚡ ' + escHtml(p.funcKw) + '</span>';
+    var modeBdg = isConv
+      ? '<span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;background:#fff0e0;border:1px solid #fdba74;color:#c2410c">🔥 高转化词驱动</span>'
+      : (p.funcKw ? '<span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;background:#dbeafe;border:1px solid #93c5fd;color:#1d4ed8">⚡ 功能词驱动</span>' : '<span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;background:#f1f5f9;border:1px solid #cbd5e1;color:#475569">标准模板</span>');
+    var itemCls = 's1-item' + (isConv ? ' s1-item-conv' : '');
+    html += '<div class="' + itemCls + '">';
+    if (n > 1) {
+      html += '<div class="s1-item-hd">'
+        + '<span class="s1-item-no">第 ' + (i + 1) + ' 篇</span>'
+        + modeBdg
+        + '</div>';
+    }
+    html += '<div class="s1-item-body">';
+    if (n === 1) {
+      html += '<div style="display:flex;align-items:center;gap:7px;margin-bottom:8px;flex-wrap:wrap">' + modeBdg + '</div>';
+    }
+    html += '<div class="s1-h1-text">' + escHtml(p.text) + '</div>';
+    html += '<div class="s1-h1-meta">'
+      + '<span class="h1-len' + (lenOk ? '' : ' sw') + '">字符：' + h1Len + (lenOk ? '' : ' ⚠') + '</span>'
+      + kwBdgs
+      + (p.ctx ? '<span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#f0fdfa;border:1px solid #99f6e4;color:#0f766e">📍 ' + escHtml(p.ctx.city) + ' · ' + escHtml(p.ctx.p1) + '</span>' : '')
+      + '</div>';
+    html += '</div>';
+    html += '<div class="s1-item-actions">'
+      + '<button class="btn btn-out" onclick="regenerateOneH1(' + i + ')" style="font-size:12px;padding:6px 12px">🔄 重新生成</button>'
+      + '<button class="btn btn-out" onclick="copyText(pendingH1s[' + i + '].text)" style="font-size:12px;padding:6px 10px">📋 复制</button>'
+      + '</div>';
+    html += '</div>';
+  }
+  html += '</div>';
+
+  // Confirm bar
+  var confirmTxt = n > 1
+    ? '✅ 确认全部 ' + n + ' 篇H1，生成H2子标题 →'
+    : '✅ 确认H1，生成H2子标题 →';
+  html += '<div class="s1-confirm-bar">'
+    + '<div class="s1-confirm-l">'
+    + '<div class="s1-confirm-title">H1 确认后，H2 将围绕以上主标题智能匹配生成</div>'
+    + '<div class="s1-confirm-hint">城市、服务商、关键词等上下文与 H1 保持完全一致</div>'
+    + '</div>'
+    + '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">'
+    + '<button class="btn-confirm" onclick="confirmH1AndGenerateH2()">' + confirmTxt + '</button>'
+    + '<button class="btn btn-out" onclick="generateH1Step()" style="font-size:12px;padding:8px 14px">↩ 重新开始</button>'
+    + '</div>'
+    + '</div>';
+
+  document.getElementById('outputBody').innerHTML = html;
+
+  // Scroll card into view
+  document.getElementById('mainOCard').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// ============================================================
+// STEP 2 — Confirm H1, generate H2 using H1's context
+// ============================================================
+function confirmH1AndGenerateH2() {
+  var h2n   = pendingH2n;
+  var year  = pendingYear;
+  var lastItem = null;
+
+  for (var b = 0; b < pendingH1s.length; b++) {
+    var h1Data = pendingH1s[b];
+
+    // Mark H1 as used in de-dup set
+    usedH1Set[h1Data.text] = true;
+
+    // Mark H1 keyword usage
+    if (h1Data.funcIdx >= 0) markUsed('func', h1Data.funcIdx);
+    if (h1Data.convIdx >= 0) markUsed('conv', h1Data.convIdx);
+
+    // Generate H2 using H1's stored context
+    var selCats = getLogicalCats(h2n, (h1Data._seed || 0) * 53 + b * 17);
+    var h2s = generateH2WithCtx(selCats, h1Data);
+
+    genCount++;
+    var item = {
+      id:          genCount,
+      destKey:     DEST_KEY,
+      destName:    DB[DEST_KEY].name,
+      year:        year,
+      h1:          h1Data.text,
+      h2s:         h2s,
+      h1Mode:      h1Data.mode,
+      mainFuncKw:  h1Data.funcKw,
+      mainConvKw:  h1Data.convKw
+    };
+
+    lastItem = item;
+    hist.unshift(JSON.parse(JSON.stringify(item)));
+    advanceRR();
+  }
+
+  pendingH1s = [];
+  curSet = lastItem;
+
+  renderAllClouds();
+  updateSummary();
+  renderOutput();
+  renderHist();
+  updateHdrStats();
+}
+
+// ============================================================
+// H2 GENERATION — uses H1's stored ctx for coherence
+// ============================================================
+function generateH2WithCtx(selCats, h1Data) {
+  // Use the exact same ctx as H1 so city/provider/duration etc. all match
+  var h1Ctx = h1Data.ctx || buildCtx(pendingYear, h1Data._seed || 0, h1Data.funcKw || DB[DEST_KEY].kw);
+  var seed  = h1Data._seed || 0;
+  var h2s   = [];
+
+  var srcPool = {
+    func: getPoolKw('func', 0),
+    comp: getPoolKw('comp', 0),
+    loc:  getPoolKw('loc',  0),
+    conv: getPoolKw('conv', 0)
+  };
+
+  for (var j = 0; j < selCats.length; j++) {
+    var ck  = selCats[j];
+    var cat = CATS[ck];
+    var cSeed = Math.abs(seed * 11 + j * 13 + CAT_ORDER.indexOf(ck) * 7) | 0;
+
+    var primarySrc = cat.kwType     ? srcPool[cat.kwType]     : null;
+    var altSrc     = cat.altKwType  ? srcPool[cat.altKwType]  : null;
+    var src = null, activeKwType = null;
+
+    if (primarySrc && altSrc) {
+      if ((cSeed % 10) < 6) { src = primarySrc; activeKwType = cat.kwType; }
+      else                  { src = altSrc;     activeKwType = cat.altKwType; }
+    } else if (primarySrc) { src = primarySrc; activeKwType = cat.kwType; }
+    else if (altSrc)       { src = altSrc;     activeKwType = cat.altKwType; }
+
+    var useKwTpl = src && cat.tKw && cat.tKw.length > 0 && ((cSeed % 10) < 7);
+    var tpl, injTxt, usedType = null;
+
+    if (useKwTpl) {
+      tpl = cat.tKw[cSeed % cat.tKw.length];
+      injTxt = src.kw; usedType = activeKwType;
+      markUsed(activeKwType, src.idx);
+    } else {
+      tpl = cat.tStd[cSeed % cat.tStd.length];
+      injTxt = src ? src.kw : DB[DEST_KEY].kw;
+      usedType = null;
+    }
+
+    // KEY: merge h1Ctx with this H2's injKw — city/provider/etc. all inherited from H1
+    var h2Ctx = {};
+    for (var k in h1Ctx) h2Ctx[k] = h1Ctx[k];
+    h2Ctx.injKw = injTxt;
+
+    h2s.push({
+      ck:      ck,
+      catName: cat.name,
+      cls:     cat.cls,
+      text:    fill(tpl, h2Ctx),
+      kwType:  usedType,
+      injKw:   usedType ? injTxt : null
+    });
+  }
+
+  return h2s;
 }
 
 // ============================================================
@@ -1083,34 +1305,44 @@ function renderOutput() {
   var h1 = curSet.h1, h2s = curSet.h2s;
   var h1Len = h1.length, lenOk = h1Len >= 15 && h1Len <= 65;
   var isConvDriven = curSet.h1Mode === 'conv';
-  document.getElementById('bdgGen').style.display = 'inline';
-  document.getElementById('bdgGen').textContent = '第 ' + curSet.id + ' 篇';
-  document.getElementById('bdgDed').style.display = 'inline';
+
+  // Update header badges
+  document.getElementById('bdgGen').style.display  = 'inline';
+  document.getElementById('bdgGen').textContent    = '第 ' + curSet.id + ' 篇';
+  document.getElementById('bdgStep').style.display = 'inline';
+  document.getElementById('bdgDed').style.display  = 'inline';
   document.getElementById('btnCopySet').style.display = 'inline-flex';
-  document.getElementById('btnPrompt').style.display = 'inline-flex';
-  document.getElementById('oFt').style.display = 'flex';
+  document.getElementById('btnPrompt').style.display  = 'inline-flex';
+  document.getElementById('oFt').style.display        = 'flex';
+  document.getElementById('ocardTitle').textContent   = 'SEO Blog 文章结构';
+
   document.getElementById('bdgConv').style.display = isConvDriven ? 'inline' : 'none';
   if (isConvDriven && curSet.mainConvKw) document.getElementById('bdgConv').textContent = '🔥 ' + curSet.mainConvKw;
   var hasKw = !!(curSet.mainFuncKw && !isConvDriven);
   document.getElementById('bdgKw').style.display = hasKw ? 'inline' : 'none';
   if (hasKw) document.getElementById('bdgKw').textContent = '🔑 ' + curSet.mainFuncKw;
-  var injF=0, injC=0, injL=0, injV=0;
-  for (var m=0;m<h2s.length;m++) {
-    if (h2s[m].kwType==='func') injF++;
-    else if (h2s[m].kwType==='comp') injC++;
-    else if (h2s[m].kwType==='loc') injL++;
-    else if (h2s[m].kwType==='conv') injV++;
+
+  var injF=0,injC=0,injL=0,injV=0;
+  for(var m=0;m<h2s.length;m++){
+    if(h2s[m].kwType==='func') injF++;
+    else if(h2s[m].kwType==='comp') injC++;
+    else if(h2s[m].kwType==='loc')  injL++;
+    else if(h2s[m].kwType==='conv') injV++;
   }
+
   var seoHtml = '<div class="seo-bar">'
     + '<span class="seo-tag so">✓ 核心关键词</span>'
     + '<span class="seo-tag ' + (lenOk?'so':'sw') + '">' + (lenOk?'✓':'⚠') + ' H1字符 ' + h1Len + (lenOk?'':'（建议15-65）') + '</span>'
     + '<span class="seo-tag so">✓ 读者旅程排序</span>'
+    + '<span class="seo-tag so">✓ H2围绕H1生成</span>'
     + (injV>0 ? '<span class="seo-tag sv">🔥 高转化词×'+injV+'</span>' : '')
     + (injF>0 ? '<span class="seo-tag si">⚡ 功能词×'+injF+'</span>' : '')
     + (injC>0 ? '<span class="seo-tag" style="background:#fdf2f8;border:1px solid #f9a8d4;color:#be185d">🏆 竞品词×'+injC+'</span>' : '')
     + (injL>0 ? '<span class="seo-tag" style="background:#f0fdfa;border:1px solid #99f6e4;color:#0f766e">📍 地区词×'+injL+'</span>' : '')
     + '</div>';
+
   var dedHtml = '<div class="dedup-row">✅ H1已去重 · 本次会话 '+genCount+' 篇 · 唯一H1库 '+Object.keys(usedH1Set).length+' 条</div>';
+
   var h1BlockCls = 'h1-block' + (isConvDriven ? ' h1-block-conv' : '');
   var kwBadges = ''
     + (curSet.mainConvKw ? '<span class="ki ki-v">🔥 '+escHtml(curSet.mainConvKw)+'</span>' : '')
@@ -1122,22 +1354,25 @@ function renderOutput() {
     + (isConvDriven ? '<span style="font-size:10px;font-weight:700;color:#c2410c;padding:2px 7px;border-radius:6px;background:#fff0e0;border:1px solid #fdba74">🔥 高转化词驱动</span>' : '')
     + kwBadges+'</div></div>'
     + '<button class="h1-copy" onclick="cpH1()">📋 复制</button></div>';
+
   var injTotal = injF+injC+injL+injV;
   var h2Hd = '<div class="h2-hd">H2 子标题 · 共 '+h2s.length+' 个'
     + ' <span class="h2-hd-b" style="background:var(--grn)">✓ 读者旅程排序</span>'
+    + ' <span class="h2-hd-b" style="background:#0f766e">✓ 围绕H1主题匹配</span>'
     + (injV>0 ? ' <span class="h2-hd-b" style="background:var(--orn)">🔥 高转化词×'+injV+'</span>' : '')
     + (injTotal-injV>0 ? ' <span class="h2-hd-b" style="background:var(--amb)">🔑 其他词×'+(injTotal-injV)+'</span>' : '')
     + '</div>';
+
   var h2Html = '';
-  for (var m=0;m<h2s.length;m++) {
-    var item = h2s[m];
-    var phInfo = CAT_PHASE[item.ck] || {phase:'',cls:'fp-sup',icon:''};
-    var isConvH2 = item.kwType==='conv' || item.ck==='deal';
-    var kwBdg = '';
-    if (item.kwType) {
-      var kwBdgCls = {func:'ki-f',comp:'ki-c',loc:'ki-l',conv:'ki-v'}[item.kwType];
-      var kwBdgIcon = {func:'⚡',comp:'🏆',loc:'📍',conv:'🔥'}[item.kwType];
-      kwBdg = '<span class="h2-kw-tag '+kwBdgCls+'">'+kwBdgIcon+' '+escHtml(item.injKw)+'</span>';
+  for(var m=0;m<h2s.length;m++){
+    var item=h2s[m];
+    var phInfo=CAT_PHASE[item.ck]||{phase:'',cls:'fp-sup',icon:''};
+    var isConvH2=item.kwType==='conv'||item.ck==='deal';
+    var kwBdg='';
+    if(item.kwType){
+      var kwBdgCls={func:'ki-f',comp:'ki-c',loc:'ki-l',conv:'ki-v'}[item.kwType];
+      var kwBdgIcon={func:'⚡',comp:'🏆',loc:'📍',conv:'🔥'}[item.kwType];
+      kwBdg='<span class="h2-kw-tag '+kwBdgCls+'">'+kwBdgIcon+' '+escHtml(item.injKw)+'</span>';
     }
     h2Html += '<div class="h2-item'+(isConvH2?' h2-conv':'')+'">'
       + '<div class="h2-num'+(isConvH2?' h2-num-conv':'')+'">'+(m+1)+'</div>'
@@ -1147,10 +1382,12 @@ function renderOutput() {
       + '<div class="h2-len">字符：'+item.text.length+'</div>'
       + '</div><button class="h2-copy" onclick="cpH2('+m+')">📋</button></div>';
   }
+
   var banner = '<div class="prompt-banner">'
     + '<div class="pb-l"><div class="pb-title">📝 一键生成 SEO 写作 Prompt</div>'
-    + '<div class="pb-sub">4类关键词+自定义追加词 · 高转化词优先 · 读者旅程结构</div></div>'
+    + '<div class="pb-sub">4类关键词+自定义追加词 · 高转化词优先 · H2围绕H1主题</div></div>'
     + '<button class="btn btn-pur" onclick="generatePrompt()" style="font-size:13px;padding:9px 17px">📝 生成 Prompt</button></div>';
+
   document.getElementById('outputBody').innerHTML =
     seoHtml + dedHtml + h1Html + buildFlowBar(h2s) + h2Hd + '<div class="h2-list">'+h2Html+'</div>' + banner;
 }
@@ -1163,12 +1400,12 @@ function renderHist() {
   document.getElementById('histCnt').textContent = hist.length;
   document.getElementById('btnExpAll').style.display = genCount > 0 ? 'inline-flex' : 'none';
   var limit = Math.min(hist.length, 50), html = '';
-  for (var p=0;p<limit;p++) {
-    var it = hist[p];
-    var preview = '';
-    for (var q=0;q<Math.min(it.h2s.length,3);q++) {
-      var txt = it.h2s[q].text;
-      if (txt.length>28) txt = txt.slice(0,28)+'...';
+  for(var p=0;p<limit;p++){
+    var it=hist[p];
+    var preview='';
+    for(var q=0;q<Math.min(it.h2s.length,3);q++){
+      var txt=it.h2s[q].text;
+      if(txt.length>28) txt=txt.slice(0,28)+'...';
       preview += '· '+escHtml(txt)+'<br>';
     }
     var kwBv = it.mainConvKw ? '<span class="kt kt-vu" style="font-size:10px;padding:1px 6px">🔥 '+escHtml(it.mainConvKw.length>18?it.mainConvKw.slice(0,18)+'…':it.mainConvKw)+'</span>' : '';
@@ -1184,382 +1421,353 @@ function renderHist() {
   }
   document.getElementById('histGrid').innerHTML = html;
 }
-
-function toggleHist() {
-  var body = document.getElementById('histBody');
-  var arr  = document.getElementById('histArr');
-  var open = body.classList.toggle('open');
-  arr.textContent = open ? '▲ 收起' : '▼ 展开';
+function toggleHist(){
+  var body=document.getElementById('histBody');
+  var arr=document.getElementById('histArr');
+  var open=body.classList.toggle('open');
+  arr.textContent=open?'▲ 收起':'▼ 展开';
 }
 
 // ============================================================
 // HISTORY PREVIEW MODAL
 // ============================================================
-function openHistPreview(id) {
-  var found = -1;
-  for (var p=0;p<hist.length;p++) { if (hist[p].id===id) { found=p; break; } }
-  if (found<0) return;
-  hpIdx = found; hpItem = hist[hpIdx];
+function openHistPreview(id){
+  var found=-1;
+  for(var p=0;p<hist.length;p++){ if(hist[p].id===id){found=p;break;} }
+  if(found<0) return;
+  hpIdx=found; hpItem=hist[hpIdx];
   renderHPModal();
   document.getElementById('hpModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
-
-function renderHPModal() {
-  if (!hpItem) return;
-  var isConvDriven = hpItem.h1Mode==='conv';
-  document.getElementById('hpTitle').textContent = '第 '+hpItem.id+' 篇文章结构'+(isConvDriven?'  🔥':'');
-  document.getElementById('hpMeta').textContent = hpItem.destName+' · '+hpItem.year
-    +(hpItem.mainConvKw ? '  ·  高转化词：'+hpItem.mainConvKw : '')
-    +(hpItem.mainFuncKw&&!hpItem.mainConvKw ? '  ·  主词：'+hpItem.mainFuncKw : '');
-  var navInfo = document.getElementById('hpNavInfo');
-  navInfo.textContent = '第 '+(hpIdx+1)+' / '+hist.length+' 篇';
-  document.querySelector('.hp-nav-prev').style.opacity = hpIdx>=hist.length-1?'.4':'1';
-  document.querySelector('.hp-nav-next').style.opacity = hpIdx<=0?'.4':'1';
-  var h1Len = hpItem.h1.length, lenOk = h1Len>=15&&h1Len<=65;
-  var kwBadges = ''
-    + (hpItem.mainConvKw ? '<span class="ki ki-v">🔥 '+escHtml(hpItem.mainConvKw)+'</span>' : '')
-    + (hpItem.mainFuncKw ? '<span class="ki ki-f">⚡ '+escHtml(hpItem.mainFuncKw)+'</span>' : '');
-  var h1BlockCls = 'h1-block'+(isConvDriven?' h1-block-conv':'');
-  var html = '<div class="'+h1BlockCls+'" style="margin-bottom:14px">'
-    + '<span class="h1-lbl">H1</span><div class="h1-body">'
-    + '<div class="h1-txt">'+escHtml(hpItem.h1)+'</div>'
-    + '<div class="h1-meta"><span class="h1-len'+(lenOk?'':' sw')+'">字符：'+h1Len+(lenOk?'':' ⚠')+'</span>'
-    + (isConvDriven ? '<span style="font-size:10px;font-weight:700;color:#c2410c;padding:2px 7px;border-radius:6px;background:#fff0e0;border:1px solid #fdba74">🔥 高转化</span>' : '')
-    + kwBadges+'</div></div>'
-    + '<button class="h1-copy" onclick="copyText(hpItem.h1)">📋 复制</button></div>';
-  var injCnt=0, injV=0;
-  for (var i=0;i<hpItem.h2s.length;i++) {
-    if (hpItem.h2s[i].kwType) { injCnt++; if (hpItem.h2s[i].kwType==='conv') injV++; }
+function renderHPModal(){
+  if(!hpItem) return;
+  var isConvDriven=hpItem.h1Mode==='conv';
+  document.getElementById('hpTitle').textContent='第 '+hpItem.id+' 篇文章结构'+(isConvDriven?'  🔥':'');
+  document.getElementById('hpMeta').textContent=hpItem.destName+' · '+hpItem.year
+    +(hpItem.mainConvKw?' · 高转化词：'+hpItem.mainConvKw:'')
+    +(hpItem.mainFuncKw&&!hpItem.mainConvKw?' · 主词：'+hpItem.mainFuncKw:'');
+  document.getElementById('hpNavInfo').textContent='第 '+(hpIdx+1)+' / '+hist.length+' 篇';
+  document.querySelector('.hp-nav-prev').style.opacity=hpIdx>=hist.length-1?'.4':'1';
+  document.querySelector('.hp-nav-next').style.opacity=hpIdx<=0?'.4':'1';
+  var h1Len=hpItem.h1.length,lenOk=h1Len>=15&&h1Len<=65;
+  var kwBadges=''
+    +(hpItem.mainConvKw?'<span class="ki ki-v">🔥 '+escHtml(hpItem.mainConvKw)+'</span>':'')
+    +(hpItem.mainFuncKw?'<span class="ki ki-f">⚡ '+escHtml(hpItem.mainFuncKw)+'</span>':'');
+  var h1BlockCls='h1-block'+(isConvDriven?' h1-block-conv':'');
+  var html='<div class="'+h1BlockCls+'" style="margin-bottom:14px">'
+    +'<span class="h1-lbl">H1</span><div class="h1-body">'
+    +'<div class="h1-txt">'+escHtml(hpItem.h1)+'</div>'
+    +'<div class="h1-meta"><span class="h1-len'+(lenOk?'':' sw')+'">字符：'+h1Len+(lenOk?'':' ⚠')+'</span>'
+    +(isConvDriven?'<span style="font-size:10px;font-weight:700;color:#c2410c;padding:2px 7px;border-radius:6px;background:#fff0e0;border:1px solid #fdba74">🔥 高转化</span>':'')
+    +kwBadges+'</div></div>'
+    +'<button class="h1-copy" onclick="copyText(hpItem.h1)">📋 复制</button></div>';
+  var injCnt=0,injV=0;
+  for(var i=0;i<hpItem.h2s.length;i++){
+    if(hpItem.h2s[i].kwType){injCnt++;if(hpItem.h2s[i].kwType==='conv')injV++;}
   }
-  html += '<div class="h2-hd" style="margin-bottom:9px">H2 子标题 · 共 '+hpItem.h2s.length+' 个'
-    + ' <span class="h2-hd-b" style="background:var(--grn)">✓ 读者旅程排序</span>'
-    + (injV>0 ? ' <span class="h2-hd-b" style="background:var(--orn)">🔥 高转化词×'+injV+'</span>' : '')
-    + (injCnt-injV>0 ? ' <span class="h2-hd-b" style="background:var(--amb)">🔑 其他词×'+(injCnt-injV)+'</span>' : '')
-    + '</div><div class="h2-list">';
-  for (var m=0;m<hpItem.h2s.length;m++) {
-    var item = hpItem.h2s[m];
-    var phInfo = CAT_PHASE[item.ck] || {phase:'',cls:'fp-sup',icon:''};
-    var isConvH2 = item.kwType==='conv'||item.ck==='deal';
-    var kwBdg = '';
-    if (item.kwType) {
-      var kwBdgCls={func:'ki-f',comp:'ki-c',loc:'ki-l',conv:'ki-v'}[item.kwType];
-      var kwBdgIcon={func:'⚡',comp:'🏆',loc:'📍',conv:'🔥'}[item.kwType];
-      kwBdg='<span class="h2-kw-tag '+kwBdgCls+'">'+kwBdgIcon+' '+escHtml(item.injKw)+'</span>';
+  html+='<div class="h2-hd" style="margin-bottom:9px">H2 子标题 · 共 '+hpItem.h2s.length+' 个'
+    +' <span class="h2-hd-b" style="background:var(--grn)">✓ 读者旅程排序</span>'
+    +' <span class="h2-hd-b" style="background:#0f766e">✓ 围绕H1主题</span>'
+    +(injV>0?' <span class="h2-hd-b" style="background:var(--orn)">🔥 高转化词×'+injV+'</span>':'')
+    +(injCnt-injV>0?' <span class="h2-hd-b" style="background:var(--amb)">🔑 其他词×'+(injCnt-injV)+'</span>':'')
+    +'</div><div class="h2-list">';
+  for(var m=0;m<hpItem.h2s.length;m++){
+    var item=hpItem.h2s[m];
+    var phInfo=CAT_PHASE[item.ck]||{phase:'',cls:'fp-sup',icon:''};
+    var isConvH2=item.kwType==='conv'||item.ck==='deal';
+    var kwBdg='';
+    if(item.kwType){
+      var kbc={func:'ki-f',comp:'ki-c',loc:'ki-l',conv:'ki-v'}[item.kwType];
+      var kbi={func:'⚡',comp:'🏆',loc:'📍',conv:'🔥'}[item.kwType];
+      kwBdg='<span class="h2-kw-tag '+kbc+'">'+kbi+' '+escHtml(item.injKw)+'</span>';
     }
-    html += '<div class="h2-item'+(isConvH2?' h2-conv':'')+'">'
-      + '<div class="h2-num'+(isConvH2?' h2-num-conv':'')+'" style="background:'+(isConvH2?'var(--orn)':'var(--pri)') +'">'+(m+1)+'</div>'
-      + '<div class="h2-body"><div class="h2-tags"><span class="cat-bdg '+item.cls+'">'+item.catName+'</span>'
-      + '<span class="ph-bdg '+phInfo.cls+'">'+phInfo.icon+' '+phInfo.phase+'</span>'+kwBdg+'</div>'
-      + '<div class="h2-txt">'+escHtml(item.text)+'</div>'
-      + '<div class="h2-len">字符：'+item.text.length+'</div>'
-      + '</div><button class="h2-copy" onclick="copyText(hpItem.h2s['+m+'].text)">📋</button></div>';
+    html+='<div class="h2-item'+(isConvH2?' h2-conv':'')+'">'
+      +'<div class="h2-num'+(isConvH2?' h2-num-conv':'')+'" style="background:'+(isConvH2?'var(--orn)':'var(--pri)')+'">'+(m+1)+'</div>'
+      +'<div class="h2-body"><div class="h2-tags"><span class="cat-bdg '+item.cls+'">'+item.catName+'</span>'
+      +'<span class="ph-bdg '+phInfo.cls+'">'+phInfo.icon+' '+phInfo.phase+'</span>'+kwBdg+'</div>'
+      +'<div class="h2-txt">'+escHtml(item.text)+'</div>'
+      +'<div class="h2-len">字符：'+item.text.length+'</div>'
+      +'</div><button class="h2-copy" onclick="copyText(hpItem.h2s['+m+'].text)">📋</button></div>';
   }
-  html += '</div>';
-  document.getElementById('hpBody').innerHTML = html;
-  document.getElementById('hpBody').scrollTop = 0;
+  html+='</div>';
+  document.getElementById('hpBody').innerHTML=html;
+  document.getElementById('hpBody').scrollTop=0;
 }
-
-function hpNavigate(dir) {
-  var newIdx = hpIdx+dir;
-  if (newIdx<0||newIdx>=hist.length) return;
-  hpIdx = newIdx; hpItem = hist[hpIdx]; renderHPModal();
+function hpNavigate(dir){
+  var ni=hpIdx+dir;
+  if(ni<0||ni>=hist.length) return;
+  hpIdx=ni; hpItem=hist[hpIdx]; renderHPModal();
 }
-function closeHPModal() { document.getElementById('hpModal').classList.remove('open'); document.body.style.overflow=''; }
-function closeHPModalBg(e) { if (e&&e.target===document.getElementById('hpModal')) closeHPModal(); }
-function loadHistIntoMain() {
-  if (!hpItem) return;
-  var item = hpItem; closeHPModal();
-  curSet = item; renderOutput();
-  var outCard = document.getElementById('mainOCard');
-  if (outCard) {
+function closeHPModal(){ document.getElementById('hpModal').classList.remove('open'); document.body.style.overflow=''; }
+function closeHPModalBg(e){ if(e&&e.target===document.getElementById('hpModal')) closeHPModal(); }
+function loadHistIntoMain(){
+  if(!hpItem) return;
+  var item=hpItem; closeHPModal();
+  curSet=item; renderOutput();
+  var outCard=document.getElementById('mainOCard');
+  if(outCard){
     setTimeout(function(){
       outCard.scrollIntoView({behavior:'smooth',block:'start'});
       outCard.classList.add('flash');
-      setTimeout(function(){ outCard.classList.remove('flash'); }, 1600);
-    }, 200);
+      setTimeout(function(){ outCard.classList.remove('flash'); },1600);
+    },200);
   }
   showToast('📂 已加载第 '+item.id+' 篇');
 }
-function copyHistSet() {
-  if (!hpItem) return;
-  var it = hpItem;
-  var t = '【第 '+it.id+' 篇 | '+it.destName+' '+it.year+'】\n\nH1：\n'+it.h1+'\n\n';
-  if (it.mainConvKw) t += '主高转化词：'+it.mainConvKw+'\n';
-  if (it.mainFuncKw) t += '主功能词：'+it.mainFuncKw+'\n';
-  t += '\nH2（按读者旅程排序）：\n';
-  var typeNames = {func:'功能词',comp:'竞品词',loc:'地区词',conv:'高转化词'};
-  for (var n=0;n<it.h2s.length;n++) {
-    var kw = it.h2s[n].injKw ? '  ['+( typeNames[it.h2s[n].kwType]||'')+': '+it.h2s[n].injKw+']' : '';
-    t += (n+1)+'. ['+it.h2s[n].catName+'] '+it.h2s[n].text+kw+'\n';
+function copyHistSet(){
+  if(!hpItem) return;
+  var it=hpItem;
+  var t='【第 '+it.id+' 篇 | '+it.destName+' '+it.year+'】\n\nH1：\n'+it.h1+'\n\n';
+  if(it.mainConvKw) t+='主高转化词：'+it.mainConvKw+'\n';
+  if(it.mainFuncKw) t+='主功能词：'+it.mainFuncKw+'\n';
+  t+='\nH2（按读者旅程排序）：\n';
+  var tn={func:'功能词',comp:'竞品词',loc:'地区词',conv:'高转化词'};
+  for(var n=0;n<it.h2s.length;n++){
+    var kw=it.h2s[n].injKw?' ['+(tn[it.h2s[n].kwType]||'')+': '+it.h2s[n].injKw+']':'';
+    t+=(n+1)+'. ['+it.h2s[n].catName+'] '+it.h2s[n].text+kw+'\n';
   }
   copyText(t);
 }
-function generatePromptFromHP() {
-  if (!hpItem) return;
-  var item = hpItem; closeHPModal();
-  curSet = item; generatePrompt();
+function generatePromptFromHP(){
+  if(!hpItem) return;
+  var item=hpItem; closeHPModal();
+  curSet=item; generatePrompt();
 }
 
 // ============================================================
 // COPY / EXPORT
 // ============================================================
-function cpH1() { if (curSet) copyText(curSet.h1); }
-function cpH2(i) { if (curSet && curSet.h2s[i]) copyText(curSet.h2s[i].text); }
-function copySet() {
-  if (!curSet) return;
-  var typeNames = {func:'功能词',comp:'竞品词',loc:'地区词',conv:'高转化词'};
-  var t = '【第 '+curSet.id+' 篇 | '+curSet.destName+' '+curSet.year+'】\n\nH1（主标题）：\n'+curSet.h1+'\n\n';
-  if (curSet.mainConvKw) t += '主高转化词：'+curSet.mainConvKw+'\n';
-  if (curSet.mainFuncKw) t += '主功能词：'+curSet.mainFuncKw+'\n';
-  t += '\nH2（子标题 · 按读者旅程排序）：\n';
-  for (var n=0;n<curSet.h2s.length;n++) {
-    var kw = curSet.h2s[n].injKw ? '  ['+(typeNames[curSet.h2s[n].kwType]||'')+': '+curSet.h2s[n].injKw+']' : '';
-    t += (n+1)+'. ['+curSet.h2s[n].catName+'] '+curSet.h2s[n].text+kw+'\n';
+function cpH1(){ if(curSet) copyText(curSet.h1); }
+function cpH2(i){ if(curSet&&curSet.h2s[i]) copyText(curSet.h2s[i].text); }
+function copySet(){
+  if(!curSet) return;
+  var tn={func:'功能词',comp:'竞品词',loc:'地区词',conv:'高转化词'};
+  var t='【第 '+curSet.id+' 篇 | '+curSet.destName+' '+curSet.year+'】\n\nH1（主标题）：\n'+curSet.h1+'\n\n';
+  if(curSet.mainConvKw) t+='主高转化词：'+curSet.mainConvKw+'\n';
+  if(curSet.mainFuncKw) t+='主功能词：'+curSet.mainFuncKw+'\n';
+  t+='\nH2（子标题 · 按读者旅程排序）：\n';
+  for(var n=0;n<curSet.h2s.length;n++){
+    var kw=curSet.h2s[n].injKw?' ['+(tn[curSet.h2s[n].kwType]||'')+': '+curSet.h2s[n].injKw+']':'';
+    t+=(n+1)+'. ['+curSet.h2s[n].catName+'] '+curSet.h2s[n].text+kw+'\n';
   }
   copyText(t);
 }
-function exportCurrent() {
-  if (!curSet) return;
-  var t = '=== 第 '+curSet.id+' 篇 | '+curSet.destName+' '+curSet.year;
-  if (curSet.mainConvKw) t += ' | 高转化词：'+curSet.mainConvKw;
-  if (curSet.mainFuncKw) t += ' | 功能词：'+curSet.mainFuncKw;
-  t += ' ===\n\nH1: '+curSet.h1+'\n\n';
-  for (var n=0;n<curSet.h2s.length;n++) {
-    t += 'H2-'+(n+1)+' ['+curSet.h2s[n].catName+']: '+curSet.h2s[n].text+'\n';
-  }
-  downloadFile(t, 'seo-russia-'+curSet.id+'.txt');
+function exportCurrent(){
+  if(!curSet) return;
+  var t='=== 第 '+curSet.id+' 篇 | '+curSet.destName+' '+curSet.year;
+  if(curSet.mainConvKw) t+=' | 高转化词：'+curSet.mainConvKw;
+  if(curSet.mainFuncKw) t+=' | 功能词：'+curSet.mainFuncKw;
+  t+=' ===\n\nH1: '+curSet.h1+'\n\n';
+  for(var n=0;n<curSet.h2s.length;n++) t+='H2-'+(n+1)+' ['+curSet.h2s[n].catName+']: '+curSet.h2s[n].text+'\n';
+  downloadFile(t,'seo-russia-'+curSet.id+'.txt');
   showToast('📤 导出成功');
 }
-function exportAll() {
-  if (!hist.length) return;
-  var sep = '--------------------------------------------\n';
-  var t = '俄罗斯 eSIM SEO Blog 结构记录 · 共 '+hist.length+' 篇\n生成时间：'+new Date().toLocaleString()+'\n\n';
-  for (var p=0;p<hist.length;p++) {
-    var it = hist[p];
-    t += sep+'第 '+it.id+' 篇 | '+it.year;
-    if (it.mainConvKw) t += ' | 高转化词：'+it.mainConvKw;
-    if (it.mainFuncKw) t += ' | 功能词：'+it.mainFuncKw;
-    t += '\n'+sep+'H1: '+it.h1+'\n\n';
-    for (var n=0;n<it.h2s.length;n++) {
-      var kw = it.h2s[n].injKw ? ' ('+it.h2s[n].injKw+')' : '';
-      t += 'H2-'+(n+1)+' ['+it.h2s[n].catName+']: '+it.h2s[n].text+kw+'\n';
+function exportAll(){
+  if(!hist.length) return;
+  var sep='--------------------------------------------\n';
+  var t='俄罗斯 eSIM SEO Blog 结构记录 · 共 '+hist.length+' 篇\n生成时间：'+new Date().toLocaleString()+'\n\n';
+  for(var p=0;p<hist.length;p++){
+    var it=hist[p];
+    t+=sep+'第 '+it.id+' 篇 | '+it.year;
+    if(it.mainConvKw) t+=' | 高转化词：'+it.mainConvKw;
+    if(it.mainFuncKw) t+=' | 功能词：'+it.mainFuncKw;
+    t+='\n'+sep+'H1: '+it.h1+'\n\n';
+    for(var n=0;n<it.h2s.length;n++){
+      var kw=it.h2s[n].injKw?' ('+it.h2s[n].injKw+')':'';
+      t+='H2-'+(n+1)+' ['+it.h2s[n].catName+']: '+it.h2s[n].text+kw+'\n';
     }
-    t += '\n';
+    t+='\n';
   }
-  downloadFile(t, 'seo-russia-all-'+hist.length+'.txt');
+  downloadFile(t,'seo-russia-all-'+hist.length+'.txt');
   showToast('✅ 已导出 '+hist.length+' 篇文章结构');
 }
 
 // ============================================================
 // PROMPT GENERATION
-// — generatePrompt(): entry point, opens modal
-// — buildPromptContent(): builds content, supports custom kws
 // ============================================================
-function generatePrompt() {
-  if (!curSet) { showToast('请先生成文章结构'); return; }
-  updateCKWPreview();
-  buildPromptContent();
+function generatePrompt(){
+  if(!curSet){ showToast('请先完成文章结构生成'); return; }
+  updateCKWPreview(); buildPromptContent();
   document.getElementById('pModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
-
-function buildPromptContent() {
-  if (!curSet) return;
-
-  // Read custom keywords from textarea
-  var customKws = getCustomKws();
-
-  var d = DB[DEST_KEY];
-  var h1 = curSet.h1, h2s = curSet.h2s;
-  var dest = curSet.destName, yr = curSet.year, kw = d.kw;
-  var p1 = d.providers[0], p2 = d.providers[1] || d.providers[0];
-
-  // Collect all injected keywords by type
-  var injV=[], injF=[], injC=[], injL=[], seen={};
-  if (curSet.mainConvKw && !seen[curSet.mainConvKw]) { seen[curSet.mainConvKw]=true; injV.push(curSet.mainConvKw); }
-  if (curSet.mainFuncKw && !seen[curSet.mainFuncKw]) { seen[curSet.mainFuncKw]=true; injF.push(curSet.mainFuncKw); }
-  for (var i=0;i<h2s.length;i++) {
-    if (h2s[i].kwType && h2s[i].injKw && !seen[h2s[i].injKw]) {
+function buildPromptContent(){
+  if(!curSet) return;
+  var customKws=getCustomKws();
+  var d=DB[DEST_KEY];
+  var h1=curSet.h1, h2s=curSet.h2s;
+  var dest=curSet.destName, yr=curSet.year, kw=d.kw;
+  var p1=d.providers[0], p2=d.providers[1]||d.providers[0];
+  var injV=[],injF=[],injC=[],injL=[],seen={};
+  if(curSet.mainConvKw&&!seen[curSet.mainConvKw]){seen[curSet.mainConvKw]=true;injV.push(curSet.mainConvKw);}
+  if(curSet.mainFuncKw&&!seen[curSet.mainFuncKw]){seen[curSet.mainFuncKw]=true;injF.push(curSet.mainFuncKw);}
+  for(var i=0;i<h2s.length;i++){
+    if(h2s[i].kwType&&h2s[i].injKw&&!seen[h2s[i].injKw]){
       seen[h2s[i].injKw]=true;
-      if (h2s[i].kwType==='conv') injV.push(h2s[i].injKw);
-      else if (h2s[i].kwType==='func') injF.push(h2s[i].injKw);
-      else if (h2s[i].kwType==='comp') injC.push(h2s[i].injKw);
-      else if (h2s[i].kwType==='loc') injL.push(h2s[i].injKw);
+      if(h2s[i].kwType==='conv') injV.push(h2s[i].injKw);
+      else if(h2s[i].kwType==='func') injF.push(h2s[i].injKw);
+      else if(h2s[i].kwType==='comp') injC.push(h2s[i].injKw);
+      else if(h2s[i].kwType==='loc')  injL.push(h2s[i].injKw);
     }
   }
-
-  var sep  = '================================================================\n';
-  var sep2 = '----------------------------------------------------------------\n';
-  var pt = '';
-  pt += sep+'# SEO 软文写作任务 | 俄罗斯 eSIM · '+yr+'\n'+sep+'\n';
-  pt += '## 一、角色定位\n'+sep2;
-  pt += '你是一位拥有 10 年经验的 Google SEO 内容专家，精通内容营销，\n';
-  pt += '请撰写同时满足以下目标的高质量文章：\n';
-  pt += '  1. 符合 Google E-E-A-T 质量评估标准\n';
-  pt += '  2. 真正解决目标读者的实际痛点，提供可操作的实用信息\n';
-  pt += '  3. 四类关键词（高转化词·功能词·竞品词·地区词）自然融入，绝不生硬堆砌\n';
-  pt += '  4. 高转化词优先植入，直接驱动读者产生购买行为\n\n';
-  pt += '## 二、文章基本信息\n'+sep2;
-  pt += '主标题（H1）：'+h1+'\n';
-  pt += '目标地区    ：'+dest+'\n';
-  pt += '发布年份    ：'+yr+'\n';
-  pt += '核心关键词  ：'+kw+'\n';
-  pt += '参考服务商  ：'+p1+'、'+p2+' 等\n';
-  // CHANGED: target reader description
-  pt += '目标读者    ：俄罗斯当地用户，或即将前往其他国家旅行的俄罗斯用户\n\n';
-
-  pt += '## 三、文章结构（按读者旅程逻辑排序）\n'+sep2;
-  pt += '【引言】100-150字：以读者痛点开篇，前100字内自然植入「'+kw+'」\n\n';
-  for (var i=0;i<h2s.length;i++) {
-    var ph = CAT_PHASE[h2s[i].ck] || {phase:'',icon:''};
-    var isConvSec = h2s[i].kwType==='conv'||h2s[i].ck==='deal';
-    pt += (i+1)+'. 【'+h2s[i].catName+' · '+ph.phase+'】'+h2s[i].text+'\n';
-    if (h2s[i].injKw) {
-      var typeLabel = {func:'功能词',comp:'竞品词',loc:'地区词',conv:'🔥高转化词'}[h2s[i].kwType]||'';
-      pt += '   ^ ('+typeLabel+') 本节自然植入：「'+h2s[i].injKw+'」1-2 次'
-        +(isConvSec ? '  ★ 含明确行动号召（CTA）' : '')+'\n';
+  var sep='================================================================\n';
+  var sep2='----------------------------------------------------------------\n';
+  var pt='';
+  pt+=sep+'# SEO 软文写作任务 | 俄罗斯 eSIM · '+yr+'\n'+sep+'\n';
+  pt+='## 一、角色定位\n'+sep2;
+  pt+='你是一位拥有 10 年经验的 Google SEO 内容专家，精通内容营销，\n';
+  pt+='请撰写同时满足以下目标的高质量文章：\n';
+  pt+='  1. 符合 Google E-E-A-T 质量评估标准\n';
+  pt+='  2. 真正解决目标读者的实际痛点，提供可操作的实用信息\n';
+  pt+='  3. 四类关键词（高转化词·功能词·竞品词·地区词）自然融入，绝不生硬堆砌\n';
+  pt+='  4. 高转化词优先植入，直接驱动读者产生购买行为\n\n';
+  pt+='## 二、文章基本信息\n'+sep2;
+  pt+='主标题（H1）：'+h1+'\n';
+  pt+='目标地区    ：'+dest+'\n';
+  pt+='发布年份    ：'+yr+'\n';
+  pt+='核心关键词  ：'+kw+'\n';
+  pt+='参考服务商  ：'+p1+'、'+p2+' 等\n';
+  pt+='目标读者    ：俄罗斯当地用户，或即将前往其他国家旅行的俄罗斯用户\n\n';
+  pt+='## 三、文章结构（按读者旅程逻辑排序）\n'+sep2;
+  pt+='【引言】100-150字：以读者痛点开篇，前100字内自然植入「'+kw+'」\n\n';
+  for(var i=0;i<h2s.length;i++){
+    var ph=CAT_PHASE[h2s[i].ck]||{phase:'',icon:''};
+    var isConvSec=h2s[i].kwType==='conv'||h2s[i].ck==='deal';
+    pt+=(i+1)+'. 【'+h2s[i].catName+' · '+ph.phase+'】'+h2s[i].text+'\n';
+    if(h2s[i].injKw){
+      var tl={func:'功能词',comp:'竞品词',loc:'地区词',conv:'🔥高转化词'}[h2s[i].kwType]||'';
+      pt+='   ^ ('+tl+') 本节自然植入：「'+h2s[i].injKw+'」1-2 次'+(isConvSec?'  ★ 含明确行动号召（CTA）':'')+'\n';
     }
   }
-  pt += '\n【结尾总结】100-150字：3条核心建议，呼应「'+kw+'」，含行动号召\n\n';
-
-  pt += '## 四、关键词植入规范\n'+sep2;
-  pt += '核心词「'+kw+'」全文出现 5-8 次，密度 1.5%-2%\n\n';
-  if (injV.length>0) {
-    pt += '【🔥 高转化词 · 最高优先级 · 直接驱动购买转化】\n';
-    pt += '  → 主要分布于：优惠折扣、购买指南、套餐推荐章节\n';
-    pt += '  → 每个词在对应章节出现 1-2 次，搭配 CTA 用语\n';
-    for (var i=0;i<injV.length;i++) pt += '  · '+injV[i]+'\n';
-    pt += '\n';
+  pt+='\n【结尾总结】100-150字：3条核心建议，呼应「'+kw+'」，含行动号召\n\n';
+  pt+='## 四、关键词植入规范\n'+sep2;
+  pt+='核心词「'+kw+'」全文出现 5-8 次，密度 1.5%-2%\n\n';
+  if(injV.length>0){
+    pt+='【🔥 高转化词 · 最高优先级 · 直接驱动购买转化】\n';
+    pt+='  → 主要分布于：优惠折扣、购买指南、套餐推荐章节\n';
+    pt+='  → 每个词在对应章节出现 1-2 次，搭配 CTA 用语\n';
+    for(var i=0;i<injV.length;i++) pt+='  · '+injV[i]+'\n';
+    pt+='\n';
   }
-  if (injF.length>0) {
-    pt += '【⚡ 功能词 · 高优先级 · 分散注入对应章节，每个 1-2 次】\n';
-    for (var i=0;i<injF.length;i++) pt += '  · '+injF[i]+'\n';
-    pt += '\n';
+  if(injF.length>0){
+    pt+='【⚡ 功能词 · 高优先级 · 分散注入对应章节，每个 1-2 次】\n';
+    for(var i=0;i<injF.length;i++) pt+='  · '+injF[i]+'\n';
+    pt+='\n';
   }
-  if (injC.length>0) {
-    pt += '【🏆 竞品词 · 对比章节自然提及】\n';
-    for (var i=0;i<injC.length;i++) pt += '  · '+injC[i]+'\n';
-    pt += '\n';
+  if(injC.length>0){
+    pt+='【🏆 竞品词 · 对比章节自然提及】\n';
+    for(var i=0;i<injC.length;i++) pt+='  · '+injC[i]+'\n';
+    pt+='\n';
   }
-  if (injL.length>0) {
-    pt += '【📍 地区词 · 覆盖/场景章节】\n';
-    for (var i=0;i<injL.length;i++) pt += '  · '+injL[i]+'\n';
-    pt += '\n';
+  if(injL.length>0){
+    pt+='【📍 地区词 · 覆盖/场景章节】\n';
+    for(var i=0;i<injL.length;i++) pt+='  · '+injL[i]+'\n';
+    pt+='\n';
   }
-
-  // CUSTOM KEYWORDS SECTION (NEW)
-  if (customKws.length>0) {
-    pt += '【🎯 自定义追加关键词 · 必须全部植入 · 每个自然出现 1-2 次】\n';
-    pt += '  → 根据语义选择最合适的章节自然嵌入，不强行堆砌\n';
-    for (var i=0;i<customKws.length;i++) pt += '  · '+customKws[i]+'\n';
-    pt += '\n';
+  if(customKws.length>0){
+    pt+='【🎯 自定义追加关键词 · 必须全部植入 · 每个自然出现 1-2 次】\n';
+    pt+='  → 根据语义选择最合适的章节自然嵌入，不强行堆砌\n';
+    for(var i=0;i<customKws.length;i++) pt+='  · '+customKws[i]+'\n';
+    pt+='\n';
   }
-
-  // Extra keyword pools reference
-  var extV = kwPools.conv.filter(function(k){ return injV.indexOf(k)<0; }).slice(0,8);
-  var extF = kwPools.func.filter(function(k){ return injF.indexOf(k)<0; }).slice(0,10);
-  var extC = kwPools.comp.filter(function(k){ return injC.indexOf(k)<0; }).slice(0,5);
-  var extL = kwPools.loc.filter(function(k){ return injL.indexOf(k)<0; }).slice(0,10);
-  if (extV.length>0) { pt += '【额外高转化词参考（按需选用 3-5 个）】\n'; for (var i=0;i<extV.length;i++) pt+='  · '+extV[i]+'\n'; pt+='\n'; }
-  if (extF.length>0) { pt += '【额外功能词参考（择优选用 5-8 个）】\n'; for (var i=0;i<extF.length;i++) pt+='  · '+extF[i]+'\n'; pt+='\n'; }
-  if (extC.length>0) { pt += '【额外竞品词参考】\n'; for (var i=0;i<extC.length;i++) pt+='  · '+extC[i]+'\n'; pt+='\n'; }
-  if (extL.length>0) { pt += '【额外地区词参考】\n'; for (var i=0;i<extL.length;i++) pt+='  · '+extL[i]+'\n'; pt+='\n'; }
-
-  // CHANGED: Removed Experience real-scene line
-  pt += '## 五、SEO 写作质量规范\n'+sep2;
-  pt += '· 全文总字数：2500-3500 字\n';
-  pt += '· 每个H2章节：200-350字\n';
-  pt += '· Expertise：引用具体数据（价格区间 $X-$Y，网速 50-100 Mbps）\n';
-  pt += '· Authoritativeness：自然提及真实服务商（'+p1+'、'+p2+'等）\n';
-  pt += '· Trustworthiness：客观呈现优缺点，建立信任\n';
-  pt += '· 全部关键词总密度不超过 2.5%\n';
-  pt += '· 高转化词章节必须含明确的 CTA（如：「立即购买」「点击查看最新优惠」）\n\n';
-
-  pt += sep+'## 开始写作\n'+sep;
-  pt += '请从【引言】开始依次展开所有章节，\n最后附：① Meta Title ② Meta 描述 ③ 3条内链建议。\n'+sep;
-
-  // Update modal stats
-  var kwAll = injV.length+injF.length+injC.length+injL.length;
-  document.getElementById('mInfo').innerHTML =
+  var extV=kwPools.conv.filter(function(k){return injV.indexOf(k)<0;}).slice(0,8);
+  var extF=kwPools.func.filter(function(k){return injF.indexOf(k)<0;}).slice(0,10);
+  var extC=kwPools.comp.filter(function(k){return injC.indexOf(k)<0;}).slice(0,5);
+  var extL=kwPools.loc.filter(function(k){return injL.indexOf(k)<0;}).slice(0,10);
+  if(extV.length>0){pt+='【额外高转化词参考（按需选用 3-5 个）】\n';for(var i=0;i<extV.length;i++) pt+='  · '+extV[i]+'\n';pt+='\n';}
+  if(extF.length>0){pt+='【额外功能词参考（择优选用 5-8 个）】\n';for(var i=0;i<extF.length;i++) pt+='  · '+extF[i]+'\n';pt+='\n';}
+  if(extC.length>0){pt+='【额外竞品词参考】\n';for(var i=0;i<extC.length;i++) pt+='  · '+extC[i]+'\n';pt+='\n';}
+  if(extL.length>0){pt+='【额外地区词参考】\n';for(var i=0;i<extL.length;i++) pt+='  · '+extL[i]+'\n';pt+='\n';}
+  pt+='## 五、SEO 写作质量规范\n'+sep2;
+  pt+='· 全文总字数：2500-3500 字\n';
+  pt+='· 每个H2章节：200-350字\n';
+  pt+='· Expertise：引用具体数据（价格区间 $X-$Y，网速 50-100 Mbps）\n';
+  pt+='· Authoritativeness：自然提及真实服务商（'+p1+'、'+p2+'等）\n';
+  pt+='· Trustworthiness：客观呈现优缺点，建立信任\n';
+  pt+='· 全部关键词总密度不超过 2.5%\n';
+  pt+='· 高转化词章节必须含明确的 CTA（如：「立即购买」「点击查看最新优惠」）\n\n';
+  pt+=sep+'## 开始写作\n'+sep;
+  pt+='请从【引言】开始依次展开所有章节，\n最后附：① Meta Title ② Meta 描述 ③ 3条内链建议。\n'+sep;
+  var kwAll=injV.length+injF.length+injC.length+injL.length;
+  document.getElementById('mInfo').innerHTML=
     '<span class="m-st msb">📊 约'+Math.round(pt.length/2.2)+'字</span>'
     +'<span class="m-st msb">📐 '+h2s.length+'个章节</span>'
-    +(injV.length>0 ? '<span class="m-st msv">🔥 高转化词×'+injV.length+'</span>' : '')
-    +(injF.length>0 ? '<span class="m-st msp">⚡ 功能词×'+injF.length+'</span>' : '')
-    +(injC.length>0 ? '<span class="m-st" style="background:#fdf2f8;border:1px solid #f9a8d4;color:#be185d">🏆 竞品词×'+injC.length+'</span>' : '')
-    +(injL.length>0 ? '<span class="m-st mst">📍 地区词×'+injL.length+'</span>' : '')
-    +(customKws.length>0 ? '<span class="m-st msc">🎯 自定义词×'+customKws.length+'</span>' : '')
-    +(kwAll+customKws.length>0 ? '<span class="m-st msa">🔑 共 '+(kwAll+customKws.length)+' 个注入</span>' : '');
-
-  document.getElementById('promptTa').value = pt;
+    +(injV.length>0?'<span class="m-st msv">🔥 高转化词×'+injV.length+'</span>':'')
+    +(injF.length>0?'<span class="m-st msp">⚡ 功能词×'+injF.length+'</span>':'')
+    +(injC.length>0?'<span class="m-st" style="background:#fdf2f8;border:1px solid #f9a8d4;color:#be185d">🏆 竞品词×'+injC.length+'</span>':'')
+    +(injL.length>0?'<span class="m-st mst">📍 地区词×'+injL.length+'</span>':'')
+    +(customKws.length>0?'<span class="m-st msc">🎯 自定义词×'+customKws.length+'</span>':'')
+    +(kwAll+customKws.length>0?'<span class="m-st msa">🔑 共 '+(kwAll+customKws.length)+' 个注入</span>':'');
+  document.getElementById('promptTa').value=pt;
 }
-
-function closeModal() { document.getElementById('pModal').classList.remove('open'); document.body.style.overflow=''; }
-function closeModalBg(e) { if (e&&e.target===document.getElementById('pModal')) closeModal(); }
-document.addEventListener('keydown', function(e) {
-  if (e.key==='Escape') {
-    if (document.getElementById('hpModal').classList.contains('open')) { closeHPModal(); return; }
-    if (document.getElementById('pModal').classList.contains('open')) { closeModal(); return; }
+function closeModal(){ document.getElementById('pModal').classList.remove('open'); document.body.style.overflow=''; }
+function closeModalBg(e){ if(e&&e.target===document.getElementById('pModal')) closeModal(); }
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    if(document.getElementById('hpModal').classList.contains('open')){closeHPModal();return;}
+    if(document.getElementById('pModal').classList.contains('open')){closeModal();return;}
   }
 });
-function copyPrompt() { var t = document.getElementById('promptTa').value; if (t) copyText(t); }
-function exportPrompt() {
-  var t = document.getElementById('promptTa').value;
-  if (!t||!curSet) return;
-  downloadFile(t, 'prompt-russia-'+curSet.id+'.txt');
+function copyPrompt(){ var t=document.getElementById('promptTa').value; if(t) copyText(t); }
+function exportPrompt(){
+  var t=document.getElementById('promptTa').value;
+  if(!t||!curSet) return;
+  downloadFile(t,'prompt-russia-'+curSet.id+'.txt');
   showToast('📤 Prompt 已导出');
 }
 
 // ============================================================
 // RESET
 // ============================================================
-function doReset() {
+function doReset(){
   genCount=0; curSet=null; hist=[]; usedH1Set={};
-  document.getElementById('sGen').textContent='0';
-  document.getElementById('sDedup').textContent='0';
-  var ids=['bdgGen','bdgConv','bdgKw','bdgDed','btnCopySet','btnPrompt'];
-  for (var i=0;i<ids.length;i++) document.getElementById(ids[i]).style.display='none';
+  pendingH1s=[]; pendingYear=''; pendingH2n=8; regenSeeds={};
+  var ids=['bdgGen','bdgStep','bdgConv','bdgKw','bdgDed','btnCopySet','btnPrompt'];
+  for(var i=0;i<ids.length;i++) document.getElementById(ids[i]).style.display='none';
   document.getElementById('oFt').style.display='none';
   document.getElementById('histSec').style.display='none';
   document.getElementById('btnExpAll').style.display='none';
+  document.getElementById('ocardTitle').textContent='SEO Blog 文章结构';
   document.getElementById('outputBody').innerHTML=
     '<div class="empty"><div class="empty-ico">🇷🇺</div>'
-    +'<h3>点击「生成结构」开始批量产出</h3>'
-    +'<p>导入4类关键词（功能词·竞品词·地区词·<b style="color:#c2410c">高转化词</b>）<br>'
-    +'高转化词优先级最高，优先驱动H1标题与促销折扣章节<br>'
-    +'H1全局去重 · 标题精简优化 · 读者旅程逻辑排序</p></div>';
+    +'<h3>两步式生成，结构更精准</h3>'
+    +'<p><b>① 点击「生成H1标题」</b> → 查看并确认主标题<br>'
+    +'<b>② 点击「确认H1，生成H2」</b> → H2围绕H1自动匹配<br><br>'
+    +'城市、服务商、关键词上下文与H1完全一致 · 读者旅程排序</p></div>';
   showToast('🔄 已重置所有记录');
 }
 
 // ============================================================
 // UTILS
 // ============================================================
-function copyText(text) {
-  if (navigator.clipboard&&navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(function(){ showToast('✅ 已复制到剪贴板'); }).catch(function(){ copyFallback(text); });
+function renderAllClouds(){ renderCloud('func');renderCloud('comp');renderCloud('loc');renderCloud('conv'); }
+function copyText(text){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){showToast('✅ 已复制到剪贴板');}).catch(function(){copyFallback(text);});
   } else { copyFallback(text); }
 }
-function copyFallback(text) {
-  var ta = document.createElement('textarea');
+function copyFallback(text){
+  var ta=document.createElement('textarea');
   ta.value=text; ta.style.cssText='position:fixed;opacity:0;top:0;left:0';
   document.body.appendChild(ta); ta.focus(); ta.select();
-  try { document.execCommand('copy'); showToast('✅ 已复制'); } catch(e) { showToast('❌ 请手动全选复制'); }
+  try{document.execCommand('copy');showToast('✅ 已复制');}catch(e){showToast('❌ 请手动全选复制');}
   document.body.removeChild(ta);
 }
-function downloadFile(text, filename) {
-  var a = document.createElement('a');
+function downloadFile(text,filename){
+  var a=document.createElement('a');
   a.href='data:text/plain;charset=utf-8,'+encodeURIComponent(text);
   a.download=filename;
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
 }
-var toastTimer = null;
-function showToast(msg) {
-  var el = document.getElementById('toast');
+var toastTimer=null;
+function showToast(msg){
+  var el=document.getElementById('toast');
   el.textContent=msg; el.classList.add('show');
-  if (toastTimer) clearTimeout(toastTimer);
-  toastTimer = setTimeout(function(){ el.classList.remove('show'); }, 2800);
+  if(toastTimer) clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){el.classList.remove('show');},2800);
 }
-function updateHdrStats() {
+function updateHdrStats(){
   document.getElementById('sGen').textContent=genCount;
   document.getElementById('sDedup').textContent=Object.keys(usedH1Set).length;
 }
