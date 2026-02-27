@@ -22,8 +22,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .stat-pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);padding:5px 13px;border-radius:20px;font-size:12px;font-weight:600}
 .stat-pill b{color:#fcd34d}
 .main{max-width:1060px;margin:0 auto;padding:18px 14px}
-
-/* ===== Keyword Panel ===== */
 .kw-panel{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:16px;overflow:hidden;border:2px solid transparent;transition:border-color .25s}
 .kw-panel.has-kws{border-color:#fde68a}
 .kw-panel-hd{padding:13px 20px;background:linear-gradient(135deg,#fffbeb,#fef3c7);border-bottom:1px solid #fde68a;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;cursor:pointer;user-select:none;transition:background .18s}
@@ -61,8 +59,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .kw-tag.ct{background:#dcfce7;border-color:#86efac;color:#15803d;font-weight:600}
 .kw-tag.at{background:#ede9fe;border-color:#c4b5fd;color:#5b21b6}
 .kw-tag.st{background:#f1f5f9;border-color:#cbd5e1;color:#64748b}
-
-/* ===== Controls ===== */
 .ctrl-panel{background:var(--card);border-radius:14px;padding:18px 22px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:16px;display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
 .cg{display:flex;flex-direction:column;gap:5px}
 .cg label{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.7px}
@@ -79,8 +75,6 @@ select:focus{border-color:var(--pri)}
 .btn-green:hover{background:#059669;transform:translateY(-1px)}
 .btn-purple{background:linear-gradient(135deg,var(--pur),var(--pur-dark));color:#fff;box-shadow:0 3px 10px rgba(124,58,237,.28)}
 .btn-purple:hover{background:linear-gradient(135deg,#6d28d9,#4c1d95);transform:translateY(-1px);box-shadow:0 5px 16px rgba(124,58,237,.42)}
-
-/* ===== Output ===== */
 .ocard{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:16px;overflow:hidden}
 .card-hd{padding:13px 20px;background:var(--light);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .card-hd-l{display:flex;align-items:center;gap:9px}
@@ -100,34 +94,43 @@ select:focus{border-color:var(--pri)}
 .h1-len{font-size:10px;color:#3b82f6;font-weight:600;margin-top:4px}
 .h1-copy{flex-shrink:0;background:#fff;color:var(--pri);border:1.5px solid var(--pri);border-radius:7px;padding:5px 10px;font-size:11.5px;cursor:pointer;transition:all .2s;margin-top:2px}
 .h1-copy:hover{background:var(--pri);color:#fff}
-.h2-hd{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px}
+
+/* ===== H2 逻辑流程条 ===== */
+.h2-logic-bar{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;border-radius:10px;padding:10px 15px;margin-bottom:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.logic-bar-label{font-size:11px;font-weight:700;color:#15803d;white-space:nowrap;display:flex;align-items:center;gap:4px}
+.logic-phase{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:8px;white-space:nowrap}
+.phase-research{background:#dbeafe;color:#1d4ed8;border:1px solid #93c5fd}
+.phase-compare{background:#fce7f3;color:#be185d;border:1px solid #f9a8d4}
+.phase-decide{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.phase-action{background:#dcfce7;color:#15803d;border:1px solid #86efac}
+.phase-use{background:#ede9fe;color:#5b21b6;border:1px solid #c4b5fd}
+.phase-support{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1}
+.logic-arrow{color:#94a3b8;font-size:10px;flex-shrink:0}
+
+.h2-hd{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.h2-hd-badge{background:#10b981;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;text-transform:none;letter-spacing:0}
 .h2-list{display:flex;flex-direction:column;gap:8px}
-.h2-item{display:flex;align-items:flex-start;gap:10px;padding:11px 13px;border:1.5px solid var(--border);border-radius:10px;transition:all .18s}
+.h2-item{display:flex;align-items:flex-start;gap:10px;padding:11px 13px;border:1.5px solid var(--border);border-radius:10px;transition:all .18s;position:relative}
 .h2-item:hover{border-color:#93c5fd;background:#f0f9ff;box-shadow:0 2px 8px rgba(37,99,235,.07)}
-.h2-num{width:25px;height:25px;background:var(--pri);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:3px}
+/* 连接线 */
+.h2-item:not(:last-child)::after{content:'';position:absolute;left:22px;bottom:-9px;width:2px;height:9px;background:#e2e8f0;z-index:1}
+.h2-num{width:25px;height:25px;background:var(--pri);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:3px;z-index:2;position:relative}
 .h2-body{flex:1;min-width:0}
-.cat-tag{font-size:10px;font-weight:700;color:#fff;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:4px;letter-spacing:.3px}
+.h2-meta{display:flex;align-items:center;gap:6px;margin-bottom:4px;flex-wrap:wrap}
+.cat-tag{font-size:10px;font-weight:700;color:#fff;padding:2px 8px;border-radius:10px;display:inline-block;letter-spacing:.3px}
+.phase-tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:8px;display:inline-flex;align-items:center;gap:3px}
 .h2-txt{font-size:13.5px;color:var(--text);line-height:1.45}
 .h2-len{font-size:10px;color:var(--muted);margin-top:3px}
 .h2-copy{flex-shrink:0;background:none;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:11px;color:var(--muted);cursor:pointer;transition:all .2s;margin-top:2px}
 .h2-copy:hover{border-color:var(--pri);color:var(--pri);background:var(--pri-light)}
 
-/* ===== 原有9类 ===== */
-.c-pur{background:#f97316}
-.c-act{background:#8b5cf6}
-.c-pri{background:#ef4444}
-.c-cov{background:#10b981}
-.c-faq{background:#3b82f6}
-.c-cmp{background:#6366f1}
-.c-pvd{background:#ec4899}
-.c-scn{background:#14b8a6}
-.c-tip{background:#f59e0b}
-/* ===== 新增3类 ===== */
-.c-rev{background:#0891b2}
-.c-rec{background:#65a30d}
-.c-pre{background:#be185d}
+/* 12类颜色 */
+.c-pur{background:#f97316}.c-act{background:#8b5cf6}.c-pri{background:#ef4444}
+.c-cov{background:#10b981}.c-faq{background:#3b82f6}.c-cmp{background:#6366f1}
+.c-pvd{background:#ec4899}.c-scn{background:#14b8a6}.c-tip{background:#f59e0b}
+.c-rev{background:#0891b2}.c-rec{background:#65a30d}.c-pre{background:#be185d}
 
-.seo-bar{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.seo-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
 .seo-tag{display:flex;align-items:center;gap:4px;background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:600}
 .seo-tag.warn{background:#fffbeb;border-color:#fde68a;color:#92400e}
 .kw-info-bar{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:2px solid #fde68a;border-radius:12px;padding:12px 16px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
@@ -136,8 +139,6 @@ select:focus{border-color:var(--pri)}
 .kw-used-tag{background:#fff;border:1.5px solid #fcd34d;border-radius:8px;padding:3px 9px;font-size:11px;font-weight:600;color:#92400e}
 .kw-used-tag.used{border-color:#93c5fd;background:#dbeafe;color:#1d4ed8}
 .kw-used-tag.green{border-color:#86efac;background:#dcfce7;color:#15803d}
-
-/* ===== History ===== */
 .hist-outer{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);overflow:hidden}
 .hist-toggle{padding:13px 20px;background:var(--light);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none}
 .hist-toggle:hover{background:#f1f5f9}
@@ -153,8 +154,6 @@ select:focus{border-color:var(--pri)}
 .prompt-banner{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px solid #c4b5fd;border-radius:12px;padding:13px 16px;margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .pb-txt{font-size:13px;color:#5b21b6;font-weight:600;display:flex;align-items:center;gap:7px}
 .pb-sub{font-size:11px;color:#7c3aed;font-weight:400;margin-top:2px;opacity:.85}
-
-/* ===== Prompt Modal ===== */
 .modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.68);backdrop-filter:blur(5px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .25s}
 .modal-overlay.open{opacity:1;pointer-events:all}
 .modal-box{background:#fff;border-radius:18px;width:100%;max-width:860px;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.3);transform:translateY(22px) scale(.98);transition:transform .28s cubic-bezier(.34,1.56,.64,1)}
@@ -177,14 +176,13 @@ select:focus{border-color:var(--pri)}
 .modal-ft-hint{margin-left:auto;font-size:11px;color:#9ca3af;font-style:italic}
 .toast{position:fixed;bottom:22px;right:22px;background:#1e293b;color:#fff;padding:10px 17px;border-radius:10px;font-size:13px;font-weight:500;z-index:9999;transform:translateY(70px);opacity:0;transition:all .3s ease;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.2)}
 .toast.show{transform:translateY(0);opacity:1}
-
 @media(max-width:640px){
   .header{padding:13px 14px}.hd-left h1{font-size:16px}
   .main{padding:10px 9px}.ctrl-panel{padding:13px 14px}.card-body{padding:14px 15px}
   .h1-txt{font-size:14.5px}.h2-txt{font-size:13px}.hist-grid{grid-template-columns:1fr}
   .btn-pri{padding:9px 18px;font-size:13px}.modal-box{max-height:95vh;border-radius:14px}
   .modal-hd{border-radius:14px 14px 0 0}.modal-ft{border-radius:0 0 14px 14px}
-  .kw-cloud-wrap{max-height:150px}
+  .logic-phase{font-size:10px;padding:2px 6px}
 }
 </style>
 </head>
@@ -193,7 +191,7 @@ select:focus{border-color:var(--pri)}
 <div class="header">
   <div class="hd-left">
     <h1>🌐 eSIM SEO 标题生成器</h1>
-    <p>基于搜索意图优化 · 12大分类 · 40套H1模板 · 156条H2模板 · 关键词智能植入 · 一键生成SEO写作Prompt</p>
+    <p>基于读者旅程逻辑排序 · 12大分类 · 40套H1模板 · 156条H2模板 · 关键词智能植入 · 一键生成SEO写作Prompt</p>
   </div>
   <div class="hd-stats">
     <div class="stat-pill">已生成 <b id="sGenCount">0</b> 组</div>
@@ -318,7 +316,7 @@ select:focus{border-color:var(--pri)}
       <div class="empty">
         <div class="empty-ico">✨</div>
         <h3>点击「生成标题」开始</h3>
-        <p>可先导入高流量关键词，关键词将自动植入标题并写入SEO写作Prompt</p>
+        <p>H2标题将按「认知→比较→决策→购买→激活→使用→解惑」读者旅程逻辑排序</p>
       </div>
     </div>
     <div class="card-ft" id="cardFt" style="display:none">
@@ -440,53 +438,48 @@ var COUNTS  = ['3','5','6','7','8','10'];
 var TOPICS  = ['价格与覆盖全析','购买激活攻略','套餐深度推荐','实地测评报告','省钱完全指南','真实使用评测','权威购买指南','全面深度解析'];
 
 // ============================================================
-// H1 模板库（40条）
+// ★ 核心：读者旅程逻辑顺序定义
+// 6大阶段：认知→比较→决策→购买行动→激活使用→解惑支持
 // ============================================================
-var H1T = [
-  '{year}年{kw}终极指南：{topic}',
-  '{kw}完整攻略：{userType}必读手册',
-  '{kw}选购圣经：购买、激活到使用全流程详解',
-  '{year}最新{kw}深度评测：哪家最值得买',
-  '{kw}完全解析：{scene}专属推荐指南',
-  '从零开始用{kw}：{userType}专属完全教程',
-  '{kw}终极对比：{c1} vs {c2}谁更胜一筹',
-  '{year}出行必备{kw}：价格、覆盖、激活全解析',
-  '{kw}省钱指南：{userType}如何选对套餐',
-  '{kw}深度测评：{city}及周边地区实测报告',
-  '告别漫游费！{kw}完整购买与使用指南',
-  '{kw}权威推荐：{year}性价比最高套餐大盘点',
-  '{kw}新手入门：从购买到激活的保姆级教程',
-  '{device}使用{kw}设置指南：{year}最新完整教程',
-  '{kw}全攻略：让{userType}在{dest}畅行无忧',
-  '选对{kw}，{scene}不再烦恼：{year}权威推荐',
-  '{kw}深度横评：{p1} vs {p2}全面对比',
-  '{year}旅行必备：{kw}选购、激活、使用完全指南',
-  '{kw}终极省钱手册：{userType}必看套餐分析',
-  '{kw}实测报告：速度、覆盖、价格全方位评分',
-  '不踩坑！{kw}购买避坑指南：{year}最新版',
-  '{kw}完全指南：{dur}出行最优方案推荐',
-  '{kw}一站式解决方案：{scene}专属选购攻略',
-  '{year}{kw}市场全景：哪款eSIM真正值得买',
-  '{kw}实用手册：{userType}从选购到使用全程无忧',
-  '探索{dest}前必读：{kw}选购核心要点与避坑指南',
-  '{year}{kw}大评测：价格、速度、覆盖综合排名',
-  '用{kw}畅游{dest}：{scene}最佳网络解决方案',
-  '{kw}保姆级攻略：{device}用户专属完整教程',
-  '去{dest}不用愁网络：{kw}选购使用完全解答',
-  '{kw}完全指南{year}：{userType}的最优方案推荐',
-  '{year}年度最佳{kw}：综合评测与选购建议大全',
-  '{kw}深度比较：{c1}还是{c2}更适合你',
-  '{city}实测{kw}：真实网速与覆盖情况全记录',
-  '{userType}首选{kw}：{year}专业推荐与实战心得',
-  '{hKw}完整攻略：{year}{kw}购买激活保姆级指南',
-  '{dest}旅行必备｜{hKw}深度评测：{year}真实使用体验报告',
-  '{hKw} vs 主流{dest}eSIM：{year}性价比全方位横向对比',
-  '用{hKw}游{dest}：{year}购买激活使用全流程权威解析',
-  '{hKw}选购指南：{year}{dest}eSIM套餐综合测评与推荐'
+var CAT_LOGICAL_ORDER = [
+  // 【阶段1：认知研究】了解市场，建立信任
+  'review',      // 用户真实评测 — 最先看真实口碑，建立信任
+  // 【阶段2：比较筛选】横向比较，锁定方向
+  'comparison',  // 产品对比     — 横向对比，了解选项
+  'price',       // 价格对比     — 预算规划，价格锚定
+  'coverage',    // 网速覆盖     — 质量验证，避免踩坑
+  'provider',    // 提供商评测   — 选定可信赖的服务商
+  // 【阶段3：决策确定】明确最终方案
+  'recommend',   // 套餐精选推荐 — 缩小选项，确定方案
+  // 【阶段4：购买行动】完成购买，出发准备
+  'purchase',    // 购买指南     — 完成下单购买
+  'prepare',     // 出行前准备   — 出发前检查清单
+  // 【阶段5：激活使用】抵达目的地后的操作
+  'activation',  // 激活教程     — 抵达后正确激活
+  'scenario',    // 使用场景     — 不同场景下的最优用法
+  'tips',        // 使用技巧     — 省钱技巧，价值最大化
+  // 【阶段6：解惑支持】解决疑问，消除顾虑
+  'faq'          // 常见问题     — 兜底答疑，清除障碍
 ];
 
+// 每个分类所属的阶段信息（用于显示）
+var CAT_PHASE = {
+  review:     { phase:'认知研究', cls:'phase-research', icon:'🔍' },
+  comparison: { phase:'比较筛选', cls:'phase-compare',  icon:'⚖️' },
+  price:      { phase:'比较筛选', cls:'phase-compare',  icon:'⚖️' },
+  coverage:   { phase:'比较筛选', cls:'phase-compare',  icon:'⚖️' },
+  provider:   { phase:'比较筛选', cls:'phase-compare',  icon:'⚖️' },
+  recommend:  { phase:'决策确定', cls:'phase-decide',   icon:'✅' },
+  purchase:   { phase:'购买行动', cls:'phase-action',   icon:'🛒' },
+  prepare:    { phase:'购买行动', cls:'phase-action',   icon:'🛒' },
+  activation: { phase:'激活使用', cls:'phase-use',      icon:'📱' },
+  scenario:   { phase:'激活使用', cls:'phase-use',      icon:'📱' },
+  tips:       { phase:'激活使用', cls:'phase-use',      icon:'📱' },
+  faq:        { phase:'解惑支持', cls:'phase-support',  icon:'💬' }
+};
+
 // ============================================================
-// H2 模板库 —— 共 12 大分类，每类 13 条
+// H2 分类数据库（12类，每类13条）
 // ============================================================
 var CATS = {
   purchase:{name:'购买指南',cls:'c-pur',t:[
@@ -624,7 +617,6 @@ var CATS = {
     '延长{kw}有效期的技巧：套餐到期前必看攻略',
     '用{hKw}省更多钱：{dest}eSIM流量最大化实战攻略'
   ]},
-  // ===== 新增分类 1：用户真实评测 =====
   review:{name:'用户真实评测',cls:'c-rev',t:[
     '{year}真实用户评测：{kw}综合口碑与体验总结',
     '{cnt}位用户亲测{kw}：真实反馈与使用心得汇总',
@@ -640,7 +632,6 @@ var CATS = {
     '{dest}旅游团友实测{kw}：集体使用体验真实汇报',
     '{hKw}用户真实评测：{year}综合口碑数据全解析'
   ]},
-  // ===== 新增分类 2：套餐精选推荐 =====
   recommend:{name:'套餐精选推荐',cls:'c-rec',t:[
     '{year}性价比最高的{kw}套餐：精选{cnt}款强力推荐',
     '{userType}专属推荐：{kw}最适合你的{cnt}款套餐',
@@ -656,7 +647,6 @@ var CATS = {
     '{userType}强推！{kw}最值得买的{cnt}款套餐盘点',
     '{hKw}套餐精选推荐：{year}{kw}性价比最优方案汇总'
   ]},
-  // ===== 新增分类 3：出行前准备 =====
   prepare:{name:'出行前准备',cls:'c-pre',t:[
     '出发{dest}前{cnt}件必做：{kw}准备完整检查清单',
     '提前{dur}准备{kw}：{dest}出行网络规划全攻略',
@@ -674,698 +664,690 @@ var CATS = {
   ]}
 };
 
+// H1模板库（40条）
+var H1T = [
+  '{year}年{kw}终极指南：{topic}',
+  '{kw}完整攻略：{userType}必读手册',
+  '{kw}选购圣经：购买、激活到使用全流程详解',
+  '{year}最新{kw}深度评测：哪家最值得买',
+  '{kw}完全解析：{scene}专属推荐指南',
+  '从零开始用{kw}：{userType}专属完全教程',
+  '{kw}终极对比：{c1} vs {c2}谁更胜一筹',
+  '{year}出行必备{kw}：价格、覆盖、激活全解析',
+  '{kw}省钱指南：{userType}如何选对套餐',
+  '{kw}深度测评：{city}及周边地区实测报告',
+  '告别漫游费！{kw}完整购买与使用指南',
+  '{kw}权威推荐：{year}性价比最高套餐大盘点',
+  '{kw}新手入门：从购买到激活的保姆级教程',
+  '{device}使用{kw}设置指南：{year}最新完整教程',
+  '{kw}全攻略：让{userType}在{dest}畅行无忧',
+  '选对{kw}，{scene}不再烦恼：{year}权威推荐',
+  '{kw}深度横评：{p1} vs {p2}全面对比',
+  '{year}旅行必备：{kw}选购、激活、使用完全指南',
+  '{kw}终极省钱手册：{userType}必看套餐分析',
+  '{kw}实测报告：速度、覆盖、价格全方位评分',
+  '不踩坑！{kw}购买避坑指南：{year}最新版',
+  '{kw}完全指南：{dur}出行最优方案推荐',
+  '{kw}一站式解决方案：{scene}专属选购攻略',
+  '{year}{kw}市场全景：哪款eSIM真正值得买',
+  '{kw}实用手册：{userType}从选购到使用全程无忧',
+  '探索{dest}前必读：{kw}选购核心要点与避坑指南',
+  '{year}{kw}大评测：价格、速度、覆盖综合排名',
+  '用{kw}畅游{dest}：{scene}最佳网络解决方案',
+  '{kw}保姆级攻略：{device}用户专属完整教程',
+  '去{dest}不用愁网络：{kw}选购使用完全解答',
+  '{kw}完全指南{year}：{userType}的最优方案推荐',
+  '{year}年度最佳{kw}：综合评测与选购建议大全',
+  '{kw}深度比较：{c1}还是{c2}更适合你',
+  '{city}实测{kw}：真实网速与覆盖情况全记录',
+  '{userType}首选{kw}：{year}专业推荐与实战心得',
+  '{hKw}完整攻略：{year}{kw}购买激活保姆级指南',
+  '{dest}旅行必备｜{hKw}深度评测：{year}真实使用体验报告',
+  '{hKw} vs 主流{dest}eSIM：{year}性价比全方位横向对比',
+  '用{hKw}游{dest}：{year}购买激活使用全流程权威解析',
+  '{hKw}选购指南：{year}{dest}eSIM套餐综合测评与推荐'
+];
+
 // ============================================================
-// ★ 核心修复：基于种子的 Fisher-Yates 洗牌，确保每组 H2 分类完全不重复
+// ★ 核心函数：随机选取N个分类，按读者旅程逻辑顺序排列
+// 原理：先用种子洗牌随机选取N个，再按 CAT_LOGICAL_ORDER 排序
+// 结果：每次生成组合不同（随机性），但顺序永远符合逻辑（排序保证）
 // ============================================================
-function getUniqueCatSequence(n, seed) {
-  var allKeys = Object.keys(CATS); // 共12类
-  var arr = allKeys.slice();
+function getLogicalCatSequence(n, seed) {
+  var allKeys = CAT_LOGICAL_ORDER.slice(); // 12个分类，已按逻辑排好
   var s = Math.abs(seed | 0);
-  // Seeded Fisher-Yates shuffle
+
+  // Step1: Fisher-Yates 洗牌（制造随机性）
+  var arr = allKeys.slice();
   for (var i = arr.length - 1; i > 0; i--) {
     s = (s * 1664525 + 1013904223) & 0x7fffffff;
     var j = s % (i + 1);
     var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
   }
-  // n 最多为12，完全覆盖，绝不重复
-  return arr.slice(0, Math.min(n, arr.length));
+
+  // Step2: 取前 n 个（随机选中的分类子集）
+  var selected = arr.slice(0, Math.min(n, arr.length));
+
+  // Step3: ★ 关键步骤：按 CAT_LOGICAL_ORDER 的索引重新排序
+  // 确保最终顺序始终符合「认知→比较→决策→购买→激活→使用→解惑」
+  selected.sort(function(a, b) {
+    return CAT_LOGICAL_ORDER.indexOf(a) - CAT_LOGICAL_ORDER.indexOf(b);
+  });
+
+  return selected;
 }
 
 // ============================================================
 // 工具函数
 // ============================================================
 function pickItem(arr, n) {
-  if (!arr || arr.length === 0) { return ''; }
+  if (!arr || !arr.length) return '';
   return arr[((n % arr.length) + arr.length) % arr.length];
 }
 function pickHotKw(seed) {
-  if (!userKws || userKws.length === 0) { return ''; }
+  if (!userKws || !userKws.length) return '';
   return userKws[Math.abs(seed) % userKws.length];
 }
 function buildCtx(destKey, year, seed) {
   var d  = DB[destKey];
   var s  = Math.abs(seed) | 0;
-  var hl = d.carriers.length;
-  var pl = d.providers.length;
-  var ci1 = s % hl;
-  var ci2 = (s + Math.ceil(hl / 2) + 1) % hl;
-  if (ci2 === ci1) { ci2 = (ci2 + 1) % hl; }
-  var pi1 = s % pl;
-  var pi2 = (s + Math.ceil(pl / 2) + 1) % pl;
-  if (pi2 === pi1) { pi2 = (pi2 + 1) % pl; }
+  var hl = d.carriers.length, pl = d.providers.length;
+  var ci1 = s % hl, ci2 = (s + Math.ceil(hl/2)+1) % hl;
+  if (ci2===ci1) ci2=(ci2+1)%hl;
+  var pi1 = s % pl, pi2 = (s + Math.ceil(pl/2)+1) % pl;
+  if (pi2===pi1) pi2=(pi2+1)%pl;
   return {
-    kw: d.kw, dest: d.name, year: year,
-    city:     pickItem(d.cities,    s),
-    c1:       d.carriers[ci1],
-    c2:       d.carriers[ci2],
-    p1:       d.providers[pi1],
-    p2:       d.providers[pi2],
-    device:   pickItem(DEVICES,     s),
-    dur:      pickItem(d.durations, s),
-    userType: pickItem(d.userTypes, s),
-    scene:    pickItem(d.scenes,    s + 2),
-    topic:    pickItem(TOPICS,      s),
-    cnt:      pickItem(COUNTS,      s),
-    issue:    pickItem(d.issues,    s),
-    park:     pickItem(d.parks,     s),
-    hKw:      pickHotKw(s * 7 + 3)
+    kw:d.kw, dest:d.name, year:year,
+    city:    pickItem(d.cities,    s),
+    c1:      d.carriers[ci1],  c2:d.carriers[ci2],
+    p1:      d.providers[pi1], p2:d.providers[pi2],
+    device:  pickItem(DEVICES,     s),
+    dur:     pickItem(d.durations, s),
+    userType:pickItem(d.userTypes, s),
+    scene:   pickItem(d.scenes,    s+2),
+    topic:   pickItem(TOPICS,      s),
+    cnt:     pickItem(COUNTS,      s),
+    issue:   pickItem(d.issues,    s),
+    park:    pickItem(d.parks,     s),
+    hKw:     pickHotKw(s*7+3)
   };
 }
 function fill(tpl, ctx) {
-  var r = tpl;
-  r = r.split('{kw}').join(ctx.kw);
-  r = r.split('{dest}').join(ctx.dest);
-  r = r.split('{year}').join(ctx.year);
-  r = r.split('{city}').join(ctx.city);
-  r = r.split('{c1}').join(ctx.c1);
-  r = r.split('{c2}').join(ctx.c2);
-  r = r.split('{p1}').join(ctx.p1);
-  r = r.split('{p2}').join(ctx.p2);
-  r = r.split('{device}').join(ctx.device);
-  r = r.split('{dur}').join(ctx.dur);
-  r = r.split('{userType}').join(ctx.userType);
-  r = r.split('{scene}').join(ctx.scene);
-  r = r.split('{topic}').join(ctx.topic);
-  r = r.split('{cnt}').join(ctx.cnt);
-  r = r.split('{issue}').join(ctx.issue);
-  r = r.split('{park}').join(ctx.park);
-  r = r.split('{hKw}').join(ctx.hKw || ctx.kw);
-  return r;
+  return tpl
+    .split('{kw}').join(ctx.kw).split('{dest}').join(ctx.dest)
+    .split('{year}').join(ctx.year).split('{city}').join(ctx.city)
+    .split('{c1}').join(ctx.c1).split('{c2}').join(ctx.c2)
+    .split('{p1}').join(ctx.p1).split('{p2}').join(ctx.p2)
+    .split('{device}').join(ctx.device).split('{dur}').join(ctx.dur)
+    .split('{userType}').join(ctx.userType).split('{scene}').join(ctx.scene)
+    .split('{topic}').join(ctx.topic).split('{cnt}').join(ctx.cnt)
+    .split('{issue}').join(ctx.issue).split('{park}').join(ctx.park)
+    .split('{hKw}').join(ctx.hKw||ctx.kw);
 }
-function escHtml(s) {
-  return String(s)
-    .split('&').join('&amp;')
-    .split('<').join('&lt;')
-    .split('>').join('&gt;')
-    .split('"').join('&quot;');
+function escHtml(s){
+  return String(s).split('&').join('&amp;').split('<').join('&lt;').split('>').join('&gt;').split('"').join('&quot;');
 }
-function deepCopy(obj) { return JSON.parse(JSON.stringify(obj)); }
+function deepCopy(o){return JSON.parse(JSON.stringify(o));}
 
 // ============================================================
 // 全局状态
 // ============================================================
-var genCount = 0;
-var curSet   = null;
-var hist     = [];
-var userKws  = [];
-var curUsedKwIndices = [];
-var kwPanelOpen = false;
+var genCount=0, curSet=null, hist=[], userKws=[], curUsedKwIndices=[], kwPanelOpen=false;
 
 // ============================================================
 // 关键词面板
 // ============================================================
-function toggleKwPanel() {
-  kwPanelOpen = !kwPanelOpen;
-  document.getElementById('kwInputSection').style.display = kwPanelOpen ? 'block' : 'none';
-  document.getElementById('kwToggleBtn').textContent = kwPanelOpen ? '▲ 收起' : '▼ 展开';
-  if (kwPanelOpen && userKws.length > 0) {
-    renderCloudInto('kwCloudExpanded', curUsedKwIndices);
-    document.getElementById('kwTagAreaExpanded').style.display = 'block';
+function toggleKwPanel(){
+  kwPanelOpen=!kwPanelOpen;
+  document.getElementById('kwInputSection').style.display=kwPanelOpen?'block':'none';
+  document.getElementById('kwToggleBtn').textContent=kwPanelOpen?'▲ 收起':'▼ 展开';
+  if(kwPanelOpen&&userKws.length>0){
+    renderCloudInto('kwCloudExpanded',curUsedKwIndices);
+    document.getElementById('kwTagAreaExpanded').style.display='block';
   }
 }
-function parseKeywords() {
-  var raw = document.getElementById('kwTextarea').value.trim();
-  if (!raw) { showToast('请先粘贴关键词'); return; }
-  var parts  = raw.split(/[\n\r,，;；]+/);
-  var result = [];
-  var seen   = {};
-  for (var i = 0; i < parts.length; i++) {
-    var kw = parts[i].trim();
-    if (kw.length > 0 && kw.length <= 80 && !seen[kw] && result.length < 200) {
-      seen[kw] = true; result.push(kw);
-    }
+function parseKeywords(){
+  var raw=document.getElementById('kwTextarea').value.trim();
+  if(!raw){showToast('请先粘贴关键词');return;}
+  var parts=raw.split(/[\n\r,，;；]+/);
+  var result=[],seen={};
+  for(var i=0;i<parts.length;i++){
+    var kw=parts[i].trim();
+    if(kw.length>0&&kw.length<=80&&!seen[kw]&&result.length<200){seen[kw]=true;result.push(kw);}
   }
-  if (result.length === 0) { showToast('未识别到有效关键词，请检查格式'); return; }
-  userKws = result;
-  curUsedKwIndices = [];
-  document.getElementById('kwParseHint').textContent = '✅ 成功导入 ' + result.length + ' 个';
+  if(!result.length){showToast('未识别到有效关键词，请检查格式');return;}
+  userKws=result; curUsedKwIndices=[];
+  document.getElementById('kwParseHint').textContent='✅ 成功导入 '+result.length+' 个';
   renderAllKwUI([]);
-  showToast('✅ 成功解析导入 ' + result.length + ' 个关键词');
-  document.getElementById('btnExportKw').style.display = 'inline-flex';
+  showToast('✅ 成功解析导入 '+result.length+' 个关键词');
+  document.getElementById('btnExportKw').style.display='inline-flex';
 }
-function clearKeywords() {
-  userKws = []; curUsedKwIndices = [];
-  document.getElementById('kwTextarea').value = '';
-  document.getElementById('kwParseHint').textContent = '';
-  document.getElementById('btnExportKw').style.display = 'none';
+function clearKeywords(){
+  userKws=[];curUsedKwIndices=[];
+  document.getElementById('kwTextarea').value='';
+  document.getElementById('kwParseHint').textContent='';
+  document.getElementById('btnExportKw').style.display='none';
   renderAllKwUI([]);
   showToast('🗑 关键词库已清空');
 }
-function exportKeywords() {
-  if (!userKws.length) { return; }
-  downloadFile(userKws.join('\n'), 'keywords-' + userKws.length + '.txt');
+function exportKeywords(){
+  if(!userKws.length)return;
+  downloadFile(userKws.join('\n'),'keywords-'+userKws.length+'.txt');
   showToast('📤 关键词导出成功');
 }
-function classifyKws(usedIndices) {
-  var usedSet = {};
-  for (var i = 0; i < usedIndices.length; i++) { usedSet[usedIndices[i]] = true; }
-  var result = []; var cC = 0; var aC = 0;
-  for (var i = 0; i < userKws.length; i++) {
+function classifyKws(usedIndices){
+  var usedSet={};
+  for(var i=0;i<usedIndices.length;i++)usedSet[usedIndices[i]]=true;
+  var result=[],cC=0,aC=0;
+  for(var i=0;i<userKws.length;i++){
     var type;
-    if (usedSet[i])      { type = 'tt'; }
-    else if (cC < 25)    { type = 'ct'; cC++; }
-    else if (aC < 35)    { type = 'at'; aC++; }
-    else                 { type = 'st'; }
-    result.push({ kw: userKws[i], type: type, idx: i });
+    if(usedSet[i]) type='tt';
+    else if(cC<25){type='ct';cC++;}
+    else if(aC<35){type='at';aC++;}
+    else type='st';
+    result.push({kw:userKws[i],type:type,idx:i});
   }
   return result;
 }
-function renderCloudInto(targetId, usedIndices) {
-  var classified = classifyKws(usedIndices);
-  var html = '';
-  for (var i = 0; i < classified.length; i++) {
-    var item = classified[i];
-    html += '<span class="kw-tag ' + item.type + '">' + escHtml(item.kw) + '</span>';
+function renderCloudInto(tid,usedIndices){
+  var classified=classifyKws(usedIndices);
+  var html='';
+  for(var i=0;i<classified.length;i++){
+    var it=classified[i];
+    html+='<span class="kw-tag '+it.type+'">'+escHtml(it.kw)+'</span>';
   }
-  var el = document.getElementById(targetId);
-  if (el) { el.innerHTML = html; }
+  var el=document.getElementById(tid);
+  if(el)el.innerHTML=html;
 }
-function renderAllKwUI(usedIndices) {
-  var total = userKws.length;
-  if (total === 0) {
-    document.getElementById('kwBadge').style.display         = 'none';
-    document.getElementById('kwNoKwHint').style.display      = 'inline';
-    document.getElementById('kwStatsBar').style.display      = 'none';
-    document.getElementById('kwTagAreaAlways').style.display = 'none';
-    document.getElementById('kwTagAreaExpanded').style.display = 'none';
+function renderAllKwUI(usedIndices){
+  var total=userKws.length;
+  if(!total){
+    document.getElementById('kwBadge').style.display='none';
+    document.getElementById('kwNoKwHint').style.display='inline';
+    document.getElementById('kwStatsBar').style.display='none';
+    document.getElementById('kwTagAreaAlways').style.display='none';
+    document.getElementById('kwTagAreaExpanded').style.display='none';
     document.getElementById('kwPanel').classList.remove('has-kws');
-    document.getElementById('sKwCount').textContent = '0';
+    document.getElementById('sKwCount').textContent='0';
     return;
   }
-  var classified = classifyKws(usedIndices);
-  var cntT = 0, cntC = 0, cntA = 0, cntS = 0;
-  for (var i = 0; i < classified.length; i++) {
-    if      (classified[i].type === 'tt') { cntT++; }
-    else if (classified[i].type === 'ct') { cntC++; }
-    else if (classified[i].type === 'at') { cntA++; }
-    else                                  { cntS++; }
+  var classified=classifyKws(usedIndices);
+  var cntT=0,cntC=0,cntA=0,cntS=0;
+  for(var i=0;i<classified.length;i++){
+    if(classified[i].type==='tt')cntT++;
+    else if(classified[i].type==='ct')cntC++;
+    else if(classified[i].type==='at')cntA++;
+    else cntS++;
   }
-  document.getElementById('kwBadge').style.display    = 'inline';
-  document.getElementById('kwBadge').textContent      = '已导入 ' + total + ' 个';
-  document.getElementById('kwNoKwHint').style.display = 'none';
-  document.getElementById('kwStatsBar').style.display = 'flex';
-  document.getElementById('statTotal').textContent    = total;
-  document.getElementById('statTitle').textContent    = cntT;
-  document.getElementById('statContent').textContent  = cntC;
-  document.getElementById('statAux').textContent      = cntA;
-  document.getElementById('statSupp').textContent     = cntS;
+  document.getElementById('kwBadge').style.display='inline';
+  document.getElementById('kwBadge').textContent='已导入 '+total+' 个';
+  document.getElementById('kwNoKwHint').style.display='none';
+  document.getElementById('kwStatsBar').style.display='flex';
+  document.getElementById('statTotal').textContent=total;
+  document.getElementById('statTitle').textContent=cntT;
+  document.getElementById('statContent').textContent=cntC;
+  document.getElementById('statAux').textContent=cntA;
+  document.getElementById('statSupp').textContent=cntS;
   document.getElementById('kwPanel').classList.add('has-kws');
-  document.getElementById('sKwCount').textContent     = total;
-  renderCloudInto('kwCloudAlways', usedIndices);
-  document.getElementById('kwTagAreaAlways').style.display = 'block';
-  if (kwPanelOpen) {
-    renderCloudInto('kwCloudExpanded', usedIndices);
-    document.getElementById('kwTagAreaExpanded').style.display = 'block';
+  document.getElementById('sKwCount').textContent=total;
+  renderCloudInto('kwCloudAlways',usedIndices);
+  document.getElementById('kwTagAreaAlways').style.display='block';
+  if(kwPanelOpen){
+    renderCloudInto('kwCloudExpanded',usedIndices);
+    document.getElementById('kwTagAreaExpanded').style.display='block';
   }
 }
 
 // ============================================================
-// 核心生成（★ 使用 getUniqueCatSequence 替代 ROTS）
+// 核心生成
 // ============================================================
-function generate() {
-  var destKey = document.getElementById('selDest').value;
-  var year    = document.getElementById('selYear').value;
-  var h2n     = parseInt(document.getElementById('selH2n').value,   10);
-  var batch   = parseInt(document.getElementById('selBatch').value, 10);
+function generate(){
+  var destKey=document.getElementById('selDest').value;
+  var year=document.getElementById('selYear').value;
+  var h2n=parseInt(document.getElementById('selH2n').value,10);
+  var batch=parseInt(document.getElementById('selBatch').value,10);
 
-  for (var b = 0; b < batch; b++) {
-    var g     = genCount;
-    var h1tpl = pickItem(H1T, g);
-    var h1ctx = buildCtx(destKey, year, g * 17 + 5);
-    var h1    = fill(h1tpl, h1ctx);
+  for(var b=0;b<batch;b++){
+    var g=genCount;
+    var h1tpl=pickItem(H1T,g);
+    var h1ctx=buildCtx(destKey,year,g*17+5);
+    var h1=fill(h1tpl,h1ctx);
 
-    // ★ 关键修复：每组 H2 分类唯一，不重复
-    var selCats = getUniqueCatSequence(h2n, g * 31 + 7);
+    // ★ 使用逻辑排序：随机选N类，按读者旅程重排
+    var selCats=getLogicalCatSequence(h2n, g*31+7);
 
-    var h2s = [];
-    for (var j = 0; j < selCats.length; j++) {
-      var ck   = selCats[j];
-      var cat  = CATS[ck];
-      var cIdx = Object.keys(CATS).indexOf(ck);
-      var tIdx = (g * 3 + j * 7 + cIdx) % cat.t.length;
-      var lCtx = buildCtx(destKey, year, g * 11 + j * 13 + cIdx * 5);
-      h2s.push({ ck: ck, catName: cat.name, cls: cat.cls, text: fill(cat.t[tIdx], lCtx) });
+    var h2s=[];
+    for(var j=0;j<selCats.length;j++){
+      var ck=selCats[j];
+      var cat=CATS[ck];
+      var cIdx=CAT_LOGICAL_ORDER.indexOf(ck);
+      var tIdx=(g*3+j*7+cIdx)%cat.t.length;
+      var lCtx=buildCtx(destKey,year,g*11+j*13+cIdx*5);
+      h2s.push({ck:ck, catName:cat.name, cls:cat.cls, text:fill(cat.t[tIdx],lCtx)});
     }
-
     genCount++;
 
-    var allTxt  = h1 + ' ' + h2s.map(function(h) { return h.text; }).join(' ');
-    var usedIdx = [];
-    for (var k = 0; k < userKws.length; k++) {
-      if (allTxt.indexOf(userKws[k]) !== -1) { usedIdx.push(k); }
+    var allTxt=h1+' '+h2s.map(function(h){return h.text;}).join(' ');
+    var usedIdx=[];
+    for(var k=0;k<userKws.length;k++){
+      if(allTxt.indexOf(userKws[k])!==-1)usedIdx.push(k);
     }
-    curUsedKwIndices = usedIdx;
-
-    var setItem = { id: genCount, destKey: destKey, destName: DB[destKey].name,
-                    year: year, h1: h1, h2s: h2s, usedKwIndices: usedIdx };
-    curSet = setItem;
+    curUsedKwIndices=usedIdx;
+    var setItem={id:genCount,destKey:destKey,destName:DB[destKey].name,year:year,h1:h1,h2s:h2s,usedKwIndices:usedIdx};
+    curSet=setItem;
     hist.unshift(deepCopy(setItem));
   }
 
-  if (userKws.length > 0) { renderAllKwUI(curUsedKwIndices); }
+  if(userKws.length>0)renderAllKwUI(curUsedKwIndices);
   renderOutput();
   renderHist();
   updateStats();
 }
 
 // ============================================================
-// 渲染输出
+// 渲染输出（含逻辑流程可视化）
 // ============================================================
-function renderOutput() {
-  var id        = curSet.id;
-  var h1        = curSet.h1;
-  var h2s       = curSet.h2s;
-  var usedCount = curSet.usedKwIndices ? curSet.usedKwIndices.length : 0;
+function buildLogicFlowBar(h2s){
+  // 统计当前组用到了哪些阶段
+  var phasesSeen=[], phaseMap={};
+  for(var i=0;i<h2s.length;i++){
+    var ph=CAT_PHASE[h2s[i].ck];
+    if(ph&&!phaseMap[ph.phase]){
+      phaseMap[ph.phase]=true;
+      phasesSeen.push(ph);
+    }
+  }
+  var html='<div class="h2-logic-bar">'
+    +'<span class="logic-bar-label">📐 读者旅程：</span>';
+  for(var i=0;i<phasesSeen.length;i++){
+    if(i>0) html+='<span class="logic-arrow">→</span>';
+    html+='<span class="logic-phase '+phasesSeen[i].cls+'">'
+      +phasesSeen[i].icon+' '+phasesSeen[i].phase+'</span>';
+  }
+  html+='</div>';
+  return html;
+}
 
-  document.getElementById('genBadge').style.display      = 'inline';
-  document.getElementById('genBadge').textContent        = '第 ' + id + ' 组';
-  document.getElementById('btnCopySet').style.display    = 'inline-flex';
-  document.getElementById('btnGenPrompt').style.display  = 'inline-flex';
-  document.getElementById('cardFt').style.display        = 'flex';
+function renderOutput(){
+  var id=curSet.id, h1=curSet.h1, h2s=curSet.h2s;
+  var usedCount=curSet.usedKwIndices?curSet.usedKwIndices.length:0;
 
-  if (userKws.length > 0 && usedCount > 0) {
-    document.getElementById('kwUsedBadge').style.display  = 'inline';
-    document.getElementById('kwUsedBadge').textContent    = '🔑 关键词植入 ' + usedCount + ' 个';
+  document.getElementById('genBadge').style.display='inline';
+  document.getElementById('genBadge').textContent='第 '+id+' 组';
+  document.getElementById('btnCopySet').style.display='inline-flex';
+  document.getElementById('btnGenPrompt').style.display='inline-flex';
+  document.getElementById('cardFt').style.display='flex';
+
+  if(userKws.length>0&&usedCount>0){
+    document.getElementById('kwUsedBadge').style.display='inline';
+    document.getElementById('kwUsedBadge').textContent='🔑 关键词植入 '+usedCount+' 个';
   } else {
-    document.getElementById('kwUsedBadge').style.display = 'none';
+    document.getElementById('kwUsedBadge').style.display='none';
   }
 
-  var h1Len      = h1.length;
-  var uniqueCats = [];
-  for (var k = 0; k < h2s.length; k++) {
-    if (uniqueCats.indexOf(h2s[k].ck) === -1) { uniqueCats.push(h2s[k].ck); }
-  }
-  var lenOk = (h1Len >= 30 && h1Len <= 70);
+  var h1Len=h1.length;
+  var lenOk=(h1Len>=30&&h1Len<=70);
+  var seoHtml='<div class="seo-bar">'
+    +'<span class="seo-tag">✓ 含核心关键词</span>'
+    +'<span class="'+(lenOk?'seo-tag':'seo-tag warn')+'">'+(lenOk?'✓':'⚠')+' H1字符 '+h1Len+(lenOk?' (优质)':' (建议30-70)')+'</span>'
+    +'<span class="seo-tag">✓ 读者旅程逻辑排序</span>'
+    +'<span class="seo-tag">✓ 信息/商业/交易意图兼顾</span>'
+    +(userKws.length>0?'<span class="seo-tag'+(usedCount>0?'':' warn')+'">🔑 '+(usedCount>0?'关键词植入 '+usedCount+'个':'关键词待匹配')+'</span>':'')
+    +'</div>';
 
-  var seoHtml = '<div class="seo-bar">'
-    + '<span class="seo-tag">✓ 含核心关键词</span>'
-    + '<span class="' + (lenOk ? 'seo-tag' : 'seo-tag warn') + '">'
-    + (lenOk ? '✓' : '⚠') + ' H1字符 ' + h1Len + (lenOk ? ' (优质)' : ' (建议30-70)') + '</span>'
-    + '<span class="seo-tag">✓ 覆盖 ' + uniqueCats.length + ' 大主题（无重复）</span>'
-    + '<span class="seo-tag">✓ 信息/商业/交易意图兼顾</span>'
-    + (userKws.length > 0
-       ? '<span class="seo-tag' + (usedCount > 0 ? '' : ' warn') + '">🔑 '
-         + (usedCount > 0 ? '关键词已植入 ' + usedCount + '个' : '关键词待匹配') + '</span>'
-       : '')
-    + '</div>';
-
-  var kwInfoHtml = '';
-  if (userKws.length > 0) {
-    var classified = classifyKws(curSet.usedKwIndices || []);
-    var cntC = 0; var usedNames = [];
-    for (var i = 0; i < classified.length; i++) {
-      if      (classified[i].type === 'tt') { usedNames.push(classified[i].kw); }
-      else if (classified[i].type === 'ct') { cntC++; }
+  var kwInfoHtml='';
+  if(userKws.length>0){
+    var classified=classifyKws(curSet.usedKwIndices||[]);
+    var cntC=0,usedNames=[];
+    for(var i=0;i<classified.length;i++){
+      if(classified[i].type==='tt')usedNames.push(classified[i].kw);
+      else if(classified[i].type==='ct')cntC++;
     }
-    var tagsHtml = usedNames.slice(0, 4).map(function(n) {
-      return '<span class="kw-used-tag used">' + escHtml(n) + '</span>';
-    }).join('');
-    if (usedNames.length > 4) {
-      tagsHtml += '<span class="kw-used-tag">+' + (usedNames.length - 4) + '个</span>';
-    }
-    kwInfoHtml = '<div class="kw-info-bar"><div class="kw-info-l">'
-      + '<span class="kw-info-title">🔑 关键词植入状态</span>'
-      + tagsHtml
-      + '<span class="kw-used-tag green">📝 内容重点词 ' + cntC + ' 个待植入</span>'
-      + '</div><span style="font-size:11px;color:#92400e">→ 点击「生成写作Prompt」获取完整关键词写作指令</span></div>';
+    var tagsHtml=usedNames.slice(0,4).map(function(n){return '<span class="kw-used-tag used">'+escHtml(n)+'</span>';}).join('');
+    if(usedNames.length>4)tagsHtml+='<span class="kw-used-tag">+'+（usedNames.length-4)+'个</span>';
+    kwInfoHtml='<div class="kw-info-bar"><div class="kw-info-l">'
+      +'<span class="kw-info-title">🔑 关键词植入状态</span>'
+      +tagsHtml
+      +'<span class="kw-used-tag green">📝 内容重点词 '+cntC+' 个待植入</span>'
+      +'</div><span style="font-size:11px;color:#92400e">→ 点击「生成写作Prompt」获取完整关键词写作指令</span></div>';
   }
 
-  var h1Html = '<div class="h1-block">'
-    + '<span class="h1-lbl">H1</span>'
-    + '<div><div class="h1-txt">' + escHtml(h1) + '</div>'
-    + '<div class="h1-len">字符数：' + h1Len + '</div></div>'
-    + '<button class="h1-copy" onclick="cpH1()">📋 复制</button>'
-    + '</div>';
+  var h1Html='<div class="h1-block">'
+    +'<span class="h1-lbl">H1</span>'
+    +'<div><div class="h1-txt">'+escHtml(h1)+'</div>'
+    +'<div class="h1-len">字符数：'+h1Len+'</div></div>'
+    +'<button class="h1-copy" onclick="cpH1()">📋 复制</button>'
+    +'</div>';
 
-  var h2Html = '';
-  for (var m = 0; m < h2s.length; m++) {
-    var item = h2s[m];
-    h2Html += '<div class="h2-item">'
-      + '<div class="h2-num">' + (m + 1) + '</div>'
-      + '<div class="h2-body">'
-      + '<span class="cat-tag ' + item.cls + '">' + item.catName + '</span>'
-      + '<div class="h2-txt">' + escHtml(item.text) + '</div>'
-      + '<div class="h2-len">字符数：' + item.text.length + '</div>'
-      + '</div>'
-      + '<button class="h2-copy" onclick="cpH2(' + m + ')">📋 复制</button>'
-      + '</div>';
+  // 构建逻辑流程可视化条
+  var logicBar=buildLogicFlowBar(h2s);
+
+  // 构建H2列表（含阶段标签）
+  var h2Html='';
+  var prevPhase='';
+  for(var m=0;m<h2s.length;m++){
+    var item=h2s[m];
+    var phInfo=CAT_PHASE[item.ck]||{phase:'',cls:'phase-support',icon:''};
+    var phaseTag='<span class="phase-tag '+phInfo.cls+'" style="font-size:10px">'+phInfo.icon+' '+phInfo.phase+'</span>';
+    h2Html+='<div class="h2-item">'
+      +'<div class="h2-num">'+(m+1)+'</div>'
+      +'<div class="h2-body">'
+      +'<div class="h2-meta">'
+      +'<span class="cat-tag '+item.cls+'">'+item.catName+'</span>'
+      +phaseTag
+      +'</div>'
+      +'<div class="h2-txt">'+escHtml(item.text)+'</div>'
+      +'<div class="h2-len">字符数：'+item.text.length+'</div>'
+      +'</div>'
+      +'<button class="h2-copy" onclick="cpH2('+m+')">📋 复制</button>'
+      +'</div>';
   }
 
-  var bannerHtml = '<div class="prompt-banner">'
-    + '<div><div class="pb-txt">📝 一键生成 SEO 写作 Prompt</div>'
-    + '<div class="pb-sub">基于标题结构'
-    + (userKws.length > 0 ? ' + ' + userKws.length + '个高流量关键词' : '')
-    + '，自动生成完整写作指令</div></div>'
-    + '<button class="btn btn-purple" onclick="generatePrompt()" style="font-size:13px;padding:9px 18px">📝 生成写作 Prompt</button>'
-    + '</div>';
+  var bannerHtml='<div class="prompt-banner">'
+    +'<div><div class="pb-txt">📝 一键生成 SEO 写作 Prompt</div>'
+    +'<div class="pb-sub">基于读者旅程结构'+(userKws.length>0?' + '+userKws.length+'个高流量关键词':'')+'，自动生成完整写作指令</div></div>'
+    +'<button class="btn btn-purple" onclick="generatePrompt()" style="font-size:13px;padding:9px 18px">📝 生成写作 Prompt</button>'
+    +'</div>';
 
-  document.getElementById('outputBody').innerHTML =
-    seoHtml + kwInfoHtml + h1Html
-    + '<div class="h2-hd">H2 子标题 · 共 ' + h2s.length + ' 个 · 分类全部唯一不重复</div>'
-    + '<div class="h2-list">' + h2Html + '</div>'
-    + bannerHtml;
+  document.getElementById('outputBody').innerHTML=
+    seoHtml+kwInfoHtml+h1Html
+    +logicBar
+    +'<div class="h2-hd">H2 子标题 · 共 '+h2s.length+' 个 <span class="h2-hd-badge">✓ 按读者旅程逻辑排序</span></div>'
+    +'<div class="h2-list">'+h2Html+'</div>'
+    +bannerHtml;
 }
 
 // ============================================================
 // 历史记录
 // ============================================================
-function renderHist() {
-  if (hist.length > 1) { document.getElementById('histSection').style.display = 'block'; }
-  document.getElementById('histCount').textContent = hist.length;
-  document.getElementById('btnExportAll').style.display = genCount > 0 ? 'inline-flex' : 'none';
-  var limit = Math.min(hist.length, 30);
-  var html  = '';
-  for (var p = 0; p < limit; p++) {
-    var it = hist[p];
-    var preview = '';
-    for (var q = 0; q < it.h2s.length && q < 3; q++) {
-      var txt = it.h2s[q].text;
-      if (txt.length > 30) { txt = txt.slice(0, 30) + '...'; }
-      preview += '· ' + escHtml(txt) + '<br>';
+function renderHist(){
+  if(hist.length>1)document.getElementById('histSection').style.display='block';
+  document.getElementById('histCount').textContent=hist.length;
+  document.getElementById('btnExportAll').style.display=genCount>0?'inline-flex':'none';
+  var limit=Math.min(hist.length,30),html='';
+  for(var p=0;p<limit;p++){
+    var it=hist[p],preview='';
+    for(var q=0;q<it.h2s.length&&q<3;q++){
+      var txt=it.h2s[q].text;
+      if(txt.length>30)txt=txt.slice(0,30)+'...';
+      preview+='· '+escHtml(txt)+'<br>';
     }
-    html += '<div class="hist-item" onclick="viewHist(' + it.id + ')">'
-      + '<div class="hist-num">第 ' + it.id + ' 组 · ' + it.destName + ' ' + it.year
-      + (it.usedKwIndices && it.usedKwIndices.length > 0 ? ' · 🔑' + it.usedKwIndices.length + '个' : '') + '</div>'
-      + '<div class="hist-h1">' + escHtml(it.h1) + '</div>'
-      + '<div class="hist-prev">' + preview + '</div>'
-      + '</div>';
+    html+='<div class="hist-item" onclick="viewHist('+it.id+')">'
+      +'<div class="hist-num">第 '+it.id+' 组 · '+it.destName+' '+it.year
+      +(it.usedKwIndices&&it.usedKwIndices.length>0?' · 🔑'+it.usedKwIndices.length+'个':'')+'</div>'
+      +'<div class="hist-h1">'+escHtml(it.h1)+'</div>'
+      +'<div class="hist-prev">'+preview+'</div>'
+      +'</div>';
   }
-  document.getElementById('histGrid').innerHTML = html;
+  document.getElementById('histGrid').innerHTML=html;
 }
-function viewHist(id) {
-  for (var p = 0; p < hist.length; p++) {
-    if (hist[p].id === id) {
-      curSet = hist[p];
-      curUsedKwIndices = curSet.usedKwIndices || [];
-      if (userKws.length > 0) { renderAllKwUI(curUsedKwIndices); }
+function viewHist(id){
+  for(var p=0;p<hist.length;p++){
+    if(hist[p].id===id){
+      curSet=hist[p]; curUsedKwIndices=curSet.usedKwIndices||[];
+      if(userKws.length>0)renderAllKwUI(curUsedKwIndices);
       renderOutput();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      showToast('📖 查看第 ' + id + ' 组历史记录');
+      window.scrollTo({top:0,behavior:'smooth'});
+      showToast('📖 查看第 '+id+' 组历史记录');
       return;
     }
   }
 }
-function toggleHist() {
-  var c = document.getElementById('histContent');
-  var a = document.getElementById('histArrow');
-  var isOpen = c.classList.toggle('open');
-  a.textContent = isOpen ? '▲ 收起' : '▼ 展开';
+function toggleHist(){
+  var c=document.getElementById('histContent'),a=document.getElementById('histArrow');
+  var isOpen=c.classList.toggle('open');
+  a.textContent=isOpen?'▲ 收起':'▼ 展开';
 }
-function updateStats() {
-  document.getElementById('sGenCount').textContent = genCount;
-}
+function updateStats(){document.getElementById('sGenCount').textContent=genCount;}
 
 // ============================================================
 // 复制 & 导出
 // ============================================================
-function cpH1() { if (curSet) { copyText(curSet.h1); } }
-function cpH2(i) { if (curSet && curSet.h2s[i]) { copyText(curSet.h2s[i].text); } }
-function copySet() {
-  if (!curSet) { return; }
-  var t = '【第 ' + curSet.id + ' 组 | ' + curSet.destName + ' ' + curSet.year + '】\n\nH1：\n' + curSet.h1 + '\n\nH2：\n';
-  for (var n = 0; n < curSet.h2s.length; n++) {
-    t += (n + 1) + '. [' + curSet.h2s[n].catName + '] ' + curSet.h2s[n].text + '\n';
+function cpH1(){if(curSet)copyText(curSet.h1);}
+function cpH2(i){if(curSet&&curSet.h2s[i])copyText(curSet.h2s[i].text);}
+function copySet(){
+  if(!curSet)return;
+  var t='【第 '+curSet.id+' 组 | '+curSet.destName+' '+curSet.year+'】\n\nH1：\n'+curSet.h1+'\n\nH2（按读者旅程逻辑排序）：\n';
+  for(var n=0;n<curSet.h2s.length;n++){
+    t+=(n+1)+'. ['+curSet.h2s[n].catName+'] '+curSet.h2s[n].text+'\n';
   }
   copyText(t);
 }
-function exportCurrent() {
-  if (!curSet) { return; }
-  var t = '=== 第 ' + curSet.id + ' 组 | ' + curSet.destName + ' ' + curSet.year + ' ===\n\nH1: ' + curSet.h1 + '\n\n';
-  for (var n = 0; n < curSet.h2s.length; n++) {
-    t += 'H2-' + (n + 1) + ' [' + curSet.h2s[n].catName + ']: ' + curSet.h2s[n].text + '\n';
+function exportCurrent(){
+  if(!curSet)return;
+  var t='=== 第 '+curSet.id+' 组 | '+curSet.destName+' '+curSet.year+' ===\n\nH1: '+curSet.h1+'\n\n';
+  for(var n=0;n<curSet.h2s.length;n++){
+    t+='H2-'+(n+1)+' ['+curSet.h2s[n].catName+']: '+curSet.h2s[n].text+'\n';
   }
-  downloadFile(t, 'seo-group-' + curSet.id + '.txt');
+  downloadFile(t,'seo-group-'+curSet.id+'.txt');
   showToast('📤 本组标题导出成功');
 }
-function exportAll() {
-  if (!hist.length) { return; }
-  var sep = '--------------------------------------------\n';
-  var t   = 'eSIM SEO 标题记录 · 共 ' + hist.length + ' 组\n\n';
-  for (var p = 0; p < hist.length; p++) {
-    var it = hist[p];
-    t += sep + '第 ' + it.id + ' 组 | ' + it.destName + ' ' + it.year + '\n' + sep;
-    t += 'H1: ' + it.h1 + '\n\n';
-    for (var n = 0; n < it.h2s.length; n++) {
-      t += 'H2-' + (n + 1) + ' [' + it.h2s[n].catName + ']: ' + it.h2s[n].text + '\n';
+function exportAll(){
+  if(!hist.length)return;
+  var sep='--------------------------------------------\n';
+  var t='eSIM SEO 标题记录 · 共 '+hist.length+' 组\n\n';
+  for(var p=0;p<hist.length;p++){
+    var it=hist[p];
+    t+=sep+'第 '+it.id+' 组 | '+it.destName+' '+it.year+'\n'+sep;
+    t+='H1: '+it.h1+'\n\n';
+    for(var n=0;n<it.h2s.length;n++){
+      t+='H2-'+(n+1)+' ['+it.h2s[n].catName+']: '+it.h2s[n].text+'\n';
     }
-    t += '\n';
+    t+='\n';
   }
-  downloadFile(t, 'seo-all-' + hist.length + 'groups.txt');
-  showToast('✅ 已导出 ' + hist.length + ' 组标题');
+  downloadFile(t,'seo-all-'+hist.length+'groups.txt');
+  showToast('✅ 已导出 '+hist.length+' 组标题');
 }
 
 // ============================================================
 // 生成 Prompt
 // ============================================================
-function generatePrompt() {
-  if (!curSet) { showToast('请先生成标题'); return; }
-  var dk   = curSet.destKey;
-  var d    = DB[dk];
-  var h1   = curSet.h1;
-  var h2s  = curSet.h2s;
-  var dest = curSet.destName;
-  var yr   = curSet.year;
-  var kw   = d.kw;
-  var city = pickItem(d.cities,    curSet.id);
-  var c1   = pickItem(d.carriers,  curSet.id);
-  var c2   = pickItem(d.carriers,  curSet.id + 3);
-  if (c2 === c1) { c2 = pickItem(d.carriers, curSet.id + 4); }
-  var p1 = pickItem(d.providers, curSet.id);
-  var p2 = pickItem(d.providers, curSet.id + 2);
-  if (p2 === p1) { p2 = pickItem(d.providers, curSet.id + 3); }
+function generatePrompt(){
+  if(!curSet){showToast('请先生成标题');return;}
+  var dk=curSet.destKey, d=DB[dk], h1=curSet.h1, h2s=curSet.h2s;
+  var dest=curSet.destName, yr=curSet.year, kw=d.kw;
+  var city=pickItem(d.cities,curSet.id);
+  var c1=pickItem(d.carriers,curSet.id), c2=pickItem(d.carriers,curSet.id+3);
+  if(c2===c1)c2=pickItem(d.carriers,curSet.id+4);
+  var p1=pickItem(d.providers,curSet.id), p2=pickItem(d.providers,curSet.id+2);
+  if(p2===p1)p2=pickItem(d.providers,curSet.id+3);
 
-  var h2CatKeys = []; var seenCk = {};
-  for (var i = 0; i < h2s.length; i++) {
-    if (!seenCk[h2s[i].ck]) { seenCk[h2s[i].ck] = true; h2CatKeys.push(h2s[i].ck); }
-  }
-
-  var ltPools = {
-    purchase:   [dest+'eSIM在哪里买', dest+'eSIM购买教程'+yr, '去'+dest+'哪个eSIM好用'],
-    activation: [dest+'eSIM激活步骤', dest+'eSIM怎么设置',   'iPhone激活'+dest+'eSIM'],
-    price:      [dest+'eSIM价格'+yr,  dest+'eSIM多少钱',     dest+'eSIM性价比推荐'],
-    coverage:   [dest+'eSIM信号好吗', dest+'eSIM网速测评',   dest+'eSIM覆盖范围'],
-    faq:        [dest+'eSIM值得买吗', dest+'eSIM使用注意事项','eSIM和实体SIM哪个好'],
-    comparison: [dest+'eSIM哪个好'+yr,dest+'eSIM品牌对比',   p1+dest+'好用吗'],
-    provider:   [p1+dest+'eSIM评测',  dest+'eSIM哪家靠谱',   dest+'eSIM提供商推荐'],
-    scenario:   [dest+'旅游eSIM推荐', dest+'出差网络方案',   dest+'留学上网选择'],
-    tips:       [dest+'eSIM省钱技巧', dest+'eSIM使用攻略',   dest+'eSIM流量不够怎么办'],
-    review:     [dest+'eSIM好用吗'+yr,dest+'eSIM真实评价',   dest+'eSIM用户反馈'],
-    recommend:  [dest+'eSIM推荐'+yr,  dest+'eSIM哪款好',     dest+'eSIM套餐推荐'],
-    prepare:    [dest+'出行准备'+yr,  dest+'旅行前准备',     dest+'eSIM提前购买']
+  var ltPools={
+    purchase:[dest+'eSIM在哪里买',dest+'eSIM购买教程'+yr,'去'+dest+'哪个eSIM好用'],
+    activation:[dest+'eSIM激活步骤',dest+'eSIM怎么设置','iPhone激活'+dest+'eSIM'],
+    price:[dest+'eSIM价格'+yr,dest+'eSIM多少钱',dest+'eSIM性价比推荐'],
+    coverage:[dest+'eSIM信号好吗',dest+'eSIM网速测评',dest+'eSIM覆盖范围'],
+    faq:[dest+'eSIM值得买吗',dest+'eSIM使用注意事项','eSIM和实体SIM哪个好'],
+    comparison:[dest+'eSIM哪个好'+yr,dest+'eSIM品牌对比',p1+dest+'好用吗'],
+    provider:[p1+dest+'eSIM评测',dest+'eSIM哪家靠谱',dest+'eSIM提供商推荐'],
+    scenario:[dest+'旅游eSIM推荐',dest+'出差网络方案',dest+'留学上网选择'],
+    tips:[dest+'eSIM省钱技巧',dest+'eSIM使用攻略',dest+'eSIM流量不够怎么办'],
+    review:[dest+'eSIM好用吗'+yr,dest+'eSIM真实评价',dest+'eSIM用户反馈'],
+    recommend:[dest+'eSIM推荐'+yr,dest+'eSIM哪款好',dest+'eSIM套餐推荐'],
+    prepare:[dest+'出行准备'+yr,dest+'旅行前准备',dest+'eSIM提前购买']
   };
-  var ltKws = []; var ltSeen = {};
-  for (var i = 0; i < h2CatKeys.length; i++) {
-    var pool = ltPools[h2CatKeys[i]] || [];
-    for (var j = 0; j < pool.length; j++) {
-      if (!ltSeen[pool[j]] && ltKws.length < 15) { ltSeen[pool[j]] = true; ltKws.push(pool[j]); }
+  var ltKws=[],ltSeen={};
+  for(var i=0;i<h2s.length;i++){
+    var pool=ltPools[h2s[i].ck]||[];
+    for(var j=0;j<pool.length;j++){
+      if(!ltSeen[pool[j]]&&ltKws.length<15){ltSeen[pool[j]]=true;ltKws.push(pool[j]);}
     }
   }
-
-  var painMap = {
-    purchase:   '📌 购买渠道混乱：不知道哪里能购买到正规靠谱的'+kw+'，担心买到假货或激活失败',
-    activation: '📌 激活流程困难：拿到'+kw+'后不知如何正确激活，出现错误代码不知怎么解决',
-    price:      '📌 价格不透明：不清楚'+dest+'eSIM的合理价位，担心隐藏费用和超额扣费',
-    coverage:   '📌 信号质量存疑：不确定'+kw+'在'+dest+'各地区的实际网络覆盖与速度表现',
-    faq:        '📌 基础疑问众多：对eSIM能否打电话、共享热点等功能限制心存疑惑',
-    comparison: '📌 选择困难症：面对'+p1+'、'+p2+'等多家平台，不知如何筛选最适合方案',
-    provider:   '📌 品牌信任缺失：不了解各大'+dest+'eSIM服务商的口碑与售后保障',
-    scenario:   '📌 场景适配模糊：不清楚旅游、商务、留学等不同场景该选哪种套餐',
-    tips:       '📌 使用效率偏低：不知道如何管控流量消耗，如何将套餐价值最大化',
-    review:     '📌 真实评价难辨：网上评测良莠不齐，不知道哪些是真实可信的用户反馈',
-    recommend:  '📌 套餐选择困难：面对众多套餐不知如何快速找到最适合自己的那一款',
-    prepare:    '📌 出行准备不足：不知道出发前需要做哪些网络准备，容易到了才发现问题'
+  var painMap={
+    purchase:'📌 购买渠道混乱：不知道哪里能购买到正规靠谱的'+kw+'，担心买到假货或激活失败',
+    activation:'📌 激活流程困难：拿到'+kw+'后不知如何正确激活，出现错误代码不知怎么解决',
+    price:'📌 价格不透明：不清楚'+dest+'eSIM的合理价位，担心隐藏费用和超额扣费',
+    coverage:'📌 信号质量存疑：不确定'+kw+'在'+dest+'各地区的实际网络覆盖与速度表现',
+    faq:'📌 基础疑问众多：对eSIM能否打电话、共享热点等功能限制心存疑惑',
+    comparison:'📌 选择困难症：面对'+p1+'、'+p2+'等多家平台，不知如何筛选最适合方案',
+    provider:'📌 品牌信任缺失：不了解各大'+dest+'eSIM服务商的口碑与售后保障',
+    scenario:'📌 场景适配模糊：不清楚旅游、商务、留学等不同场景该选哪种套餐',
+    tips:'📌 使用效率偏低：不知道如何管控流量消耗，如何将套餐价值最大化',
+    review:'📌 真实评价难辨：网上评测良莠不齐，不知道哪些是真实可信的用户反馈',
+    recommend:'📌 套餐选择困难：面对众多套餐不知如何快速找到最适合自己的那一款',
+    prepare:'📌 出行准备不足：不知道出发前需要做哪些网络准备，容易到了才发现问题'
   };
-  var pains = []; var painSeen = {};
-  for (var i = 0; i < h2CatKeys.length; i++) {
-    var ck = h2CatKeys[i];
-    if (painMap[ck] && !painSeen[ck]) { painSeen[ck] = true; pains.push(painMap[ck]); }
+  var pains=[],painSeen={};
+  for(var i=0;i<h2s.length;i++){
+    var ck=h2s[i].ck;
+    if(painMap[ck]&&!painSeen[ck]){painSeen[ck]=true;pains.push(painMap[ck]);}
   }
 
-  var titleKwNames = []; var contentKwNames = []; var auxKwNames = []; var suppKwNames = [];
-  var kwTotalCount = 0;
-  if (userKws.length > 0) {
-    var classified = classifyKws(curSet.usedKwIndices || []);
-    kwTotalCount = classified.length;
-    for (var i = 0; i < classified.length; i++) {
-      var item = classified[i];
-      if      (item.type === 'tt') { titleKwNames.push(item.kw); }
-      else if (item.type === 'ct') { contentKwNames.push(item.kw); }
-      else if (item.type === 'at') { auxKwNames.push(item.kw); }
-      else                         { suppKwNames.push(item.kw); }
+  var titleKwNames=[],contentKwNames=[],auxKwNames=[],suppKwNames=[],kwTotalCount=0;
+  if(userKws.length>0){
+    var classified=classifyKws(curSet.usedKwIndices||[]);
+    kwTotalCount=classified.length;
+    for(var i=0;i<classified.length;i++){
+      var item=classified[i];
+      if(item.type==='tt')titleKwNames.push(item.kw);
+      else if(item.type==='ct')contentKwNames.push(item.kw);
+      else if(item.type==='at')auxKwNames.push(item.kw);
+      else suppKwNames.push(item.kw);
     }
   }
 
-  var outlineStr = '';
-  for (var i = 0; i < h2s.length; i++) {
-    outlineStr += (i + 1) + '. 【' + h2s[i].catName + '】 ' + h2s[i].text + '\n';
+  var outlineStr='';
+  for(var i=0;i<h2s.length;i++){
+    var ph=CAT_PHASE[h2s[i].ck]||{phase:'',icon:''};
+    outlineStr+=(i+1)+'. 【'+h2s[i].catName+' · '+ph.phase+'】 '+h2s[i].text+'\n';
   }
-  var ltStr   = ''; for (var i = 0; i < ltKws.length; i++)  { ltStr   += '  · ' + ltKws[i]  + '\n'; }
-  var painStr = ''; for (var i = 0; i < pains.length; i++) { painStr += pains[i] + '\n'; }
+  var ltStr=''; for(var i=0;i<ltKws.length;i++)ltStr+='  · '+ltKws[i]+'\n';
+  var painStr=''; for(var i=0;i<pains.length;i++)painStr+=pains[i]+'\n';
 
-  var sep  = '================================================================\n';
-  var sep2 = '----------------------------------------------------------------\n';
-  var pt   = '';
+  var sep='================================================================\n';
+  var sep2='----------------------------------------------------------------\n';
+  var pt='';
+  pt+=sep+'# SEO 软文写作任务\n'+sep+'\n';
+  pt+='## 一、角色定位\n'+sep2;
+  pt+='你是一位拥有 10 年经验的 Google SEO 内容专家，精通中文内容营销，\n';
+  pt+='擅长撰写同时满足以下三个目标的高质量软文：\n';
+  pt+='  1. 符合谷歌 E-E-A-T 质量评估标准，有助于搜索排名提升\n';
+  pt+='  2. 真正解决目标读者的实际问题与痛点，提供可操作的实用信息\n';
+  pt+='  3. 关键词与长尾词自然、合理地融入行文，绝不生硬堆砌\n\n';
+  pt+='## 二、文章基本信息\n'+sep2;
+  pt+='主标题（H1）  ：'+h1+'\n';
+  pt+='目标地区      ：'+dest+'\n';
+  pt+='发布年份      ：'+yr+'\n';
+  pt+='核心关键词    ：'+kw+'\n';
+  pt+='参考运营商    ：'+c1+'、'+c2+' 等\n';
+  pt+='参考服务商    ：'+p1+'、'+p2+' 等\n';
+  pt+='目标读者      ：计划前往'+dest+'的中文用户（旅行者、商务出差人士、留学生等）\n\n';
+  pt+='## 三、文章结构大纲（按读者旅程逻辑排序，严格按此展开）\n'+sep2;
+  pt+='【引言】（100-150 字）\n';
+  pt+='  · 以读者真实场景或痛点问题开篇，前100字内自然植入「'+kw+'」一次\n\n';
+  pt+=outlineStr+'\n';
+  pt+='【结尾总结】（100-150 字）\n';
+  pt+='  · 提炼全文核心建议（3条以内），再次自然呼应「'+kw+'」，包含行动号召\n\n';
+  pt+='## 四、SEO 写作规范\n'+sep2;
+  pt+='\n【4.1 核心关键词布局】\n';
+  pt+='  · 「'+kw+'」全文自然出现 5-8 次，密度控制在 1.5%-2%\n';
+  pt+='  · 以下长尾关键词分散自然融入对应章节，每个出现 1-2 次：\n'+ltStr;
+  pt+='\n【4.2 文章篇幅】\n';
+  pt+='  · 全文总字数：2500-3500 字（不含Meta信息）\n';
+  pt+='  · 每个H2章节正文：200-350字\n';
+  pt+='\n【4.3 E-E-A-T 标准】\n';
+  pt+='  · Experience：融入真实使用场景，如「在'+city+'落地后...」\n';
+  pt+='  · Expertise：引用具体数据（价格区间、网速数值）\n';
+  pt+='  · Authoritativeness：自然提及真实运营商/服务商（如'+c1+'、'+p1+'）\n';
+  pt+='  · Trustworthiness：客观呈现优缺点，不夸大宣传\n\n';
+  pt+='## 五、用户核心痛点（在对应章节着重解决）\n'+sep2;
+  pt+=painStr+'\n';
 
-  pt += sep + '# SEO 软文写作任务\n' + sep + '\n';
-  pt += '## 一、角色定位\n' + sep2;
-  pt += '你是一位拥有 10 年经验的 Google SEO 内容专家，精通中文内容营销，\n';
-  pt += '擅长撰写同时满足以下三个目标的高质量软文：\n';
-  pt += '  1. 符合谷歌 E-E-A-T 质量评估标准，有助于搜索排名提升\n';
-  pt += '  2. 真正解决目标读者的实际问题与痛点，提供可操作的实用信息\n';
-  pt += '  3. 关键词与长尾词自然、合理地融入行文，绝不生硬堆砌\n\n';
-
-  pt += '## 二、文章基本信息\n' + sep2;
-  pt += '主标题（H1）  ：' + h1 + '\n';
-  pt += '目标地区      ：' + dest + '\n';
-  pt += '发布年份      ：' + yr + '\n';
-  pt += '核心关键词    ：' + kw + '\n';
-  pt += '参考运营商    ：' + c1 + '、' + c2 + ' 等\n';
-  pt += '参考服务商    ：' + p1 + '、' + p2 + ' 等\n';
-  pt += '目标读者      ：计划前往' + dest + '的中文用户（旅行者、商务出差人士、留学生等）\n\n';
-
-  pt += '## 三、文章结构大纲（严格按此展开）\n' + sep2;
-  pt += '【引言】（100-150 字）\n';
-  pt += '  · 以读者真实场景或痛点问题开篇，前100字内自然植入「' + kw + '」一次\n\n';
-  pt += outlineStr + '\n';
-  pt += '【结尾总结】（100-150 字）\n';
-  pt += '  · 提炼全文核心建议（3条以内），再次自然呼应「' + kw + '」，包含行动号召\n\n';
-
-  pt += '## 四、SEO 写作规范\n' + sep2;
-  pt += '\n【4.1 核心关键词布局】\n';
-  pt += '  · 「' + kw + '」全文自然出现 5-8 次，密度控制在 1.5%-2%\n';
-  pt += '  · 以下长尾关键词分散自然融入对应章节，每个出现 1-2 次：\n' + ltStr;
-  pt += '\n【4.2 文章篇幅】\n';
-  pt += '  · 全文总字数：2500-3500 字（不含Meta信息）\n';
-  pt += '  · 每个H2章节正文：200-350字\n';
-  pt += '\n【4.3 E-E-A-T 标准】\n';
-  pt += '  · Experience：融入真实使用场景，如「在' + city + '落地后...」\n';
-  pt += '  · Expertise：引用具体数据（价格区间、网速数值）\n';
-  pt += '  · Authoritativeness：自然提及真实运营商/服务商（如' + c1 + '、' + p1 + '）\n';
-  pt += '  · Trustworthiness：客观呈现优缺点，不夸大宣传\n\n';
-
-  pt += '## 五、用户核心痛点（在对应章节着重解决）\n' + sep2;
-  pt += painStr + '\n';
-
-  if (userKws.length > 0) {
-    pt += '## 六、高流量关键词植入规范（共 ' + kwTotalCount + ' 个）\n' + sep2;
-    if (titleKwNames.length > 0) {
-      pt += '\n【6.1 已植入标题的关键词 · ' + titleKwNames.length + ' 个】（正文再出现1次即可）\n';
-      for (var i = 0; i < titleKwNames.length; i++) { pt += '  · ' + titleKwNames[i] + '\n'; }
+  if(userKws.length>0){
+    pt+='## 六、高流量关键词植入规范（共 '+kwTotalCount+' 个）\n'+sep2;
+    if(titleKwNames.length>0){
+      pt+='\n【6.1 已植入标题的关键词 · '+titleKwNames.length+' 个】（正文再出现1次即可）\n';
+      for(var i=0;i<titleKwNames.length;i++)pt+='  · '+titleKwNames[i]+'\n';
     }
-    if (contentKwNames.length > 0) {
-      pt += '\n【6.2 ⭐ 内容重点植入词 · ' + contentKwNames.length + ' 个（最高优先级）】\n';
-      pt += '每个在正文中自然出现 1-2 次，分散在不同章节：\n';
-      for (var i = 0; i < contentKwNames.length; i++) { pt += '  · ' + contentKwNames[i] + '\n'; }
+    if(contentKwNames.length>0){
+      pt+='\n【6.2 ⭐ 内容重点植入词 · '+contentKwNames.length+' 个（最高优先级）】\n';
+      pt+='每个在正文中自然出现 1-2 次，分散在不同章节：\n';
+      for(var i=0;i<contentKwNames.length;i++)pt+='  · '+contentKwNames[i]+'\n';
     }
-    if (auxKwNames.length > 0) {
-      pt += '\n【6.3 辅助关键词 · ' + auxKwNames.length + ' 个（次级）】\n';
-      pt += '择优选取 10-15 个自然融入，语义不符时可跳过：\n';
-      for (var i = 0; i < auxKwNames.length; i++) { pt += '  · ' + auxKwNames[i] + '\n'; }
+    if(auxKwNames.length>0){
+      pt+='\n【6.3 辅助关键词 · '+auxKwNames.length+' 个（次级）】\n';
+      pt+='择优选取 10-15 个自然融入，语义不符时可跳过：\n';
+      for(var i=0;i<auxKwNames.length;i++)pt+='  · '+auxKwNames[i]+'\n';
     }
-    if (suppKwNames.length > 0) {
-      pt += '\n【6.4 补充词库 · ' + suppKwNames.length + ' 个（背景参考）】\n';
-      var showN = Math.min(suppKwNames.length, 50);
-      for (var i = 0; i < showN; i++) { pt += '  · ' + suppKwNames[i] + '\n'; }
-      if (suppKwNames.length > 50) { pt += '  ...（共 ' + suppKwNames.length + ' 个）\n'; }
+    if(suppKwNames.length>0){
+      pt+='\n【6.4 补充词库 · '+suppKwNames.length+' 个（背景参考）】\n';
+      var showN=Math.min(suppKwNames.length,50);
+      for(var i=0;i<showN;i++)pt+='  · '+suppKwNames[i]+'\n';
+      if(suppKwNames.length>50)pt+='  ...（共 '+suppKwNames.length+' 个）\n';
     }
-    pt += '\n【6.5 总体原则】\n';
-    pt += '  · 全部关键词总密度不超过 2.5%；同段落不超过 3 个；首次出现可加粗\n\n';
+    pt+='\n【6.5 总体原则】\n';
+    pt+='  · 全部关键词总密度不超过 2.5%；同段落不超过 3 个；首次出现可加粗\n\n';
   }
 
-  pt += sep + '## 开始写作\n' + sep;
-  pt += '请从【引言】开始依次展开，最后附：Meta Title、Meta 描述、Alt 文本建议、内链建议。\n';
-  pt += sep;
+  pt+=sep+'## 开始写作\n'+sep;
+  pt+='请从【引言】开始依次展开，最后附：Meta Title、Meta 描述、Alt 文本建议、内链建议。\n'+sep;
 
-  var approxWords = Math.round(pt.length / 2.2);
-  var infoHtml = '<span class="p-stat">📊 Prompt约 ' + approxWords + ' 字</span>'
-    + '<span class="p-stat">🔑 长尾词 ' + ltKws.length + ' 个</span>'
-    + '<span class="p-stat">💡 痛点 ' + pains.length + ' 条</span>'
-    + '<span class="p-stat">📐 H2章节 ' + h2s.length + ' 个</span>';
-  if (userKws.length > 0) {
-    infoHtml += '<span class="p-stat amber">🔑 高流量词 ' + kwTotalCount + ' 个</span>'
-      + '<span class="p-stat amber">⭐ 内容重点 ' + contentKwNames.length + ' 个</span>';
+  var approxWords=Math.round(pt.length/2.2);
+  var infoHtml='<span class="p-stat">📊 Prompt约 '+approxWords+' 字</span>'
+    +'<span class="p-stat">🔑 长尾词 '+ltKws.length+' 个</span>'
+    +'<span class="p-stat">💡 痛点 '+pains.length+' 条</span>'
+    +'<span class="p-stat">📐 H2章节 '+h2s.length+' 个</span>';
+  if(userKws.length>0){
+    infoHtml+='<span class="p-stat amber">🔑 高流量词 '+kwTotalCount+' 个</span>'
+      +'<span class="p-stat amber">⭐ 内容重点 '+contentKwNames.length+' 个</span>';
   }
 
-  document.getElementById('promptInfoBar').innerHTML = infoHtml;
-  document.getElementById('promptText').value        = pt;
+  document.getElementById('promptInfoBar').innerHTML=infoHtml;
+  document.getElementById('promptText').value=pt;
   document.getElementById('promptModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
 
 // ============================================================
-// Modal
+// Modal & 工具
 // ============================================================
-function closePromptModal() {
-  document.getElementById('promptModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function closePromptModalBg(e) {
-  if (e && e.target === document.getElementById('promptModal')) { closePromptModal(); }
-}
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    if (document.getElementById('promptModal').classList.contains('open')) { closePromptModal(); }
-  }
-});
-function copyPrompt() {
-  var text = document.getElementById('promptText').value;
-  if (text) { copyText(text); }
-}
-function exportPrompt() {
-  var text = document.getElementById('promptText').value;
-  if (!text || !curSet) { return; }
-  downloadFile(text, 'seo-prompt-' + curSet.destName + curSet.year + '.txt');
+function closePromptModal(){document.getElementById('promptModal').classList.remove('open');document.body.style.overflow='';}
+function closePromptModalBg(e){if(e&&e.target===document.getElementById('promptModal'))closePromptModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('promptModal').classList.contains('open'))closePromptModal();});
+function copyPrompt(){var text=document.getElementById('promptText').value;if(text)copyText(text);}
+function exportPrompt(){
+  var text=document.getElementById('promptText').value;
+  if(!text||!curSet)return;
+  downloadFile(text,'seo-prompt-'+curSet.destName+curSet.year+'.txt');
   showToast('📤 Prompt 已导出');
 }
-
-// ============================================================
-// 通用工具
-// ============================================================
-function copyText(text) {
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text)
-      .then(function() { showToast('✅ 已复制到剪贴板'); })
-      .catch(function() { copyFallback(text); });
-  } else { copyFallback(text); }
+function copyText(text){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){showToast('✅ 已复制到剪贴板');}).catch(function(){copyFallback(text);});
+  } else copyFallback(text);
 }
-function copyFallback(text) {
-  var ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none;top:0;left:0';
-  document.body.appendChild(ta); ta.focus(); ta.select();
-  try { document.execCommand('copy'); showToast('✅ 已复制到剪贴板'); }
-  catch(e) { showToast('❌ 复制失败，请手动全选复制'); }
+function copyFallback(text){
+  var ta=document.createElement('textarea');
+  ta.value=text;ta.style.cssText='position:fixed;opacity:0;pointer-events:none;top:0;left:0';
+  document.body.appendChild(ta);ta.focus();ta.select();
+  try{document.execCommand('copy');showToast('✅ 已复制到剪贴板');}
+  catch(e){showToast('❌ 复制失败，请手动全选复制');}
   document.body.removeChild(ta);
 }
-function downloadFile(text, filename) {
-  var a = document.createElement('a');
-  a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
-  a.download = filename;
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+function downloadFile(text,filename){
+  var a=document.createElement('a');
+  a.href='data:text/plain;charset=utf-8,'+encodeURIComponent(text);
+  a.download=filename;document.body.appendChild(a);a.click();document.body.removeChild(a);
 }
-function doReset() {
-  genCount = 0; curSet = null; hist = [];
-  document.getElementById('sGenCount').textContent      = '0';
-  document.getElementById('genBadge').style.display     = 'none';
-  document.getElementById('kwUsedBadge').style.display  = 'none';
-  document.getElementById('btnCopySet').style.display   = 'none';
-  document.getElementById('btnGenPrompt').style.display = 'none';
-  document.getElementById('cardFt').style.display       = 'none';
-  document.getElementById('histSection').style.display  = 'none';
-  document.getElementById('btnExportAll').style.display = 'none';
-  document.getElementById('outputBody').innerHTML =
-    '<div class="empty"><div class="empty-ico">✨</div>'
-    + '<h3>点击「生成标题」开始</h3>'
-    + '<p>可先导入高流量关键词，关键词将自动植入标题并写入SEO写作Prompt</p></div>';
+function doReset(){
+  genCount=0;curSet=null;hist=[];
+  document.getElementById('sGenCount').textContent='0';
+  document.getElementById('genBadge').style.display='none';
+  document.getElementById('kwUsedBadge').style.display='none';
+  document.getElementById('btnCopySet').style.display='none';
+  document.getElementById('btnGenPrompt').style.display='none';
+  document.getElementById('cardFt').style.display='none';
+  document.getElementById('histSection').style.display='none';
+  document.getElementById('btnExportAll').style.display='none';
+  document.getElementById('outputBody').innerHTML='<div class="empty"><div class="empty-ico">✨</div><h3>点击「生成标题」开始</h3><p>H2标题将按「认知→比较→决策→购买→激活→使用→解惑」读者旅程逻辑排序</p></div>';
   showToast('🔄 已重置所有生成记录');
 }
-var toastTimer = null;
-function showToast(msg) {
-  var el = document.getElementById('toast');
-  el.textContent = msg;
-  el.classList.add('show');
-  if (toastTimer) { clearTimeout(toastTimer); }
-  toastTimer = setTimeout(function() { el.classList.remove('show'); }, 2800);
+var toastTimer=null;
+function showToast(msg){
+  var el=document.getElementById('toast');
+  el.textContent=msg;el.classList.add('show');
+  if(toastTimer)clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){el.classList.remove('show');},2800);
 }
 </script>
 </body>
