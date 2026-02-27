@@ -3,252 +3,355 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>eSIM SEO 标题生成器</title>
+<title>eSIM SEO Blog 批量生成器 Pro</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --pri:#2563eb;--pri-dark:#1d4ed8;--pri-light:#eff6ff;
-  --success:#10b981;--warn:#f59e0b;
-  --bg:#f0f4f8;--card:#fff;--border:#e2e8f0;
-  --text:#1e293b;--muted:#64748b;--light:#f8fafc;
-  --pur:#7c3aed;--pur-dark:#5b21b6;--pur-light:#f5f3ff;
-  --kw-title:#1d4ed8;--kw-content:#15803d;--kw-supp:#64748b;
+  --pri:#2563eb;--pri-d:#1d4ed8;--pri-l:#eff6ff;
+  --pur:#7c3aed;--pur-d:#5b21b6;--pur-l:#f5f3ff;
+  --grn:#10b981;--grn-d:#059669;--grn-l:#f0fdf4;
+  --amb:#f59e0b;--amb-d:#d97706;--amb-l:#fffbeb;
+  --pink:#ec4899;--pink-d:#be185d;--pink-l:#fdf2f8;
+  --teal:#14b8a6;--teal-d:#0f766e;--teal-l:#f0fdfa;
+  --bg:#f0f4f8;--card:#fff;--bdr:#e2e8f0;
+  --txt:#1e293b;--muted:#64748b;--light:#f8fafc;
 }
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px}
-.header{background:linear-gradient(135deg,#0f2460 0%,#1e3a8a 40%,#2563eb 80%,#3b82f6 100%);color:#fff;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 2px 16px rgba(37,99,235,.35)}
-.hd-left h1{font-size:19px;font-weight:800;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
-.hd-left p{font-size:11.5px;opacity:.78;margin-top:4px}
-.hd-stats{display:flex;gap:8px;flex-wrap:wrap}
-.stat-pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);padding:5px 13px;border-radius:20px;font-size:12px;font-weight:600}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;font-size:14px}
+
+/* === HEADER === */
+.hdr{background:linear-gradient(135deg,#0f2460,#1e3a8a 40%,#2563eb 80%,#3b82f6);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 2px 18px rgba(37,99,235,.4)}
+.hdr-l h1{font-size:17px;font-weight:800;display:flex;align-items:center;gap:7px}
+.hdr-l p{font-size:11px;opacity:.72;margin-top:3px}
+.hdr-stats{display:flex;gap:6px;flex-wrap:wrap}
+.stat-pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);padding:4px 11px;border-radius:16px;font-size:11.5px;font-weight:600}
 .stat-pill b{color:#fcd34d}
-.main{max-width:1060px;margin:0 auto;padding:18px 14px}
-.kw-panel{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:16px;overflow:hidden;border:2px solid transparent;transition:border-color .25s}
-.kw-panel.has-kws{border-color:#fde68a}
-.kw-panel-hd{padding:13px 20px;background:linear-gradient(135deg,#fffbeb,#fef3c7);border-bottom:1px solid #fde68a;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;cursor:pointer;user-select:none;transition:background .18s}
-.kw-panel-hd:hover{background:linear-gradient(135deg,#fef3c7,#fde68a)}
-.kw-hd-l{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
-.kw-hd-title{font-size:14px;font-weight:700;color:#92400e;display:flex;align-items:center;gap:7px}
-.kw-badge{background:#f59e0b;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px}
-.kw-hd-r{display:flex;gap:8px;align-items:center}
-.kw-toggle-btn{background:#f59e0b;color:#fff;border:none;border-radius:7px;padding:6px 13px;font-size:12px;font-weight:600;cursor:pointer;transition:background .18s}
-.kw-toggle-btn:hover{background:#d97706}
-.kw-stats-bar{padding:10px 20px;background:#fffef7;border-bottom:1px solid #fde68a;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.kw-stat{display:flex;align-items:center;gap:5px;background:#fff;border:1.5px solid var(--border);border-radius:8px;padding:4px 12px;font-size:12px;font-weight:600}
-.kw-stat .n{font-size:15px;font-weight:800}
-.kw-stat .n.blue{color:var(--pri)}.kw-stat .n.green{color:var(--success)}.kw-stat .n.pur{color:var(--pur)}.kw-stat .n.gray{color:var(--muted)}.kw-stat .n.amber{color:#d97706}
-.kw-input-section{padding:16px 22px;background:#fffef0;border-bottom:1px solid #fde68a}
-.kw-input-tip{font-size:11.5px;color:#92400e;margin-bottom:8px;display:flex;align-items:flex-start;gap:6px;line-height:1.55}
-.kw-textarea{width:100%;padding:11px 13px;border:1.5px solid #fcd34d;border-radius:9px;font-size:12.5px;resize:vertical;outline:none;min-height:110px;font-family:'Consolas','Monaco',monospace;transition:border-color .2s,box-shadow .2s;background:#fffef7;line-height:1.7;color:var(--text)}
-.kw-textarea:focus{border-color:#f59e0b;box-shadow:0 0 0 3px rgba(245,158,11,.15)}
-.kw-input-btns{display:flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap}
-.btn-amber{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;box-shadow:0 3px 10px rgba(245,158,11,.28)}
-.btn-amber:hover{background:linear-gradient(135deg,#d97706,#b45309);transform:translateY(-1px);box-shadow:0 5px 16px rgba(245,158,11,.38)}
-.kw-input-hint{font-size:11px;color:var(--muted);margin-left:4px}
-.kw-tag-area{padding:14px 20px}
-.kw-legend{display:flex;align-items:center;gap:16px;margin-bottom:10px;flex-wrap:wrap}
-.kw-leg{display:flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600}
-.kw-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.dot-t{background:#3b82f6}.dot-c{background:#10b981}.dot-s{background:#94a3b8}
-.kw-leg.title-l{color:var(--kw-title)}.kw-leg.content-l{color:var(--kw-content)}.kw-leg.supp-l{color:var(--kw-supp)}
-.kw-cloud-wrap{max-height:200px;overflow-y:auto;padding:4px 0;scrollbar-width:thin;scrollbar-color:#fcd34d #fffef7}
-.kw-cloud-wrap::-webkit-scrollbar{width:5px}.kw-cloud-wrap::-webkit-scrollbar-track{background:#fffef7}.kw-cloud-wrap::-webkit-scrollbar-thumb{background:#fcd34d;border-radius:3px}
-.kw-cloud{display:flex;flex-wrap:wrap;gap:6px}
-.kw-tag{display:inline-flex;padding:4px 10px;border-radius:14px;font-size:11.5px;font-weight:500;cursor:default;transition:transform .15s,box-shadow .15s;border:1.5px solid transparent;white-space:nowrap;line-height:1.3}
-.kw-tag:hover{transform:scale(1.05);box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.kw-tag.tt{background:#dbeafe;border-color:#93c5fd;color:#1d4ed8;font-weight:700}
-.kw-tag.ct{background:#dcfce7;border-color:#86efac;color:#15803d;font-weight:600}
-.kw-tag.at{background:#ede9fe;border-color:#c4b5fd;color:#5b21b6}
-.kw-tag.st{background:#f1f5f9;border-color:#cbd5e1;color:#64748b}
-.ctrl-panel{background:var(--card);border-radius:14px;padding:18px 22px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:16px;display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
-.cg{display:flex;flex-direction:column;gap:5px}
-.cg label{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.7px}
-select{padding:9px 11px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;color:var(--text);outline:none;cursor:pointer;background:#fff;transition:border-color .2s;min-width:128px}
+.main{max-width:1120px;margin:0 auto;padding:15px 13px}
+
+/* === KEYWORD MANAGER === */
+.kw-mgr{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:14px;overflow:hidden;border:2px solid var(--bdr);transition:border-color .25s}
+.kw-mgr.has-kws{border-color:#fcd34d}
+.kw-mgr-hd{padding:11px 18px;background:linear-gradient(135deg,#fffbeb,#fef3c7);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;cursor:pointer;user-select:none}
+.kw-mgr-hd:hover{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.kw-mgr-title{font-size:14px;font-weight:800;color:#92400e;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.tp{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:9px;font-size:11px;font-weight:700;border:1.5px solid}
+.tp-f{background:#dbeafe;color:#1d4ed8;border-color:#93c5fd}
+.tp-c{background:#fdf2f8;color:#be185d;border-color:#f9a8d4}
+.tp-l{background:#f0fdfa;color:#0f766e;border-color:#99f6e4}
+.kw-mgr-toggle{background:var(--amb);color:#fff;border:none;border-radius:7px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer;flex-shrink:0}
+.kw-mgr-toggle:hover{background:var(--amb-d)}
+.kw-summary{padding:9px 18px;background:#fffef7;border-top:1.5px solid #fde68a;display:none;align-items:center;gap:10px;flex-wrap:wrap}
+.kw-summary.show{display:flex}
+.sum-chip{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:8px}
+.sc-f{background:#dbeafe;color:#1d4ed8}
+.sc-c{background:#fdf2f8;color:#be185d}
+.sc-l{background:#f0fdfa;color:#0f766e}
+.sum-div{color:#cbd5e1;font-size:13px}
+
+/* Three columns */
+.kw-cols{display:none;grid-template-columns:1fr 1fr 1fr;border-top:1.5px solid #fde68a}
+.kw-cols.open{display:grid}
+.kw-col{padding:14px 16px;border-right:1.5px solid #fde68a;background:#fffef9}
+.kw-col:last-child{border-right:none}
+.kw-col-hd{margin-bottom:8px}
+.kw-col-title{font-size:13px;font-weight:800;display:flex;align-items:center;gap:5px;margin-bottom:2px}
+.col-ico{width:21px;height:21px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+.ico-f{background:#dbeafe;color:#1d4ed8}
+.ico-c{background:#fdf2f8;color:#be185d}
+.ico-l{background:#f0fdfa;color:#0f766e}
+.kw-col-lim{font-size:10px;font-weight:700;padding:2px 6px;border-radius:5px;margin-left:3px}
+.lim-f{background:#dbeafe;color:#1d4ed8}
+.lim-c{background:#fdf2f8;color:#be185d}
+.lim-l{background:#f0fdfa;color:#0f766e}
+.kw-col-desc{font-size:11px;color:var(--muted);margin-bottom:8px}
+.kw-ta{width:100%;padding:9px 11px;border:1.5px solid var(--bdr);border-radius:8px;font-size:12px;line-height:1.7;resize:vertical;outline:none;min-height:110px;font-family:'Consolas',monospace;color:var(--txt);background:#fff;transition:border-color .2s,box-shadow .2s}
+.kw-ta.ta-f:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.1)}
+.kw-ta.ta-c:focus{border-color:#ec4899;box-shadow:0 0 0 3px rgba(236,72,153,.1)}
+.kw-ta.ta-l:focus{border-color:#14b8a6;box-shadow:0 0 0 3px rgba(20,184,166,.1)}
+.kw-col-btns{margin-top:8px;display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+.bp{border:none;border-radius:7px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer;color:#fff;transition:all .18s}
+.bp-f{background:#3b82f6}.bp-f:hover{background:#2563eb}
+.bp-c{background:#ec4899}.bp-c:hover{background:#be185d}
+.bp-l{background:#14b8a6}.bp-l:hover{background:#0f766e}
+.btn-sm-clr{background:#fff;color:var(--muted);border:1.5px solid var(--bdr);border-radius:7px;padding:5px 10px;font-size:11.5px;cursor:pointer;transition:all .18s}
+.btn-sm-clr:hover{border-color:var(--muted)}
+.ph{font-size:11px;font-weight:600}.ph-ok{color:var(--grn)}
+
+/* Keyword clouds */
+.cloud-wrap{margin-top:9px;display:none}
+.cloud-wrap.show{display:block}
+.cov-row{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.cov-bg{flex:1;height:5px;background:#e2e8f0;border-radius:3px;overflow:hidden}
+.cov-fill{height:100%;border-radius:3px;transition:width .4s}
+.cf-f{background:linear-gradient(90deg,#3b82f6,#2563eb)}
+.cf-c{background:linear-gradient(90deg,#ec4899,#be185d)}
+.cf-l{background:linear-gradient(90deg,#14b8a6,#0f766e)}
+.cov-pct{font-size:10.5px;font-weight:700;min-width:30px;text-align:right}
+.kw-cloud{display:flex;flex-wrap:wrap;gap:4px;max-height:78px;overflow-y:auto;scrollbar-width:thin}
+.kw-cloud::-webkit-scrollbar{width:4px}.kw-cloud::-webkit-scrollbar-thumb{border-radius:2px;background:#e2e8f0}
+.kt{display:inline-flex;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:500;white-space:nowrap;border:1.5px solid;cursor:default;transition:transform .12s;line-height:1.4}
+.kt:hover{transform:scale(1.05)}
+.kt-fu{background:#dbeafe;border-color:#93c5fd;color:#1d4ed8;font-weight:700}
+.kt-fn{background:#f8fafc;border-color:#e2e8f0;color:#94a3b8}
+.kt-cu{background:#fdf2f8;border-color:#f9a8d4;color:#be185d;font-weight:700}
+.kt-cn{background:#f8fafc;border-color:#e2e8f0;color:#94a3b8}
+.kt-lu{background:#f0fdfa;border-color:#99f6e4;color:#0f766e;font-weight:700}
+.kt-ln{background:#f8fafc;border-color:#e2e8f0;color:#94a3b8}
+
+/* === CONTROL PANEL === */
+.ctrl{background:var(--card);border-radius:14px;padding:13px 18px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:14px;display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.fg{display:flex;flex-direction:column;gap:4px}
+.fg label{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+select{padding:8px 10px;border:1.5px solid var(--bdr);border-radius:8px;font-size:13px;color:var(--txt);outline:none;cursor:pointer;background:#fff;transition:border-color .2s;min-width:115px}
 select:focus{border-color:var(--pri)}
-.btn-row{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 17px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .2s;white-space:nowrap}
-.btn-pri{background:linear-gradient(135deg,var(--pri),var(--pri-dark));color:#fff;padding:11px 24px;font-size:14px;box-shadow:0 3px 10px rgba(37,99,235,.32)}
-.btn-pri:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(37,99,235,.42)}
-.btn-pri:active{transform:translateY(0)}
-.btn-out{background:#fff;color:var(--muted);border:1.5px solid var(--border)}
-.btn-out:hover{border-color:var(--pri);color:var(--pri);background:var(--pri-light)}
-.btn-green{background:var(--success);color:#fff}
-.btn-green:hover{background:#059669;transform:translateY(-1px)}
-.btn-purple{background:linear-gradient(135deg,var(--pur),var(--pur-dark));color:#fff;box-shadow:0 3px 10px rgba(124,58,237,.28)}
-.btn-purple:hover{background:linear-gradient(135deg,#6d28d9,#4c1d95);transform:translateY(-1px);box-shadow:0 5px 16px rgba(124,58,237,.42)}
-.ocard{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:16px;overflow:hidden}
-.card-hd{padding:13px 20px;background:var(--light);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.card-hd-l{display:flex;align-items:center;gap:9px}
-.card-hd-r{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.gen-badge{background:var(--pri);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px}
-.kw-used-badge{background:#f59e0b;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px}
-.card-title{font-size:14px;font-weight:700;color:#374151}
-.card-body{padding:20px 22px}
-.card-ft{padding:12px 20px;background:var(--light);border-top:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap}
-.empty{text-align:center;padding:52px 20px;color:var(--muted)}
-.empty-ico{font-size:50px;margin-bottom:14px}
-.empty h3{font-size:16px;color:#374151;margin-bottom:6px}
-.empty p{font-size:13px}
-.h1-block{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px solid #93c5fd;border-radius:12px;padding:15px 16px;margin-bottom:18px;display:flex;align-items:flex-start;gap:11px}
-.h1-lbl{flex-shrink:0;background:var(--pri);color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:5px;margin-top:4px;letter-spacing:.5px}
-.h1-txt{flex:1;font-size:16.5px;font-weight:700;color:#1e3a8a;line-height:1.45}
-.h1-len{font-size:10px;color:#3b82f6;font-weight:600;margin-top:4px}
-.h1-copy{flex-shrink:0;background:#fff;color:var(--pri);border:1.5px solid var(--pri);border-radius:7px;padding:5px 10px;font-size:11.5px;cursor:pointer;transition:all .2s;margin-top:2px}
+.btn-grp{display:flex;gap:7px;align-items:flex-end;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .2s;white-space:nowrap}
+.btn-pri{background:linear-gradient(135deg,var(--pri),var(--pri-d));color:#fff;padding:10px 22px;font-size:14px;box-shadow:0 3px 10px rgba(37,99,235,.28)}
+.btn-pri:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(37,99,235,.4)}
+.btn-out{background:#fff;color:var(--muted);border:1.5px solid var(--bdr)}
+.btn-out:hover{border-color:var(--pri);color:var(--pri);background:var(--pri-l)}
+.btn-grn{background:var(--grn);color:#fff}
+.btn-grn:hover{background:var(--grn-d);transform:translateY(-1px)}
+.btn-pur{background:linear-gradient(135deg,var(--pur),var(--pur-d));color:#fff;box-shadow:0 3px 10px rgba(124,58,237,.23)}
+.btn-pur:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(124,58,237,.36)}
+
+/* === OUTPUT === */
+.ocard{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:14px;overflow:hidden}
+.ocard-hd{padding:12px 18px;background:var(--light);border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ocard-hd-l{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ocard-hd-r{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.bdg{font-size:11px;font-weight:700;padding:3px 9px;border-radius:10px;color:#fff;white-space:nowrap}
+.bg-pri{background:var(--pri)}.bg-grn{background:var(--grn)}.bg-amb{background:var(--amb)}.bg-pur{background:var(--pur)}
+.ocard-title{font-size:14px;font-weight:700;color:#374151}
+.ocard-body{padding:18px 20px}
+.ocard-ft{padding:10px 18px;background:var(--light);border-top:1px solid var(--bdr);display:none;gap:6px;flex-wrap:wrap}
+
+/* H1 block */
+.h1-block{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px solid #93c5fd;border-radius:12px;padding:13px 15px;margin-bottom:14px;display:flex;align-items:flex-start;gap:9px}
+.h1-lbl{flex-shrink:0;background:var(--pri);color:#fff;font-size:9.5px;font-weight:800;padding:3px 7px;border-radius:4px;margin-top:4px}
+.h1-body{flex:1;min-width:0}
+.h1-txt{font-size:17px;font-weight:700;color:#1e3a8a;line-height:1.45}
+.h1-meta{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap;align-items:center}
+.h1-len{font-size:10px;color:#3b82f6;font-weight:600}
+.ki{font-size:10px;font-weight:700;padding:2px 7px;border-radius:7px;display:inline-flex;align-items:center;gap:3px}
+.ki-f{background:#dbeafe;color:#1d4ed8;border:1px solid #93c5fd}
+.ki-c{background:#fdf2f8;color:#be185d;border:1px solid #f9a8d4}
+.ki-l{background:#f0fdfa;color:#0f766e;border:1px solid #99f6e4}
+.h1-copy{flex-shrink:0;background:#fff;color:var(--pri);border:1.5px solid var(--pri);border-radius:7px;padding:4px 9px;font-size:11px;cursor:pointer;transition:all .18s;margin-top:2px}
 .h1-copy:hover{background:var(--pri);color:#fff}
-.h2-logic-bar{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;border-radius:10px;padding:10px 15px;margin-bottom:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.logic-bar-label{font-size:11px;font-weight:700;color:#15803d;white-space:nowrap;display:flex;align-items:center;gap:4px}
-.logic-phase{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:8px;white-space:nowrap}
-.phase-research{background:#dbeafe;color:#1d4ed8;border:1px solid #93c5fd}
-.phase-compare{background:#fce7f3;color:#be185d;border:1px solid #f9a8d4}
-.phase-decide{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
-.phase-action{background:#dcfce7;color:#15803d;border:1px solid #86efac}
-.phase-use{background:#ede9fe;color:#5b21b6;border:1px solid #c4b5fd}
-.phase-support{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1}
-.logic-arrow{color:#94a3b8;font-size:10px;flex-shrink:0}
-.h2-hd{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.h2-hd-badge{background:#10b981;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;text-transform:none;letter-spacing:0}
-.h2-list{display:flex;flex-direction:column;gap:8px}
-.h2-item{display:flex;align-items:flex-start;gap:10px;padding:11px 13px;border:1.5px solid var(--border);border-radius:10px;transition:all .18s;position:relative}
-.h2-item:hover{border-color:#93c5fd;background:#f0f9ff;box-shadow:0 2px 8px rgba(37,99,235,.07)}
-.h2-item:not(:last-child)::after{content:'';position:absolute;left:22px;bottom:-9px;width:2px;height:9px;background:#e2e8f0;z-index:1}
-.h2-num{width:25px;height:25px;background:var(--pri);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:3px;z-index:2;position:relative}
+
+/* Dedup notice */
+.dedup-row{display:flex;align-items:center;gap:7px;padding:7px 12px;background:#f0fdf4;border:1.5px solid #86efac;border-radius:9px;margin-bottom:12px;font-size:11.5px;color:#15803d;font-weight:600}
+
+/* SEO bar */
+.seo-bar{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.seo-tag{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:7px;font-size:11px;font-weight:600}
+.so{background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d}
+.sw{background:#fffbeb;border:1px solid #fde68a;color:#92400e}
+.si{background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8}
+
+/* Flow bar */
+.flow-bar{display:flex;align-items:center;gap:5px;padding:8px 13px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;border-radius:10px;margin-bottom:12px;flex-wrap:wrap}
+.flow-lbl{font-size:11px;font-weight:700;color:#15803d;flex-shrink:0}
+.fp{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:7px;white-space:nowrap}
+.fp-rch{background:#dbeafe;color:#1d4ed8;border:1px solid #93c5fd}
+.fp-cmp{background:#fdf2f8;color:#be185d;border:1px solid #f9a8d4}
+.fp-dec{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.fp-act{background:#dcfce7;color:#15803d;border:1px solid #86efac}
+.fp-use{background:#ede9fe;color:#5b21b6;border:1px solid #c4b5fd}
+.fp-sup{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1}
+.flow-arr{color:#cbd5e1;font-size:9px}
+
+/* H2 */
+.h2-hd{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.h2-hd-b{font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;text-transform:none;letter-spacing:0;color:#fff}
+.h2-list{display:flex;flex-direction:column;gap:7px}
+.h2-item{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1.5px solid var(--bdr);border-radius:10px;transition:all .18s;position:relative}
+.h2-item:hover{border-color:#93c5fd;background:#f0f9ff;box-shadow:0 2px 8px rgba(37,99,235,.06)}
+.h2-item:not(:last-child)::after{content:'';position:absolute;left:19px;bottom:-8px;width:2px;height:8px;background:#e2e8f0;z-index:1}
+.h2-num{width:24px;height:24px;background:var(--pri);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:2px;z-index:2;position:relative}
 .h2-body{flex:1;min-width:0}
-.h2-meta{display:flex;align-items:center;gap:6px;margin-bottom:4px;flex-wrap:wrap}
-.cat-tag{font-size:10px;font-weight:700;color:#fff;padding:2px 8px;border-radius:10px;display:inline-block;letter-spacing:.3px}
-.phase-tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:8px;display:inline-flex;align-items:center;gap:3px}
-.h2-txt{font-size:13.5px;color:var(--text);line-height:1.45}
-.h2-len{font-size:10px;color:var(--muted);margin-top:3px}
-.h2-copy{flex-shrink:0;background:none;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:11px;color:var(--muted);cursor:pointer;transition:all .2s;margin-top:2px}
-.h2-copy:hover{border-color:var(--pri);color:var(--pri);background:var(--pri-light)}
+.h2-tags{display:flex;align-items:center;gap:5px;margin-bottom:4px;flex-wrap:wrap}
+.cat-bdg{font-size:10px;font-weight:700;color:#fff;padding:2px 7px;border-radius:8px}
+.ph-bdg{font-size:10px;font-weight:600;padding:2px 7px;border-radius:8px}
+.h2-kw-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:7px;display:inline-flex;align-items:center;gap:2px}
+.h2-txt{font-size:13.5px;color:var(--txt);line-height:1.4}
+.h2-len{font-size:10px;color:var(--muted);margin-top:2px}
+.h2-copy{flex-shrink:0;background:none;border:1px solid var(--bdr);border-radius:6px;padding:3px 7px;font-size:11px;color:var(--muted);cursor:pointer;transition:all .18s;margin-top:2px}
+.h2-copy:hover{border-color:var(--pri);color:var(--pri);background:var(--pri-l)}
+
+/* Prompt banner */
+.prompt-banner{background:linear-gradient(135deg,var(--pur-l),#ede9fe);border:2px solid #c4b5fd;border-radius:11px;padding:12px 16px;margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.pb-l .pb-title{font-size:13px;font-weight:700;color:#5b21b6;display:flex;align-items:center;gap:6px}
+.pb-l .pb-sub{font-size:11px;color:#7c3aed;opacity:.82;margin-top:2px}
+
+/* Empty */
+.empty{text-align:center;padding:52px 20px;color:var(--muted)}
+.empty-ico{font-size:46px;margin-bottom:12px}
+.empty h3{font-size:16px;color:#374151;margin-bottom:5px;font-weight:700}
+.empty p{font-size:13px;line-height:1.65}
+
+/* History */
+.hist-outer{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);overflow:hidden}
+.hist-hd{padding:12px 18px;background:var(--light);border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;transition:background .18s}
+.hist-hd:hover{background:#f1f5f9}
+.hist-hd h3{font-size:14px;font-weight:700;color:#374151;display:flex;align-items:center;gap:8px}
+.hist-body{padding:12px;display:none}
+.hist-body.open{display:block}
+.hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:8px}
+.hist-card{border:1.5px solid var(--bdr);border-radius:10px;padding:11px 13px;cursor:pointer;transition:all .18s}
+.hist-card:hover{border-color:var(--pri);background:var(--pri-l);transform:translateY(-2px);box-shadow:0 3px 12px rgba(37,99,235,.1)}
+.hc-no{font-size:10.5px;font-weight:700;color:var(--pri);margin-bottom:3px}
+.hc-kws{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:4px}
+.hc-h1{font-size:12px;font-weight:600;color:var(--txt);line-height:1.35;margin-bottom:4px}
+.hc-prev{font-size:11px;color:var(--muted);line-height:1.55}
+
+/* Modal */
+.modal-ov{position:fixed;inset:0;background:rgba(15,23,42,.65);backdrop-filter:blur(5px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-ov.open{opacity:1;pointer-events:all}
+.modal-box{background:#fff;border-radius:18px;width:100%;max-width:900px;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.3);transform:translateY(20px) scale(.97);transition:transform .28s cubic-bezier(.34,1.56,.64,1)}
+.modal-ov.open .modal-box{transform:translateY(0) scale(1)}
+.modal-hd{padding:14px 18px;border-bottom:1px solid #e9d5ff;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,var(--pur-l),#ede9fe);border-radius:18px 18px 0 0;flex-shrink:0;gap:10px;flex-wrap:wrap}
+.modal-hd-l h3{font-size:15px;font-weight:800;color:#4c1d95}
+.modal-hd-l p{font-size:11px;color:#7c3aed;opacity:.8;margin-top:2px}
+.modal-info{padding:9px 18px;background:#faf9ff;border-bottom:1px solid #e9d5ff;display:flex;gap:6px;flex-wrap:wrap;flex-shrink:0}
+.m-st{padding:4px 11px;border-radius:8px;font-size:11px;font-weight:700}
+.msp{background:var(--pur-l);border:1px solid #c4b5fd;color:#5b21b6}
+.msa{background:var(--amb-l);border:1px solid #fde68a;color:#92400e}
+.mst{background:var(--teal-l);border:1px solid #99f6e4;color:#0f766e}
+.modal-tip{padding:7px 18px;background:#fffbeb;border-bottom:1px solid #fde68a;display:flex;align-items:center;gap:6px;flex-shrink:0;font-size:11.5px;color:#92400e;font-weight:500}
+.modal-body{flex:1;overflow-y:auto;padding:15px 18px}
+.prompt-ta{width:100%;padding:13px;border:2px solid #c4b5fd;border-radius:11px;font-size:12.5px;line-height:1.75;color:#1e293b;font-family:'Consolas',monospace;resize:vertical;background:#faf9ff;outline:none;min-height:400px;transition:border-color .2s}
+.prompt-ta:focus{border-color:var(--pur);box-shadow:0 0 0 3px rgba(124,58,237,.11)}
+.modal-ft{padding:12px 18px;border-top:1px solid #e9d5ff;display:flex;gap:6px;align-items:center;flex-wrap:wrap;background:#faf9ff;border-radius:0 0 18px 18px;flex-shrink:0}
+.modal-ft-hint{margin-left:auto;font-size:11px;color:#9ca3af;font-style:italic}
+.modal-cls{background:none;border:none;width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:15px;color:#6b7280;display:flex;align-items:center;justify-content:center;transition:all .18s}
+.modal-cls:hover{background:#e9d5ff;color:#5b21b6}
+
+/* Toast */
+.toast{position:fixed;bottom:22px;right:22px;background:#1e293b;color:#fff;padding:10px 15px;border-radius:10px;font-size:13px;font-weight:500;z-index:9999;transform:translateY(70px);opacity:0;transition:all .3s;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* Category colors */
 .c-pur{background:#f97316}.c-act{background:#8b5cf6}.c-pri{background:#ef4444}
 .c-cov{background:#10b981}.c-faq{background:#3b82f6}.c-cmp{background:#6366f1}
 .c-pvd{background:#ec4899}.c-scn{background:#14b8a6}.c-tip{background:#f59e0b}
 .c-rev{background:#0891b2}.c-rec{background:#65a30d}.c-pre{background:#be185d}
-.seo-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-.seo-tag{display:flex;align-items:center;gap:4px;background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:600}
-.seo-tag.warn{background:#fffbeb;border-color:#fde68a;color:#92400e}
-.kw-info-bar{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:2px solid #fde68a;border-radius:12px;padding:12px 16px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.kw-info-l{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.kw-info-title{font-size:13px;font-weight:700;color:#92400e}
-.kw-used-tag{background:#fff;border:1.5px solid #fcd34d;border-radius:8px;padding:3px 9px;font-size:11px;font-weight:600;color:#92400e}
-.kw-used-tag.used{border-color:#93c5fd;background:#dbeafe;color:#1d4ed8}
-.kw-used-tag.green{border-color:#86efac;background:#dcfce7;color:#15803d}
-.hist-outer{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);overflow:hidden}
-.hist-toggle{padding:13px 20px;background:var(--light);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none}
-.hist-toggle:hover{background:#f1f5f9}
-.hist-toggle h3{font-size:14px;font-weight:700;color:#374151}
-.hist-content{padding:14px;display:none}
-.hist-content.open{display:block}
-.hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:9px}
-.hist-item{border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;cursor:pointer;transition:all .18s}
-.hist-item:hover{border-color:var(--pri);background:var(--pri-light);transform:translateY(-2px);box-shadow:0 4px 12px rgba(37,99,235,.1)}
-.hist-num{font-size:10.5px;font-weight:700;color:var(--pri);margin-bottom:5px}
-.hist-h1{font-size:12.5px;font-weight:600;color:var(--text);line-height:1.35;margin-bottom:6px}
-.hist-prev{font-size:11px;color:var(--muted);line-height:1.65}
-.prompt-banner{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px solid #c4b5fd;border-radius:12px;padding:13px 16px;margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.pb-txt{font-size:13px;color:#5b21b6;font-weight:600;display:flex;align-items:center;gap:7px}
-.pb-sub{font-size:11px;color:#7c3aed;font-weight:400;margin-top:2px;opacity:.85}
-.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.68);backdrop-filter:blur(5px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .25s}
-.modal-overlay.open{opacity:1;pointer-events:all}
-.modal-box{background:#fff;border-radius:18px;width:100%;max-width:860px;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.3);transform:translateY(22px) scale(.98);transition:transform .28s cubic-bezier(.34,1.56,.64,1)}
-.modal-overlay.open .modal-box{transform:translateY(0) scale(1)}
-.modal-hd{padding:16px 20px 14px;border-bottom:1px solid #e9d5ff;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-radius:18px 18px 0 0;flex-shrink:0;gap:10px;flex-wrap:wrap}
-.modal-hd-l h3{font-size:16px;font-weight:800;color:#4c1d95}
-.modal-hd-l p{font-size:11.5px;color:#7c3aed;opacity:.82;margin-top:2px}
-.modal-hd-r{display:flex;gap:8px;align-items:center}
-.modal-close-btn{background:none;border:none;width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:16px;color:#6b7280;display:flex;align-items:center;justify-content:center;transition:all .18s}
-.modal-close-btn:hover{background:#e9d5ff;color:#5b21b6}
-.modal-info-bar{padding:10px 20px;background:#faf9ff;border-bottom:1px solid #e9d5ff;display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0}
-.p-stat{background:var(--pur-light);border:1px solid #c4b5fd;color:#5b21b6;padding:4px 11px;border-radius:8px;font-size:11px;font-weight:700}
-.p-stat.amber{background:#fffbeb;border-color:#fde68a;color:#92400e}
-.modal-tips{padding:8px 20px;background:#fffbeb;border-bottom:1px solid #fde68a;display:flex;align-items:center;gap:7px;flex-shrink:0}
-.modal-tips span{font-size:11.5px;color:#92400e;font-weight:500}
-.modal-body{flex:1;overflow-y:auto;padding:16px 20px}
-.prompt-ta{width:100%;padding:14px 16px;border:2px solid #c4b5fd;border-radius:12px;font-size:12.5px;line-height:1.75;color:#1e293b;font-family:'Consolas','Monaco','Courier New',monospace;resize:vertical;background:#faf9ff;outline:none;min-height:420px;transition:border-color .2s,box-shadow .2s}
-.prompt-ta:focus{border-color:var(--pur);box-shadow:0 0 0 3px rgba(124,58,237,.14)}
-.modal-ft{padding:13px 20px;border-top:1px solid #e9d5ff;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#faf9ff;border-radius:0 0 18px 18px;flex-shrink:0}
-.modal-ft-hint{margin-left:auto;font-size:11px;color:#9ca3af;font-style:italic}
-.toast{position:fixed;bottom:22px;right:22px;background:#1e293b;color:#fff;padding:10px 17px;border-radius:10px;font-size:13px;font-weight:500;z-index:9999;transform:translateY(70px);opacity:0;transition:all .3s ease;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.2)}
-.toast.show{transform:translateY(0);opacity:1}
-@media(max-width:640px){
-  .header{padding:13px 14px}.hd-left h1{font-size:16px}
-  .main{padding:10px 9px}.ctrl-panel{padding:13px 14px}.card-body{padding:14px 15px}
-  .h1-txt{font-size:14.5px}.h2-txt{font-size:13px}.hist-grid{grid-template-columns:1fr}
-  .btn-pri{padding:9px 18px;font-size:13px}.modal-box{max-height:95vh;border-radius:14px}
-  .modal-hd{border-radius:14px 14px 0 0}.modal-ft{border-radius:0 0 14px 14px}
-  .logic-phase{font-size:10px;padding:2px 6px}
+
+@media(max-width:780px){
+  .kw-cols{grid-template-columns:1fr!important}
+  .kw-col{border-right:none;border-bottom:1.5px solid #fde68a}
+  .kw-col:last-child{border-bottom:none}
+  .hdr{padding:12px 13px}.hdr-l h1{font-size:15px}
+  .main{padding:10px 9px}.h1-txt{font-size:14.5px}
+  .hist-grid{grid-template-columns:1fr}
+  .modal-box{border-radius:14px;max-height:95vh}
 }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="hd-left">
-    <h1>🌐 eSIM SEO 标题生成器</h1>
-    <p>读者旅程逻辑排序 · 12大分类 · 40套H1 · 156条H2 · 关键词智能植入 · 一键生成写作Prompt</p>
+<div class="hdr">
+  <div class="hdr-l">
+    <h1>🌐 eSIM SEO Blog 批量生成器 Pro</h1>
+    <p>3类关键词智能注入 · H1去重保障 · 读者旅程排序 · 12分类156模板 · 一键写作Prompt</p>
   </div>
-  <div class="hd-stats">
-    <div class="stat-pill">已生成 <b id="sGenCount">0</b> 组</div>
-    <div class="stat-pill">关键词库 <b id="sKwCount">0</b> 个</div>
-    <div class="stat-pill">H1模板 <b>40</b> 套</div>
-    <div class="stat-pill">H2分类 <b>12</b> 类</div>
+  <div class="hdr-stats">
+    <div class="stat-pill">已生成 <b id="sGen">0</b> 篇</div>
+    <div class="stat-pill">⚡ 功能词 <b id="sFN">0</b></div>
+    <div class="stat-pill">🏆 竞品词 <b id="sCN">0</b></div>
+    <div class="stat-pill">📍 地区词 <b id="sLN">0</b></div>
+    <div class="stat-pill">H1唯一 <b id="sDedup">0</b> 篇</div>
   </div>
 </div>
 
 <div class="main">
-  <div class="kw-panel" id="kwPanel">
-    <div class="kw-panel-hd" onclick="toggleKwPanel()">
-      <div class="kw-hd-l">
-        <span class="kw-hd-title">🔑 高流量关键词库</span>
-        <span class="kw-badge" id="kwBadge" style="display:none">已导入 0 个</span>
-        <span id="kwNoKwHint" style="font-size:12px;color:#92400e;font-style:italic">← 粘贴您的关键词，自动植入标题与Prompt</span>
+
+  <!-- KEYWORD MANAGER -->
+  <div class="kw-mgr" id="kwMgr">
+    <div class="kw-mgr-hd" onclick="toggleKwMgr()">
+      <div class="kw-mgr-title">
+        🔑 关键词分类管理
+        <span class="tp tp-f" id="pillF">功能词 0</span>
+        <span class="tp tp-c" id="pillC">竞品词 0</span>
+        <span class="tp tp-l" id="pillL">地区词 0</span>
+        <span id="kwHint" style="font-size:12px;color:#92400e;font-style:italic;font-weight:400">← 导入关键词，自动注入H1和H2标题</span>
       </div>
-      <div class="kw-hd-r">
-        <button class="kw-toggle-btn" id="kwToggleBtn">▼ 展开</button>
-      </div>
+      <button class="kw-mgr-toggle" id="kwToggle">▼ 展开管理</button>
     </div>
-    <div class="kw-stats-bar" id="kwStatsBar" style="display:none">
-      <div class="kw-stat"><span>总计</span><span class="n amber" id="statTotal">0</span><span>个</span></div>
-      <div class="kw-stat"><span>🔵 标题已植入</span><span class="n blue" id="statTitle">0</span><span>个</span></div>
-      <div class="kw-stat"><span>🟢 内容重点词</span><span class="n green" id="statContent">0</span><span>个</span></div>
-      <div class="kw-stat"><span>🟣 辅助词</span><span class="n pur" id="statAux">0</span><span>个</span></div>
-      <div class="kw-stat"><span>⚫ 补充词库</span><span class="n gray" id="statSupp">0</span><span>个</span></div>
+    <div class="kw-summary" id="kwSummary">
+      <span class="sum-chip sc-f" id="sumF">⚡ 功能词 0 · 已覆盖 0</span>
+      <span class="sum-div">|</span>
+      <span class="sum-chip sc-c" id="sumC">🏆 竞品词 0 · 已覆盖 0</span>
+      <span class="sum-div">|</span>
+      <span class="sum-chip sc-l" id="sumL">📍 地区词 0 · 已覆盖 0</span>
     </div>
-    <div id="kwInputSection" style="display:none">
-      <div class="kw-input-section">
-        <div class="kw-input-tip">💡 每行一个关键词，或用逗号/分号分隔；最多200个；支持中英文混合。</div>
-        <textarea class="kw-textarea" id="kwTextarea" placeholder="请粘贴您的高流量关键词，例如：&#10;best esim for usa&#10;usa esim 2026&#10;cheap esim united states&#10;...（每行一个，或逗号分隔）"></textarea>
-        <div class="kw-input-btns">
-          <button class="btn btn-amber" onclick="parseKeywords()">✅ 解析导入关键词</button>
-          <button class="btn btn-out" onclick="clearKeywords()">🗑 清空</button>
-          <button class="btn btn-out" onclick="exportKeywords()" id="btnExportKw" style="display:none">📤 导出关键词</button>
-          <span class="kw-input-hint" id="kwParseHint"></span>
+    <div class="kw-cols" id="kwCols">
+      <div class="kw-col">
+        <div class="kw-col-hd">
+          <div class="kw-col-title"><span class="col-ico ico-f">⚡</span><span style="color:#1d4ed8">功能词</span><span class="kw-col-lim lim-f">建议100个</span></div>
+          <div class="kw-col-desc">eSIM功能、购买、激活、价格等意图词，自动注入H1和功能类H2</div>
+        </div>
+        <textarea class="kw-ta ta-f" id="taF" placeholder="每行一个，例如：&#10;best esim for usa&#10;cheap esim usa 2026&#10;how to activate esim&#10;usa esim data plan&#10;esim iphone usa&#10;..."></textarea>
+        <div class="kw-col-btns">
+          <button class="bp bp-f" onclick="parseKw('func')">✅ 导入功能词</button>
+          <button class="btn-sm-clr" onclick="clearKw('func')">🗑 清空</button>
+          <span class="ph ph-ok" id="phF"></span>
+        </div>
+        <div class="cloud-wrap" id="cwF">
+          <div class="cov-row">
+            <span style="font-size:11px;font-weight:600;color:#1d4ed8;min-width:48px">覆盖率</span>
+            <div class="cov-bg"><div class="cov-fill cf-f" id="cbF" style="width:0%"></div></div>
+            <span class="cov-pct" id="cpF" style="color:#1d4ed8">0%</span>
+          </div>
+          <div class="kw-cloud" id="cloudF"></div>
         </div>
       </div>
-      <div class="kw-tag-area" id="kwTagAreaExpanded" style="display:none">
-        <div class="kw-legend">
-          <span style="font-size:12px;font-weight:700;color:#92400e;margin-right:4px">关键词分类：</span>
-          <span class="kw-leg title-l"><span class="kw-dot dot-t"></span>已植入标题</span>
-          <span class="kw-leg content-l"><span class="kw-dot dot-c"></span>内容重点词（前25个）</span>
-          <span class="kw-leg" style="color:var(--pur)"><span class="kw-dot" style="background:#8b5cf6"></span>辅助词（26-60）</span>
-          <span class="kw-leg supp-l"><span class="kw-dot dot-s"></span>补充词库（61+）</span>
+      <div class="kw-col">
+        <div class="kw-col-hd">
+          <div class="kw-col-title"><span class="col-ico ico-c">🏆</span><span style="color:#be185d">竞品词</span><span class="kw-col-lim lim-c">建议10个</span></div>
+          <div class="kw-col-desc">竞争品牌、对比词、竞品相关搜索词，注入对比和评测类H2</div>
         </div>
-        <div class="kw-cloud-wrap"><div class="kw-cloud" id="kwCloudExpanded"></div></div>
+        <textarea class="kw-ta ta-c" id="taC" placeholder="每行一个，例如：&#10;Airalo esim review&#10;Holafly vs Airalo&#10;Nomad esim alternative&#10;Saily esim&#10;..."></textarea>
+        <div class="kw-col-btns">
+          <button class="bp bp-c" onclick="parseKw('comp')">✅ 导入竞品词</button>
+          <button class="btn-sm-clr" onclick="clearKw('comp')">🗑 清空</button>
+          <span class="ph ph-ok" id="phC"></span>
+        </div>
+        <div class="cloud-wrap" id="cwC">
+          <div class="cov-row">
+            <span style="font-size:11px;font-weight:600;color:#be185d;min-width:48px">覆盖率</span>
+            <div class="cov-bg"><div class="cov-fill cf-c" id="cbC" style="width:0%"></div></div>
+            <span class="cov-pct" id="cpC" style="color:#be185d">0%</span>
+          </div>
+          <div class="kw-cloud" id="cloudC"></div>
+        </div>
       </div>
-    </div>
-    <div class="kw-tag-area" id="kwTagAreaAlways" style="display:none">
-      <div class="kw-legend">
-        <span style="font-size:12px;font-weight:700;color:#92400e;margin-right:4px">关键词状态：</span>
-        <span class="kw-leg title-l"><span class="kw-dot dot-t"></span>标题已植入</span>
-        <span class="kw-leg content-l"><span class="kw-dot dot-c"></span>内容重点词</span>
-        <span class="kw-leg" style="color:var(--pur)"><span class="kw-dot" style="background:#8b5cf6"></span>辅助词</span>
-        <span class="kw-leg supp-l"><span class="kw-dot dot-s"></span>补充词库</span>
+      <div class="kw-col">
+        <div class="kw-col-hd">
+          <div class="kw-col-title"><span class="col-ico ico-l">📍</span><span style="color:#0f766e">地区词</span><span class="kw-col-lim lim-l">建议50个</span></div>
+          <div class="kw-col-desc">具体城市、地区、景点搜索词，注入覆盖和场景类H2</div>
+        </div>
+        <textarea class="kw-ta ta-l" id="taL" placeholder="每行一个，例如：&#10;esim new york&#10;esim las vegas&#10;chicago esim&#10;esim manhattan&#10;..."></textarea>
+        <div class="kw-col-btns">
+          <button class="bp bp-l" onclick="parseKw('loc')">✅ 导入地区词</button>
+          <button class="btn-sm-clr" onclick="clearKw('loc')">🗑 清空</button>
+          <span class="ph ph-ok" id="phL"></span>
+        </div>
+        <div class="cloud-wrap" id="cwL">
+          <div class="cov-row">
+            <span style="font-size:11px;font-weight:600;color:#0f766e;min-width:48px">覆盖率</span>
+            <div class="cov-bg"><div class="cov-fill cf-l" id="cbL" style="width:0%"></div></div>
+            <span class="cov-pct" id="cpL" style="color:#0f766e">0%</span>
+          </div>
+          <div class="kw-cloud" id="cloudL"></div>
+        </div>
       </div>
-      <div class="kw-cloud-wrap"><div class="kw-cloud" id="kwCloudAlways"></div></div>
     </div>
   </div>
 
-  <div class="ctrl-panel">
-    <div class="cg">
+  <!-- CONTROL -->
+  <div class="ctrl">
+    <div class="fg">
       <label>目标地区</label>
       <select id="selDest">
         <option value="usa">🇺🇸 美国</option>
@@ -257,101 +360,92 @@ select:focus{border-color:var(--pri)}
         <option value="europe">🇪🇺 欧洲</option>
         <option value="thailand">🇹🇭 泰国</option>
         <option value="korea">🇰🇷 韩国</option>
+        <option value="russia">🇷🇺 俄罗斯</option>
       </select>
     </div>
-    <div class="cg">
+    <div class="fg">
       <label>年份</label>
-      <select id="selYear">
-        <option value="2026">2026</option>
-        <option value="2025">2025</option>
-      </select>
+      <select id="selYear"><option value="2026">2026</option><option value="2025">2025</option></select>
     </div>
-    <div class="cg">
+    <div class="fg">
       <label>H2 数量</label>
-      <select id="selH2n">
-        <option value="8">8 个</option>
-        <option value="10">10 个</option>
-        <option value="12">12 个</option>
-      </select>
+      <select id="selH2n"><option value="8">8 个</option><option value="10">10 个</option><option value="12">12 个</option></select>
     </div>
-    <div class="cg">
-      <label>生成批次</label>
-      <select id="selBatch">
-        <option value="1">单次生成</option>
-        <option value="3">连续 3 次</option>
-        <option value="5">连续 5 次</option>
-      </select>
+    <div class="fg">
+      <label>生成数量</label>
+      <select id="selBatch"><option value="1">单篇</option><option value="3">3 篇</option><option value="5">5 篇</option><option value="10">10 篇</option></select>
     </div>
-    <div class="btn-row">
-      <button class="btn btn-pri" onclick="generate()">⚡ 生成标题</button>
+    <div class="btn-grp">
+      <button class="btn btn-pri" onclick="generate()">⚡ 生成结构</button>
       <button class="btn btn-out" onclick="doReset()">🔄 重置</button>
-      <button class="btn btn-green" id="btnExportAll" onclick="exportAll()" style="display:none">📥 导出全部</button>
+      <button class="btn btn-grn" id="btnExpAll" onclick="exportAll()" style="display:none">📥 导出全部</button>
     </div>
   </div>
 
+  <!-- OUTPUT -->
   <div class="ocard">
-    <div class="card-hd">
-      <div class="card-hd-l">
-        <span class="gen-badge" id="genBadge" style="display:none">第 1 组</span>
-        <span class="kw-used-badge" id="kwUsedBadge" style="display:none">🔑 关键词已植入</span>
-        <span class="card-title">SEO 标题输出区</span>
+    <div class="ocard-hd">
+      <div class="ocard-hd-l">
+        <span class="bdg bg-pri" id="bdgGen" style="display:none">第 1 篇</span>
+        <span class="bdg bg-amb" id="bdgKw" style="display:none">🔑 关键词已注入</span>
+        <span class="bdg bg-grn" id="bdgDed" style="display:none">✓ 标题唯一</span>
+        <span class="ocard-title">SEO Blog 文章结构</span>
       </div>
-      <div class="card-hd-r">
-        <button class="btn btn-purple" id="btnGenPrompt" onclick="generatePrompt()" style="display:none;padding:6px 13px;font-size:12px">📝 生成写作Prompt</button>
-        <button class="btn btn-out" id="btnCopySet" onclick="copySet()" style="display:none;padding:6px 13px">📋 复制本组</button>
+      <div class="ocard-hd-r">
+        <button class="btn btn-pur" id="btnPrompt" onclick="generatePrompt()" style="display:none;padding:6px 12px;font-size:12px">📝 生成Prompt</button>
+        <button class="btn btn-out" id="btnCopySet" onclick="copySet()" style="display:none;padding:6px 12px;font-size:12px">📋 复制本篇</button>
       </div>
     </div>
-    <div class="card-body" id="outputBody">
+    <div class="ocard-body" id="outputBody">
       <div class="empty">
         <div class="empty-ico">✨</div>
-        <h3>点击「生成标题」开始</h3>
-        <p>H2标题将按「认知→比较→决策→购买→激活→使用→解惑」读者旅程逻辑排序</p>
+        <h3>点击「生成结构」开始批量产出</h3>
+        <p>先在上方导入3类关键词（功能词·竞品词·地区词）<br>系统自动将关键词注入H1主标题和对应类型的H2标题<br>H1全局去重 · 标题按读者旅程逻辑排序 · 支持批量生成</p>
       </div>
     </div>
-    <div class="card-ft" id="cardFt" style="display:none">
-      <button class="btn btn-pri" onclick="generate()" style="font-size:13px;padding:9px 18px">⚡ 继续生成（不重复）</button>
-      <button class="btn btn-out" onclick="copySet()">📋 复制本组</button>
-      <button class="btn btn-out" onclick="exportCurrent()">📤 导出本组</button>
-      <button class="btn btn-purple" onclick="generatePrompt()">📝 生成写作Prompt</button>
+    <div class="ocard-ft" id="oFt">
+      <button class="btn btn-pri" onclick="generate()" style="font-size:13px;padding:9px 18px">⚡ 继续生成</button>
+      <button class="btn btn-out" onclick="copySet()">📋 复制本篇</button>
+      <button class="btn btn-out" onclick="exportCurrent()">📤 导出本篇</button>
+      <button class="btn btn-pur" onclick="generatePrompt()">📝 写作Prompt</button>
     </div>
   </div>
 
-  <div class="hist-outer" id="histSection" style="display:none">
-    <div class="hist-toggle" onclick="toggleHist()">
-      <h3>📚 历史记录 &nbsp;<span id="histCount" style="color:var(--pri);font-weight:700">0</span> 组</h3>
-      <span id="histArrow" style="font-size:12px;color:var(--muted)">▼ 展开</span>
+  <!-- HISTORY -->
+  <div class="hist-outer" id="histSec" style="display:none">
+    <div class="hist-hd" onclick="toggleHist()">
+      <h3>📚 历史记录 <span id="histCnt" style="color:var(--pri)">0</span> 篇</h3>
+      <span id="histArr" style="font-size:12px;color:var(--muted)">▼ 展开</span>
     </div>
-    <div class="hist-content" id="histContent">
+    <div class="hist-body" id="histBody">
       <div class="hist-grid" id="histGrid"></div>
     </div>
   </div>
 </div>
 
-<div class="modal-overlay" id="promptModal" onclick="closePromptModalBg(event)">
+<!-- PROMPT MODAL -->
+<div class="modal-ov" id="pModal" onclick="closeModalBg(event)">
   <div class="modal-box">
     <div class="modal-hd">
       <div class="modal-hd-l">
         <h3>📝 SEO 写作 Prompt 生成器</h3>
-        <p>将下方 Prompt 复制到 ChatGPT / Claude / Gemini，即可生成完整 SEO 软文</p>
+        <p>复制到 ChatGPT / Claude / Gemini → 一键生成完整 SEO 文章</p>
       </div>
-      <div class="modal-hd-r">
-        <button class="btn btn-purple" onclick="copyPrompt()" style="padding:7px 14px;font-size:12px">📋 一键复制</button>
-        <button class="modal-close-btn" onclick="closePromptModal()">✕</button>
+      <div style="display:flex;gap:7px;align-items:center">
+        <button class="btn btn-pur" onclick="copyPrompt()" style="padding:7px 13px;font-size:12px">📋 复制</button>
+        <button class="modal-cls" onclick="closeModal()">✕</button>
       </div>
     </div>
-    <div class="modal-info-bar" id="promptInfoBar"><span class="p-stat">📊 加载中...</span></div>
-    <div class="modal-tips">
-      <span>💡</span>
-      <span>完整复制 Prompt → 粘贴到 AI 对话框 → AI 将按结构生成 2500-3500 字 SEO 软文，关键词自然植入</span>
-    </div>
+    <div class="modal-info" id="mInfo"><span class="m-st msp">加载中...</span></div>
+    <div class="modal-tip">💡 完整复制 Prompt → 粘贴到 AI → 自动生成 2500-3500 字 SEO 文章，3类关键词自然植入</div>
     <div class="modal-body">
-      <textarea class="prompt-ta" id="promptText" readonly onclick="this.select()"></textarea>
+      <textarea class="prompt-ta" id="promptTa" readonly onclick="this.select()"></textarea>
     </div>
     <div class="modal-ft">
-      <button class="btn btn-purple" onclick="copyPrompt()">📋 复制完整 Prompt</button>
-      <button class="btn btn-out" onclick="exportPrompt()">📤 导出为 TXT</button>
-      <button class="btn btn-out" onclick="closePromptModal()">✕ 关闭</button>
-      <span class="modal-ft-hint">点击文本框后 Ctrl+A 可全选</span>
+      <button class="btn btn-pur" onclick="copyPrompt()">📋 复制 Prompt</button>
+      <button class="btn btn-out" onclick="exportPrompt()">📤 导出 TXT</button>
+      <button class="btn btn-out" onclick="closeModal()">✕ 关闭</button>
+      <span class="modal-ft-hint">点击文本区 → Ctrl+A 全选</span>
     </div>
   </div>
 </div>
@@ -359,879 +453,1010 @@ select:focus{border-color:var(--pri)}
 <div class="toast" id="toast"></div>
 
 <script>
+// ============================================================
+// DATABASE
+// ============================================================
 var DB = {
   usa:{kw:'美国eSIM',name:'美国',
     cities:['纽约','洛杉矶','拉斯维加斯','旧金山','芝加哥','迈阿密','波士顿','西雅图','奥兰多','华盛顿DC'],
-    carriers:['T-Mobile','AT&T','Verizon','Mint Mobile','Visible','Google Fi','US Mobile','Boost Mobile'],
-    providers:['Airalo','Holafly','Nomad','Saily','Maya Mobile','GigSky','Ubigi','OneSimCard'],
+    carriers:['T-Mobile','AT&T','Verizon','Mint Mobile','Visible','Google Fi','US Mobile'],
+    providers:['Airalo','Holafly','Nomad','Saily','Maya Mobile','GigSky','Ubigi'],
     parks:['黄石公园','大峡谷','优胜美地','大烟山','科罗拉多高原'],
-    userTypes:['旅行者','商务人士','留学生','自由行旅客','背包客','华人游客','数字游民','蜜月旅行者'],
-    scenes:['短途旅游','商务出差','长期留学','自驾游','背包旅行','家庭出游','蜜月旅行','跨州旅行'],
-    durations:['3天','5天','7天','10天','14天','30天','90天','半年'],
-    issues:['信号不稳定','激活失败','超额收费','网速过慢','套餐到期','设备不兼容']},
+    userTypes:['旅行者','商务人士','留学生','自由行旅客','背包客','华人游客','数字游民'],
+    scenes:['短途旅游','商务出差','长期留学','自驾游','背包旅行','家庭出游'],
+    durations:['3天','5天','7天','10天','14天','30天','90天'],
+    issues:['信号不稳定','激活失败','超额收费','网速过慢','设备不兼容','套餐到期']},
   uk:{kw:'英国eSIM',name:'英国',
     cities:['伦敦','曼彻斯特','爱丁堡','利物浦','牛津','剑桥','伯明翰','格拉斯哥'],
-    carriers:['EE','O2','Vodafone','Three UK','Sky Mobile','BT Mobile'],
-    providers:['Airalo','Holafly','Nomad','Saily','Three UK','GigSky','Ubigi'],
-    parks:['湖区','约克郡','峰区','斯诺登尼亚','苏格兰高地'],
-    userTypes:['旅行者','商务人士','留学生','自由行旅客','背包客','华人游客'],
-    scenes:['短途旅游','商务出差','留学','自驾游','背包旅行','家庭出游'],
+    carriers:['EE','O2','Vodafone','Three UK','Sky Mobile'],
+    providers:['Airalo','Holafly','Nomad','Saily','Three UK','GigSky'],
+    parks:['湖区','约克郡','峰区','苏格兰高地','斯诺登尼亚'],
+    userTypes:['旅行者','商务人士','留学生','背包客','华人游客'],
+    scenes:['短途旅游','商务出差','留学','自驾游','背包旅行'],
     durations:['3天','5天','7天','10天','14天','30天'],
     issues:['信号不稳定','激活失败','超额收费','网速过慢']},
   japan:{kw:'日本eSIM',name:'日本',
     cities:['东京','大阪','京都','北海道','冲绳','名古屋','横滨','福冈'],
-    carriers:['NTT Docomo','SoftBank','au (KDDI)','Rakuten Mobile','IIJmio'],
+    carriers:['NTT Docomo','SoftBank','au (KDDI)','Rakuten Mobile'],
     providers:['Airalo','Holafly','IIJmio','GTN Mobile','Nomad','Saily'],
     parks:['富士山','日光国立公园','知床半岛','屋久岛','西表岛'],
-    userTypes:['旅行者','动漫爱好者','美食旅行者','摄影爱好者','商务人士','留学生'],
-    scenes:['观光旅游','美食之旅','动漫圣地巡礼','商务出差','自由行','蜜月旅行'],
+    userTypes:['旅行者','动漫爱好者','美食旅行者','摄影爱好者','商务人士'],
+    scenes:['观光旅游','美食之旅','动漫圣地巡礼','商务出差','蜜月旅行'],
     durations:['5天','7天','10天','14天','30天'],
     issues:['激活失败','限速问题','流量不足','设备不兼容']},
   europe:{kw:'欧洲eSIM',name:'欧洲',
     cities:['巴黎','罗马','巴塞罗那','阿姆斯特丹','柏林','维也纳','布拉格','苏黎世'],
-    carriers:['Vodafone','Orange','Deutsche Telekom','Three','O2','Tele2'],
-    providers:['Airalo','Holafly','Nomad','Saily','Global Yo','OneSimCard','Ubigi'],
-    parks:['阿尔卑斯山区','多瑙河流域','地中海沿岸','北欧峡湾','波西米亚'],
-    userTypes:['旅行者','背包客','商务人士','蜜月旅行者','摄影爱好者','留学生'],
-    scenes:['多国旅行','跨境商务','自驾游','铁路旅行','邮轮旅行','留学'],
+    carriers:['Vodafone','Orange','Deutsche Telekom','Three','O2'],
+    providers:['Airalo','Holafly','Nomad','Saily','Global Yo','OneSimCard'],
+    parks:['阿尔卑斯山区','多瑙河流域','地中海沿岸','北欧峡湾'],
+    userTypes:['旅行者','背包客','商务人士','蜜月旅行者','留学生'],
+    scenes:['多国旅行','跨境商务','自驾游','铁路旅行','留学'],
     durations:['7天','14天','21天','30天','60天'],
     issues:['多国切换问题','信号不稳定','激活失败','覆盖不全']},
   thailand:{kw:'泰国eSIM',name:'泰国',
-    cities:['曼谷','普吉岛','清迈','芭提雅','苏梅岛','华欣','喀比','象岛'],
+    cities:['曼谷','普吉岛','清迈','芭提雅','苏梅岛','华欣','喀比'],
     carriers:['AIS','DTAC','TrueMove H','NT Mobile'],
-    providers:['Airalo','Holafly','AIS SIM2Fly','Nomad','Saily','GigSky'],
-    parks:['考艾国家公园','象岛海滩','安达曼海','苏梅岛','斯米兰群岛'],
-    userTypes:['旅行者','度假旅客','背包客','潜水爱好者','商务人士','蜜月旅行者'],
-    scenes:['海岛度假','城市观光','美食之旅','水上运动','寺庙文化游','商务出差'],
+    providers:['Airalo','Holafly','AIS SIM2Fly','Nomad','Saily'],
+    parks:['考艾国家公园','安达曼海','苏梅岛','斯米兰群岛'],
+    userTypes:['旅行者','度假旅客','背包客','商务人士','蜜月旅行者'],
+    scenes:['海岛度假','城市观光','美食之旅','商务出差'],
     durations:['3天','5天','7天','10天','14天','30天'],
     issues:['信号不稳定','激活失败','流量限速','海岛覆盖差']},
   korea:{kw:'韩国eSIM',name:'韩国',
-    cities:['首尔','釜山','济州岛','仁川','大邱','光州','水原','庆州'],
-    carriers:['SK Telecom','KT','LG U+','SK7Mobile','KT MVNO'],
+    cities:['首尔','釜山','济州岛','仁川','大邱','水原','庆州'],
+    carriers:['SK Telecom','KT','LG U+','SK7Mobile'],
     providers:['Airalo','Holafly','SKT eSIM','KT eSIM','Nomad','Saily'],
-    parks:['汉拿山','雪岳山','智异山','北汉山','济州岛'],
-    userTypes:['追星族','旅行者','美食爱好者','留学生','商务人士','K-Drama粉丝'],
-    scenes:['追星旅行','美食之旅','购物旅游','文化体验','自然观光','留学'],
+    parks:['汉拿山','雪岳山','智异山','北汉山'],
+    userTypes:['追星族','旅行者','美食爱好者','留学生','商务人士'],
+    scenes:['追星旅行','美食之旅','购物旅游','文化体验','留学'],
     durations:['3天','5天','7天','10天','14天'],
-    issues:['限速问题','激活失败','流量不足','手机锁网']}
+    issues:['限速问题','激活失败','流量不足','手机锁网']},
+  russia:{kw:'俄罗斯eSIM',name:'俄罗斯',
+    cities:['莫斯科','圣彼得堡','叶卡捷琳堡','新西伯利亚','喀山','索契','符拉迪沃斯托克','伊尔库茨克'],
+    carriers:['MTS','Beeline','MegaFon','Tele2 Russia','Yota','Rostelecom'],
+    providers:['Airalo','Holafly','Nomad','Saily','SimOptions','GigSky','OneSimCard'],
+    parks:['贝加尔湖','堪察加火山','阿尔泰金山','西伯利亚大草原','科米原始森林'],
+    userTypes:['旅行者','商务人士','留学生','探险旅行者','摄影爱好者','文化旅游者'],
+    scenes:['城市观光','商务出差','西伯利亚铁路之旅','冬季旅行','文化体验游','留学'],
+    durations:['3天','5天','7天','14天','30天','90天'],
+    issues:['网络访问受限','激活步骤复杂','覆盖不均匀','速度不稳定','支付方式受限']}
 };
 
-var DEVICES = ['iPhone','安卓手机','三星Galaxy','iPhone 16 Pro','谷歌Pixel','苹果手机','小米手机','一加手机'];
-var COUNTS  = ['3','5','6','7','8','10'];
-var TOPICS  = ['价格与覆盖全析','购买激活攻略','套餐深度推荐','实地测评报告','省钱完全指南','真实使用评测','权威购买指南','全面深度解析'];
+var DEVICES = ['iPhone','安卓手机','三星Galaxy','iPhone 16 Pro','谷歌Pixel','小米手机'];
+var COUNTS = ['3','5','6','7','8','10'];
+var TOPICS = ['价格与覆盖全析','购买激活攻略','套餐深度推荐','实地测评报告','省钱完全指南','真实使用评测'];
 
-var CAT_LOGICAL_ORDER = [
-  'review','comparison','price','coverage','provider',
-  'recommend','purchase','prepare','activation','scenario','tips','faq'
-];
+// ============================================================
+// LOGICAL ORDERING & PHASE MAPPING
+// ============================================================
+var CAT_ORDER = ['review','comparison','price','coverage','provider','recommend','purchase','prepare','activation','scenario','tips','faq'];
 
 var CAT_PHASE = {
-  review:     {phase:'认知研究',cls:'phase-research',icon:'🔍'},
-  comparison: {phase:'比较筛选',cls:'phase-compare', icon:'⚖️'},
-  price:      {phase:'比较筛选',cls:'phase-compare', icon:'⚖️'},
-  coverage:   {phase:'比较筛选',cls:'phase-compare', icon:'⚖️'},
-  provider:   {phase:'比较筛选',cls:'phase-compare', icon:'⚖️'},
-  recommend:  {phase:'决策确定',cls:'phase-decide',  icon:'✅'},
-  purchase:   {phase:'购买行动',cls:'phase-action',  icon:'🛒'},
-  prepare:    {phase:'购买行动',cls:'phase-action',  icon:'🛒'},
-  activation: {phase:'激活使用',cls:'phase-use',     icon:'📱'},
-  scenario:   {phase:'激活使用',cls:'phase-use',     icon:'📱'},
-  tips:       {phase:'激活使用',cls:'phase-use',     icon:'📱'},
-  faq:        {phase:'解惑支持',cls:'phase-support', icon:'💬'}
+  review:     {phase:'认知研究', cls:'fp-rch', icon:'🔍'},
+  comparison: {phase:'比较筛选', cls:'fp-cmp', icon:'⚖️'},
+  price:      {phase:'比较筛选', cls:'fp-cmp', icon:'⚖️'},
+  coverage:   {phase:'比较筛选', cls:'fp-cmp', icon:'⚖️'},
+  provider:   {phase:'比较筛选', cls:'fp-cmp', icon:'⚖️'},
+  recommend:  {phase:'决策确定', cls:'fp-dec', icon:'✅'},
+  purchase:   {phase:'购买行动', cls:'fp-act', icon:'🛒'},
+  prepare:    {phase:'购买行动', cls:'fp-act', icon:'🛒'},
+  activation: {phase:'激活使用', cls:'fp-use', icon:'📱'},
+  scenario:   {phase:'激活使用', cls:'fp-use', icon:'📱'},
+  tips:       {phase:'激活使用', cls:'fp-use', icon:'📱'},
+  faq:        {phase:'解惑支持', cls:'fp-sup', icon:'💬'}
 };
 
+// ============================================================
+// CATEGORY TEMPLATES
+// kwType: 'func' | 'comp' | 'loc'
+// tStd: standard templates  tKw: keyword-injected ({injKw})
+// ============================================================
 var CATS = {
-  purchase:{name:'购买指南',cls:'c-pur',t:[
-    '{kw}如何购买？{year}在线购买完整步骤详解',
-    '购买{kw}前必知的{cnt}大关键事项',
-    '{kw}哪里买最划算？官网vs第三方平台全对比',
-    '{p1}购买教程：从注册到下单图文步骤全解析',
-    '{kw}购买指南：避开{issue}的实用建议',
-    '出发前在国内提前购买{kw}？详细操作流程',
-    '{kw}购买常见误区：新手必看避坑清单',
-    '{kw}购买攻略：{dur}套餐哪款最值',
-    '支付宝或微信也能买{kw}？多种购买方式全盘点',
-    '{kw}购买后多久到账？从下单到激活全流程',
-    '海外购买vs国内提前购买{kw}：哪种更划算',
-    '{kw}实体店vs网上购买：优缺点与适用场景对比',
-    '{hKw}购买教程：{year}从注册到激活完整操作步骤'
-  ]},
-  activation:{name:'激活教程',cls:'c-act',t:[
-    '{kw}激活全攻略：{device}逐步操作完整教程',
-    '{kw}激活失败怎么办？常见原因与解决方案',
-    '到{dest}之前还是之后激活{kw}？时机选择详解',
-    '无需Wi-Fi也能激活？{kw}离线激活方法详解',
-    '{device}使用{kw}设置教程：从下载到激活全程图解',
-    '{kw}二维码扫描激活详细步骤与注意事项',
-    '{kw}自动激活与手动激活的区别与选择建议',
-    '激活{kw}需要多长时间？影响速度的关键因素',
-    '双卡手机如何同时使用国内卡和{kw}',
-    '{kw}激活后如何切换主副卡？设置教程',
-    '{device}激活{kw}图文教程：全程截图指引',
-    '激活{kw}提示错误？{cnt}种常见错误代码解析',
-    '激活{hKw}全攻略：{device}逐步操作图文详解'
-  ]},
-  price:{name:'价格对比',cls:'c-pri',t:[
-    '{year}{kw}价格全对比：{c1} vs {c2}',
-    '{kw}{dur}套餐费用分析：哪家最划算',
-    '{kw}按天还是按流量计费更省钱？深度分析',
-    '{kw}隐藏费用揭秘：实际使用成本全解析',
-    '省钱必看！{kw}折扣码与优惠活动大汇总',
-    '{kw}价格横评：{dur}出行性价比完整排行',
-    '学生党如何买到最便宜的{kw}？省钱折扣攻略',
-    '{kw}家庭套餐值得买吗？多人共享费用分析',
-    '{kw} vs 国际漫游：哪个更省钱？费用全对比',
-    '免费试用{kw}？优惠活动与退款政策全解析',
-    '{year}{kw}最新定价：各大平台价格横向对比',
-    '{kw}流量包加购指南：超出套餐后如何最省钱',
-    '{hKw}真实价格测评：{year}{dest}出行套餐性价比深度分析报告'
-  ]},
-  coverage:{name:'网速覆盖',cls:'c-cov',t:[
-    '{kw}网速实测：{city} 5G和4G LTE覆盖测试报告',
-    '{dest}各地区{kw}信号覆盖地图与实测分析',
-    '自驾游必看：{dest}公路沿线{kw}覆盖实测数据',
-    '{kw}在{park}信号实测：偏远地区覆盖情况',
-    '{c1}与{c2} {kw}真实网速横向对比测试',
-    '{dest}不同地区{kw}覆盖差异实测完整对比',
-    '{kw}在偏远地区的表现如何？覆盖盲区全面分析',
-    '{kw}下载上传速度实测：{c1} vs {c2}',
-    '城市vs郊区：{kw}实际使用网速差异对比分析',
-    '{kw} 5G vs 4G LTE：普通用户该如何选择',
-    '{city}地铁和室内{kw}信号表现实测报告',
-    '{kw}流媒体使用体验：4K视频与游戏延迟测试',
-    '{hKw}信号实测：{city}全区覆盖详细数据报告'
-  ]},
-  faq:{name:'常见问题',cls:'c-faq',t:[
-    '{kw}常见问题解答：新手最想知道的{cnt}个疑问',
-    '{kw}信号不稳定？这几个方法帮你快速解决',
-    '什么手机支持{kw}？{year}兼容设备完整清单',
-    '{kw}流量用完了怎么办？续费与追加流量方法',
-    '{kw}能打电话发短信吗？功能详解与注意事项',
-    'eSIM和实体SIM有什么区别？{year}深度技术解析',
-    '{kw}安全吗？数据隐私与使用安全全解析',
-    '离开{dest}后{kw}还能用吗？跨境漫游完整说明',
-    '{kw}数据用量追踪：如何避免超额收费',
-    '{kw}能否共享热点给其他设备？热点使用完全指南',
-    '{kw}有效期过了还能续费吗？套餐管理完全指南',
-    '手机丢失后{kw}怎么处理？数据安全保障指南',
-    '关于{hKw}的{cnt}个高频疑问：{year}权威解答'
-  ]},
-  comparison:{name:'产品对比',cls:'c-cmp',t:[
-    '{p1} vs {p2}：{kw}深度横向评测',
-    '{c1} vs {c2}：{dest} eSIM全面对比分析',
-    '{kw} vs 实体SIM：{year}实际使用体验全面对比',
-    '{kw} vs 租用随身WiFi：哪个更适合{userType}',
-    '{dur}短途 vs 长期使用：{kw}套餐如何选',
-    '顶级{kw}提供商大对比：覆盖、价格、服务综合评分',
-    '{dest}本土运营商eSIM vs 国际eSIM平台深度对比',
-    '传统实体SIM卡 vs {kw}：功能、价格与便利性全面对比',
-    '新手vs资深用户：不同需求下的{kw}选择差异',
-    '{kw}三大主流方案横评：最适合{userType}的选择',
-    '{year}{kw}五大平台横评：谁是真正的性价比之王',
-    '预付费vs后付费：{kw}套餐类型与适用场景指南',
-    '{p1}与{p2}：{kw}两大热门平台深度横向全比较'
-  ]},
-  provider:{name:'提供商评测',cls:'c-pvd',t:[
-    '{p1} {kw}深度评测：{year}综合使用体验报告',
-    '{year}最值得推荐的{kw}提供商TOP5权威排名',
-    '{p1} {kw}套餐详解：覆盖、速度、价格全析',
-    '{kw}哪家最靠谱？用户口碑与专业评测综合榜',
-    '{p1} {kw}客服体验：售前售后全程测评报告',
-    '运营商直营eSIM vs 第三方平台：{dest}市场分析',
-    '{p1} {kw}退款政策详解：消费保障机制全解读',
-    '专为{userType}设计：{kw}提供商服务全面对比',
-    '{c1}官方{kw}怎么买？注册与购买完整流程',
-    '{year}{dest} eSIM市场动态：主要提供商最新变化',
-    '{p1}新用户福利：{kw}首次购买优惠活动全解析',
-    '小众但好用的{kw}提供商：被忽视的优质选择',
-    '{p1}领衔！{year}{dest}eSIM服务商使用口碑综合评分排名'
-  ]},
-  scenario:{name:'使用场景',cls:'c-scn',t:[
-    '{dur}{dest}{scene}：{kw}套餐最优选择方案',
-    '{dest}自驾游{kw}攻略：全程不断网套餐推荐',
-    '留学生必看：{dest}长期{kw}解决方案与费用规划',
-    '商务出差{dest}：{kw}国际通话与高速数据套餐推荐',
-    '{dest}蜜月旅行{kw}指南：浪漫之旅网络无忧',
-    '带孩子去{dest}旅游：家庭{kw}套餐最优方案',
-    '{dest}自由行{kw}：跨区旅行全程网络保障',
-    '打工度假{dest}：长期{kw}套餐选购完全攻略',
-    '{dest}旅行{kw}急救包：临时购买与紧急激活指南',
-    '第一次去{dest}：{kw}还是实体卡？新手全面指导',
-    '{dest}{scene}专属{kw}推荐：实用路线套餐搭配',
-    '数字游民在{dest}：长期稳定{kw}解决方案',
-    '{dur}{dest}{scene}首选{hKw}：真实使用场景完全指南'
-  ]},
-  tips:{name:'使用技巧',cls:'c-tip',t:[
-    '{kw}省钱大法：{cnt}个实用技巧减少通讯费',
-    '旅行达人分享：买{kw}的{cnt}个省钱秘诀',
-    '{kw}流量管理技巧：用得更少但网速不降级',
-    '出发前设置{kw}：{cnt}个必做准备工作',
-    '{kw}使用技巧：让套餐价值最大化的实用方法',
-    '{kw}续费攻略：如何无缝续期不断线',
-    '{kw}加免费Wi-Fi：最省钱的{dest}网络方案',
-    '{kw}返程后如何处理？套餐余量与注销指南',
-    '{kw}多设备共享：一张eSIM连接多个设备方案',
-    '{kw}节假日购买攻略：特价时机与优惠渠道汇总',
-    '{kw}高效使用指南：{cnt}个你可能不知道的功能',
-    '延长{kw}有效期的技巧：套餐到期前必看攻略',
-    '用{hKw}省更多钱：{dest}旅行流量费用最大化实战攻略'
-  ]},
-  review:{name:'用户真实评测',cls:'c-rev',t:[
-    '{year}真实用户评测：{kw}综合口碑与体验总结',
-    '{cnt}位用户亲测{kw}：真实反馈与使用心得汇总',
-    '{dest}旅行回来后：{kw}真实满意度与不足点解析',
-    '踩坑与惊喜：{kw}用户真实反馈{cnt}条精选',
-    '{p1} {kw}值得信赖吗？真实用户口碑大汇总',
-    '{userType}眼中的{kw}：真实评分与使用建议',
-    '{year}网络热评{kw}：好评与差评背后的真相',
-    '{dest}旅行达人分享：{kw}亲身使用心得精选',
-    '{kw}用完一周后：真实网速与服务体验详细复盘',
-    '高分还是差评？{kw}真实用户反馈与改进建议',
-    '{kw}究竟好不好用？{cnt}位真实用户的综合评价',
-    '{dest}旅游团友实测{kw}：集体使用体验真实汇报',
-    '{hKw}用户真实评测：{year}综合口碑数据全解析'
-  ]},
-  recommend:{name:'套餐精选推荐',cls:'c-rec',t:[
-    '{year}性价比最高的{kw}套餐：精选{cnt}款强力推荐',
-    '{userType}专属推荐：{kw}最适合你的{cnt}款套餐',
-    '{dur}出行{kw}最优套餐推荐：综合评分与选购建议',
-    '{year}{kw}套餐精选：编辑力荐{cnt}款不踩坑方案',
-    '不同需求不同选择：{kw}分场景套餐精准推荐',
-    '月度更新：{year}{kw}最新优惠套餐精选TOP{cnt}',
-    '{dest}本地用户最爱的{kw}套餐：真实销量排行推荐',
-    '{kw}入门款vs高配款：不同预算下的精选推荐方案',
-    '懒人必看！{kw}无脑购买推荐：直接买这{cnt}款',
-    '专家选出的{year}{kw}黑马套餐：低价高质精选',
-    '{dur}旅行{kw}套餐推荐：流量、速度、价格最优解',
-    '{userType}强推！{kw}最值得买的{cnt}款套餐盘点',
-    '{hKw}套餐精选推荐：{year}{dest}出行性价比最优购买方案汇总'
-  ]},
-  prepare:{name:'出行前准备',cls:'c-pre',t:[
-    '出发{dest}前{cnt}件必做：{kw}准备完整检查清单',
-    '提前{dur}准备{kw}：{dest}出行网络规划全攻略',
-    '{dest}出行前{kw}准备指南：手机设置与套餐选购清单',
-    '行前必读：{dest}旅行{kw}准备的{cnt}个关键步骤',
-    '{device}出行前{kw}准备：设置、测试、备份完整指南',
-    '去{dest}前必须确认的{kw}事项：避免到了才发现问题',
-    '{dest}出发前一周{kw}准备攻略：分步骤完整安排',
-    '{kw}提前购买vs到达再买：{dest}出行最优时机选择',
-    '家庭出行{dest}：全家人{kw}准备的一站式解决方案',
-    '首次去{dest}必备清单：{kw}与网络准备核心要点',
-    '{dur}长途{dest}出行：{kw}套餐预购与备用方案指南',
-    '{dest}商务出行前{kw}准备：专业人士的完整设置流程',
-    '出发{dest}前用{hKw}：{year}出行网络准备权威指南'
-  ]}
+  purchase:{name:'购买指南',cls:'c-pur',kwType:'func',
+    tStd:[
+      '{kw}如何购买？{year}在线购买完整步骤详解',
+      '购买{kw}前必知的{cnt}大关键事项',
+      '{kw}哪里买最划算？官网vs第三方平台全对比',
+      '{p1}购买教程：从注册到下单图文步骤解析',
+      '{kw}购买攻略：{dur}套餐哪款最值',
+      '{kw}购买后多久到账？从下单到激活全流程'
+    ],
+    tKw:[
+      '{injKw}购买完整教程：{year}主流渠道操作步骤全指南',
+      '{injKw}哪里买最便宜？官网与第三方平台价格横向对比',
+      '如何购买{injKw}？图文步骤从注册到激活一步详解',
+      '{injKw}购买前必看：{cnt}个避坑关键要点全解析',
+      '{injKw}国内提前购买vs到达后购买：哪种方案更划算'
+    ]},
+  activation:{name:'激活教程',cls:'c-act',kwType:'func',
+    tStd:[
+      '{kw}激活全攻略：{device}逐步操作完整教程',
+      '{kw}激活失败怎么办？常见原因与解决方案',
+      '{device}使用{kw}设置教程：从下载到激活全程图解',
+      '{kw}二维码扫描激活详细步骤与注意事项'
+    ],
+    tKw:[
+      '{injKw}激活完整教程：{device}逐步操作图文详解',
+      '激活{injKw}失败？{cnt}种常见错误原因与解决方案',
+      '{device}如何激活{injKw}？从扫码到正常联网全流程',
+      '{injKw}激活时机选择：出发前还是落地后激活更合适'
+    ]},
+  price:{name:'价格对比',cls:'c-pri',kwType:'func',
+    tStd:[
+      '{year}{kw}价格全对比：{c1} vs {c2}',
+      '{kw}{dur}套餐费用分析：哪家最划算',
+      '{kw}隐藏费用揭秘：实际使用成本全解析',
+      '{kw} vs 国际漫游：哪个更省钱？费用全对比'
+    ],
+    tKw:[
+      '{injKw}价格深度分析：{year}各大平台套餐费用横向全对比',
+      '{injKw}多少钱合理？{dur}出行套餐性价比评测报告',
+      '{injKw}隐藏费用全揭秘：实际总花费与官方标价差距分析',
+      '{injKw}折扣码与优惠：{year}最新省钱购买途径大汇总'
+    ]},
+  coverage:{name:'网速覆盖',cls:'c-cov',kwType:'loc',
+    tStd:[
+      '{kw}网速实测：{city} 5G/4G LTE覆盖测试报告',
+      '{dest}各地区{kw}信号覆盖地图与实测分析',
+      '{c1}与{c2} {kw}真实网速横向对比测试',
+      '{city}地铁和室内{kw}信号表现实测报告'
+    ],
+    tKw:[
+      '{injKw} eSIM信号实测：覆盖范围、网速与稳定性全报告',
+      '去{injKw}用什么eSIM最好？信号测试与套餐精选推荐',
+      '{injKw}地区5G/4G LTE深度测试：城区vs郊区信号对比',
+      '{injKw}旅行eSIM推荐：当地实测最佳信号方案指南'
+    ]},
+  faq:{name:'常见问题',cls:'c-faq',kwType:'func',
+    tStd:[
+      '{kw}常见问题解答：新手最想知道的{cnt}个疑问',
+      '{kw}能打电话发短信吗？功能详解与注意事项',
+      'eSIM和实体SIM有什么区别？{year}深度解析',
+      '{kw}安全吗？数据隐私与使用安全全解析'
+    ],
+    tKw:[
+      '{injKw}常见问题解答：{cnt}个用户最频繁咨询的疑问权威解答',
+      '关于{injKw}的{cnt}大常见误区：专家逐一纠正详解',
+      '{injKw}使用全指南：功能限制、注意事项与实用建议',
+      '{injKw}数据安全解析：隐私保护与网络安全性全面评估'
+    ]},
+  comparison:{name:'产品对比',cls:'c-cmp',kwType:'comp',
+    tStd:[
+      '{p1} vs {p2}：{kw}深度横向评测',
+      '{kw} vs 实体SIM：{year}实际使用体验全面对比',
+      '顶级{kw}提供商大对比：覆盖、价格、服务综合评分',
+      '{kw}三大主流方案横评：最适合{userType}的选择'
+    ],
+    tKw:[
+      '{injKw}与主流竞争对手全面对比：{year}横向综合评测报告',
+      '{injKw} vs 其他eSIM方案：{dest}出行哪个选择更优',
+      '{injKw}与传统实体SIM的区别：功能、便利性与成本深度对比',
+      '{injKw}对比评测：价格、网速、客服全方位打分分析'
+    ]},
+  provider:{name:'提供商评测',cls:'c-pvd',kwType:'comp',
+    tStd:[
+      '{p1} {kw}深度评测：{year}综合使用体验报告',
+      '{year}最值得推荐的{kw}提供商TOP5权威排名',
+      '{p1}退款政策详解：消费保障机制全解读',
+      '小众但好用的{kw}提供商：被忽视的优质选择'
+    ],
+    tKw:[
+      '{injKw}深度评测报告：{year}综合使用体验与真实口碑分析',
+      '{injKw}值得信赖吗？服务质量、退款政策与客服全面评分',
+      '{injKw}新用户专属优惠：首次购买折扣与专属福利全解析',
+      '{injKw}评测结论：适合哪类用户？优缺点与推荐场景分析'
+    ]},
+  scenario:{name:'使用场景',cls:'c-scn',kwType:'loc',
+    tStd:[
+      '{dur}{dest}{scene}：{kw}套餐最优选择方案',
+      '{dest}自驾游{kw}攻略：全程不断网套餐推荐',
+      '留学生必看：{dest}长期{kw}解决方案与费用规划',
+      '数字游民在{dest}：长期稳定{kw}解决方案'
+    ],
+    tKw:[
+      '{injKw}旅行eSIM完整指南：{dur}出行套餐选择与上网攻略',
+      '去{injKw}旅游上网推荐：{year}最新eSIM方案综合测评',
+      '{injKw}商务出行eSIM：高速稳定套餐精选推荐指南',
+      '{injKw}留学上网解决方案：长期使用低成本eSIM套餐完全指南'
+    ]},
+  tips:{name:'使用技巧',cls:'c-tip',kwType:'func',
+    tStd:[
+      '{kw}省钱大法：{cnt}个实用技巧减少通讯费',
+      '{kw}流量管理技巧：用得更少但网速不降级',
+      '{kw}续费攻略：如何无缝续期不断线',
+      '延长{kw}有效期的技巧：套餐到期前必看'
+    ],
+    tKw:[
+      '{injKw}省流量使用技巧：{cnt}招实测有效的省钱实战方法',
+      '{injKw}套餐价值最大化：高效使用指南与流量管理技巧',
+      '用{injKw}省更多钱：{year}最新优惠技巧与套餐选购建议',
+      '{injKw}续费与流量追加完全指南：如何无缝续期不断网'
+    ]},
+  review:{name:'用户真实评测',cls:'c-rev',kwType:'comp',
+    tStd:[
+      '{year}真实用户评测：{kw}综合口碑与体验总结',
+      '{dest}旅行达人分享：{kw}亲身使用心得精选',
+      '{kw}用完一周后：真实网速与服务体验复盘',
+      '高分还是差评？{kw}真实用户反馈与建议'
+    ],
+    tKw:[
+      '{injKw}真实用户评测汇总：{year}综合口碑与满意度深度分析',
+      '{injKw}买了值不值？{dest}旅行用户真实反馈与使用体验',
+      '{cnt}位用户亲测{injKw}：好评差评背后的真相全解析',
+      '{injKw}使用体验深度报告：速度测试、客服评分与总结'
+    ]},
+  recommend:{name:'套餐精选推荐',cls:'c-rec',kwType:'func',
+    tStd:[
+      '{year}性价比最高的{kw}套餐：精选{cnt}款强力推荐',
+      '{userType}专属推荐：{kw}最适合你的{cnt}款套餐',
+      '不同需求不同选择：{kw}分场景套餐精准推荐',
+      '懒人必看！{kw}无脑购买：直接买这{cnt}款'
+    ],
+    tKw:[
+      '{injKw}套餐精选推荐：{year}{dest}出行最值得买的{cnt}款方案',
+      '{injKw}哪款最好？{year}编辑精选性价比最高套餐推荐榜',
+      '{userType}必买{injKw}推荐：综合评分最高的{cnt}款套餐盘点',
+      '{injKw}入门首选：新手最适合的{cnt}款套餐选购完整指南'
+    ]},
+  prepare:{name:'出行前准备',cls:'c-pre',kwType:'func',
+    tStd:[
+      '出发{dest}前{cnt}件必做：{kw}准备完整检查清单',
+      '{dest}出行前{kw}准备指南：手机设置与套餐选购清单',
+      '{device}出行前{kw}准备：设置、测试、备份完整指南',
+      '{dest}出发前一周{kw}准备攻略：分步骤完整安排'
+    ],
+    tKw:[
+      '出发前必备{injKw}准备攻略：{cnt}步骤完整操作清单',
+      '{dest}出行前{injKw}设置指南：手机配置与激活全教程',
+      '提前购买{injKw}的完整指南：出发前{dur}的最优时机与操作',
+      '{injKw}出行准备完整手册：避免落地才后悔的关键步骤'
+    ]}
 };
 
-var H1T = [
+// H1 standard templates
+var H1T_STD = [
   '{year}年{kw}终极指南：{topic}',
   '{kw}完整攻略：{userType}必读手册',
-  '{kw}选购圣经：购买、激活到使用全流程详解',
+  '{kw}选购圣经：购买激活到使用全流程详解',
   '{year}最新{kw}深度评测：哪家最值得买',
   '{kw}完全解析：{scene}专属推荐指南',
   '从零开始用{kw}：{userType}专属完全教程',
   '{kw}终极对比：{c1} vs {c2}谁更胜一筹',
   '{year}出行必备{kw}：价格、覆盖、激活全解析',
-  '{kw}省钱指南：{userType}如何选对套餐',
   '{kw}深度测评：{city}及周边地区实测报告',
   '告别漫游费！{kw}完整购买与使用指南',
   '{kw}权威推荐：{year}性价比最高套餐大盘点',
   '{kw}新手入门：从购买到激活的保姆级教程',
   '{device}使用{kw}设置指南：{year}最新完整教程',
-  '{kw}全攻略：让{userType}在{dest}畅行无忧',
-  '选对{kw}，{scene}不再烦恼：{year}权威推荐',
   '{kw}深度横评：{p1} vs {p2}全面对比',
-  '{year}旅行必备：{kw}选购、激活、使用完全指南',
+  '{year}旅行必备：{kw}选购激活使用完全指南',
   '{kw}终极省钱手册：{userType}必看套餐分析',
   '{kw}实测报告：速度、覆盖、价格全方位评分',
   '不踩坑！{kw}购买避坑指南：{year}最新版',
   '{kw}完全指南：{dur}出行最优方案推荐',
-  '{kw}一站式解决方案：{scene}专属选购攻略',
-  '{year}{kw}市场全景：哪款eSIM真正值得买',
-  '{kw}实用手册：{userType}从选购到使用全程无忧',
-  '探索{dest}前必读：{kw}选购核心要点与避坑指南',
-  '{year}{kw}大评测：价格、速度、覆盖综合排名',
-  '用{kw}畅游{dest}：{scene}最佳网络解决方案',
+  '{year}{kw}大评测：价格速度覆盖综合排名',
   '{kw}保姆级攻略：{device}用户专属完整教程',
-  '去{dest}不用愁网络：{kw}选购使用完全解答',
-  '{kw}完全指南{year}：{userType}的最优方案推荐',
-  '{year}年度最佳{kw}：综合评测与选购建议大全',
-  '{kw}深度比较：{c1}还是{c2}更适合你',
   '{city}实测{kw}：真实网速与覆盖情况全记录',
   '{userType}首选{kw}：{year}专业推荐与实战心得',
-  '{hKw}完整攻略：{year}购买激活全流程保姆级指南',
-  '{dest}旅行必备｜{hKw}深度评测：{year}真实使用体验报告',
-  '{p1} vs 主流{dest}eSIM平台：{year}性价比全方位横向对比',
-  '用{hKw}游{dest}：{year}购买激活使用全流程权威解析',
-  '{hKw}选购指南：{year}{dest}套餐综合测评与最优推荐方案'
+  '{kw}完全指南{year}：{userType}的最优方案推荐',
+  '{year}年度最佳{kw}：综合评测与选购建议大全'
 ];
 
-function getLogicalCatSequence(n, seed) {
-  var allKeys = CAT_LOGICAL_ORDER.slice();
-  var s = Math.abs(seed | 0);
-  var arr = allKeys.slice();
-  for (var i = arr.length - 1; i > 0; i--) {
-    s = (s * 1664525 + 1013904223) & 0x7fffffff;
-    var j = s % (i + 1);
-    var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+// H1 keyword-first templates (use {injKw} = user's functional keyword)
+var H1T_KW = [
+  '{injKw}：{year}{dest}出行完整上网指南',
+  '{injKw}深度测评：{year}速度覆盖价格全解析报告',
+  '{injKw}怎么用？{dest}购买激活使用完全攻略',
+  '{injKw}值得买吗？{year}真实用户体验深度报告',
+  '{injKw}哪里买最好？{year}主流购买渠道全面对比',
+  '{injKw}完整使用指南：{userType}出行上网保姆级教程',
+  '{injKw}省钱购买攻略：{year}最低价格与套餐选购技巧',
+  '{injKw}旅行实测报告：{dest}{dur}真实上网体验全记录',
+  '{injKw}对比评测：{year}最适合{userType}的方案推荐',
+  '{dest}旅行必备{injKw}：{year}购买激活与使用完整教程',
+  '{injKw}终极选购指南：{year}{dest}出行套餐综合横评',
+  '{injKw}使用常见问题：激活失败信号差限速全解决方案',
+  '{injKw}真实用户评测：{cnt}位用户使用心得与综合评分',
+  '{year}{dest}最佳{injKw}推荐：价格速度覆盖综合排名'
+];
+
+// ============================================================
+// STATE
+// ============================================================
+var kwPools = {func:[], comp:[], loc:[]};
+var kwUsed  = {func:{}, comp:{}, loc:{}};
+var kwRR    = {func:0, comp:0, loc:0};
+var genCount = 0;
+var curSet = null;
+var hist = [];
+var usedH1Set = {};
+var kwMgrOpen = false;
+
+// ============================================================
+// KEYWORD MANAGEMENT
+// ============================================================
+function parseKw(type) {
+  var taMap = {func:'taF', comp:'taC', loc:'taL'};
+  var raw = document.getElementById(taMap[type]).value.trim();
+  if (!raw) { showToast('请先粘贴关键词'); return; }
+  var max = {func:200, comp:30, loc:120}[type];
+  var parts = raw.split(/[\n\r,，;；]+/);
+  var result = [], seen = {};
+  for (var i = 0; i < parts.length; i++) {
+    var kw = parts[i].trim();
+    if (kw.length > 0 && kw.length <= 100 && !seen[kw] && result.length < max) {
+      seen[kw] = true; result.push(kw);
+    }
   }
-  var selected = arr.slice(0, Math.min(n, arr.length));
-  selected.sort(function(a, b) {
-    return CAT_LOGICAL_ORDER.indexOf(a) - CAT_LOGICAL_ORDER.indexOf(b);
-  });
-  return selected;
+  if (!result.length) { showToast('未识别到有效关键词'); return; }
+  kwPools[type] = result;
+  kwUsed[type] = {};
+  kwRR[type] = 0;
+  var phMap = {func:'phF', comp:'phC', loc:'phL'};
+  var ph = document.getElementById(phMap[type]);
+  ph.textContent = '✅ 已导入 ' + result.length + ' 个';
+  ph.className = 'ph ph-ok';
+  renderCloud(type);
+  updateSummary();
+  showToast('✅ ' + {func:'功能词',comp:'竞品词',loc:'地区词'}[type] + ' 导入 ' + result.length + ' 个');
 }
 
+function clearKw(type) {
+  var taMap = {func:'taF', comp:'taC', loc:'taL'};
+  var phMap = {func:'phF', comp:'phC', loc:'phL'};
+  document.getElementById(taMap[type]).value = '';
+  document.getElementById(phMap[type]).textContent = '';
+  kwPools[type] = []; kwUsed[type] = {};
+  renderCloud(type);
+  updateSummary();
+  showToast('🗑 ' + {func:'功能词',comp:'竞品词',loc:'地区词'}[type] + ' 已清空');
+}
+
+function renderCloud(type) {
+  var pool = kwPools[type], used = kwUsed[type];
+  var cloudMap = {func:'cloudF', comp:'cloudC', loc:'cloudL'};
+  var wrapMap  = {func:'cwF', comp:'cwC', loc:'cwL'};
+  var barMap   = {func:'cbF', comp:'cbC', loc:'cbL'};
+  var pctMap   = {func:'cpF', comp:'cpC', loc:'cpL'};
+  var cloudEl = document.getElementById(cloudMap[type]);
+  var wrapEl  = document.getElementById(wrapMap[type]);
+  var barEl   = document.getElementById(barMap[type]);
+  var pctEl   = document.getElementById(pctMap[type]);
+  if (!pool.length) { if (wrapEl) wrapEl.classList.remove('show'); return; }
+  var usedCnt = 0;
+  for (var k in used) { if (used[k] > 0) usedCnt++; }
+  var pct = pool.length > 0 ? Math.round(usedCnt / pool.length * 100) : 0;
+  if (barEl) barEl.style.width = pct + '%';
+  if (pctEl) pctEl.textContent = pct + '%';
+  var uCls = {func:'kt-fu', comp:'kt-cu', loc:'kt-lu'}[type];
+  var nCls = {func:'kt-fn', comp:'kt-cn', loc:'kt-ln'}[type];
+  var html = '';
+  for (var i = 0; i < pool.length; i++) {
+    html += '<span class="kt ' + (used[i] > 0 ? uCls : nCls) + '">' + escHtml(pool[i]) + '</span>';
+  }
+  if (cloudEl) cloudEl.innerHTML = html;
+  if (wrapEl) wrapEl.classList.add('show');
+}
+
+function updateSummary() {
+  var types = ['func','comp','loc'];
+  var names = {func:'功能词',comp:'竞品词',loc:'地区词'};
+  var icons = {func:'⚡',comp:'🏆',loc:'📍'};
+  var pillMap = {func:'pillF',comp:'pillC',loc:'pillL'};
+  var sumMap  = {func:'sumF',comp:'sumC',loc:'sumL'};
+  var hdrMap  = {func:'sFN',comp:'sCN',loc:'sLN'};
+  var hasAny = false;
+  for (var i = 0; i < types.length; i++) {
+    var t = types[i];
+    var total = kwPools[t].length;
+    var usedCnt = 0;
+    for (var k in kwUsed[t]) { if (kwUsed[t][k] > 0) usedCnt++; }
+    var pill = document.getElementById(pillMap[t]);
+    var sum  = document.getElementById(sumMap[t]);
+    var hdr  = document.getElementById(hdrMap[t]);
+    if (pill) pill.textContent = names[t] + ' ' + total;
+    if (sum) sum.textContent = icons[t] + ' ' + names[t] + ' ' + total + ' · 已覆盖 ' + usedCnt;
+    if (hdr) hdr.textContent = total;
+    if (total > 0) hasAny = true;
+  }
+  var mgr = document.getElementById('kwMgr');
+  var hint = document.getElementById('kwHint');
+  var summary = document.getElementById('kwSummary');
+  if (hasAny) {
+    mgr.classList.add('has-kws');
+    if (hint) hint.style.display = 'none';
+    if (!kwMgrOpen && summary) summary.classList.add('show');
+  } else {
+    mgr.classList.remove('has-kws');
+    if (hint) hint.style.display = 'inline';
+    if (summary) summary.classList.remove('show');
+  }
+}
+
+function toggleKwMgr() {
+  kwMgrOpen = !kwMgrOpen;
+  var cols = document.getElementById('kwCols');
+  var btn  = document.getElementById('kwToggle');
+  var sum  = document.getElementById('kwSummary');
+  cols.className = 'kw-cols' + (kwMgrOpen ? ' open' : '');
+  btn.textContent = kwMgrOpen ? '▲ 收起' : '▼ 展开管理';
+  var hasAny = kwPools.func.length > 0 || kwPools.comp.length > 0 || kwPools.loc.length > 0;
+  if (hasAny) {
+    if (kwMgrOpen) sum.classList.remove('show');
+    else sum.classList.add('show');
+  }
+}
+
+// ============================================================
+// GENERATION CORE
+// ============================================================
 function pickItem(arr, n) {
   if (!arr || !arr.length) return '';
   return arr[((n % arr.length) + arr.length) % arr.length];
 }
-function pickHotKw(seed) {
-  if (!userKws || !userKws.length) return '';
-  return userKws[Math.abs(seed) % userKws.length];
+
+function getPoolKw(type, offset) {
+  var pool = kwPools[type];
+  if (!pool || !pool.length) return null;
+  var idx = (kwRR[type] + (offset || 0)) % pool.length;
+  return {kw: pool[idx], idx: idx};
 }
-function buildCtx(destKey, year, seed) {
+
+function markUsed(type, idx) {
+  if (idx == null || idx < 0) return;
+  if (!kwUsed[type][idx]) kwUsed[type][idx] = 0;
+  kwUsed[type][idx]++;
+}
+
+function advanceRR() {
+  var types = ['func','comp','loc'];
+  for (var i = 0; i < types.length; i++) {
+    var t = types[i];
+    if (kwPools[t].length > 0) kwRR[t] = (kwRR[t] + 1) % kwPools[t].length;
+  }
+}
+
+function buildCtx(destKey, year, seed, injKw) {
   var d = DB[destKey];
   var s = Math.abs(seed) | 0;
   var hl = d.carriers.length, pl = d.providers.length;
-  var ci1 = s % hl, ci2 = (s + Math.ceil(hl/2)+1) % hl;
-  if (ci2===ci1) ci2=(ci2+1)%hl;
-  var pi1 = s % pl, pi2 = (s + Math.ceil(pl/2)+1) % pl;
-  if (pi2===pi1) pi2=(pi2+1)%pl;
+  var ci1 = s % hl;
+  var ci2 = (s + Math.ceil(hl / 2) + 1) % hl;
+  if (ci2 === ci1) ci2 = (ci2 + 1) % hl;
+  var pi1 = s % pl;
+  var pi2 = (s + Math.ceil(pl / 2) + 1) % pl;
+  if (pi2 === pi1) pi2 = (pi2 + 1) % pl;
   return {
-    kw:d.kw, dest:d.name, year:year,
-    city:    pickItem(d.cities,    s),
-    c1:      d.carriers[ci1],  c2:d.carriers[ci2],
-    p1:      d.providers[pi1], p2:d.providers[pi2],
-    device:  pickItem(DEVICES,     s),
-    dur:     pickItem(d.durations, s),
-    userType:pickItem(d.userTypes, s),
-    scene:   pickItem(d.scenes,    s+2),
-    topic:   pickItem(TOPICS,      s),
-    cnt:     pickItem(COUNTS,      s),
-    issue:   pickItem(d.issues,    s),
-    park:    pickItem(d.parks,     s),
-    hKw:     pickHotKw(s*7+3)
+    kw: d.kw, dest: d.name, year: year,
+    city:     pickItem(d.cities, s),
+    c1:       d.carriers[ci1], c2: d.carriers[ci2],
+    p1:       d.providers[pi1], p2: d.providers[pi2],
+    device:   pickItem(DEVICES, s),
+    dur:      pickItem(d.durations, s),
+    userType: pickItem(d.userTypes, s),
+    scene:    pickItem(d.scenes, s + 2),
+    topic:    pickItem(TOPICS, s),
+    cnt:      pickItem(COUNTS, s),
+    issue:    pickItem(d.issues, s),
+    park:     pickItem(d.parks, s),
+    injKw:    injKw || d.kw
   };
 }
+
 function fill(tpl, ctx) {
-  return tpl
-    .split('{kw}').join(ctx.kw).split('{dest}').join(ctx.dest)
-    .split('{year}').join(ctx.year).split('{city}').join(ctx.city)
-    .split('{c1}').join(ctx.c1).split('{c2}').join(ctx.c2)
-    .split('{p1}').join(ctx.p1).split('{p2}').join(ctx.p2)
-    .split('{device}').join(ctx.device).split('{dur}').join(ctx.dur)
-    .split('{userType}').join(ctx.userType).split('{scene}').join(ctx.scene)
-    .split('{topic}').join(ctx.topic).split('{cnt}').join(ctx.cnt)
-    .split('{issue}').join(ctx.issue).split('{park}').join(ctx.park)
-    .split('{hKw}').join(ctx.hKw||ctx.kw);
-}
-function escHtml(s){
-  return String(s).split('&').join('&amp;').split('<').join('&lt;').split('>').join('&gt;').split('"').join('&quot;');
-}
-function deepCopy(o){return JSON.parse(JSON.stringify(o));}
-
-var genCount=0, curSet=null, hist=[], userKws=[], curUsedKwIndices=[], kwPanelOpen=false;
-
-function toggleKwPanel(){
-  kwPanelOpen=!kwPanelOpen;
-  document.getElementById('kwInputSection').style.display=kwPanelOpen?'block':'none';
-  document.getElementById('kwToggleBtn').textContent=kwPanelOpen?'▲ 收起':'▼ 展开';
-  if(kwPanelOpen&&userKws.length>0){
-    renderCloudInto('kwCloudExpanded',curUsedKwIndices);
-    document.getElementById('kwTagAreaExpanded').style.display='block';
+  var r = tpl;
+  var keys = ['kw','dest','year','city','c1','c2','p1','p2','device','dur','userType','scene','topic','cnt','issue','park','injKw'];
+  for (var i = 0; i < keys.length; i++) {
+    r = r.split('{' + keys[i] + '}').join(ctx[keys[i]] || '');
   }
-}
-function parseKeywords(){
-  var raw=document.getElementById('kwTextarea').value.trim();
-  if(!raw){showToast('请先粘贴关键词');return;}
-  var parts=raw.split(/[\n\r,，;；]+/);
-  var result=[],seen={};
-  for(var i=0;i<parts.length;i++){
-    var kw=parts[i].trim();
-    if(kw.length>0&&kw.length<=80&&!seen[kw]&&result.length<200){seen[kw]=true;result.push(kw);}
-  }
-  if(!result.length){showToast('未识别到有效关键词，请检查格式');return;}
-  userKws=result; curUsedKwIndices=[];
-  document.getElementById('kwParseHint').textContent='✅ 成功导入 '+result.length+' 个';
-  renderAllKwUI([]);
-  showToast('✅ 成功解析导入 '+result.length+' 个关键词');
-  document.getElementById('btnExportKw').style.display='inline-flex';
-}
-function clearKeywords(){
-  userKws=[];curUsedKwIndices=[];
-  document.getElementById('kwTextarea').value='';
-  document.getElementById('kwParseHint').textContent='';
-  document.getElementById('btnExportKw').style.display='none';
-  renderAllKwUI([]);
-  showToast('🗑 关键词库已清空');
-}
-function exportKeywords(){
-  if(!userKws.length)return;
-  downloadFile(userKws.join('\n'),'keywords-'+userKws.length+'.txt');
-  showToast('📤 关键词导出成功');
-}
-function classifyKws(usedIndices){
-  var usedSet={};
-  for(var i=0;i<usedIndices.length;i++)usedSet[usedIndices[i]]=true;
-  var result=[],cC=0,aC=0;
-  for(var i=0;i<userKws.length;i++){
-    var type;
-    if(usedSet[i]) type='tt';
-    else if(cC<25){type='ct';cC++;}
-    else if(aC<35){type='at';aC++;}
-    else type='st';
-    result.push({kw:userKws[i],type:type,idx:i});
-  }
-  return result;
-}
-function renderCloudInto(tid,usedIndices){
-  var classified=classifyKws(usedIndices);
-  var html='';
-  for(var i=0;i<classified.length;i++){
-    var it=classified[i];
-    html+='<span class="kw-tag '+it.type+'">'+escHtml(it.kw)+'</span>';
-  }
-  var el=document.getElementById(tid);
-  if(el)el.innerHTML=html;
-}
-function renderAllKwUI(usedIndices){
-  var total=userKws.length;
-  if(!total){
-    document.getElementById('kwBadge').style.display='none';
-    document.getElementById('kwNoKwHint').style.display='inline';
-    document.getElementById('kwStatsBar').style.display='none';
-    document.getElementById('kwTagAreaAlways').style.display='none';
-    document.getElementById('kwTagAreaExpanded').style.display='none';
-    document.getElementById('kwPanel').classList.remove('has-kws');
-    document.getElementById('sKwCount').textContent='0';
-    return;
-  }
-  var classified=classifyKws(usedIndices);
-  var cntT=0,cntC=0,cntA=0,cntS=0;
-  for(var i=0;i<classified.length;i++){
-    if(classified[i].type==='tt')cntT++;
-    else if(classified[i].type==='ct')cntC++;
-    else if(classified[i].type==='at')cntA++;
-    else cntS++;
-  }
-  document.getElementById('kwBadge').style.display='inline';
-  document.getElementById('kwBadge').textContent='已导入 '+total+' 个';
-  document.getElementById('kwNoKwHint').style.display='none';
-  document.getElementById('kwStatsBar').style.display='flex';
-  document.getElementById('statTotal').textContent=total;
-  document.getElementById('statTitle').textContent=cntT;
-  document.getElementById('statContent').textContent=cntC;
-  document.getElementById('statAux').textContent=cntA;
-  document.getElementById('statSupp').textContent=cntS;
-  document.getElementById('kwPanel').classList.add('has-kws');
-  document.getElementById('sKwCount').textContent=total;
-  renderCloudInto('kwCloudAlways',usedIndices);
-  document.getElementById('kwTagAreaAlways').style.display='block';
-  if(kwPanelOpen){
-    renderCloudInto('kwCloudExpanded',usedIndices);
-    document.getElementById('kwTagAreaExpanded').style.display='block';
-  }
+  return r;
 }
 
-function generate(){
-  var destKey=document.getElementById('selDest').value;
-  var year=document.getElementById('selYear').value;
-  var h2n=parseInt(document.getElementById('selH2n').value,10);
-  var batch=parseInt(document.getElementById('selBatch').value,10);
-  for(var b=0;b<batch;b++){
-    var g=genCount;
-    var h1tpl=pickItem(H1T,g);
-    var h1ctx=buildCtx(destKey,year,g*17+5);
-    var h1=fill(h1tpl,h1ctx);
-    var selCats=getLogicalCatSequence(h2n,g*31+7);
-    var h2s=[];
-    for(var j=0;j<selCats.length;j++){
-      var ck=selCats[j];
-      var cat=CATS[ck];
-      var cIdx=CAT_LOGICAL_ORDER.indexOf(ck);
-      var tIdx=(g*3+j*7+cIdx)%cat.t.length;
-      var lCtx=buildCtx(destKey,year,g*11+j*13+cIdx*5);
-      h2s.push({ck:ck,catName:cat.name,cls:cat.cls,text:fill(cat.t[tIdx],lCtx)});
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function getLogicalCats(n, seed) {
+  var all = CAT_ORDER.slice();
+  var s = Math.abs(seed) | 0;
+  for (var i = all.length - 1; i > 0; i--) {
+    s = (s * 1664525 + 1013904223) & 0x7fffffff;
+    var j = s % (i + 1);
+    var tmp = all[i]; all[i] = all[j]; all[j] = tmp;
+  }
+  var selected = all.slice(0, Math.min(n, all.length));
+  selected.sort(function(a, b) { return CAT_ORDER.indexOf(a) - CAT_ORDER.indexOf(b); });
+  return selected;
+}
+
+function tryH1(destKey, year, seed, attempt) {
+  var d = DB[destKey];
+  var s = Math.abs(seed * 7 + attempt * 19) | 0;
+  var fkw = getPoolKw('func', attempt % Math.max(kwPools.func.length, 1));
+  var hasF = fkw !== null;
+  var useKw = hasF && ((s % 10) < 7);
+  var arr = useKw ? H1T_KW : H1T_STD;
+  var tpl = arr[s % arr.length];
+  var ctx = buildCtx(destKey, year, s, hasF ? fkw.kw : d.kw);
+  return {text: fill(tpl, ctx), funcIdx: hasF ? fkw.idx : -1, funcKw: hasF ? fkw.kw : null, kwFirst: useKw};
+}
+
+function generate() {
+  var destKey = document.getElementById('selDest').value;
+  var year    = document.getElementById('selYear').value;
+  var h2n     = parseInt(document.getElementById('selH2n').value, 10);
+  var batch   = parseInt(document.getElementById('selBatch').value, 10);
+
+  for (var b = 0; b < batch; b++) {
+    var g = genCount;
+
+    // ---- H1 with deduplication ----
+    var h1r = null;
+    for (var att = 0; att < 25; att++) {
+      var c = tryH1(destKey, year, g * 41 + b * 13, att);
+      if (!usedH1Set[c.text]) { h1r = c; break; }
     }
+    if (!h1r) {
+      var fb = tryH1(destKey, year, g * 41 + b * 13, 0);
+      fb.text = fb.text + '（No.' + (g + 1) + '）';
+      h1r = fb;
+    }
+    usedH1Set[h1r.text] = true;
+    if (h1r.funcIdx >= 0) markUsed('func', h1r.funcIdx);
+
+    // ---- H2 keyword sources for this article ----
+    var fkwSrc = getPoolKw('func', 0);
+    var ckwSrc = getPoolKw('comp', 0);
+    var lkwSrc = getPoolKw('loc', 0);
+
+    // ---- H2 generation ----
+    var selCats = getLogicalCats(h2n, g * 53 + b * 17);
+    var h2s = [];
+
+    for (var j = 0; j < selCats.length; j++) {
+      var ck  = selCats[j];
+      var cat = CATS[ck];
+      var cSeed = Math.abs(g * 11 + j * 13 + CAT_ORDER.indexOf(ck) * 7) | 0;
+
+      var src = null;
+      if (cat.kwType === 'func' && fkwSrc) src = fkwSrc;
+      else if (cat.kwType === 'comp' && ckwSrc) src = ckwSrc;
+      else if (cat.kwType === 'loc' && lkwSrc) src = lkwSrc;
+
+      var useKwTpl = src && cat.tKw && cat.tKw.length > 0 && ((cSeed % 10) < 7);
+      var tpl, injTxt, usedType = null;
+
+      if (useKwTpl) {
+        tpl = cat.tKw[cSeed % cat.tKw.length];
+        injTxt = src.kw;
+        usedType = cat.kwType;
+        markUsed(cat.kwType, src.idx);
+      } else {
+        tpl = cat.tStd[cSeed % cat.tStd.length];
+        injTxt = src ? src.kw : DB[destKey].kw;
+        usedType = null;
+      }
+
+      var lCtx = buildCtx(destKey, year, cSeed, injTxt);
+      h2s.push({ck: ck, catName: cat.name, cls: cat.cls, text: fill(tpl, lCtx), kwType: usedType, injKw: usedType ? injTxt : null});
+    }
+
+    advanceRR();
     genCount++;
-    var allTxt=h1+' '+h2s.map(function(h){return h.text;}).join(' ');
-    var usedIdx=[];
-    for(var k=0;k<userKws.length;k++){
-      if(allTxt.indexOf(userKws[k])!==-1)usedIdx.push(k);
-    }
-    curUsedKwIndices=usedIdx;
-    var setItem={id:genCount,destKey:destKey,destName:DB[destKey].name,year:year,h1:h1,h2s:h2s,usedKwIndices:usedIdx};
-    curSet=setItem;
-    hist.unshift(deepCopy(setItem));
+
+    var item = {
+      id: genCount, destKey: destKey, destName: DB[destKey].name, year: year,
+      h1: h1r.text, h2s: h2s,
+      mainFuncKw: h1r.funcKw, h1KwFirst: h1r.kwFirst
+    };
+    curSet = item;
+    hist.unshift(JSON.parse(JSON.stringify(item)));
   }
-  if(userKws.length>0)renderAllKwUI(curUsedKwIndices);
+
+  renderAllClouds();
+  updateSummary();
   renderOutput();
   renderHist();
-  updateStats();
+  updateHdrStats();
 }
 
-function buildLogicFlowBar(h2s){
-  var phasesSeen=[],phaseMap={};
-  for(var i=0;i<h2s.length;i++){
-    var ph=CAT_PHASE[h2s[i].ck];
-    if(ph&&!phaseMap[ph.phase]){phaseMap[ph.phase]=true;phasesSeen.push(ph);}
-  }
-  var html='<div class="h2-logic-bar"><span class="logic-bar-label">📐 读者旅程：</span>';
-  for(var i=0;i<phasesSeen.length;i++){
-    if(i>0)html+='<span class="logic-arrow">→</span>';
-    html+='<span class="logic-phase '+phasesSeen[i].cls+'">'+phasesSeen[i].icon+' '+phasesSeen[i].phase+'</span>';
-  }
-  html+='</div>';
-  return html;
+function renderAllClouds() {
+  renderCloud('func'); renderCloud('comp'); renderCloud('loc');
 }
 
-function renderOutput(){
-  var id=curSet.id,h1=curSet.h1,h2s=curSet.h2s;
-  var usedCount=curSet.usedKwIndices?curSet.usedKwIndices.length:0;
-  document.getElementById('genBadge').style.display='inline';
-  document.getElementById('genBadge').textContent='第 '+id+' 组';
-  document.getElementById('btnCopySet').style.display='inline-flex';
-  document.getElementById('btnGenPrompt').style.display='inline-flex';
-  document.getElementById('cardFt').style.display='flex';
-  if(userKws.length>0&&usedCount>0){
-    document.getElementById('kwUsedBadge').style.display='inline';
-    document.getElementById('kwUsedBadge').textContent='🔑 关键词植入 '+usedCount+' 个';
-  } else {
-    document.getElementById('kwUsedBadge').style.display='none';
+// ============================================================
+// OUTPUT RENDERING
+// ============================================================
+function buildFlowBar(h2s) {
+  var phases = [], seen = {};
+  for (var i = 0; i < h2s.length; i++) {
+    var ph = CAT_PHASE[h2s[i].ck];
+    if (ph && !seen[ph.phase]) { seen[ph.phase] = true; phases.push(ph); }
   }
-  var h1Len=h1.length;
-  var lenOk=(h1Len>=30&&h1Len<=70);
-  var seoHtml='<div class="seo-bar">'
-    +'<span class="seo-tag">✓ 含核心关键词</span>'
-    +'<span class="'+(lenOk?'seo-tag':'seo-tag warn')+'">'+(lenOk?'✓':'⚠')+' H1字符 '+h1Len+(lenOk?' (优质)':' (建议30-70)')+'</span>'
-    +'<span class="seo-tag">✓ 读者旅程逻辑排序</span>'
-    +'<span class="seo-tag">✓ 信息/商业/交易意图兼顾</span>'
-    +(userKws.length>0?'<span class="seo-tag'+(usedCount>0?'':' warn')+'">🔑 '+(usedCount>0?'关键词植入 '+usedCount+'个':'关键词待匹配')+'</span>':'')
-    +'</div>';
-  var kwInfoHtml='';
-  if(userKws.length>0){
-    var classified=classifyKws(curSet.usedKwIndices||[]);
-    var cntC=0,usedNames=[];
-    for(var i=0;i<classified.length;i++){
-      if(classified[i].type==='tt')usedNames.push(classified[i].kw);
-      else if(classified[i].type==='ct')cntC++;
+  var html = '<div class="flow-bar"><span class="flow-lbl">📐 读者旅程：</span>';
+  for (var i = 0; i < phases.length; i++) {
+    if (i > 0) html += '<span class="flow-arr">→</span>';
+    html += '<span class="fp ' + phases[i].cls + '">' + phases[i].icon + ' ' + phases[i].phase + '</span>';
+  }
+  return html + '</div>';
+}
+
+function renderOutput() {
+  if (!curSet) return;
+  var h1 = curSet.h1, h2s = curSet.h2s;
+  var h1Len = h1.length, lenOk = h1Len >= 30 && h1Len <= 80;
+
+  document.getElementById('bdgGen').style.display = 'inline';
+  document.getElementById('bdgGen').textContent = '第 ' + curSet.id + ' 篇';
+  document.getElementById('bdgDed').style.display = 'inline';
+  document.getElementById('btnCopySet').style.display = 'inline-flex';
+  document.getElementById('btnPrompt').style.display = 'inline-flex';
+  document.getElementById('oFt').style.display = 'flex';
+
+  var hasKw = !!curSet.mainFuncKw;
+  document.getElementById('bdgKw').style.display = hasKw ? 'inline' : 'none';
+  if (hasKw) document.getElementById('bdgKw').textContent = '🔑 关键词已注入';
+
+  // Count injected H2s
+  var injCnt = 0, injF = 0, injC = 0, injL = 0;
+  for (var m = 0; m < h2s.length; m++) {
+    if (h2s[m].kwType) {
+      injCnt++;
+      if (h2s[m].kwType === 'func') injF++;
+      else if (h2s[m].kwType === 'comp') injC++;
+      else if (h2s[m].kwType === 'loc') injL++;
     }
-    var tagsHtml=usedNames.slice(0,4).map(function(n){return '<span class="kw-used-tag used">'+escHtml(n)+'</span>';}).join('');
-    /* ✅ 修复：此处原为中文全角括号 （，改为英文半角括号 ( */
-    if(usedNames.length>4) tagsHtml+='<span class="kw-used-tag">+'+(usedNames.length-4)+'个</span>';
-    kwInfoHtml='<div class="kw-info-bar"><div class="kw-info-l">'
-      +'<span class="kw-info-title">🔑 关键词植入状态</span>'
-      +tagsHtml
-      +'<span class="kw-used-tag green">📝 内容重点词 '+cntC+' 个待植入</span>'
-      +'</div><span style="font-size:11px;color:#92400e">→ 点击「生成写作Prompt」获取完整关键词写作指令</span></div>';
   }
-  var h1Html='<div class="h1-block">'
-    +'<span class="h1-lbl">H1</span>'
-    +'<div><div class="h1-txt">'+escHtml(h1)+'</div>'
-    +'<div class="h1-len">字符数：'+h1Len+'</div></div>'
-    +'<button class="h1-copy" onclick="cpH1()">📋 复制</button>'
-    +'</div>';
-  var logicBar=buildLogicFlowBar(h2s);
-  var h2Html='';
-  for(var m=0;m<h2s.length;m++){
-    var item=h2s[m];
-    var phInfo=CAT_PHASE[item.ck]||{phase:'',cls:'phase-support',icon:''};
-    var phaseTag='<span class="phase-tag '+phInfo.cls+'" style="font-size:10px">'+phInfo.icon+' '+phInfo.phase+'</span>';
-    h2Html+='<div class="h2-item">'
-      +'<div class="h2-num">'+(m+1)+'</div>'
-      +'<div class="h2-body">'
-      +'<div class="h2-meta"><span class="cat-tag '+item.cls+'">'+item.catName+'</span>'+phaseTag+'</div>'
-      +'<div class="h2-txt">'+escHtml(item.text)+'</div>'
-      +'<div class="h2-len">字符数：'+item.text.length+'</div>'
-      +'</div>'
-      +'<button class="h2-copy" onclick="cpH2('+m+')">📋 复制</button>'
-      +'</div>';
+
+  // SEO bar
+  var seoHtml = '<div class="seo-bar">'
+    + '<span class="seo-tag so">✓ 含核心关键词</span>'
+    + '<span class="seo-tag ' + (lenOk ? 'so' : 'sw') + '">' + (lenOk ? '✓' : '⚠') + ' H1字符 ' + h1Len + (lenOk ? '' : '（建议30-80）') + '</span>'
+    + '<span class="seo-tag so">✓ 读者旅程排序</span>'
+    + '<span class="seo-tag si">✓ 意图多样性覆盖</span>'
+    + (injF > 0 ? '<span class="seo-tag si">⚡ 功能词×' + injF + '</span>' : '')
+    + (injC > 0 ? '<span class="seo-tag" style="background:#fdf2f8;border:1px solid #f9a8d4;color:#be185d">🏆 竞品词×' + injC + '</span>' : '')
+    + (injL > 0 ? '<span class="seo-tag" style="background:#f0fdfa;border:1px solid #99f6e4;color:#0f766e">📍 地区词×' + injL + '</span>' : '')
+    + '</div>';
+
+  // Dedup
+  var dedHtml = '<div class="dedup-row">✅ H1标题已去重验证 · 本会话已生成 '
+    + genCount + ' 篇 · H1唯一库 ' + Object.keys(usedH1Set).length + ' 条</div>';
+
+  // H1
+  var kwBadges = '';
+  if (curSet.mainFuncKw) kwBadges += '<span class="ki ki-f">⚡ ' + escHtml(curSet.mainFuncKw) + '</span>';
+  var h1Html = '<div class="h1-block">'
+    + '<span class="h1-lbl">H1</span>'
+    + '<div class="h1-body">'
+    + '<div class="h1-txt">' + escHtml(h1) + '</div>'
+    + '<div class="h1-meta"><span class="h1-len">字符：' + h1Len + '</span>' + kwBadges + '</div>'
+    + '</div>'
+    + '<button class="h1-copy" onclick="cpH1()">📋 复制</button>'
+    + '</div>';
+
+  var flowBar = buildFlowBar(h2s);
+
+  var h2Hd = '<div class="h2-hd">H2 子标题 · 共 ' + h2s.length + ' 个'
+    + ' <span class="h2-hd-b" style="background:var(--grn)">✓ 读者旅程排序</span>'
+    + (injCnt > 0 ? ' <span class="h2-hd-b" style="background:var(--amb)">🔑 ' + injCnt + ' 个注入关键词</span>' : '')
+    + '</div>';
+
+  var h2Html = '';
+  for (var m = 0; m < h2s.length; m++) {
+    var item = h2s[m];
+    var phInfo = CAT_PHASE[item.ck] || {phase:'', cls:'fp-sup', icon:''};
+    var phBdg = '<span class="ph-bdg ' + phInfo.cls + '">' + phInfo.icon + ' ' + phInfo.phase + '</span>';
+    var kwBdg = '';
+    if (item.kwType) {
+      var kwBdgCls = {func:'ki-f', comp:'ki-c', loc:'ki-l'}[item.kwType];
+      var kwBdgIcon = {func:'⚡', comp:'🏆', loc:'📍'}[item.kwType];
+      kwBdg = '<span class="h2-kw-tag ' + kwBdgCls + '">' + kwBdgIcon + ' ' + escHtml(item.injKw) + '</span>';
+    }
+    h2Html += '<div class="h2-item">'
+      + '<div class="h2-num">' + (m + 1) + '</div>'
+      + '<div class="h2-body">'
+      + '<div class="h2-tags"><span class="cat-bdg ' + item.cls + '">' + item.catName + '</span>' + phBdg + kwBdg + '</div>'
+      + '<div class="h2-txt">' + escHtml(item.text) + '</div>'
+      + '<div class="h2-len">字符：' + item.text.length + '</div>'
+      + '</div>'
+      + '<button class="h2-copy" onclick="cpH2(' + m + ')">📋</button>'
+      + '</div>';
   }
-  var bannerHtml='<div class="prompt-banner">'
-    +'<div><div class="pb-txt">📝 一键生成 SEO 写作 Prompt</div>'
-    +'<div class="pb-sub">基于读者旅程结构'+(userKws.length>0?' + '+userKws.length+'个高流量关键词':'')+'，自动生成完整写作指令</div></div>'
-    +'<button class="btn btn-purple" onclick="generatePrompt()" style="font-size:13px;padding:9px 18px">📝 生成写作 Prompt</button>'
-    +'</div>';
-  document.getElementById('outputBody').innerHTML=
-    seoHtml+kwInfoHtml+h1Html
-    +logicBar
-    +'<div class="h2-hd">H2 子标题 · 共 '+h2s.length+' 个 <span class="h2-hd-badge">✓ 按读者旅程逻辑排序</span></div>'
-    +'<div class="h2-list">'+h2Html+'</div>'
-    +bannerHtml;
+
+  var banner = '<div class="prompt-banner">'
+    + '<div class="pb-l"><div class="pb-title">📝 一键生成 SEO 写作 Prompt</div>'
+    + '<div class="pb-sub">基于读者旅程结构 + 3类关键词自动注入，生成完整 AI 写作指令</div></div>'
+    + '<button class="btn btn-pur" onclick="generatePrompt()" style="font-size:13px;padding:9px 17px">📝 生成 Prompt</button>'
+    + '</div>';
+
+  document.getElementById('outputBody').innerHTML =
+    seoHtml + dedHtml + h1Html + flowBar + h2Hd
+    + '<div class="h2-list">' + h2Html + '</div>' + banner;
 }
 
-function renderHist(){
-  if(hist.length>1)document.getElementById('histSection').style.display='block';
-  document.getElementById('histCount').textContent=hist.length;
-  document.getElementById('btnExportAll').style.display=genCount>0?'inline-flex':'none';
-  var limit=Math.min(hist.length,30),html='';
-  for(var p=0;p<limit;p++){
-    var it=hist[p],preview='';
-    for(var q=0;q<it.h2s.length&&q<3;q++){
-      var txt=it.h2s[q].text;
-      if(txt.length>30)txt=txt.slice(0,30)+'...';
-      preview+='· '+escHtml(txt)+'<br>';
+function renderHist() {
+  document.getElementById('histSec').style.display = hist.length > 1 ? 'block' : 'none';
+  document.getElementById('histCnt').textContent = hist.length;
+  document.getElementById('btnExpAll').style.display = genCount > 0 ? 'inline-flex' : 'none';
+  var limit = Math.min(hist.length, 40), html = '';
+  for (var p = 0; p < limit; p++) {
+    var it = hist[p], preview = '';
+    for (var q = 0; q < it.h2s.length && q < 3; q++) {
+      var txt = it.h2s[q].text;
+      if (txt.length > 36) txt = txt.slice(0, 36) + '...';
+      preview += '· ' + escHtml(txt) + '<br>';
     }
-    html+='<div class="hist-item" onclick="viewHist('+it.id+')">'
-      +'<div class="hist-num">第 '+it.id+' 组 · '+it.destName+' '+it.year
-      +(it.usedKwIndices&&it.usedKwIndices.length>0?' · 🔑'+it.usedKwIndices.length+'个':'')+'</div>'
-      +'<div class="hist-h1">'+escHtml(it.h1)+'</div>'
-      +'<div class="hist-prev">'+preview+'</div>'
-      +'</div>';
+    var kwBg = it.mainFuncKw ? '<span class="kt kt-fu" style="font-size:10px">' + escHtml(it.mainFuncKw) + '</span>' : '';
+    html += '<div class="hist-card" onclick="viewHist(' + it.id + ')">'
+      + '<div class="hc-no">第 ' + it.id + ' 篇 · ' + it.destName + ' ' + it.year + '</div>'
+      + '<div class="hc-kws">' + kwBg + '</div>'
+      + '<div class="hc-h1">' + escHtml(it.h1) + '</div>'
+      + '<div class="hc-prev">' + preview + '</div>'
+      + '</div>';
   }
-  document.getElementById('histGrid').innerHTML=html;
+  document.getElementById('histGrid').innerHTML = html;
 }
-function viewHist(id){
-  for(var p=0;p<hist.length;p++){
-    if(hist[p].id===id){
-      curSet=hist[p];curUsedKwIndices=curSet.usedKwIndices||[];
-      if(userKws.length>0)renderAllKwUI(curUsedKwIndices);
+
+function viewHist(id) {
+  for (var p = 0; p < hist.length; p++) {
+    if (hist[p].id === id) {
+      curSet = hist[p];
       renderOutput();
-      window.scrollTo({top:0,behavior:'smooth'});
-      showToast('📖 查看第 '+id+' 组历史记录');
+      window.scrollTo({top: 0, behavior: 'smooth'});
+      showToast('📖 查看第 ' + id + ' 篇历史');
       return;
     }
   }
 }
-function toggleHist(){
-  var c=document.getElementById('histContent'),a=document.getElementById('histArrow');
-  var isOpen=c.classList.toggle('open');
-  a.textContent=isOpen?'▲ 收起':'▼ 展开';
-}
-function updateStats(){document.getElementById('sGenCount').textContent=genCount;}
 
-function cpH1(){if(curSet)copyText(curSet.h1);}
-function cpH2(i){if(curSet&&curSet.h2s[i])copyText(curSet.h2s[i].text);}
-function copySet(){
-  if(!curSet)return;
-  var t='【第 '+curSet.id+' 组 | '+curSet.destName+' '+curSet.year+'】\n\nH1：\n'+curSet.h1+'\n\nH2（按读者旅程逻辑排序）：\n';
-  for(var n=0;n<curSet.h2s.length;n++){
-    t+=(n+1)+'. ['+curSet.h2s[n].catName+'] '+curSet.h2s[n].text+'\n';
+function toggleHist() {
+  var body = document.getElementById('histBody');
+  var arr  = document.getElementById('histArr');
+  var open = body.classList.toggle('open');
+  arr.textContent = open ? '▲ 收起' : '▼ 展开';
+}
+
+function updateHdrStats() {
+  document.getElementById('sGen').textContent = genCount;
+  document.getElementById('sDedup').textContent = Object.keys(usedH1Set).length;
+}
+
+// ============================================================
+// COPY / EXPORT
+// ============================================================
+function cpH1() { if (curSet) copyText(curSet.h1); }
+function cpH2(i) { if (curSet && curSet.h2s[i]) copyText(curSet.h2s[i].text); }
+
+function copySet() {
+  if (!curSet) return;
+  var t = '【第 ' + curSet.id + ' 篇 | ' + curSet.destName + ' ' + curSet.year + '】\n\nH1（主标题）：\n' + curSet.h1 + '\n\n';
+  t += 'H2（子标题 · 按读者旅程排序）：\n';
+  for (var n = 0; n < curSet.h2s.length; n++) {
+    var kw = curSet.h2s[n].injKw ? '  [' + {func:'功能词',comp:'竞品词',loc:'地区词'}[curSet.h2s[n].kwType] + '：' + curSet.h2s[n].injKw + ']' : '';
+    t += (n + 1) + '. [' + curSet.h2s[n].catName + '] ' + curSet.h2s[n].text + kw + '\n';
   }
   copyText(t);
 }
-function exportCurrent(){
-  if(!curSet)return;
-  var t='=== 第 '+curSet.id+' 组 | '+curSet.destName+' '+curSet.year+' ===\n\nH1: '+curSet.h1+'\n\n';
-  for(var n=0;n<curSet.h2s.length;n++){
-    t+='H2-'+(n+1)+' ['+curSet.h2s[n].catName+']: '+curSet.h2s[n].text+'\n';
+
+function exportCurrent() {
+  if (!curSet) return;
+  var t = '=== 第 ' + curSet.id + ' 篇 | ' + curSet.destName + ' ' + curSet.year;
+  if (curSet.mainFuncKw) t += ' | 主关键词：' + curSet.mainFuncKw;
+  t += ' ===\n\nH1: ' + curSet.h1 + '\n\n';
+  for (var n = 0; n < curSet.h2s.length; n++) {
+    t += 'H2-' + (n + 1) + ' [' + curSet.h2s[n].catName + ']: ' + curSet.h2s[n].text + '\n';
   }
-  downloadFile(t,'seo-group-'+curSet.id+'.txt');
-  showToast('📤 本组标题导出成功');
-}
-function exportAll(){
-  if(!hist.length)return;
-  var sep='--------------------------------------------\n';
-  var t='eSIM SEO 标题记录 · 共 '+hist.length+' 组\n\n';
-  for(var p=0;p<hist.length;p++){
-    var it=hist[p];
-    t+=sep+'第 '+it.id+' 组 | '+it.destName+' '+it.year+'\n'+sep;
-    t+='H1: '+it.h1+'\n\n';
-    for(var n=0;n<it.h2s.length;n++){
-      t+='H2-'+(n+1)+' ['+it.h2s[n].catName+']: '+it.h2s[n].text+'\n';
-    }
-    t+='\n';
-  }
-  downloadFile(t,'seo-all-'+hist.length+'groups.txt');
-  showToast('✅ 已导出 '+hist.length+' 组标题');
+  downloadFile(t, 'seo-article-' + curSet.id + '.txt');
+  showToast('📤 导出成功');
 }
 
-function generatePrompt(){
-  if(!curSet){showToast('请先生成标题');return;}
-  var dk=curSet.destKey,d=DB[dk],h1=curSet.h1,h2s=curSet.h2s;
-  var dest=curSet.destName,yr=curSet.year,kw=d.kw;
-  var city=pickItem(d.cities,curSet.id);
-  var c1=pickItem(d.carriers,curSet.id),c2=pickItem(d.carriers,curSet.id+3);
-  if(c2===c1)c2=pickItem(d.carriers,curSet.id+4);
-  var p1=pickItem(d.providers,curSet.id),p2=pickItem(d.providers,curSet.id+2);
-  if(p2===p1)p2=pickItem(d.providers,curSet.id+3);
-  var ltPools={
-    purchase:[dest+'eSIM在哪里买',dest+'eSIM购买教程'+yr,'去'+dest+'哪个eSIM好用'],
-    activation:[dest+'eSIM激活步骤',dest+'eSIM怎么设置','iPhone激活'+dest+'eSIM'],
-    price:[dest+'eSIM价格'+yr,dest+'eSIM多少钱',dest+'eSIM性价比推荐'],
-    coverage:[dest+'eSIM信号好吗',dest+'eSIM网速测评',dest+'eSIM覆盖范围'],
-    faq:[dest+'eSIM值得买吗',dest+'eSIM使用注意事项','eSIM和实体SIM哪个好'],
-    comparison:[dest+'eSIM哪个好'+yr,dest+'eSIM品牌对比',p1+dest+'好用吗'],
-    provider:[p1+dest+'eSIM评测',dest+'eSIM哪家靠谱',dest+'eSIM提供商推荐'],
-    scenario:[dest+'旅游eSIM推荐',dest+'出差网络方案',dest+'留学上网选择'],
-    tips:[dest+'eSIM省钱技巧',dest+'eSIM使用攻略',dest+'eSIM流量不够怎么办'],
-    review:[dest+'eSIM好用吗'+yr,dest+'eSIM真实评价',dest+'eSIM用户反馈'],
-    recommend:[dest+'eSIM推荐'+yr,dest+'eSIM哪款好',dest+'eSIM套餐推荐'],
-    prepare:[dest+'出行准备'+yr,dest+'旅行前准备',dest+'eSIM提前购买']
-  };
-  var ltKws=[],ltSeen={};
-  for(var i=0;i<h2s.length;i++){
-    var pool=ltPools[h2s[i].ck]||[];
-    for(var j=0;j<pool.length;j++){
-      if(!ltSeen[pool[j]]&&ltKws.length<15){ltSeen[pool[j]]=true;ltKws.push(pool[j]);}
+function exportAll() {
+  if (!hist.length) return;
+  var sep = '--------------------------------------------\n';
+  var t = 'eSIM SEO Blog 结构记录 · 共 ' + hist.length + ' 篇\n生成时间：' + new Date().toLocaleString() + '\n\n';
+  for (var p = 0; p < hist.length; p++) {
+    var it = hist[p];
+    t += sep + '第 ' + it.id + ' 篇 | ' + it.destName + ' ' + it.year;
+    if (it.mainFuncKw) t += ' | 主关键词：' + it.mainFuncKw;
+    t += '\n' + sep + 'H1: ' + it.h1 + '\n\n';
+    for (var n = 0; n < it.h2s.length; n++) {
+      var kw = it.h2s[n].injKw ? ' (' + it.h2s[n].injKw + ')' : '';
+      t += 'H2-' + (n + 1) + ' [' + it.h2s[n].catName + ']: ' + it.h2s[n].text + kw + '\n';
     }
+    t += '\n';
   }
-  var painMap={
-    purchase:'📌 购买渠道混乱：不知道哪里能购买到正规靠谱的'+kw+'，担心买到假货或激活失败',
-    activation:'📌 激活流程困难：拿到'+kw+'后不知如何正确激活，出现错误代码不知怎么解决',
-    price:'📌 价格不透明：不清楚'+dest+'eSIM的合理价位，担心隐藏费用和超额扣费',
-    coverage:'📌 信号质量存疑：不确定'+kw+'在'+dest+'各地区的实际网络覆盖与速度表现',
-    faq:'📌 基础疑问众多：对eSIM能否打电话、共享热点等功能限制心存疑惑',
-    comparison:'📌 选择困难症：面对'+p1+'、'+p2+'等多家平台，不知如何筛选最适合方案',
-    provider:'📌 品牌信任缺失：不了解各大'+dest+'eSIM服务商的口碑与售后保障',
-    scenario:'📌 场景适配模糊：不清楚旅游、商务、留学等不同场景该选哪种套餐',
-    tips:'📌 使用效率偏低：不知道如何管控流量消耗，如何将套餐价值最大化',
-    review:'📌 真实评价难辨：网上评测良莠不齐，不知道哪些是真实可信的用户反馈',
-    recommend:'📌 套餐选择困难：面对众多套餐不知如何快速找到最适合自己的那一款',
-    prepare:'📌 出行准备不足：不知道出发前需要做哪些网络准备，容易到了才发现问题'
-  };
-  var pains=[],painSeen={};
-  for(var i=0;i<h2s.length;i++){
-    var ck=h2s[i].ck;
-    if(painMap[ck]&&!painSeen[ck]){painSeen[ck]=true;pains.push(painMap[ck]);}
-  }
-  var titleKwNames=[],contentKwNames=[],auxKwNames=[],suppKwNames=[],kwTotalCount=0;
-  if(userKws.length>0){
-    var classified=classifyKws(curSet.usedKwIndices||[]);
-    kwTotalCount=classified.length;
-    for(var i=0;i<classified.length;i++){
-      var item=classified[i];
-      if(item.type==='tt')titleKwNames.push(item.kw);
-      else if(item.type==='ct')contentKwNames.push(item.kw);
-      else if(item.type==='at')auxKwNames.push(item.kw);
-      else suppKwNames.push(item.kw);
-    }
-  }
-  var outlineStr='';
-  for(var i=0;i<h2s.length;i++){
-    var ph=CAT_PHASE[h2s[i].ck]||{phase:'',icon:''};
-    outlineStr+=(i+1)+'. 【'+h2s[i].catName+' · '+ph.phase+'】 '+h2s[i].text+'\n';
-  }
-  var ltStr=''; for(var i=0;i<ltKws.length;i++)ltStr+='  · '+ltKws[i]+'\n';
-  var painStr=''; for(var i=0;i<pains.length;i++)painStr+=pains[i]+'\n';
-  var sep='================================================================\n';
-  var sep2='----------------------------------------------------------------\n';
-  var pt='';
-  pt+=sep+'# SEO 软文写作任务\n'+sep+'\n';
-  pt+='## 一、角色定位\n'+sep2;
-  pt+='你是一位拥有 10 年经验的 Google SEO 内容专家，精通中文内容营销，\n';
-  pt+='擅长撰写同时满足以下三个目标的高质量软文：\n';
-  pt+='  1. 符合谷歌 E-E-A-T 质量评估标准，有助于搜索排名提升\n';
-  pt+='  2. 真正解决目标读者的实际问题与痛点，提供可操作的实用信息\n';
-  pt+='  3. 关键词与长尾词自然、合理地融入行文，绝不生硬堆砌\n\n';
-  pt+='## 二、文章基本信息\n'+sep2;
-  pt+='主标题（H1）  ：'+h1+'\n';
-  pt+='目标地区      ：'+dest+'\n';
-  pt+='发布年份      ：'+yr+'\n';
-  pt+='核心关键词    ：'+kw+'\n';
-  pt+='参考运营商    ：'+c1+'、'+c2+' 等\n';
-  pt+='参考服务商    ：'+p1+'、'+p2+' 等\n';
-  pt+='目标读者      ：计划前往'+dest+'的中文用户（旅行者、商务出差人士、留学生等）\n\n';
-  pt+='## 三、文章结构大纲（按读者旅程逻辑排序，严格按此展开）\n'+sep2;
-  pt+='【引言】（100-150 字）\n';
-  pt+='  · 以读者真实场景或痛点问题开篇，前100字内自然植入「'+kw+'」一次\n\n';
-  pt+=outlineStr+'\n';
-  pt+='【结尾总结】（100-150 字）\n';
-  pt+='  · 提炼全文核心建议（3条以内），再次自然呼应「'+kw+'」，包含行动号召\n\n';
-  pt+='## 四、SEO 写作规范\n'+sep2;
-  pt+='\n【4.1 核心关键词布局】\n';
-  pt+='  · 「'+kw+'」全文自然出现 5-8 次，密度控制在 1.5%-2%\n';
-  pt+='  · 以下长尾关键词分散自然融入对应章节，每个出现 1-2 次：\n'+ltStr;
-  pt+='\n【4.2 文章篇幅】\n';
-  pt+='  · 全文总字数：2500-3500 字（不含Meta信息）\n';
-  pt+='  · 每个H2章节正文：200-350字\n';
-  pt+='\n【4.3 E-E-A-T 标准】\n';
-  pt+='  · Experience：融入真实使用场景，如「在'+city+'落地后...」\n';
-  pt+='  · Expertise：引用具体数据（价格区间、网速数值）\n';
-  pt+='  · Authoritativeness：自然提及真实运营商/服务商（如'+c1+'、'+p1+'）\n';
-  pt+='  · Trustworthiness：客观呈现优缺点，不夸大宣传\n\n';
-  pt+='## 五、用户核心痛点（在对应章节着重解决）\n'+sep2;
-  pt+=painStr+'\n';
-  if(userKws.length>0){
-    pt+='## 六、高流量关键词植入规范（共 '+kwTotalCount+' 个）\n'+sep2;
-    if(titleKwNames.length>0){
-      pt+='\n【6.1 已植入标题的关键词 · '+titleKwNames.length+' 个】（正文再出现1次即可）\n';
-      for(var i=0;i<titleKwNames.length;i++)pt+='  · '+titleKwNames[i]+'\n';
-    }
-    if(contentKwNames.length>0){
-      pt+='\n【6.2 ⭐ 内容重点植入词 · '+contentKwNames.length+' 个（最高优先级）】\n';
-      pt+='每个在正文中自然出现 1-2 次，分散在不同章节：\n';
-      for(var i=0;i<contentKwNames.length;i++)pt+='  · '+contentKwNames[i]+'\n';
-    }
-    if(auxKwNames.length>0){
-      pt+='\n【6.3 辅助关键词 · '+auxKwNames.length+' 个（次级）】\n';
-      pt+='择优选取 10-15 个自然融入，语义不符时可跳过：\n';
-      for(var i=0;i<auxKwNames.length;i++)pt+='  · '+auxKwNames[i]+'\n';
-    }
-    if(suppKwNames.length>0){
-      pt+='\n【6.4 补充词库 · '+suppKwNames.length+' 个（背景参考）】\n';
-      var showN=Math.min(suppKwNames.length,50);
-      for(var i=0;i<showN;i++)pt+='  · '+suppKwNames[i]+'\n';
-      if(suppKwNames.length>50)pt+='  ...（共 '+suppKwNames.length+' 个）\n';
-    }
-    pt+='\n【6.5 总体原则】\n';
-    pt+='  · 全部关键词总密度不超过 2.5%；同段落不超过 3 个；首次出现可加粗\n\n';
-  }
-  pt+=sep+'## 开始写作\n'+sep;
-  pt+='请从【引言】开始依次展开，最后附：Meta Title、Meta 描述、Alt 文本建议、内链建议。\n'+sep;
-  var approxWords=Math.round(pt.length/2.2);
-  var infoHtml='<span class="p-stat">📊 Prompt约 '+approxWords+' 字</span>'
-    +'<span class="p-stat">🔑 长尾词 '+ltKws.length+' 个</span>'
-    +'<span class="p-stat">💡 痛点 '+pains.length+' 条</span>'
-    +'<span class="p-stat">📐 H2章节 '+h2s.length+' 个</span>';
-  if(userKws.length>0){
-    infoHtml+='<span class="p-stat amber">🔑 高流量词 '+kwTotalCount+' 个</span>'
-      +'<span class="p-stat amber">⭐ 内容重点 '+contentKwNames.length+' 个</span>';
-  }
-  document.getElementById('promptInfoBar').innerHTML=infoHtml;
-  document.getElementById('promptText').value=pt;
-  document.getElementById('promptModal').classList.add('open');
-  document.body.style.overflow='hidden';
+  downloadFile(t, 'seo-all-' + hist.length + 'articles.txt');
+  showToast('✅ 已导出 ' + hist.length + ' 篇文章结构');
 }
 
-function closePromptModal(){document.getElementById('promptModal').classList.remove('open');document.body.style.overflow='';}
-function closePromptModalBg(e){if(e&&e.target===document.getElementById('promptModal'))closePromptModal();}
-document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('promptModal').classList.contains('open'))closePromptModal();});
-function copyPrompt(){var text=document.getElementById('promptText').value;if(text)copyText(text);}
-function exportPrompt(){
-  var text=document.getElementById('promptText').value;
-  if(!text||!curSet)return;
-  downloadFile(text,'seo-prompt-'+curSet.destName+curSet.year+'.txt');
+// ============================================================
+// PROMPT GENERATION
+// ============================================================
+function generatePrompt() {
+  if (!curSet) { showToast('请先生成文章结构'); return; }
+  var d = DB[curSet.destKey];
+  var h1 = curSet.h1, h2s = curSet.h2s;
+  var dest = curSet.destName, yr = curSet.year, kw = d.kw;
+  var city = pickItem(d.cities, curSet.id);
+  var p1 = d.providers[0], p2 = d.providers[1] || d.providers[0];
+
+  // Collect injected keywords
+  var injF = [], injC = [], injL = [], seen = {};
+  if (curSet.mainFuncKw && !seen[curSet.mainFuncKw]) {
+    seen[curSet.mainFuncKw] = true; injF.push(curSet.mainFuncKw);
+  }
+  for (var i = 0; i < h2s.length; i++) {
+    if (h2s[i].kwType && h2s[i].injKw && !seen[h2s[i].injKw]) {
+      seen[h2s[i].injKw] = true;
+      if (h2s[i].kwType === 'func') injF.push(h2s[i].injKw);
+      else if (h2s[i].kwType === 'comp') injC.push(h2s[i].injKw);
+      else if (h2s[i].kwType === 'loc') injL.push(h2s[i].injKw);
+    }
+  }
+
+  var sep = '================================================================\n';
+  var sep2 = '----------------------------------------------------------------\n';
+  var pt = '';
+  pt += sep + '# SEO 软文写作任务 | ' + dest + ' eSIM · ' + yr + '\n' + sep + '\n';
+  pt += '## 一、角色定位\n' + sep2;
+  pt += '你是一位拥有 10 年经验的 Google SEO 内容专家，精通中文内容营销，\n';
+  pt += '请撰写同时满足以下目标的高质量文章：\n';
+  pt += '  1. 符合 Google E-E-A-T 质量评估标准，有助于自然搜索排名\n';
+  pt += '  2. 真正解决目标读者的实际痛点，提供可操作的实用信息\n';
+  pt += '  3. 三类关键词（功能词·竞品词·地区词）自然融入，绝不生硬堆砌\n\n';
+  pt += '## 二、文章基本信息\n' + sep2;
+  pt += '主标题（H1）：' + h1 + '\n';
+  pt += '目标地区    ：' + dest + '\n';
+  pt += '发布年份    ：' + yr + '\n';
+  pt += '核心关键词  ：' + kw + '\n';
+  pt += '参考服务商  ：' + p1 + '、' + p2 + ' 等\n';
+  pt += '目标读者    ：计划前往' + dest + '的中文用户（旅行者、商务人士、留学生等）\n\n';
+  pt += '## 三、文章结构（按读者旅程逻辑排序，严格按此展开）\n' + sep2;
+  pt += '【引言】100-150字：以读者痛点场景开篇，前100字内自然植入「' + kw + '」一次\n\n';
+  for (var i = 0; i < h2s.length; i++) {
+    var ph = CAT_PHASE[h2s[i].ck] || {phase:'', icon:''};
+    pt += (i + 1) + '. 【' + h2s[i].catName + ' · ' + ph.phase + '】' + h2s[i].text + '\n';
+    if (h2s[i].injKw) {
+      var typeLabel = {func:'功能词',comp:'竞品词',loc:'地区词'}[h2s[i].kwType];
+      pt += '   ^ 本节关键词焦点（' + typeLabel + '）：「' + h2s[i].injKw + '」自然出现 1-2 次\n';
+    }
+  }
+  pt += '\n【结尾总结】100-150字：提炼3条核心建议，再次呼应「' + kw + '」，含行动号召\n\n';
+  pt += '## 四、三类关键词植入规范\n' + sep2;
+  pt += '\n核心关键词「' + kw + '」全文出现 5-8 次，密度控制在 1.5%-2%\n\n';
+  if (injF.length > 0) {
+    pt += '【⚡ 功能词 · 最高优先级植入】分散注入对应章节，每个出现 1-2 次：\n';
+    for (var i = 0; i < injF.length; i++) pt += '  · ' + injF[i] + '\n';
+    pt += '\n';
+  }
+  if (injC.length > 0) {
+    pt += '【🏆 竞品词 · 对比/评测章节重点使用】\n';
+    for (var i = 0; i < injC.length; i++) pt += '  · ' + injC[i] + '\n';
+    pt += '\n';
+  }
+  if (injL.length > 0) {
+    pt += '【📍 地区词 · 覆盖/场景章节使用】\n';
+    for (var i = 0; i < injL.length; i++) pt += '  · ' + injL[i] + '\n';
+    pt += '\n';
+  }
+
+  // Extra keywords from pool
+  var extF = kwPools.func.filter(function(k) { return injF.indexOf(k) < 0; }).slice(0, 15);
+  var extC = kwPools.comp.filter(function(k) { return injC.indexOf(k) < 0; }).slice(0, 8);
+  var extL = kwPools.loc.filter(function(k) { return injL.indexOf(k) < 0; }).slice(0, 15);
+  if (extF.length > 0) {
+    pt += '【额外功能词参考库（择优选用 5-8 个）】\n';
+    for (var i = 0; i < extF.length; i++) pt += '  · ' + extF[i] + '\n';
+    pt += '\n';
+  }
+  if (extC.length > 0) {
+    pt += '【额外竞品词参考库（择优选用）】\n';
+    for (var i = 0; i < extC.length; i++) pt += '  · ' + extC[i] + '\n';
+    pt += '\n';
+  }
+  if (extL.length > 0) {
+    pt += '【额外地区词参考库（择优选用）】\n';
+    for (var i = 0; i < extL.length; i++) pt += '  · ' + extL[i] + '\n';
+    pt += '\n';
+  }
+  pt += '## 五、E-E-A-T 写作规范\n' + sep2;
+  pt += '· 全文总字数：2500-3500 字\n';
+  pt += '· 每个H2章节：200-350字\n';
+  pt += '· Experience：融入真实使用场景，如「在' + city + '落地后打开eSIM设置...」\n';
+  pt += '· Expertise：引用具体数据（价格区间如 $X-$Y，网速如 50-100 Mbps）\n';
+  pt += '· Authoritativeness：自然提及真实服务商（' + p1 + '、' + p2 + '等）\n';
+  pt += '· Trustworthiness：客观呈现优缺点，不过度夸大，建立信任\n';
+  pt += '· 全部关键词总密度不超过 2.5%；同一段落不超过 3 个；首次出现可加粗\n\n';
+  pt += sep + '## 开始写作\n' + sep;
+  pt += '请从【引言】开始依次展开所有章节，\n最后单独附：① Meta Title ② Meta 描述（含核心关键词）③ 3条内链建议。\n' + sep;
+
+  var kwAll = injF.length + injC.length + injL.length;
+  document.getElementById('mInfo').innerHTML =
+    '<span class="m-st msp">📊 约' + Math.round(pt.length / 2.2) + '字</span>'
+    + '<span class="m-st msp">📐 ' + h2s.length + '个章节</span>'
+    + (injF.length > 0 ? '<span class="m-st msp">⚡ 功能词×' + injF.length + '</span>' : '')
+    + (injC.length > 0 ? '<span class="m-st" style="background:#fdf2f8;border:1px solid #f9a8d4;color:#be185d">🏆 竞品词×' + injC.length + '</span>' : '')
+    + (injL.length > 0 ? '<span class="m-st mst">📍 地区词×' + injL.length + '</span>' : '')
+    + (kwAll > 0 ? '<span class="m-st msa">🔑 共 ' + kwAll + ' 个关键词注入</span>' : '');
+
+  document.getElementById('promptTa').value = pt;
+  document.getElementById('pModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+// ============================================================
+// MODAL
+// ============================================================
+function closeModal() {
+  document.getElementById('pModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalBg(e) {
+  if (e && e.target === document.getElementById('pModal')) closeModal();
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && document.getElementById('pModal').classList.contains('open')) closeModal();
+});
+function copyPrompt() { var t = document.getElementById('promptTa').value; if (t) copyText(t); }
+function exportPrompt() {
+  var t = document.getElementById('promptTa').value;
+  if (!t || !curSet) return;
+  downloadFile(t, 'prompt-' + curSet.destName + curSet.year + '-' + curSet.id + '.txt');
   showToast('📤 Prompt 已导出');
 }
-function copyText(text){
-  if(navigator.clipboard&&navigator.clipboard.writeText){
-    navigator.clipboard.writeText(text).then(function(){showToast('✅ 已复制到剪贴板');}).catch(function(){copyFallback(text);});
-  } else copyFallback(text);
+
+// ============================================================
+// RESET
+// ============================================================
+function doReset() {
+  genCount = 0; curSet = null; hist = []; usedH1Set = {};
+  document.getElementById('sGen').textContent = '0';
+  document.getElementById('sDedup').textContent = '0';
+  var ids = ['bdgGen','bdgKw','bdgDed','btnCopySet','btnPrompt'];
+  for (var i = 0; i < ids.length; i++) document.getElementById(ids[i]).style.display = 'none';
+  document.getElementById('oFt').style.display = 'none';
+  document.getElementById('histSec').style.display = 'none';
+  document.getElementById('btnExpAll').style.display = 'none';
+  document.getElementById('outputBody').innerHTML =
+    '<div class="empty"><div class="empty-ico">✨</div>'
+    + '<h3>点击「生成结构」开始批量产出</h3>'
+    + '<p>先在上方导入3类关键词（功能词·竞品词·地区词）<br>'
+    + '系统自动将关键词注入H1主标题和对应类型的H2标题<br>'
+    + 'H1全局去重 · 标题按读者旅程逻辑排序 · 支持批量生成</p></div>';
+  showToast('🔄 已重置所有记录');
 }
-function copyFallback(text){
-  var ta=document.createElement('textarea');
-  ta.value=text;ta.style.cssText='position:fixed;opacity:0;pointer-events:none;top:0;left:0';
-  document.body.appendChild(ta);ta.focus();ta.select();
-  try{document.execCommand('copy');showToast('✅ 已复制到剪贴板');}
-  catch(e){showToast('❌ 复制失败，请手动全选复制');}
+
+// ============================================================
+// UTILITIES
+// ============================================================
+function copyText(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text)
+      .then(function() { showToast('✅ 已复制到剪贴板'); })
+      .catch(function() { copyFallback(text); });
+  } else { copyFallback(text); }
+}
+function copyFallback(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text; ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try { document.execCommand('copy'); showToast('✅ 已复制'); }
+  catch(e) { showToast('❌ 请手动全选复制'); }
   document.body.removeChild(ta);
 }
-function downloadFile(text,filename){
-  var a=document.createElement('a');
-  a.href='data:text/plain;charset=utf-8,'+encodeURIComponent(text);
-  a.download=filename;document.body.appendChild(a);a.click();document.body.removeChild(a);
+function downloadFile(text, filename) {
+  var a = document.createElement('a');
+  a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+  a.download = filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
 }
-function doReset(){
-  genCount=0;curSet=null;hist=[];
-  document.getElementById('sGenCount').textContent='0';
-  document.getElementById('genBadge').style.display='none';
-  document.getElementById('kwUsedBadge').style.display='none';
-  document.getElementById('btnCopySet').style.display='none';
-  document.getElementById('btnGenPrompt').style.display='none';
-  document.getElementById('cardFt').style.display='none';
-  document.getElementById('histSection').style.display='none';
-  document.getElementById('btnExportAll').style.display='none';
-  document.getElementById('outputBody').innerHTML='<div class="empty"><div class="empty-ico">✨</div><h3>点击「生成标题」开始</h3><p>H2标题将按「认知→比较→决策→购买→激活→使用→解惑」读者旅程逻辑排序</p></div>';
-  showToast('🔄 已重置所有生成记录');
-}
-var toastTimer=null;
-function showToast(msg){
-  var el=document.getElementById('toast');
-  el.textContent=msg;el.classList.add('show');
-  if(toastTimer)clearTimeout(toastTimer);
-  toastTimer=setTimeout(function(){el.classList.remove('show');},2800);
+var toastTimer = null;
+function showToast(msg) {
+  var el = document.getElementById('toast');
+  el.textContent = msg; el.classList.add('show');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(function() { el.classList.remove('show'); }, 2800);
 }
 </script>
 </body>
