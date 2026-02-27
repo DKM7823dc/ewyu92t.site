@@ -34,12 +34,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .kw-hd-r{display:flex;gap:8px;align-items:center}
 .kw-toggle-btn{background:#f59e0b;color:#fff;border:none;border-radius:7px;padding:6px 13px;font-size:12px;font-weight:600;cursor:pointer;transition:background .18s}
 .kw-toggle-btn:hover{background:#d97706}
-
 .kw-stats-bar{padding:10px 20px;background:#fffef7;border-bottom:1px solid #fde68a;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .kw-stat{display:flex;align-items:center;gap:5px;background:#fff;border:1.5px solid var(--border);border-radius:8px;padding:4px 12px;font-size:12px;font-weight:600}
 .kw-stat .n{font-size:15px;font-weight:800}
 .kw-stat .n.blue{color:var(--pri)}.kw-stat .n.green{color:var(--success)}.kw-stat .n.pur{color:var(--pur)}.kw-stat .n.gray{color:var(--muted)}.kw-stat .n.amber{color:#d97706}
-
 .kw-input-section{padding:16px 22px;background:#fffef0;border-bottom:1px solid #fde68a}
 .kw-input-tip{font-size:11.5px;color:#92400e;margin-bottom:8px;display:flex;align-items:flex-start;gap:6px;line-height:1.55}
 .kw-textarea{width:100%;padding:11px 13px;border:1.5px solid #fcd34d;border-radius:9px;font-size:12.5px;resize:vertical;outline:none;min-height:110px;font-family:'Consolas','Monaco',monospace;transition:border-color .2s,box-shadow .2s;background:#fffef7;line-height:1.7;color:var(--text)}
@@ -48,14 +46,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .btn-amber{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;box-shadow:0 3px 10px rgba(245,158,11,.28)}
 .btn-amber:hover{background:linear-gradient(135deg,#d97706,#b45309);transform:translateY(-1px);box-shadow:0 5px 16px rgba(245,158,11,.38)}
 .kw-input-hint{font-size:11px;color:var(--muted);margin-left:4px}
-
 .kw-tag-area{padding:14px 20px}
 .kw-legend{display:flex;align-items:center;gap:16px;margin-bottom:10px;flex-wrap:wrap}
 .kw-leg{display:flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600}
 .kw-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .dot-t{background:#3b82f6}.dot-c{background:#10b981}.dot-s{background:#94a3b8}
 .kw-leg.title-l{color:var(--kw-title)}.kw-leg.content-l{color:var(--kw-content)}.kw-leg.supp-l{color:var(--kw-supp)}
-
 .kw-cloud-wrap{max-height:200px;overflow-y:auto;padding:4px 0;scrollbar-width:thin;scrollbar-color:#fcd34d #fffef7}
 .kw-cloud-wrap::-webkit-scrollbar{width:5px}.kw-cloud-wrap::-webkit-scrollbar-track{background:#fffef7}.kw-cloud-wrap::-webkit-scrollbar-thumb{background:#fcd34d;border-radius:3px}
 .kw-cloud{display:flex;flex-wrap:wrap;gap:6px}
@@ -115,14 +111,25 @@ select:focus{border-color:var(--pri)}
 .h2-len{font-size:10px;color:var(--muted);margin-top:3px}
 .h2-copy{flex-shrink:0;background:none;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:11px;color:var(--muted);cursor:pointer;transition:all .2s;margin-top:2px}
 .h2-copy:hover{border-color:var(--pri);color:var(--pri);background:var(--pri-light)}
-.c-pur{background:#f97316}.c-act{background:#8b5cf6}.c-pri{background:#ef4444}
-.c-cov{background:#10b981}.c-faq{background:#3b82f6}.c-cmp{background:#6366f1}
-.c-pvd{background:#ec4899}.c-scn{background:#14b8a6}.c-tip{background:#f59e0b}
+
+/* ===== 原有9类 ===== */
+.c-pur{background:#f97316}
+.c-act{background:#8b5cf6}
+.c-pri{background:#ef4444}
+.c-cov{background:#10b981}
+.c-faq{background:#3b82f6}
+.c-cmp{background:#6366f1}
+.c-pvd{background:#ec4899}
+.c-scn{background:#14b8a6}
+.c-tip{background:#f59e0b}
+/* ===== 新增3类 ===== */
+.c-rev{background:#0891b2}
+.c-rec{background:#65a30d}
+.c-pre{background:#be185d}
+
 .seo-bar{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
 .seo-tag{display:flex;align-items:center;gap:4px;background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:600}
 .seo-tag.warn{background:#fffbeb;border-color:#fde68a;color:#92400e}
-
-/* ===== Keyword info in output ===== */
 .kw-info-bar{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:2px solid #fde68a;border-radius:12px;padding:12px 16px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .kw-info-l{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .kw-info-title{font-size:13px;font-weight:700;color:#92400e}
@@ -143,8 +150,6 @@ select:focus{border-color:var(--pri)}
 .hist-num{font-size:10.5px;font-weight:700;color:var(--pri);margin-bottom:5px}
 .hist-h1{font-size:12.5px;font-weight:600;color:var(--text);line-height:1.35;margin-bottom:6px}
 .hist-prev{font-size:11px;color:var(--muted);line-height:1.65}
-
-/* ===== Prompt Banner in output ===== */
 .prompt-banner{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px solid #c4b5fd;border-radius:12px;padding:13px 16px;margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .pb-txt{font-size:13px;color:#5b21b6;font-weight:600;display:flex;align-items:center;gap:7px}
 .pb-sub{font-size:11px;color:#7c3aed;font-weight:400;margin-top:2px;opacity:.85}
@@ -170,7 +175,6 @@ select:focus{border-color:var(--pri)}
 .prompt-ta:focus{border-color:var(--pur);box-shadow:0 0 0 3px rgba(124,58,237,.14)}
 .modal-ft{padding:13px 20px;border-top:1px solid #e9d5ff;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#faf9ff;border-radius:0 0 18px 18px;flex-shrink:0}
 .modal-ft-hint{margin-left:auto;font-size:11px;color:#9ca3af;font-style:italic}
-
 .toast{position:fixed;bottom:22px;right:22px;background:#1e293b;color:#fff;padding:10px 17px;border-radius:10px;font-size:13px;font-weight:500;z-index:9999;transform:translateY(70px);opacity:0;transition:all .3s ease;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.2)}
 .toast.show{transform:translateY(0);opacity:1}
 
@@ -189,32 +193,30 @@ select:focus{border-color:var(--pri)}
 <div class="header">
   <div class="hd-left">
     <h1>🌐 eSIM SEO 标题生成器</h1>
-    <p>基于搜索意图优化 · 9大分类 · 40套H1模板 · 117条H2模板 · 关键词智能植入 · 一键生成SEO写作Prompt</p>
+    <p>基于搜索意图优化 · 12大分类 · 40套H1模板 · 156条H2模板 · 关键词智能植入 · 一键生成SEO写作Prompt</p>
   </div>
   <div class="hd-stats">
     <div class="stat-pill">已生成 <b id="sGenCount">0</b> 组</div>
     <div class="stat-pill">关键词库 <b id="sKwCount">0</b> 个</div>
     <div class="stat-pill">H1模板 <b>40</b> 套</div>
-    <div class="stat-pill">H2模板 <b>117</b> 条</div>
+    <div class="stat-pill">H2分类 <b>12</b> 类</div>
   </div>
 </div>
 
 <div class="main">
 
-  <!-- ===== Keyword Panel ===== -->
+  <!-- Keyword Panel -->
   <div class="kw-panel" id="kwPanel">
     <div class="kw-panel-hd" onclick="toggleKwPanel()">
       <div class="kw-hd-l">
         <span class="kw-hd-title">🔑 高流量关键词库</span>
         <span class="kw-badge" id="kwBadge" style="display:none">已导入 0 个</span>
-        <span id="kwNoKwHint" style="font-size:12px;color:#92400e;font-style:italic">← 粘贴您的200个关键词，自动植入标题与Prompt</span>
+        <span id="kwNoKwHint" style="font-size:12px;color:#92400e;font-style:italic">← 粘贴您的关键词，自动植入标题与Prompt</span>
       </div>
       <div class="kw-hd-r">
         <button class="kw-toggle-btn" id="kwToggleBtn">▼ 展开</button>
       </div>
     </div>
-
-    <!-- Stats bar -->
     <div class="kw-stats-bar" id="kwStatsBar" style="display:none">
       <div class="kw-stat"><span>总计</span><span class="n amber" id="statTotal">0</span><span>个</span></div>
       <div class="kw-stat"><span>🔵 标题已植入</span><span class="n blue" id="statTitle">0</span><span>个</span></div>
@@ -222,15 +224,10 @@ select:focus{border-color:var(--pri)}
       <div class="kw-stat"><span>🟣 辅助词</span><span class="n pur" id="statAux">0</span><span>个</span></div>
       <div class="kw-stat"><span>⚫ 补充词库</span><span class="n gray" id="statSupp">0</span><span>个</span></div>
     </div>
-
-    <!-- Input section (collapsible) -->
     <div id="kwInputSection" style="display:none">
       <div class="kw-input-section">
-        <div class="kw-input-tip">
-          💡 每行一个关键词，或用逗号/分号分隔；最多200个；支持中英文混合。
-          导入后关键词将自动：①植入H1/H2标题 ②分类显示 ③写入Prompt写作指令
-        </div>
-        <textarea class="kw-textarea" id="kwTextarea" placeholder="请粘贴您的高流量关键词，例如：&#10;best esim for usa&#10;usa esim 2026&#10;cheap esim united states&#10;t-mobile esim travel&#10;buy esim online usa&#10;...（每行一个，或逗号分隔）"></textarea>
+        <div class="kw-input-tip">💡 每行一个关键词，或用逗号/分号分隔；最多200个；支持中英文混合。</div>
+        <textarea class="kw-textarea" id="kwTextarea" placeholder="请粘贴您的高流量关键词，例如：&#10;best esim for usa&#10;usa esim 2026&#10;cheap esim united states&#10;...（每行一个，或逗号分隔）"></textarea>
         <div class="kw-input-btns">
           <button class="btn btn-amber" onclick="parseKeywords()">✅ 解析导入关键词</button>
           <button class="btn btn-out" onclick="clearKeywords()">🗑 清空</button>
@@ -238,7 +235,6 @@ select:focus{border-color:var(--pri)}
           <span class="kw-input-hint" id="kwParseHint"></span>
         </div>
       </div>
-      <!-- Tag cloud inside expanded panel -->
       <div class="kw-tag-area" id="kwTagAreaExpanded" style="display:none">
         <div class="kw-legend">
           <span style="font-size:12px;font-weight:700;color:#92400e;margin-right:4px">关键词分类：</span>
@@ -250,8 +246,6 @@ select:focus{border-color:var(--pri)}
         <div class="kw-cloud-wrap"><div class="kw-cloud" id="kwCloudExpanded"></div></div>
       </div>
     </div>
-
-    <!-- Tag cloud always visible when keywords loaded -->
     <div class="kw-tag-area" id="kwTagAreaAlways" style="display:none">
       <div class="kw-legend">
         <span style="font-size:12px;font-weight:700;color:#92400e;margin-right:4px">关键词状态：</span>
@@ -264,7 +258,7 @@ select:focus{border-color:var(--pri)}
     </div>
   </div>
 
-  <!-- ===== Control Panel ===== -->
+  <!-- Control Panel -->
   <div class="ctrl-panel">
     <div class="cg">
       <label>目标地区</label>
@@ -287,8 +281,8 @@ select:focus{border-color:var(--pri)}
     <div class="cg">
       <label>H2 数量</label>
       <select id="selH2n">
-        <option value="10">10 个</option>
         <option value="8">8 个</option>
+        <option value="10">10 个</option>
         <option value="12">12 个</option>
       </select>
     </div>
@@ -307,7 +301,7 @@ select:focus{border-color:var(--pri)}
     </div>
   </div>
 
-  <!-- ===== Output Card ===== -->
+  <!-- Output Card -->
   <div class="ocard">
     <div class="card-hd">
       <div class="card-hd-l">
@@ -335,7 +329,7 @@ select:focus{border-color:var(--pri)}
     </div>
   </div>
 
-  <!-- ===== History ===== -->
+  <!-- History -->
   <div class="hist-outer" id="histSection" style="display:none">
     <div class="hist-toggle" onclick="toggleHist()">
       <h3>📚 历史记录 &nbsp;<span id="histCount" style="color:var(--pri);font-weight:700">0</span> 组</h3>
@@ -348,7 +342,7 @@ select:focus{border-color:var(--pri)}
 
 </div>
 
-<!-- ===== Prompt Modal ===== -->
+<!-- Prompt Modal -->
 <div class="modal-overlay" id="promptModal" onclick="closePromptModalBg(event)">
   <div class="modal-box">
     <div class="modal-hd">
@@ -364,7 +358,7 @@ select:focus{border-color:var(--pri)}
     <div class="modal-info-bar" id="promptInfoBar"><span class="p-stat">📊 加载中...</span></div>
     <div class="modal-tips">
       <span>💡</span>
-      <span>建议完整复制 Prompt → 粘贴到 AI 对话框直接发送 → AI 将按结构生成 2500-3500 字 SEO 软文，关键词自然植入，附 Meta 信息与内链建议</span>
+      <span>完整复制 Prompt → 粘贴到 AI 对话框 → AI 将按结构生成 2500-3500 字 SEO 软文，关键词自然植入</span>
     </div>
     <div class="modal-body">
       <textarea class="prompt-ta" id="promptText" readonly onclick="this.select()"></textarea>
@@ -492,7 +486,7 @@ var H1T = [
 ];
 
 // ============================================================
-// H2 模板库（9类 × 13条）
+// H2 模板库 —— 共 12 大分类，每类 13 条
 // ============================================================
 var CATS = {
   purchase:{name:'购买指南',cls:'c-pur',t:[
@@ -629,41 +623,80 @@ var CATS = {
     '{kw}高效使用指南：{cnt}个你可能不知道的功能',
     '延长{kw}有效期的技巧：套餐到期前必看攻略',
     '用{hKw}省更多钱：{dest}eSIM流量最大化实战攻略'
+  ]},
+  // ===== 新增分类 1：用户真实评测 =====
+  review:{name:'用户真实评测',cls:'c-rev',t:[
+    '{year}真实用户评测：{kw}综合口碑与体验总结',
+    '{cnt}位用户亲测{kw}：真实反馈与使用心得汇总',
+    '{dest}旅行回来后：{kw}真实满意度与不足点解析',
+    '踩坑与惊喜：{kw}用户真实反馈{cnt}条精选',
+    '{p1} {kw}值得信赖吗？真实用户口碑大汇总',
+    '{userType}眼中的{kw}：真实评分与使用建议',
+    '{year}网络热评{kw}：好评与差评背后的真相',
+    '{dest}旅行达人分享：{kw}亲身使用心得精选',
+    '{kw}用完一周后：真实网速与服务体验详细复盘',
+    '高分还是差评？{kw}真实用户反馈与改进建议',
+    '{kw}究竟好不好用？{cnt}位真实用户的综合评价',
+    '{dest}旅游团友实测{kw}：集体使用体验真实汇报',
+    '{hKw}用户真实评测：{year}综合口碑数据全解析'
+  ]},
+  // ===== 新增分类 2：套餐精选推荐 =====
+  recommend:{name:'套餐精选推荐',cls:'c-rec',t:[
+    '{year}性价比最高的{kw}套餐：精选{cnt}款强力推荐',
+    '{userType}专属推荐：{kw}最适合你的{cnt}款套餐',
+    '{dur}出行{kw}最优套餐推荐：综合评分与选购建议',
+    '{year}{kw}套餐精选：编辑力荐{cnt}款不踩坑方案',
+    '不同需求不同选择：{kw}分场景套餐精准推荐',
+    '月度更新：{year}{kw}最新优惠套餐精选TOP{cnt}',
+    '{dest}本地用户最爱的{kw}套餐：真实销量排行推荐',
+    '{kw}入门款vs高配款：不同预算下的精选推荐方案',
+    '懒人必看！{kw}无脑购买推荐：直接买这{cnt}款',
+    '专家选出的{year}{kw}黑马套餐：低价高质精选',
+    '{dur}旅行{kw}套餐推荐：流量、速度、价格最优解',
+    '{userType}强推！{kw}最值得买的{cnt}款套餐盘点',
+    '{hKw}套餐精选推荐：{year}{kw}性价比最优方案汇总'
+  ]},
+  // ===== 新增分类 3：出行前准备 =====
+  prepare:{name:'出行前准备',cls:'c-pre',t:[
+    '出发{dest}前{cnt}件必做：{kw}准备完整检查清单',
+    '提前{dur}准备{kw}：{dest}出行网络规划全攻略',
+    '{dest}出行前{kw}准备指南：手机设置与套餐选购清单',
+    '行前必读：{dest}旅行{kw}准备的{cnt}个关键步骤',
+    '{device}出行前{kw}准备：设置、测试、备份完整指南',
+    '去{dest}前必须确认的{kw}事项：避免到了才发现问题',
+    '{dest}出发前一周{kw}准备攻略：分步骤完整安排',
+    '{kw}提前购买vs到达再买：{dest}出行最优时机选择',
+    '家庭出行{dest}：全家人{kw}准备的一站式解决方案',
+    '首次去{dest}必备清单：{kw}与网络准备核心要点',
+    '{dur}长途{dest}出行：{kw}套餐预购与备用方案指南',
+    '{dest}商务出行前{kw}准备：专业人士的完整设置流程',
+    '出发{dest}前用{hKw}：{year}出行网络准备权威指南'
   ]}
 };
 
-var CKEYS = Object.keys(CATS);
-
-var ROTS = [
-  ['purchase','activation','price','coverage','faq','comparison','provider','scenario','tips','purchase'],
-  ['purchase','activation','price','faq','comparison','provider','scenario','tips','coverage','activation'],
-  ['purchase','price','coverage','faq','comparison','provider','scenario','tips','activation','comparison'],
-  ['purchase','activation','price','coverage','faq','provider','scenario','tips','comparison','tips'],
-  ['activation','price','coverage','faq','comparison','provider','scenario','tips','purchase','scenario'],
-  ['purchase','activation','price','coverage','comparison','provider','scenario','tips','faq','provider'],
-  ['purchase','activation','coverage','faq','comparison','provider','scenario','tips','price','faq'],
-  ['purchase','activation','price','coverage','faq','comparison','scenario','tips','provider','purchase'],
-  ['activation','price','coverage','faq','comparison','provider','tips','purchase','scenario','coverage'],
-  ['purchase','price','activation','faq','comparison','scenario','tips','provider','coverage','activation']
-];
-
 // ============================================================
-// 全局状态
+// ★ 核心修复：基于种子的 Fisher-Yates 洗牌，确保每组 H2 分类完全不重复
 // ============================================================
-var genCount = 0;
-var curSet   = null;
-var hist     = [];
-var userKws  = [];
-var curUsedKwIndices = [];
-var kwPanelOpen = false;
+function getUniqueCatSequence(n, seed) {
+  var allKeys = Object.keys(CATS); // 共12类
+  var arr = allKeys.slice();
+  var s = Math.abs(seed | 0);
+  // Seeded Fisher-Yates shuffle
+  for (var i = arr.length - 1; i > 0; i--) {
+    s = (s * 1664525 + 1013904223) & 0x7fffffff;
+    var j = s % (i + 1);
+    var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+  }
+  // n 最多为12，完全覆盖，绝不重复
+  return arr.slice(0, Math.min(n, arr.length));
+}
 
 // ============================================================
 // 工具函数
 // ============================================================
 function pickItem(arr, n) {
   if (!arr || arr.length === 0) { return ''; }
-  var idx = ((n % arr.length) + arr.length) % arr.length;
-  return arr[idx];
+  return arr[((n % arr.length) + arr.length) % arr.length];
 }
 function pickHotKw(seed) {
   if (!userKws || userKws.length === 0) { return ''; }
@@ -729,6 +762,16 @@ function escHtml(s) {
 function deepCopy(obj) { return JSON.parse(JSON.stringify(obj)); }
 
 // ============================================================
+// 全局状态
+// ============================================================
+var genCount = 0;
+var curSet   = null;
+var hist     = [];
+var userKws  = [];
+var curUsedKwIndices = [];
+var kwPanelOpen = false;
+
+// ============================================================
 // 关键词面板
 // ============================================================
 function toggleKwPanel() {
@@ -740,21 +783,19 @@ function toggleKwPanel() {
     document.getElementById('kwTagAreaExpanded').style.display = 'block';
   }
 }
-
 function parseKeywords() {
   var raw = document.getElementById('kwTextarea').value.trim();
-  if (!raw) { showToast('⚠ 请先粘贴关键词'); return; }
+  if (!raw) { showToast('请先粘贴关键词'); return; }
   var parts  = raw.split(/[\n\r,，;；]+/);
   var result = [];
   var seen   = {};
   for (var i = 0; i < parts.length; i++) {
     var kw = parts[i].trim();
     if (kw.length > 0 && kw.length <= 80 && !seen[kw] && result.length < 200) {
-      seen[kw] = true;
-      result.push(kw);
+      seen[kw] = true; result.push(kw);
     }
   }
-  if (result.length === 0) { showToast('⚠ 未识别到有效关键词，请检查格式'); return; }
+  if (result.length === 0) { showToast('未识别到有效关键词，请检查格式'); return; }
   userKws = result;
   curUsedKwIndices = [];
   document.getElementById('kwParseHint').textContent = '✅ 成功导入 ' + result.length + ' 个';
@@ -762,62 +803,49 @@ function parseKeywords() {
   showToast('✅ 成功解析导入 ' + result.length + ' 个关键词');
   document.getElementById('btnExportKw').style.display = 'inline-flex';
 }
-
 function clearKeywords() {
-  userKws = [];
-  curUsedKwIndices = [];
+  userKws = []; curUsedKwIndices = [];
   document.getElementById('kwTextarea').value = '';
   document.getElementById('kwParseHint').textContent = '';
   document.getElementById('btnExportKw').style.display = 'none';
   renderAllKwUI([]);
   showToast('🗑 关键词库已清空');
 }
-
 function exportKeywords() {
   if (!userKws.length) { return; }
   downloadFile(userKws.join('\n'), 'keywords-' + userKws.length + '.txt');
   showToast('📤 关键词导出成功');
 }
-
 function classifyKws(usedIndices) {
   var usedSet = {};
   for (var i = 0; i < usedIndices.length; i++) { usedSet[usedIndices[i]] = true; }
-  var result  = [];
-  var cCount  = 0;
-  var aCount  = 0;
+  var result = []; var cC = 0; var aC = 0;
   for (var i = 0; i < userKws.length; i++) {
     var type;
-    if (usedSet[i]) {
-      type = 'tt';
-    } else if (cCount < 25) {
-      type = 'ct'; cCount++;
-    } else if (aCount < 35) {
-      type = 'at'; aCount++;
-    } else {
-      type = 'st';
-    }
+    if (usedSet[i])      { type = 'tt'; }
+    else if (cC < 25)    { type = 'ct'; cC++; }
+    else if (aC < 35)    { type = 'at'; aC++; }
+    else                 { type = 'st'; }
     result.push({ kw: userKws[i], type: type, idx: i });
   }
   return result;
 }
-
 function renderCloudInto(targetId, usedIndices) {
   var classified = classifyKws(usedIndices);
   var html = '';
   for (var i = 0; i < classified.length; i++) {
     var item = classified[i];
-    html += '<span class="kw-tag ' + item.type + '" title="' + escHtml(item.kw) + '">' + escHtml(item.kw) + '</span>';
+    html += '<span class="kw-tag ' + item.type + '">' + escHtml(item.kw) + '</span>';
   }
   var el = document.getElementById(targetId);
   if (el) { el.innerHTML = html; }
 }
-
 function renderAllKwUI(usedIndices) {
   var total = userKws.length;
   if (total === 0) {
-    document.getElementById('kwBadge').style.display    = 'none';
-    document.getElementById('kwNoKwHint').style.display = 'inline';
-    document.getElementById('kwStatsBar').style.display = 'none';
+    document.getElementById('kwBadge').style.display         = 'none';
+    document.getElementById('kwNoKwHint').style.display      = 'inline';
+    document.getElementById('kwStatsBar').style.display      = 'none';
     document.getElementById('kwTagAreaAlways').style.display = 'none';
     document.getElementById('kwTagAreaExpanded').style.display = 'none';
     document.getElementById('kwPanel').classList.remove('has-kws');
@@ -825,24 +853,24 @@ function renderAllKwUI(usedIndices) {
     return;
   }
   var classified = classifyKws(usedIndices);
-  var cntTitle = 0, cntContent = 0, cntAux = 0, cntSupp = 0;
+  var cntT = 0, cntC = 0, cntA = 0, cntS = 0;
   for (var i = 0; i < classified.length; i++) {
-    if      (classified[i].type === 'tt') { cntTitle++; }
-    else if (classified[i].type === 'ct') { cntContent++; }
-    else if (classified[i].type === 'at') { cntAux++; }
-    else                                  { cntSupp++; }
+    if      (classified[i].type === 'tt') { cntT++; }
+    else if (classified[i].type === 'ct') { cntC++; }
+    else if (classified[i].type === 'at') { cntA++; }
+    else                                  { cntS++; }
   }
   document.getElementById('kwBadge').style.display    = 'inline';
   document.getElementById('kwBadge').textContent      = '已导入 ' + total + ' 个';
   document.getElementById('kwNoKwHint').style.display = 'none';
   document.getElementById('kwStatsBar').style.display = 'flex';
-  document.getElementById('statTotal').textContent   = total;
-  document.getElementById('statTitle').textContent   = cntTitle;
-  document.getElementById('statContent').textContent = cntContent;
-  document.getElementById('statAux').textContent     = cntAux;
-  document.getElementById('statSupp').textContent    = cntSupp;
+  document.getElementById('statTotal').textContent    = total;
+  document.getElementById('statTitle').textContent    = cntT;
+  document.getElementById('statContent').textContent  = cntC;
+  document.getElementById('statAux').textContent      = cntA;
+  document.getElementById('statSupp').textContent     = cntS;
   document.getElementById('kwPanel').classList.add('has-kws');
-  document.getElementById('sKwCount').textContent    = total;
+  document.getElementById('sKwCount').textContent     = total;
   renderCloudInto('kwCloudAlways', usedIndices);
   document.getElementById('kwTagAreaAlways').style.display = 'block';
   if (kwPanelOpen) {
@@ -852,36 +880,28 @@ function renderAllKwUI(usedIndices) {
 }
 
 // ============================================================
-// 核心生成
+// 核心生成（★ 使用 getUniqueCatSequence 替代 ROTS）
 // ============================================================
 function generate() {
   var destKey = document.getElementById('selDest').value;
   var year    = document.getElementById('selYear').value;
-  var h2n     = parseInt(document.getElementById('selH2n').value,    10);
+  var h2n     = parseInt(document.getElementById('selH2n').value,   10);
   var batch   = parseInt(document.getElementById('selBatch').value, 10);
 
   for (var b = 0; b < batch; b++) {
-    var g    = genCount;
+    var g     = genCount;
     var h1tpl = pickItem(H1T, g);
     var h1ctx = buildCtx(destKey, year, g * 17 + 5);
     var h1    = fill(h1tpl, h1ctx);
 
-    var rot    = ROTS[g % ROTS.length];
-    var selCats = [];
-    for (var i = 0; i < h2n; i++) {
-      if (i < rot.length) {
-        selCats.push(rot[i]);
-      } else {
-        var alt = ROTS[(g + 1) % ROTS.length];
-        selCats.push(alt[i - rot.length] || CKEYS[i % CKEYS.length]);
-      }
-    }
+    // ★ 关键修复：每组 H2 分类唯一，不重复
+    var selCats = getUniqueCatSequence(h2n, g * 31 + 7);
 
     var h2s = [];
     for (var j = 0; j < selCats.length; j++) {
       var ck   = selCats[j];
       var cat  = CATS[ck];
-      var cIdx = CKEYS.indexOf(ck);
+      var cIdx = Object.keys(CATS).indexOf(ck);
       var tIdx = (g * 3 + j * 7 + cIdx) % cat.t.length;
       var lCtx = buildCtx(destKey, year, g * 11 + j * 13 + cIdx * 5);
       h2s.push({ ck: ck, catName: cat.name, cls: cat.cls, text: fill(cat.t[tIdx], lCtx) });
@@ -889,8 +909,8 @@ function generate() {
 
     genCount++;
 
-    var allTxt   = h1 + ' ' + h2s.map(function(h) { return h.text; }).join(' ');
-    var usedIdx  = [];
+    var allTxt  = h1 + ' ' + h2s.map(function(h) { return h.text; }).join(' ');
+    var usedIdx = [];
     for (var k = 0; k < userKws.length; k++) {
       if (allTxt.indexOf(userKws[k]) !== -1) { usedIdx.push(k); }
     }
@@ -909,12 +929,12 @@ function generate() {
 }
 
 // ============================================================
-// 渲染输出（唯一定义）
+// 渲染输出
 // ============================================================
 function renderOutput() {
-  var id       = curSet.id;
-  var h1       = curSet.h1;
-  var h2s      = curSet.h2s;
+  var id        = curSet.id;
+  var h1        = curSet.h1;
+  var h2s       = curSet.h2s;
   var usedCount = curSet.usedKwIndices ? curSet.usedKwIndices.length : 0;
 
   document.getElementById('genBadge').style.display      = 'inline';
@@ -924,38 +944,35 @@ function renderOutput() {
   document.getElementById('cardFt').style.display        = 'flex';
 
   if (userKws.length > 0 && usedCount > 0) {
-    document.getElementById('kwUsedBadge').style.display    = 'inline';
-    document.getElementById('kwUsedBadge').textContent      = '🔑 关键词植入 ' + usedCount + ' 个';
+    document.getElementById('kwUsedBadge').style.display  = 'inline';
+    document.getElementById('kwUsedBadge').textContent    = '🔑 关键词植入 ' + usedCount + ' 个';
   } else {
     document.getElementById('kwUsedBadge').style.display = 'none';
   }
 
-  var h1Len = h1.length;
+  var h1Len      = h1.length;
   var uniqueCats = [];
   for (var k = 0; k < h2s.length; k++) {
     if (uniqueCats.indexOf(h2s[k].ck) === -1) { uniqueCats.push(h2s[k].ck); }
   }
   var lenOk = (h1Len >= 30 && h1Len <= 70);
 
-  // SEO bar
   var seoHtml = '<div class="seo-bar">'
     + '<span class="seo-tag">✓ 含核心关键词</span>'
     + '<span class="' + (lenOk ? 'seo-tag' : 'seo-tag warn') + '">'
     + (lenOk ? '✓' : '⚠') + ' H1字符 ' + h1Len + (lenOk ? ' (优质)' : ' (建议30-70)') + '</span>'
-    + '<span class="seo-tag">✓ 覆盖 ' + uniqueCats.length + ' 大主题</span>'
+    + '<span class="seo-tag">✓ 覆盖 ' + uniqueCats.length + ' 大主题（无重复）</span>'
     + '<span class="seo-tag">✓ 信息/商业/交易意图兼顾</span>'
     + (userKws.length > 0
        ? '<span class="seo-tag' + (usedCount > 0 ? '' : ' warn') + '">🔑 '
-         + (usedCount > 0 ? '关键词已植入标题 ' + usedCount + '个' : '关键词待匹配') + '</span>'
+         + (usedCount > 0 ? '关键词已植入 ' + usedCount + '个' : '关键词待匹配') + '</span>'
        : '')
     + '</div>';
 
-  // Keyword info bar
   var kwInfoHtml = '';
   if (userKws.length > 0) {
-    var classified  = classifyKws(curSet.usedKwIndices || []);
-    var cntC        = 0;
-    var usedNames   = [];
+    var classified = classifyKws(curSet.usedKwIndices || []);
+    var cntC = 0; var usedNames = [];
     for (var i = 0; i < classified.length; i++) {
       if      (classified[i].type === 'tt') { usedNames.push(classified[i].kw); }
       else if (classified[i].type === 'ct') { cntC++; }
@@ -966,16 +983,13 @@ function renderOutput() {
     if (usedNames.length > 4) {
       tagsHtml += '<span class="kw-used-tag">+' + (usedNames.length - 4) + '个</span>';
     }
-    kwInfoHtml = '<div class="kw-info-bar">'
-      + '<div class="kw-info-l"><span class="kw-info-title">🔑 关键词植入状态</span>'
+    kwInfoHtml = '<div class="kw-info-bar"><div class="kw-info-l">'
+      + '<span class="kw-info-title">🔑 关键词植入状态</span>'
       + tagsHtml
       + '<span class="kw-used-tag green">📝 内容重点词 ' + cntC + ' 个待植入</span>'
-      + '</div>'
-      + '<span style="font-size:11px;color:#92400e">→ 点击「生成写作Prompt」获取完整关键词写作指令</span>'
-      + '</div>';
+      + '</div><span style="font-size:11px;color:#92400e">→ 点击「生成写作Prompt」获取完整关键词写作指令</span></div>';
   }
 
-  // H1 block
   var h1Html = '<div class="h1-block">'
     + '<span class="h1-lbl">H1</span>'
     + '<div><div class="h1-txt">' + escHtml(h1) + '</div>'
@@ -983,7 +997,6 @@ function renderOutput() {
     + '<button class="h1-copy" onclick="cpH1()">📋 复制</button>'
     + '</div>';
 
-  // H2 list
   var h2Html = '';
   for (var m = 0; m < h2s.length; m++) {
     var item = h2s[m];
@@ -998,7 +1011,6 @@ function renderOutput() {
       + '</div>';
   }
 
-  // Prompt banner
   var bannerHtml = '<div class="prompt-banner">'
     + '<div><div class="pb-txt">📝 一键生成 SEO 写作 Prompt</div>'
     + '<div class="pb-sub">基于标题结构'
@@ -1009,7 +1021,7 @@ function renderOutput() {
 
   document.getElementById('outputBody').innerHTML =
     seoHtml + kwInfoHtml + h1Html
-    + '<div class="h2-hd">H2 子标题 · 共 ' + h2s.length + ' 个</div>'
+    + '<div class="h2-hd">H2 子标题 · 共 ' + h2s.length + ' 个 · 分类全部唯一不重复</div>'
     + '<div class="h2-list">' + h2Html + '</div>'
     + bannerHtml;
 }
@@ -1024,7 +1036,7 @@ function renderHist() {
   var limit = Math.min(hist.length, 30);
   var html  = '';
   for (var p = 0; p < limit; p++) {
-    var it      = hist[p];
+    var it = hist[p];
     var preview = '';
     for (var q = 0; q < it.h2s.length && q < 3; q++) {
       var txt = it.h2s[q].text;
@@ -1033,14 +1045,13 @@ function renderHist() {
     }
     html += '<div class="hist-item" onclick="viewHist(' + it.id + ')">'
       + '<div class="hist-num">第 ' + it.id + ' 组 · ' + it.destName + ' ' + it.year
-      + (it.usedKwIndices && it.usedKwIndices.length > 0 ? ' · 🔑' + it.usedKwIndices.length + '个关键词' : '') + '</div>'
+      + (it.usedKwIndices && it.usedKwIndices.length > 0 ? ' · 🔑' + it.usedKwIndices.length + '个' : '') + '</div>'
       + '<div class="hist-h1">' + escHtml(it.h1) + '</div>'
       + '<div class="hist-prev">' + preview + '</div>'
       + '</div>';
   }
   document.getElementById('histGrid').innerHTML = html;
 }
-
 function viewHist(id) {
   for (var p = 0; p < hist.length; p++) {
     if (hist[p].id === id) {
@@ -1054,14 +1065,12 @@ function viewHist(id) {
     }
   }
 }
-
 function toggleHist() {
-  var c  = document.getElementById('histContent');
-  var a  = document.getElementById('histArrow');
+  var c = document.getElementById('histContent');
+  var a = document.getElementById('histArrow');
   var isOpen = c.classList.toggle('open');
   a.textContent = isOpen ? '▲ 收起' : '▼ 展开';
 }
-
 function updateStats() {
   document.getElementById('sGenCount').textContent = genCount;
 }
@@ -1071,32 +1080,27 @@ function updateStats() {
 // ============================================================
 function cpH1() { if (curSet) { copyText(curSet.h1); } }
 function cpH2(i) { if (curSet && curSet.h2s[i]) { copyText(curSet.h2s[i].text); } }
-
 function copySet() {
   if (!curSet) { return; }
-  var t = '【第 ' + curSet.id + ' 组 SEO标题 | ' + curSet.destName + ' ' + curSet.year + '】\n\n'
-    + 'H1 主标题：\n' + curSet.h1 + '\n\nH2 子标题：\n';
+  var t = '【第 ' + curSet.id + ' 组 | ' + curSet.destName + ' ' + curSet.year + '】\n\nH1：\n' + curSet.h1 + '\n\nH2：\n';
   for (var n = 0; n < curSet.h2s.length; n++) {
     t += (n + 1) + '. [' + curSet.h2s[n].catName + '] ' + curSet.h2s[n].text + '\n';
   }
   copyText(t);
 }
-
 function exportCurrent() {
   if (!curSet) { return; }
-  var t = '=== 第 ' + curSet.id + ' 组 SEO标题 | ' + curSet.destName + ' ' + curSet.year + ' ===\n\n'
-    + 'H1: ' + curSet.h1 + '\n\n';
+  var t = '=== 第 ' + curSet.id + ' 组 | ' + curSet.destName + ' ' + curSet.year + ' ===\n\nH1: ' + curSet.h1 + '\n\n';
   for (var n = 0; n < curSet.h2s.length; n++) {
     t += 'H2-' + (n + 1) + ' [' + curSet.h2s[n].catName + ']: ' + curSet.h2s[n].text + '\n';
   }
   downloadFile(t, 'seo-group-' + curSet.id + '.txt');
   showToast('📤 本组标题导出成功');
 }
-
 function exportAll() {
   if (!hist.length) { return; }
-  var sep = '----------------------------------------------------\n';
-  var t   = 'eSIM SEO 标题生成记录\n共 ' + hist.length + ' 组\n\n';
+  var sep = '--------------------------------------------\n';
+  var t   = 'eSIM SEO 标题记录 · 共 ' + hist.length + ' 组\n\n';
   for (var p = 0; p < hist.length; p++) {
     var it = hist[p];
     t += sep + '第 ' + it.id + ' 组 | ' + it.destName + ' ' + it.year + '\n' + sep;
@@ -1111,11 +1115,10 @@ function exportAll() {
 }
 
 // ============================================================
-// 生成 SEO 写作 Prompt
+// 生成 Prompt
 // ============================================================
 function generatePrompt() {
-  if (!curSet) { showToast('⚠ 请先生成标题'); return; }
-
+  if (!curSet) { showToast('请先生成标题'); return; }
   var dk   = curSet.destKey;
   var d    = DB[dk];
   var h1   = curSet.h1;
@@ -1131,61 +1134,58 @@ function generatePrompt() {
   var p2 = pickItem(d.providers, curSet.id + 2);
   if (p2 === p1) { p2 = pickItem(d.providers, curSet.id + 3); }
 
-  var h2CatKeys = [];
-  var seenCk    = {};
+  var h2CatKeys = []; var seenCk = {};
   for (var i = 0; i < h2s.length; i++) {
     if (!seenCk[h2s[i].ck]) { seenCk[h2s[i].ck] = true; h2CatKeys.push(h2s[i].ck); }
   }
 
   var ltPools = {
-    purchase:  [dest+'eSIM在哪里买', dest+'eSIM购买教程'+yr, '去'+dest+'哪个eSIM好用', dest+'eSIM怎么购买'],
-    activation:[dest+'eSIM激活步骤', dest+'eSIM怎么设置', 'iPhone激活'+dest+'eSIM', dest+'eSIM开通方法'],
-    price:     [dest+'eSIM价格'+yr,  dest+'eSIM多少钱',   dest+'eSIM性价比推荐',     dest+'eSIM便宜套餐'],
-    coverage:  [dest+'eSIM信号好吗', dest+'eSIM网速测评', dest+'eSIM覆盖范围',        dest+'eSIM实测'],
-    faq:       [dest+'eSIM值得买吗', dest+'eSIM使用注意事项', 'eSIM和实体SIM哪个好', dest+'eSIM常见问题'],
-    comparison:[dest+'eSIM哪个好'+yr,dest+'eSIM品牌对比',  p1+dest+'好用吗',          dest+'eSIM推荐'+yr],
-    provider:  [p1+dest+'eSIM评测',  dest+'eSIM哪家靠谱', dest+'eSIM提供商推荐',      p2+dest+'怎么样'],
-    scenario:  [dest+'旅游eSIM推荐', dest+'出差网络方案', dest+'留学上网选择',         dest+'自由行eSIM'],
-    tips:      [dest+'eSIM省钱技巧', dest+'eSIM使用攻略', dest+'eSIM流量不够怎么办',  dest+'eSIM最大化使用']
+    purchase:   [dest+'eSIM在哪里买', dest+'eSIM购买教程'+yr, '去'+dest+'哪个eSIM好用'],
+    activation: [dest+'eSIM激活步骤', dest+'eSIM怎么设置',   'iPhone激活'+dest+'eSIM'],
+    price:      [dest+'eSIM价格'+yr,  dest+'eSIM多少钱',     dest+'eSIM性价比推荐'],
+    coverage:   [dest+'eSIM信号好吗', dest+'eSIM网速测评',   dest+'eSIM覆盖范围'],
+    faq:        [dest+'eSIM值得买吗', dest+'eSIM使用注意事项','eSIM和实体SIM哪个好'],
+    comparison: [dest+'eSIM哪个好'+yr,dest+'eSIM品牌对比',   p1+dest+'好用吗'],
+    provider:   [p1+dest+'eSIM评测',  dest+'eSIM哪家靠谱',   dest+'eSIM提供商推荐'],
+    scenario:   [dest+'旅游eSIM推荐', dest+'出差网络方案',   dest+'留学上网选择'],
+    tips:       [dest+'eSIM省钱技巧', dest+'eSIM使用攻略',   dest+'eSIM流量不够怎么办'],
+    review:     [dest+'eSIM好用吗'+yr,dest+'eSIM真实评价',   dest+'eSIM用户反馈'],
+    recommend:  [dest+'eSIM推荐'+yr,  dest+'eSIM哪款好',     dest+'eSIM套餐推荐'],
+    prepare:    [dest+'出行准备'+yr,  dest+'旅行前准备',     dest+'eSIM提前购买']
   };
-  var ltKws  = [];
-  var ltSeen = {};
+  var ltKws = []; var ltSeen = {};
   for (var i = 0; i < h2CatKeys.length; i++) {
     var pool = ltPools[h2CatKeys[i]] || [];
     for (var j = 0; j < pool.length; j++) {
-      if (!ltSeen[pool[j]] && ltKws.length < 14) {
-        ltSeen[pool[j]] = true; ltKws.push(pool[j]);
-      }
+      if (!ltSeen[pool[j]] && ltKws.length < 15) { ltSeen[pool[j]] = true; ltKws.push(pool[j]); }
     }
   }
 
   var painMap = {
-    purchase:   '📌 购买渠道混乱：不知道哪里能购买到正规靠谱的'+kw+'，担心买到假货、不兼容产品或激活失败',
-    activation: '📌 激活流程困难：拿到'+kw+'后不知如何正确激活，或激活途中出现错误代码却不知怎么排查解决',
-    price:      '📌 价格不透明：不清楚'+dest+'eSIM的合理价位区间，担心隐藏费用、超额扣费或买贵吃亏',
-    coverage:   '📌 信号质量存疑：不确定'+kw+'在'+dest+'城市、郊区、景区等不同地区的实际网络覆盖与速度表现',
-    faq:        '📌 基础疑问众多：对eSIM能否打电话、共享热点、多设备使用等功能限制心存疑惑，不敢轻易下单',
-    comparison: '📌 选择困难症：面对'+p1+'、'+p2+'等多家平台和数十款套餐，不知如何筛选最适合自己的方案',
-    provider:   '📌 品牌信任缺失：不了解各大'+dest+'eSIM服务商的口碑、客服质量与售后保障，担心踩坑',
-    scenario:   '📌 场景适配模糊：不清楚自己旅游、商务、留学等不同出行目的应选哪种套餐类型与时长',
-    tips:       '📌 使用效率偏低：不知道如何管控流量消耗、如何续费续期，以及如何将套餐价值最大化'
+    purchase:   '📌 购买渠道混乱：不知道哪里能购买到正规靠谱的'+kw+'，担心买到假货或激活失败',
+    activation: '📌 激活流程困难：拿到'+kw+'后不知如何正确激活，出现错误代码不知怎么解决',
+    price:      '📌 价格不透明：不清楚'+dest+'eSIM的合理价位，担心隐藏费用和超额扣费',
+    coverage:   '📌 信号质量存疑：不确定'+kw+'在'+dest+'各地区的实际网络覆盖与速度表现',
+    faq:        '📌 基础疑问众多：对eSIM能否打电话、共享热点等功能限制心存疑惑',
+    comparison: '📌 选择困难症：面对'+p1+'、'+p2+'等多家平台，不知如何筛选最适合方案',
+    provider:   '📌 品牌信任缺失：不了解各大'+dest+'eSIM服务商的口碑与售后保障',
+    scenario:   '📌 场景适配模糊：不清楚旅游、商务、留学等不同场景该选哪种套餐',
+    tips:       '📌 使用效率偏低：不知道如何管控流量消耗，如何将套餐价值最大化',
+    review:     '📌 真实评价难辨：网上评测良莠不齐，不知道哪些是真实可信的用户反馈',
+    recommend:  '📌 套餐选择困难：面对众多套餐不知如何快速找到最适合自己的那一款',
+    prepare:    '📌 出行准备不足：不知道出发前需要做哪些网络准备，容易到了才发现问题'
   };
-  var pains    = [];
-  var painSeen = {};
+  var pains = []; var painSeen = {};
   for (var i = 0; i < h2CatKeys.length; i++) {
     var ck = h2CatKeys[i];
     if (painMap[ck] && !painSeen[ck]) { painSeen[ck] = true; pains.push(painMap[ck]); }
   }
 
-  // Keyword classification
-  var titleKwNames   = [];
-  var contentKwNames = [];
-  var auxKwNames     = [];
-  var suppKwNames    = [];
-  var kwTotalCount   = 0;
+  var titleKwNames = []; var contentKwNames = []; var auxKwNames = []; var suppKwNames = [];
+  var kwTotalCount = 0;
   if (userKws.length > 0) {
     var classified = classifyKws(curSet.usedKwIndices || []);
-    kwTotalCount   = classified.length;
+    kwTotalCount = classified.length;
     for (var i = 0; i < classified.length; i++) {
       var item = classified[i];
       if      (item.type === 'tt') { titleKwNames.push(item.kw); }
@@ -1200,14 +1200,13 @@ function generatePrompt() {
     outlineStr += (i + 1) + '. 【' + h2s[i].catName + '】 ' + h2s[i].text + '\n';
   }
   var ltStr   = ''; for (var i = 0; i < ltKws.length; i++)  { ltStr   += '  · ' + ltKws[i]  + '\n'; }
-  var painStr = ''; for (var i = 0; i < pains.length; i++)  { painStr += pains[i] + '\n'; }
+  var painStr = ''; for (var i = 0; i < pains.length; i++) { painStr += pains[i] + '\n'; }
 
   var sep  = '================================================================\n';
   var sep2 = '----------------------------------------------------------------\n';
   var pt   = '';
 
   pt += sep + '# SEO 软文写作任务\n' + sep + '\n';
-
   pt += '## 一、角色定位\n' + sep2;
   pt += '你是一位拥有 10 年经验的 Google SEO 内容专家，精通中文内容营销，\n';
   pt += '擅长撰写同时满足以下三个目标的高质量软文：\n';
@@ -1222,138 +1221,69 @@ function generatePrompt() {
   pt += '核心关键词    ：' + kw + '\n';
   pt += '参考运营商    ：' + c1 + '、' + c2 + ' 等\n';
   pt += '参考服务商    ：' + p1 + '、' + p2 + ' 等\n';
-  pt += '目标读者      ：计划前往' + dest + '的中文用户（旅行者、商务出差人士、留学生、自由行旅客等）\n\n';
+  pt += '目标读者      ：计划前往' + dest + '的中文用户（旅行者、商务出差人士、留学生等）\n\n';
 
   pt += '## 三、文章结构大纲（严格按此展开）\n' + sep2;
   pt += '【引言】（100-150 字）\n';
-  pt += '  · 以读者真实场景或痛点问题开篇，前100字内自然植入「' + kw + '」一次\n';
-  pt += '  · 简要预告文章将解决的核心问题，吸引继续阅读\n\n';
+  pt += '  · 以读者真实场景或痛点问题开篇，前100字内自然植入「' + kw + '」一次\n\n';
   pt += outlineStr + '\n';
   pt += '【结尾总结】（100-150 字）\n';
-  pt += '  · 提炼全文核心建议（3条以内），再次自然呼应「' + kw + '」\n';
-  pt += '  · 包含一句温和的行动号召（CTA）\n\n';
+  pt += '  · 提炼全文核心建议（3条以内），再次自然呼应「' + kw + '」，包含行动号召\n\n';
 
-  pt += '## 四、SEO 写作规范（必须严格遵守）\n' + sep2;
+  pt += '## 四、SEO 写作规范\n' + sep2;
   pt += '\n【4.1 核心关键词布局】\n';
   pt += '  · 「' + kw + '」全文自然出现 5-8 次，密度控制在 1.5%-2%\n';
-  pt += '  · 引言前100字、结尾段各出现一次；每个H2章节首句呼应该标题语义\n';
   pt += '  · 以下长尾关键词分散自然融入对应章节，每个出现 1-2 次：\n' + ltStr;
-  pt += '\n【4.2 文章篇幅要求】\n';
+  pt += '\n【4.2 文章篇幅】\n';
   pt += '  · 全文总字数：2500-3500 字（不含Meta信息）\n';
-  pt += '  · 引言/结尾：各100-150字；每个H2章节正文：200-350字\n';
-  pt += '\n【4.3 E-E-A-T 质量标准】\n';
-  pt += '  · Experience：融入真实使用场景，如「在' + city + '机场落地后...」\n';
-  pt += '  · Expertise：引用具体数据（价格区间、网速数值、覆盖范围）\n';
+  pt += '  · 每个H2章节正文：200-350字\n';
+  pt += '\n【4.3 E-E-A-T 标准】\n';
+  pt += '  · Experience：融入真实使用场景，如「在' + city + '落地后...」\n';
+  pt += '  · Expertise：引用具体数据（价格区间、网速数值）\n';
   pt += '  · Authoritativeness：自然提及真实运营商/服务商（如' + c1 + '、' + p1 + '）\n';
-  pt += '  · Trustworthiness：客观呈现优缺点，不夸大宣传\n';
-  pt += '\n【4.4 格式与可读性】\n';
-  pt += '  · 合理使用**加粗**标注关键信息，每段不超过2处\n';
-  pt += '  · 适当使用无序列表（3-5条），避免整篇都是列表\n';
-  pt += '  · 每个H2章节结尾可用一句"小结句"收束\n\n';
+  pt += '  · Trustworthiness：客观呈现优缺点，不夸大宣传\n\n';
 
   pt += '## 五、用户核心痛点（在对应章节着重解决）\n' + sep2;
   pt += painStr + '\n';
 
-  pt += '## 六、写作风格指南\n' + sep2;
-  pt += '  · 语气：专业而亲切，像有亲身经验的朋友在分享真实建议\n';
-  pt += '  · 人称：多用「你/您」，以读者需求为中心\n';
-  pt += '  · 开篇钩子：第一句话用场景化或问题式开头\n';
-  pt += '  · 严禁：最好/绝对/100%保证等夸大词汇、重复冗余内容、无中生有的数据\n\n';
-
-  pt += '## 七、文章结束后，请附上以下 SEO 辅助内容\n' + sep2;
-  pt += '\n① Meta Title（50-60字）：包含「' + kw + '」+年份「' + yr + '」+简洁价值主张\n';
-  pt += '② Meta 描述（110-150字）：包含核心关键词+1-2个长尾词+读者利益点+行动号召\n';
-  pt += '③ 图片 Alt 文本：每个H2章节推荐1张配图主题及描述性Alt文本\n';
-  pt += '④ 内链建议（2-3处）：【内链建议：锚文本 → 目标页面类型】\n';
-  pt += '⑤ Featured Snippet 优化：Q: [问题] / A: [简洁答案，50字以内]\n\n';
-
-  // ===== 关键词专项章节 =====
   if (userKws.length > 0) {
-    pt += '## 八、高流量关键词植入规范（共 ' + kwTotalCount + ' 个关键词）\n' + sep2;
-    pt += '本文有 ' + kwTotalCount + ' 个高流量关键词需要合理植入，请严格按优先级和规则执行：\n\n';
-
+    pt += '## 六、高流量关键词植入规范（共 ' + kwTotalCount + ' 个）\n' + sep2;
     if (titleKwNames.length > 0) {
-      pt += '【8.1 已植入H1/H2标题的关键词 · ' + titleKwNames.length + ' 个】\n';
-      pt += '说明：这些关键词已出现在标题中，标题 SEO 已完成。\n';
-      pt += '正文处理：每个在内容中再自然出现 1 次即可，无需刻意重复。\n';
+      pt += '\n【6.1 已植入标题的关键词 · ' + titleKwNames.length + ' 个】（正文再出现1次即可）\n';
       for (var i = 0; i < titleKwNames.length; i++) { pt += '  · ' + titleKwNames[i] + '\n'; }
-      pt += '\n';
     }
-
     if (contentKwNames.length > 0) {
-      pt += '【8.2 ⭐ 内容重点植入词 · 前 ' + contentKwNames.length + ' 个（最高优先级）】\n';
-      pt += '说明：这些是流量最高的关键词，必须在文章正文中合理植入。\n';
-      pt += '植入要求：\n';
-      pt += '  ① 每个关键词全文自然出现 1-2 次（不超过2次）\n';
-      pt += '  ② 分散在不同H2章节，不要集中在同一段落\n';
-      pt += '  ③ 可适当变形（加助词、拆分融入句子），保证语句流畅\n';
-      pt += '  ④ 优先放在段落前三句话中，有助于搜索引擎抓取\n';
-      pt += '关键词列表：\n';
+      pt += '\n【6.2 ⭐ 内容重点植入词 · ' + contentKwNames.length + ' 个（最高优先级）】\n';
+      pt += '每个在正文中自然出现 1-2 次，分散在不同章节：\n';
       for (var i = 0; i < contentKwNames.length; i++) { pt += '  · ' + contentKwNames[i] + '\n'; }
-      pt += '\n';
     }
-
     if (auxKwNames.length > 0) {
-      pt += '【8.3 🔹 辅助关键词 · ' + auxKwNames.length + ' 个（次级优先级）】\n';
-      pt += '说明：作为语义补充，提升文章主题相关性和长尾覆盖。\n';
-      pt += '植入要求：从中择优选取 10-15 个自然融入，每个出现 1 次，语义不匹配时可跳过。\n';
-      pt += '关键词列表：\n';
+      pt += '\n【6.3 辅助关键词 · ' + auxKwNames.length + ' 个（次级）】\n';
+      pt += '择优选取 10-15 个自然融入，语义不符时可跳过：\n';
       for (var i = 0; i < auxKwNames.length; i++) { pt += '  · ' + auxKwNames[i] + '\n'; }
-      pt += '\n';
     }
-
     if (suppKwNames.length > 0) {
-      pt += '【8.4 📚 补充词库 · ' + suppKwNames.length + ' 个（背景参考）】\n';
-      pt += '说明：作为语义背景词汇，帮助 AI 理解文章主题广度，无需强制植入。\n';
-      pt += '关键词列表（可按需选取）：\n';
-      var showCount = Math.min(suppKwNames.length, 60);
-      for (var i = 0; i < showCount; i++) { pt += '  · ' + suppKwNames[i] + '\n'; }
-      if (suppKwNames.length > 60) { pt += '  ...（共 ' + suppKwNames.length + ' 个，已显示前60个）\n'; }
-      pt += '\n';
+      pt += '\n【6.4 补充词库 · ' + suppKwNames.length + ' 个（背景参考）】\n';
+      var showN = Math.min(suppKwNames.length, 50);
+      for (var i = 0; i < showN; i++) { pt += '  · ' + suppKwNames[i] + '\n'; }
+      if (suppKwNames.length > 50) { pt += '  ...（共 ' + suppKwNames.length + ' 个）\n'; }
     }
-
-    pt += '【8.5 关键词总体使用原则】\n';
-    pt += '  ① 植入优先级：标题词 > 重点内容词 > 辅助词 > 补充词库\n';
-    pt += '  ② 所有关键词总密度不超过 2.5%，防止过度优化降权\n';
-    pt += '  ③ 同一句话中不出现超过 2 个关键词，同一段落不超过 3 个\n';
-    pt += '  ④ 语义相近的关键词可合并在同一句子中自然表达\n';
-    pt += '  ⑤ 与章节语义严重不符的关键词可移至最合适章节或放弃\n';
-    pt += '  ⑥ 关键词首次出现时可加粗，后续出现保持正常格式\n\n';
-
-    pt += '【8.6 关键词章节分配建议（参考）】\n';
-    pt += '  · 购买类关键词 → 购买指南章节（如：哪里买、怎么购买、在哪里购买）\n';
-    pt += '  · 激活类关键词 → 激活教程章节（如：怎么激活、设置教程、开通方法）\n';
-    pt += '  · 价格类关键词 → 价格对比章节（如：多少钱、价格、性价比、套餐费用）\n';
-    pt += '  · 测评类关键词 → 网速覆盖/提供商章节（如：好用吗、评测、推荐、值得买）\n';
-    pt += '  · 场景类关键词 → 使用场景章节（如：旅游、出差、留学、自由行）\n';
-    pt += '  · 问题类关键词 → 常见问题章节（如：注意事项、使用方法、常见问题）\n\n';
+    pt += '\n【6.5 总体原则】\n';
+    pt += '  · 全部关键词总密度不超过 2.5%；同段落不超过 3 个；首次出现可加粗\n\n';
   }
 
   pt += sep + '## 开始写作\n' + sep;
-  pt += '请严格按以上所有要求，从【引言】开始，依次展开每个 H2 章节，\n';
-  pt += '最后写【结尾总结】，然后附上 Meta Title、Meta 描述、\n';
-  pt += 'Alt 文本建议、内链建议和 Featured Snippet 优化内容。\n\n';
-  if (userKws.length > 0) {
-    pt += '特别提醒：文章中需自然植入 ' + kwTotalCount + ' 个高流量关键词（按优先级），\n';
-    pt += '重点确保前 ' + contentKwNames.length + ' 个「内容重点植入词」自然出现在正文中。\n\n';
-  }
-  pt += '核心目标：文章读起来流畅自然，对读者真正有价值，\n';
-  pt += '          关键词融入毫无违和感，完全符合谷歌质量评估标准。\n';
+  pt += '请从【引言】开始依次展开，最后附：Meta Title、Meta 描述、Alt 文本建议、内链建议。\n';
   pt += sep;
 
-  // Modal info bar
   var approxWords = Math.round(pt.length / 2.2);
   var infoHtml = '<span class="p-stat">📊 Prompt约 ' + approxWords + ' 字</span>'
     + '<span class="p-stat">🔑 长尾词 ' + ltKws.length + ' 个</span>'
     + '<span class="p-stat">💡 痛点 ' + pains.length + ' 条</span>'
-    + '<span class="p-stat">📐 H2章节 ' + h2s.length + ' 个</span>'
-    + '<span class="p-stat">🎯 目标字数 2500-3500</span>';
+    + '<span class="p-stat">📐 H2章节 ' + h2s.length + ' 个</span>';
   if (userKws.length > 0) {
-    infoHtml += '<span class="p-stat amber">🔑 高流量词 ' + kwTotalCount + ' 个</span>';
-    if (titleKwNames.length > 0) {
-      infoHtml += '<span class="p-stat amber">📌 标题已植入 ' + titleKwNames.length + ' 个</span>';
-    }
-    infoHtml += '<span class="p-stat amber">⭐ 内容重点 ' + contentKwNames.length + ' 个</span>';
+    infoHtml += '<span class="p-stat amber">🔑 高流量词 ' + kwTotalCount + ' 个</span>'
+      + '<span class="p-stat amber">⭐ 内容重点 ' + contentKwNames.length + ' 个</span>';
   }
 
   document.getElementById('promptInfoBar').innerHTML = infoHtml;
@@ -1363,7 +1293,7 @@ function generatePrompt() {
 }
 
 // ============================================================
-// Modal 关闭
+// Modal
 // ============================================================
 function closePromptModal() {
   document.getElementById('promptModal').classList.remove('open');
@@ -1374,21 +1304,18 @@ function closePromptModalBg(e) {
 }
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
-    var modal = document.getElementById('promptModal');
-    if (modal.classList.contains('open')) { closePromptModal(); }
+    if (document.getElementById('promptModal').classList.contains('open')) { closePromptModal(); }
   }
 });
-
 function copyPrompt() {
   var text = document.getElementById('promptText').value;
-  if (!text) { return; }
-  copyText(text);
+  if (text) { copyText(text); }
 }
 function exportPrompt() {
   var text = document.getElementById('promptText').value;
   if (!text || !curSet) { return; }
-  downloadFile(text, 'seo-prompt-group' + curSet.id + '-' + curSet.destName + curSet.year + '.txt');
-  showToast('📤 Prompt 已导出为 TXT 文件');
+  downloadFile(text, 'seo-prompt-' + curSet.destName + curSet.year + '.txt');
+  showToast('📤 Prompt 已导出');
 }
 
 // ============================================================
@@ -1399,23 +1326,20 @@ function copyText(text) {
     navigator.clipboard.writeText(text)
       .then(function() { showToast('✅ 已复制到剪贴板'); })
       .catch(function() { copyFallback(text); });
-  } else {
-    copyFallback(text);
-  }
+  } else { copyFallback(text); }
 }
 function copyFallback(text) {
   var ta = document.createElement('textarea');
   ta.value = text;
   ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none;top:0;left:0';
-  document.body.appendChild(ta);
-  ta.focus(); ta.select();
+  document.body.appendChild(ta); ta.focus(); ta.select();
   try { document.execCommand('copy'); showToast('✅ 已复制到剪贴板'); }
   catch(e) { showToast('❌ 复制失败，请手动全选复制'); }
   document.body.removeChild(ta);
 }
 function downloadFile(text, filename) {
   var a = document.createElement('a');
-  a.href     = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+  a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
   a.download = filename;
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
 }
@@ -1435,7 +1359,6 @@ function doReset() {
     + '<p>可先导入高流量关键词，关键词将自动植入标题并写入SEO写作Prompt</p></div>';
   showToast('🔄 已重置所有生成记录');
 }
-
 var toastTimer = null;
 function showToast(msg) {
   var el = document.getElementById('toast');
