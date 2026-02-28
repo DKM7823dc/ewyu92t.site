@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog 标题批量生成系统</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #6366f1;
+  --primary-d: #4f46e5;
+  --primary-l: #eef2ff;
+  --success: #10b981;
+  --warn: #f59e0b;
+  --bg: #f1f5f9;
+  --white: #fff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --shadow: 0 4px 20px rgba(99,102,241,.1);
+  --r: 14px;
+  --r-sm: 9px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+/* Layout */
+.wrap{max-width:1180px;margin:0 auto;padding:16px}
+.grid{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+
+/* Header */
+.header{background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 55%,#a855f7 100%);color:#fff;text-align:center;padding:34px 20px;border-radius:20px;margin-bottom:20px;box-shadow:0 8px 32px rgba(99,102,241,.28)}
+.header h1{font-size:clamp(1.25rem,3.5vw,1.9rem);font-weight:700;margin-bottom:6px}
+.header p{font-size:.85rem;opacity:.85}
+
+/* Stats */
+.stats{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.stat{flex:1;min-width:105px;background:#fff;border-radius:var(--r-sm);padding:13px 14px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.stat-n{font-size:1.5rem;font-weight:700;color:var(--primary);line-height:1.2}
+.stat-l{font-size:.68rem;color:var(--muted);margin-top:2px}
+
+/* Cards */
+.card{background:#fff;border-radius:var(--r);padding:22px;box-shadow:var(--shadow);margin-bottom:18px}
+.card-title{font-size:.93rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--primary);color:#fff;white-space:nowrap}
+.badge-g{background:var(--success)}
+.badge-o{background:var(--warn)}
+
+/* Steps */
+.steps{display:flex;background:#fff;border-radius:var(--r-sm);padding:4px;gap:3px;margin-bottom:18px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.step{flex:1;padding:9px 6px;text-align:center;border-radius:6px;font-size:.75rem;font-weight:500;color:var(--muted);transition:all .25s;line-height:1.3}
+.step.active{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-weight:700}
+.step.done{background:#f0fdf4;color:var(--success)}
+
+/* Keyword rows */
+.kw-row{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.kw-lbl{font-size:.7rem;font-weight:600;color:var(--muted);min-width:52px;flex-shrink:0}
+.kw-wrap{flex:1;display:flex;align-items:center;border:2px solid var(--border);border-radius:var(--r-sm);background:#f8faff;transition:border-color .2s;overflow:hidden}
+.kw-wrap:focus-within{border-color:var(--primary);background:#fff}
+.kw-input{flex:1;border:none;background:transparent;padding:9px 12px;font-size:.88rem;color:var(--text);outline:none;font-family:inherit}
+.kw-del{width:30px;height:30px;margin:2px;border:none;border-radius:6px;background:#fecaca;color:#ef4444;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.kw-del:hover{background:#ef4444;color:#fff}
+.btn-dashed{border:2px dashed var(--primary);background:transparent;color:var(--primary);padding:7px 14px;border-radius:var(--r-sm);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:inherit;margin-top:2px}
+.btn-dashed:hover{background:var(--primary-l)}
+
+/* Buttons */
+.btn{padding:10px 16px;border:none;border-radius:var(--r-sm);font-size:.86rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;box-shadow:0 3px 10px rgba(99,102,241,.28)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(99,102,241,.38)}
+.btn-ghost{background:#f1f5f9;color:var(--text)}
+.btn-ghost:hover{background:#e2e8f0}
+.btn-success{background:linear-gradient(135deg,#10b981,#059669);color:#fff;box-shadow:0 3px 10px rgba(16,185,129,.28)}
+.btn-success:hover{transform:translateY(-1px)}
+.btn-outline{background:transparent;border:2px solid var(--primary);color:var(--primary)}
+.btn-outline:hover{background:var(--primary);color:#fff}
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+
+/* H1 options */
+.h1-opt{display:flex;align-items:center;gap:10px;padding:12px 13px;border:2px solid var(--border);border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-bottom:8px}
+.h1-opt:hover{border-color:var(--primary);background:#fafbff}
+.h1-opt.sel{border-color:var(--primary);background:linear-gradient(135deg,#f0f2ff,#f5f0ff)}
+.h1-num{width:24px;height:24px;border-radius:50%;background:var(--border);color:var(--muted);font-size:.68rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.h1-opt.sel .h1-num{background:var(--primary);color:#fff}
+.h1-type{font-size:.62rem;padding:2px 7px;border-radius:20px;background:#eef2ff;color:var(--primary);font-weight:700;flex-shrink:0;white-space:nowrap}
+.h1-text{font-size:.88rem;font-weight:500;flex:1;line-height:1.45}
+.dedup-row{font-size:.7rem;color:var(--muted);display:flex;align-items:center;gap:5px;margin-top:10px}
+.dedup-dot{width:7px;height:7px;border-radius:50%;background:var(--success);flex-shrink:0}
+
+/* Confirmed H1 */
+.h1-confirmed{background:linear-gradient(135deg,#f0f2ff,#f5f0ff);border:2px solid var(--primary);border-radius:var(--r-sm);padding:13px 15px;margin-bottom:15px}
+.h1-c-lbl{font-size:.62rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.h1-c-type{background:var(--primary);color:#fff;border-radius:20px;padding:1px 7px;font-size:.6rem;font-weight:700}
+.h1-c-text{font-size:.93rem;font-weight:700}
+
+/* H2 config */
+.h2-cfg{display:flex;align-items:center;gap:12px;background:#f8faff;border-radius:var(--r-sm);padding:13px 15px;margin-bottom:13px;flex-wrap:wrap}
+.h2-cfg-lbl{font-size:.86rem;font-weight:600}
+.cnt-ctrl{display:flex;align-items:center;gap:8px}
+.cnt-btn{width:28px;height:28px;border:2px solid var(--border);border-radius:6px;background:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;line-height:1}
+.cnt-btn:hover{border-color:var(--primary);color:var(--primary)}
+.cnt-val{font-size:1.1rem;font-weight:700;color:var(--primary);min-width:26px;text-align:center}
+
+/* H2 list */
+.h2-list{margin:12px 0}
+.h2-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-left:3px solid var(--border);background:#fafafa;border-radius:0 7px 7px 0;margin-bottom:6px;transition:all .2s}
+.h2-item:hover{border-left-color:var(--primary);background:#f8f9ff}
+.h2-n{font-size:.68rem;font-weight:700;color:var(--muted);min-width:28px;padding-top:2px;flex-shrink:0}
+.h2-t{font-size:.86rem;color:var(--text);line-height:1.5}
+
+/* Markdown box */
+.md-box{background:#0f172a;border-radius:var(--r-sm);padding:16px;margin-top:12px;overflow:auto}
+.md-box pre{color:#94a3b8;font-size:.78rem;line-height:1.9;white-space:pre-wrap;word-break:break-all;font-family:'Courier New','Consolas',monospace}
+
+/* History */
+.hist-card{background:#fff;border-radius:var(--r);padding:18px;box-shadow:var(--shadow);position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto}
+.hist-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.hist-hdr h3{font-size:.9rem;font-weight:700}
+.h-badge{background:var(--primary);color:#fff;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:20px;min-width:22px;text-align:center}
+.h-item{padding:10px 11px;border:1px solid var(--border);border-radius:7px;margin-bottom:7px;cursor:pointer;transition:all .2s}
+.h-item:hover{border-color:var(--primary);background:#fafbff}
+.h-h1{font-size:.78rem;font-weight:600;line-height:1.4;color:var(--text)}
+.h-meta{font-size:.65rem;color:var(--muted);margin-top:3px}
+.hist-empty{text-align:center;color:var(--muted);font-size:.8rem;padding:22px 8px;line-height:1.9}
+.btn-export{width:100%;margin-top:10px;padding:8px;font-size:.78rem;justify-content:center}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.fu{animation:fadeUp .3s ease forwards}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* Toast */
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:10px 22px;border-radius:30px;font-size:.82rem;z-index:999;animation:fadeUp .3s ease;white-space:nowrap;pointer-events:none}
+
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- Header -->
+<div class="header">
+  <h1>📝 Blog 标题批量生成系统</h1>
+  <p>输入关键词 → 生成 H1 候选 → 确认 → 批量生成 H2 文章结构 · 全程防重复</p>
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat"><div class="stat-n" id="sn-articles">0</div><div class="stat-l">文章结构已生成</div></div>
+  <div class="stat"><div class="stat-n" id="sn-titles">0</div><div class="stat-l">标题生成总数</div></div>
+  <div class="stat"><div class="stat-n" id="sn-dedup">0</div><div class="stat-l">重复标题已拦截</div></div>
+  <div class="stat"><div class="stat-n" id="sn-kw" style="font-size:.9rem;line-height:1.8">—</div><div class="stat-l">当前关键词</div></div>
+</div>
+
+<div class="grid">
+  <!-- Main -->
+  <div>
+    <div class="steps">
+      <div class="step active" id="s1">① 输入关键词</div>
+      <div class="step" id="s2">② 确认 H1 标题</div>
+      <div class="step" id="s3">③ 生成 H2 结构</div>
+    </div>
+
+    <!-- Panel 1 -->
+    <div class="card" id="p1">
+      <div class="card-title">🔑 输入关键词 <span class="badge">Step 1</span></div>
+      <div id="kw-rows"></div>
+      <button class="btn-dashed" id="btn-add-kw">＋ 添加更多关键词（最多 3 个）</button>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btn-gen-h1">✨ 生成 H1 标题选项</button>
+      </div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="card hidden" id="p2">
+      <div class="card-title">📌 选择 H1 标题 <span class="badge badge-o" id="kw-badge"></span></div>
+      <div id="h1-list"></div>
+      <div class="dedup-row"><div class="dedup-dot"></div><span>已过滤重复标题 · 所有选项均为全新内容</span></div>
+      <div class="btn-row">
+        <button class="btn btn-ghost" id="btn-regen-h1">🔄 换一批</button>
+        <button class="btn btn-primary hidden" id="btn-confirm-h1">✓ 确认此标题，继续 →</button>
+      </div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="card hidden" id="p3">
+      <div class="card-title">🏗️ 生成 H2 文章结构 <span class="badge badge-g">Step 3</span></div>
+
+      <div class="h1-confirmed">
+        <div class="h1-c-lbl">✓ 已确认 H1 标题 <span class="h1-c-type" id="confirmed-type">指南型</span></div>
+        <div class="h1-c-text" id="confirmed-h1"></div>
+      </div>
+
+      <div class="h2-cfg">
+        <span class="h2-cfg-lbl">H2 数量</span>
+        <div class="cnt-ctrl">
+          <button class="cnt-btn" id="cnt-m">−</button>
+          <div class="cnt-val" id="cnt-v">8</div>
+          <button class="cnt-btn" id="cnt-p">＋</button>
+        </div>
+        <span style="font-size:.72rem;color:var(--muted)">（8 ~ 10 个）</span>
+        <div style="flex:1"></div>
+        <button class="btn btn-primary" id="btn-gen-h2" style="flex-shrink:0">🚀 生成 H2 标题</button>
+      </div>
+
+      <div id="h2-results" class="hidden">
+        <div class="h2-list" id="h2-list-el"></div>
+        <div class="md-box"><pre id="md-out"></pre></div>
+        <div class="btn-row">
+          <button class="btn btn-success" id="btn-copy">📋 复制 Markdown</button>
+          <button class="btn btn-outline" id="btn-regen-h2">🔄 重新生成 H2</button>
+          <button class="btn btn-ghost" id="btn-new">＋ 新建文章</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- History -->
+  <div>
+    <div class="hist-card">
+      <div class="hist-hdr">
+        <h3>📚 生成历史</h3>
+        <span class="h-badge" id="h-badge">0</span>
+      </div>
+      <div id="hist-list">
+        <div class="hist-empty">暂无记录<br><br>完成首次生成后<br>历史将显示在这里</div>
+      </div>
+      <button class="btn btn-ghost btn-export hidden" id="btn-export-all">📦 导出全部历史 Markdown</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+'use strict';
+
+/* ====================================================
+   词汇库
+   ==================================================== */
+const V = {
+  num:    ['3个','5个','7个','8个','10个','12个','15个'],
+  step:   ['3步','5步','7步','8步','10步'],
+  adj:    ['高效','实用','必看','深度','全面','最新','专业','系统','权威','精华'],
+  struct: ['攻略','指南','教程','手册','解析','秘籍','路线图','宝典','干货'],
+  effect: ['效率翻倍','快速上手','立竿见影','事半功倍','脱颖而出','少走弯路','游刃有余','快速进阶'],
+  time:   ['7天','14天','30天','2周','1个月','3个月'],
+  action: ['掌握核心技能','快速入门','系统学习','深度实践','提升效率','高效应用'],
+  level:  ['精通','实战','高手','专家','进阶','大师级'],
+};
+const TYPE_LBL = {
+  list:'清单型', tutorial:'教程型', guide:'指南型',
+  analysis:'解析型', comparison:'对比型', time:'挑战型', reveal:'揭秘型'
+};
+function p(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+/* ====================================================
+   H1 模板库（19 种，可扩展）
+   ==================================================== */
+const H1_TMPL = [
+  {t:'list',     g:(k,ks)=>`${p(V.num)}个${k}技巧，让你${p(V.effect)}`},
+  {t:'list',     g:(k,ks)=>`${p(V.num)}个${k}${p(V.struct)}，助你${p(V.effect)}`},
+  {t:'list',     g:(k,ks)=>ks.length>1?`${p(V.num)}个${ks[0]}与${ks[1]}实战技巧大全`:`${p(V.num)}个必备${k}技巧精选`},
+  {t:'list',     g:(k,ks)=>`新手必看：${k}的${p(V.num)}个${p(V.adj)}技巧`},
+  {t:'list',     g:(k,ks)=>`进阶${k}：${p(V.num)}个让你脱颖而出的${p(V.adj)}策略`},
+  {t:'tutorial', g:(k,ks)=>`${k}入门${p(V.struct)}：${p(V.step)}学会${p(V.action)}`},
+  {t:'tutorial', g:(k,ks)=>`从零开始学${k}：${p(V.adj)}完整教程`},
+  {t:'tutorial', g:(k,ks)=>`${k}${p(V.struct)}精讲：从入门到${p(V.level)}`},
+  {t:'tutorial', g:(k,ks)=>`手把手教你${k}：${p(V.step)}完成${p(V.action)}`},
+  {t:'guide',    g:(k,ks)=>`${k}完全指南：从入门到${p(V.level)}`},
+  {t:'guide',    g:(k,ks)=>`${p(V.adj)}${k}${p(V.struct)}：系统化${p(V.adj)}详解`},
+  {t:'guide',    g:(k,ks)=>`${k}终极${p(V.struct)}：${p(V.adj)}知识体系汇总`},
+  {t:'guide',    g:(k,ks)=>`${k}全面${p(V.struct)}：${p(V.num)}个核心要点深度解读`},
+  {t:'analysis', g:(k,ks)=>`深度解析${k}：原理、应用与最佳实践`},
+  {t:'analysis', g:(k,ks)=>`${k}全面解析：${p(V.adj)}${p(V.struct)}`},
+  {t:'analysis', g:(k,ks)=>`${k}的底层逻辑：${p(V.num)}个核心原则${p(V.adj)}解读`},
+  {t:'time',     g:(k,ks)=>`${p(V.time)}内掌握${k}：${p(V.adj)}${p(V.struct)}`},
+  {t:'time',     g:(k,ks)=>`${p(V.time)}${k}速成计划：${p(V.adj)}路线图`},
+  {t:'reveal',   g:(k,ks)=>`揭秘${k}的${p(V.num)}个${p(V.adj)}秘诀`},
+  {t:'reveal',   g:(k,ks)=>`${k}高手不会告诉你的${p(V.num)}个秘密技巧`},
+  {t:'comparison',g:(k,ks)=>ks.length>1?`${ks[0]} vs ${ks[1]}：${p(V.adj)}对比${p(V.struct)}`:`${k}主流方案全面对比${p(V.struct)}`},
+  {t:'comparison',g:(k,ks)=>ks.length>1?`${ks[0]}与${ks[1]}深度对比：如何做出正确选择`:`${k}常见方案深度对比分析`},
+];
+
+/* ====================================================
+   H2 池（每类型 10-14 条，保证 count=10 可用）
+   ==================================================== */
+function getH2Pool(type, kw, keywords){
+  const k2 = keywords.length>1 ? keywords[1] : null;
+  const ck = keywords.length>1 ? `${keywords[0]}与${keywords[1]}` : kw;
+
+  const pools = {
+    list:[
+      `为什么${kw}技巧在当下如此关键？`,
+      `开始之前：必须掌握的${kw}核心基础知识`,
+      `技巧一：打好${kw}基础，系统性避免弯路`,
+      `技巧二：${kw}核心操作流程与要点详解`,
+      `技巧三：${kw}效率提升的关键策略拆解`,
+      `技巧四：进阶${kw}应用与真实场景实战`,
+      `技巧五：${kw}高手的独门思维模式解析`,
+      `技巧六：借助自动化让${kw}事半功倍`,
+      `技巧七：数据与反馈驱动${kw}持续优化`,
+      `常见误区：在${kw}上新手最容易踩的坑`,
+      `工具推荐：提升${kw}效率的必备利器精选`,
+      `如何将这些${kw}技巧无缝融入日常工作流`,
+      `总结与行动计划：从今天开始践行${kw}`,
+    ],
+    tutorial:[
+      `${kw}是什么？新手必读的核心概念全解`,
+      `为什么要学${kw}？它能为你带来哪些价值`,
+      `开始之前：开发环境搭建与工具准备指南`,
+      `第一步：${kw}核心基础知识体系详解`,
+      `第二步：动手实操，完成第一个${kw}项目`,
+      `第三步：${kw}核心功能深度探索与实践`,
+      `第四步：行业最佳实践与高频技巧汇总`,
+      `第五步：解决真实问题的${kw}实战应用`,
+      `进阶篇：${kw}高级特性与性能调优`,
+      `常见报错与疑难问题解决手册`,
+      `${kw}优质学习资源与技术社区推荐`,
+      `完成入门后：${kw}进阶成长路线图`,
+    ],
+    guide:[
+      `${kw}概述：定义、重要性与核心应用场景`,
+      `${kw}核心原理：你需要掌握的基础理论框架`,
+      `初学者快速入门：${kw}上手步骤全拆解`,
+      `${kw}工具与资源：精选完整清单`,
+      `实战落地：${kw}在真实业务场景中的应用`,
+      `${kw}最佳实践：专家经验与踩坑总结`,
+      `进阶突破：跨越${kw}初级水平的关键节点`,
+      `${kw}常见问题与解决方案全汇总`,
+      `${kw}发展趋势与未来展望`,
+      `构建你的${kw}体系：从理论到系统性落地`,
+    ],
+    analysis:[
+      `${kw}的起源、发展历程与演变脉络`,
+      `${kw}的底层核心原理深度解析`,
+      `${kw}的主要类型与分类体系全梳理`,
+      `${kw}在不同业务场景中的应用路径分析`,
+      `数据说话：${kw}效果的量化评估与典型案例`,
+      `${kw}的优势与局限性客观全面评估`,
+      `专家视角：${kw}行业前沿洞察与观点汇集`,
+      `${kw}与相关技术的关联性横向对比`,
+      `${kw}实战案例深度剖析与复盘`,
+      `${kw}的未来趋势预判与发展方向展望`,
+    ],
+    comparison:[
+      `为什么需要对比${ck}？核心问题背景`,
+      `${keywords[0]}：核心特性、优势与适用场景全析`,
+      `${k2||'竞品方案'}：核心特性、优势与适用场景全析`,
+      `功能对比：两种方案详细横向分析矩阵`,
+      `性能测试：实测数据与基准 Benchmark 对比`,
+      `学习曲线与上手难度比较`,
+      `成本与 ROI：投入产出比全面对比`,
+      `社区支持、生态系统与长期可维护性`,
+      `真实用户评价与反馈案例汇总`,
+      `如何选择：场景驱动的决策评估框架`,
+      `推荐建议：根据你的实际需求做出最优选择`,
+    ],
+    time:[
+      `出发前的准备：制定你的${kw}学习计划`,
+      `第一阶段：${kw}基础知识快速建立`,
+      `第二阶段：${kw}核心技能深度练习`,
+      `第三阶段：${kw}进阶应用与项目实战`,
+      `第四阶段：${kw}综合能力巩固与全面提升`,
+      `如何克服${kw}学习瓶颈，保持持续进步`,
+      `每日练习方案：高效的${kw}时间分配策略`,
+      `资源推荐：加速${kw}学习的优质材料精选`,
+      `学习效果评估：检验你的${kw}真实水平`,
+      `挑战完成后：${kw}的进阶成长路径规划`,
+    ],
+    reveal:[
+      `揭秘前：大多数人对${kw}存在的常见误解`,
+      `秘诀一：${kw}高手与普通人的核心思维差距`,
+      `秘诀二：${kw}中被忽视的高效底层逻辑`,
+      `秘诀三：${kw}专家如何做关键决策与取舍`,
+      `秘诀四：${kw}实战中的细节心法与技巧`,
+      `秘诀五：借助${kw}杠杆效应放大你的成果`,
+      `秘诀六：${kw}中的反直觉策略与方法论`,
+      `秘诀七：${kw}高手都在使用的工具组合`,
+      `如何系统地将这些秘诀应用到${kw}实践中`,
+      `避坑指南：应用${kw}秘诀时常见的陷阱`,
+      `案例分享：运用秘诀后的${kw}真实转变`,
+      `总结：打造你在${kw}领域的独特竞争优势`,
+    ],
+  };
+  return pools[type] || pools.guide;
+}
+
+/* ====================================================
+   状态
+   ==================================================== */
+const S = {
+  keywords:    [''],
+  h1Options:   [],
+  selIdx:      -1,
+  selH1:       '',
+  selType:     'guide',
+  h2Count:     8,
+  curH2:       [],
+  history:     [],
+  genSet:      new Set(),
+  dedupBlocked:0,
+  totalTitles: 0,
+};
+
+/* ====================================================
+   去重工具
+   ==================================================== */
+function fp(t){ return t.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g,'').toLowerCase(); }
+function inSet(t){ return S.genSet.has(fp(t)); }
+function addSet(t){ S.genSet.add(fp(t)); }
+
+/* ====================================================
+   类型检测
+   ==================================================== */
+function detectType(h1){
+  if(/vs|对比|比较/.test(h1))         return 'comparison';
+  if(/\d+天|\d+周|\d+月|内掌握|速成/.test(h1)) return 'time';
+  if(/揭秘|秘诀|秘密|不会告诉/.test(h1)) return 'reveal';
+  if(/深度解析|全面解析|底层逻辑|核心原则/.test(h1)) return 'analysis';
+  if(/\d+个.*(技巧|方法|步骤|攻略|指南|教程|手册|策略|秘诀)/.test(h1)) return 'list';
+  if(/入门|从零|教程|一步步|学会|手把手/.test(h1)) return 'tutorial';
+  return 'guide';
+}
+
+/* ====================================================
+   H1 生成
+   ==================================================== */
+function genH1(keywords){
+  const kw = keywords[0];
+  const results = [];
+  const shuffled = [...H1_TMPL].sort(()=>Math.random()-.5);
+  for(const tm of shuffled){
+    let title = tm.g(kw, keywords);
+    if(inSet(title)){
+      S.dedupBlocked++;
+      title = tm.g(kw, keywords); // retry once
+    }
+    if(!inSet(title) && !results.find(r=>fp(r.text)===fp(title))){
+      results.push({text:title, type:tm.t});
+      if(results.length>=6) break;
+    }
+  }
+  // Safety fill
+  let tries=0;
+  while(results.length<4 && tries++<40){
+    const tm = p(H1_TMPL);
+    const title = tm.g(kw,keywords);
+    if(inSet(title)){S.dedupBlocked++; continue;}
+    if(!results.find(r=>fp(r.text)===fp(title)))
+      results.push({text:title, type:tm.t});
+  }
+  return results;
+}
+
+/* ====================================================
+   H2 生成
+   ==================================================== */
+function genH2(h1, keywords, count, type){
+  const kw = keywords[0];
+  const pool = getH2Pool(type, kw, keywords);
+  const intro  = pool[0];
+  const outro  = pool[pool.length-1];
+  const mid    = pool.slice(1, pool.length-1).sort(()=>Math.random()-.5);
+  const needed = count-2;
+  const result = [intro, ...mid.slice(0, Math.min(needed, mid.length)), outro];
+  result.forEach(t=>{ addSet(t); S.totalTitles++; });
+  return result;
+}
+
+/* ====================================================
+   Markdown 构建
+   ==================================================== */
+function buildMd(h1, h2s){
+  return `# ${h1}\n\n`+h2s.map(h=>`## ${h}`).join('\n\n')+'\n';
+}
+
+/* ====================================================
+   HTML 转义
+   ==================================================== */
+function esc(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ====================================================
+   UI 渲染
+   ==================================================== */
+function renderKwRows(){
+  const c=document.getElementById('kw-rows');
+  c.innerHTML='';
+  S.keywords.forEach((kw,i)=>{
+    const d=document.createElement('div');
+    d.className='kw-row';
+    d.innerHTML=`
+      <span class="kw-lbl">关键词 ${i+1}</span>
+      <div class="kw-wrap">
+        <input class="kw-input" type="text" value="${esc(kw)}"
+          placeholder="${i===0?'主关键词，如：内容营销':'辅助关键词（可选）'}" data-i="${i}">
+        ${S.keywords.length>1?`<button class="kw-del" data-i="${i}" title="删除">×</button>`:''}
+      </div>`;
+    c.appendChild(d);
+  });
+  c.querySelectorAll('.kw-input').forEach(el=>{
+    el.addEventListener('input',e=>{
+      S.keywords[+e.target.dataset.i]=e.target.value;
+      updateKwStat();
+    });
+  });
+  c.querySelectorAll('.kw-del').forEach(el=>{
+    el.addEventListener('click',e=>{
+      S.keywords.splice(+e.target.dataset.i,1);
+      renderKwRows();
+    });
+  });
+}
+
+function renderH1List(){
+  const c=document.getElementById('h1-list');
+  c.innerHTML='';
+  S.h1Options.forEach((opt,i)=>{
+    const d=document.createElement('div');
+    d.className='h1-opt fu';
+    d.style.animationDelay=`${i*60}ms`;
+    d.dataset.i=i;
+    d.innerHTML=`
+      <div class="h1-num">${i+1}</div>
+      <div class="h1-text">${esc(opt.text)}</div>
+      <div class="h1-type">${TYPE_LBL[opt.type]||opt.type}</div>`;
+    d.addEventListener('click',()=>selectH1(i));
+    c.appendChild(d);
+  });
+}
+
+function selectH1(idx){
+  document.querySelectorAll('.h1-opt').forEach(el=>el.classList.remove('sel'));
+  const el=document.querySelector(`.h1-opt[data-i="${idx}"]`);
+  if(el) el.classList.add('sel');
+  S.selIdx=idx;
+  document.getElementById('btn-confirm-h1').classList.remove('hidden');
+}
+
+function renderH2Results(){
+  const listEl=document.getElementById('h2-list-el');
+  listEl.innerHTML='';
+  S.curH2.forEach((h2,i)=>{
+    const d=document.createElement('div');
+    d.className='h2-item fu';
+    d.style.animationDelay=`${i*45}ms`;
+    d.innerHTML=`<div class="h2-n">H2.${i+1}</div><div class="h2-t">${esc(h2)}</div>`;
+    listEl.appendChild(d);
+  });
+  document.getElementById('md-out').textContent=buildMd(S.selH1, S.curH2);
+  document.getElementById('h2-results').classList.remove('hidden');
+}
+
+function showPanel(to){
+  for(let i=1;i<=3;i++){
+    const s=document.getElementById(`s${i}`);
+    const pEl=document.getElementById(`p${i}`);
+    if(i<to){s.className='step done'; pEl.classList.remove('hidden');}
+    else if(i===to){s.className='step active'; pEl.classList.remove('hidden');}
+    else s.className='step';
+  }
+}
+
+function addHistory(h1, h2s){
+  S.history.unshift({h1, h2s:[...h2s], keywords:[...S.keywords.filter(k=>k.trim())], time:new Date()});
+  renderHistory();
+  updateStats();
+}
+
+function renderHistory(){
+  const c=document.getElementById('hist-list');
+  const badge=document.getElementById('h-badge');
+  const exportBtn=document.getElementById('btn-export-all');
+  badge.textContent=S.history.length;
+  if(!S.history.length){
+    c.innerHTML='<div class="hist-empty">暂无记录<br><br>完成首次生成后<br>历史将显示在这里</div>';
+    exportBtn.classList.add('hidden');
+    return;
+  }
+  exportBtn.classList.remove('hidden');
+  c.innerHTML='';
+  S.history.forEach((item,i)=>{
+    const d=document.createElement('div');
+    d.className='h-item';
+    const t=item.time.toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});
+    d.innerHTML=`
+      <div class="h-h1">${esc(item.h1)}</div>
+      <div class="h-meta">${item.h2s.length} 个 H2 · ${t} · ${esc(item.keywords.join(' + '))}</div>`;
+    d.addEventListener('click',()=>loadHist(i));
+    c.appendChild(d);
+  });
+}
+
+function loadHist(idx){
+  const item=S.history[idx];
+  S.selH1=item.h1;
+  S.selType=detectType(item.h1);
+  S.curH2=[...item.h2s];
+  document.getElementById('confirmed-h1').textContent=item.h1;
+  document.getElementById('confirmed-type').textContent=TYPE_LBL[S.selType]||S.selType;
+  showPanel(3);
+  renderH2Results();
+}
+
+function updateStats(){
+  document.getElementById('sn-articles').textContent=S.history.length;
+  document.getElementById('sn-titles').textContent=S.totalTitles;
+  document.getElementById('sn-dedup').textContent=S.dedupBlocked;
+}
+
+function updateKwStat(){
+  const kws=S.keywords.filter(k=>k.trim());
+  document.getElementById('sn-kw').textContent=kws.length?kws.join(' + '):'—';
+}
+
+function toast(msg){
+  document.querySelectorAll('.toast').forEach(e=>e.remove());
+  const el=document.createElement('div');
+  el.className='toast';
+  el.textContent=msg;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),2500);
+}
+
+function copyText(text, msg){
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(()=>toast(msg));
+  } else {
+    const ta=document.createElement('textarea');
+    ta.value=text; ta.style.cssText='position:fixed;opacity:0';
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta); toast(msg);
+  }
+}
+
+/* ====================================================
+   初始化 & 事件绑定
+   ==================================================== */
+function init(){
+  S.keywords=[''];
+  renderKwRows();
+  renderHistory();
+  updateStats();
+
+  document.getElementById('btn-add-kw').addEventListener('click',()=>{
+    if(S.keywords.length>=3){toast('最多支持 3 个关键词');return;}
+    S.keywords.push('');
+    renderKwRows();
+  });
+
+  document.getElementById('btn-gen-h1').addEventListener('click',()=>{
+    const kws=S.keywords.map(k=>k.trim()).filter(Boolean);
+    if(!kws.length){toast('⚠️ 请至少输入一个关键词');return;}
+    S.keywords=kws;
+    renderKwRows();
+    updateKwStat();
+    S.selIdx=-1;
+    S.h1Options=genH1(kws);
+    document.getElementById('kw-badge').textContent=kws.join(' + ');
+    document.getElementById('btn-confirm-h1').classList.add('hidden');
+    renderH1List();
+    showPanel(2);
+    updateStats();
+    setTimeout(()=>document.getElementById('p2').scrollIntoView({behavior:'smooth',block:'nearest'}),100);
+  });
+
+  document.getElementById('btn-regen-h1').addEventListener('click',()=>{
+    S.h1Options=genH1(S.keywords.filter(Boolean));
+    S.selIdx=-1;
+    document.getElementById('btn-confirm-h1').classList.add('hidden');
+    renderH1List();
+    updateStats();
+    toast('🔄 H1 标题已换一批');
+  });
+
+  document.getElementById('btn-confirm-h1').addEventListener('click',()=>{
+    if(S.selIdx<0){toast('请先点击选择一个 H1 标题');return;}
+    const opt=S.h1Options[S.selIdx];
+    S.selH1=opt.text;
+    S.selType=opt.type;
+    addSet(opt.text);
+    S.totalTitles++;
+    document.getElementById('confirmed-h1').textContent=opt.text;
+    document.getElementById('confirmed-type').textContent=TYPE_LBL[opt.type]||opt.type;
+    document.getElementById('h2-results').classList.add('hidden');
+    showPanel(3);
+    updateStats();
+    setTimeout(()=>document.getElementById('p3').scrollIntoView({behavior:'smooth',block:'nearest'}),100);
+  });
+
+  document.getElementById('cnt-m').addEventListener('click',()=>{
+    if(S.h2Count>8){S.h2Count--; document.getElementById('cnt-v').textContent=S.h2Count;}
+  });
+  document.getElementById('cnt-p').addEventListener('click',()=>{
+    if(S.h2Count<10){S.h2Count++; document.getElementById('cnt-v').textContent=S.h2Count;}
+  });
+
+  document.getElementById('btn-gen-h2').addEventListener('click',()=>{
+    if(!S.selH1){toast('请先确认 H1 标题');return;}
+    S.curH2=genH2(S.selH1, S.keywords.filter(Boolean), S.h2Count, S.selType);
+    renderH2Results();
+    addHistory(S.selH1, S.curH2);
+    toast('✅ 文章结构已生成！');
+    setTimeout(()=>document.getElementById('h2-results').scrollIntoView({behavior:'smooth',block:'nearest'}),150);
+  });
+
+  document.getElementById('btn-regen-h2').addEventListener('click',()=>{
+    S.curH2=genH2(S.selH1, S.keywords.filter(Boolean), S.h2Count, S.selType);
+    renderH2Results();
+    toast('🔄 H2 标题已重新生成');
+  });
+
+  document.getElementById('btn-copy').addEventListener('click',()=>{
+    copyText(buildMd(S.selH1, S.curH2),'📋 Markdown 已复制到剪贴板');
+  });
+
+  document.getElementById('btn-new').addEventListener('click',()=>{
+    S.selH1=''; S.selIdx=-1; S.h1Options=[]; S.curH2=[]; S.keywords=[''];
+    renderKwRows(); updateKwStat();
+    document.getElementById('p2').classList.add('hidden');
+    document.getElementById('p3').classList.add('hidden');
+    document.getElementById('h2-results').classList.add('hidden');
+    document.getElementById('btn-confirm-h1').classList.add('hidden');
+    for(let i=1;i<=3;i++) document.getElementById(`s${i}`).className=i===1?'step active':'step';
+    document.getElementById('p1').scrollIntoView({behavior:'smooth',block:'start'});
+    toast('✨ 已重置，开始新文章');
+  });
+
+  document.getElementById('btn-export-all').addEventListener('click',()=>{
+    if(!S.history.length){toast('暂无历史记录');return;}
+    const all=S.history.map((item,i)=>`<!-- 文章 ${i+1} | 关键词：${item.keywords.join(', ')} | 类型：${TYPE_LBL[detectType(item.h1)]||'指南型'} -->\n`+buildMd(item.h1,item.h2s)).join('\n\n---\n\n');
+    copyText(all,`📦 已导出 ${S.history.length} 篇文章结构到剪贴板`);
+  });
+}
+
+init();
+</script>
+</body>
+</html>
