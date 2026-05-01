@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>中國國旅 | 尊享入境遊定制專家 · 外賓高端旅行首選</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            background: #fafbfc;
+            color: #1e2a3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            padding-bottom: 105px;
+        }
+
+        /* 導航欄 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+        .navbar img {
+            height: 34px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.05));
+        }
+        /* 手機上 Logo 稍微放大 */
+        @media (max-width: 768px) {
+            .navbar img {
+                height: 44px;
+            }
+        }
+
+        /* 首屏輪播 - 無空白，圖片填滿且保持比例 */
+        .hero-slider {
+            width: 100%;
+            height: 360px;
+            overflow: hidden;
+            position: relative;
+            background: #1e2a32;
+        }
+        .slider-track {
+            display: flex;
+            width: 700%;
+            height: 100%;
+            animation: slide 28s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+        }
+        .slider-track img {
+            width: 14.2857%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @keyframes slide {
+            0%, 10% { transform: translateX(0); }
+            12%, 22% { transform: translateX(-14.2857%); }
+            24%, 34% { transform: translateX(-28.5714%); }
+            36%, 46% { transform: translateX(-42.8571%); }
+            48%, 58% { transform: translateX(-57.1428%); }
+            60%, 70% { transform: translateX(-71.4285%); }
+            72%, 82% { transform: translateX(-85.7142%); }
+            84%, 100% { transform: translateX(0); }
+        }
+        @media (max-width: 768px) {
+            .hero-slider {
+                height: 280px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-slider {
+                height: 220px;
+            }
+        }
+
+        /* 主容器 */
+        .main-container {
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+            margin-top: -20px;
+        }
+
+        /* 核心品牌卡片 */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 28px 24px;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0,0,0,0.02);
+            border: 1px solid rgba(255,255,255,0.6);
+            margin-bottom: 20px;
+        }
+        .headline {
+            font-size: 24px;
+            font-weight: 800;
+            color: #c4272c;
+            text-align: center;
+            letter-spacing: -0.3px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .sub-headline {
+            font-size: 15px;
+            color: #546e7a;
+            text-align: center;
+            margin-bottom: 26px;
+            font-weight: 500;
+            background: #fef3e9;
+            display: inline-block;
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 60px;
+        }
+        .trust-tags {
+            display: flex;
+            justify-content: space-around;
+            gap: 12px;
+            padding-top: 18px;
+            border-top: 1.5px solid #f0f2f5;
+        }
+        .tag-item {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+            color: #2c3e4e;
+            background: #f8fafc;
+            padding: 8px 10px;
+            border-radius: 28px;
+            flex: 1;
+        }
+        .tag-item b {
+            display: block;
+            font-size: 20px;
+            color: #c4272c;
+            margin-bottom: 4px;
+            font-weight: 800;
+        }
+
+        /* 通用標題 */
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 44px 0 22px 0;
+            text-align: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .section-title:before, .section-title:after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+        }
+        .section-title span {
+            background: #fff;
+            padding: 0 12px;
+            color: #1f2a40;
+        }
+
+        /* 服務網格 */
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 8px;
+        }
+        .service-item {
+            background: #fff;
+            padding: 22px 16px;
+            border-radius: 26px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+        .service-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+        }
+        .service-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #c4272c;
+        }
+        .service-item h3 i {
+            font-size: 22px;
+            color: #ff7a2f;
+            background: #fff0e5;
+            width: 34px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+        }
+        .service-item p {
+            font-size: 14px;
+            color: #2d3e50;
+            line-height: 1.5;
+        }
+
+        /* 促銷模塊 */
+        .promo-banner {
+            background: linear-gradient(135deg, #142b3c 0%, #1e3a4d 100%);
+            border-radius: 32px;
+            padding: 28px 24px;
+            margin: 40px 0 32px;
+            box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+        .promo-banner::after {
+            content: "⚡";
+            font-size: 130px;
+            position: absolute;
+            bottom: -20px;
+            right: -15px;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+        .promo-banner h2 {
+            font-size: 24px;
+            font-weight: 800;
+            text-align: center;
+            letter-spacing: -0.2px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #FFE8C5;
+        }
+        .promo-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 500;
+            font-size: 16px;
+        }
+        .promo-row:last-child {
+            border: none;
+        }
+        .price-tag {
+            background: #fff9e8;
+            color: #c4272c;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-weight: 800;
+            font-size: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        /* 理由清單 */
+        .reason-list {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 24px 22px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            border: 1px solid #edf2f7;
+            margin-bottom: 20px;
+        }
+        .reason-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 20px;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .reason-icon {
+            background: #e9f7ef;
+            color: #2b8c5e;
+            width: 32px;
+            height: 32px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        /* 優勢卡 */
+        .advantage-card {
+            background: linear-gradient(115deg, #f6f9fe, #ffffff);
+            padding: 18px 20px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+            border-left: 5px solid #ff8c42;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+        }
+        .advantage-card p {
+            font-weight: 500;
+            font-size: 15px;
+        }
+        .advantage-card b {
+            color: #c4272c;
+        }
+
+        /* 新增圖片輪播 (c1~c6) - 等比例縮放 */
+        .gallery-slider {
+            margin: 30px 0 40px;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            background: #f8fafc;
+        }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 28px;
+        }
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            will-change: transform;
+        }
+        .slider-wrapper img {
+            width: 100%;
+            flex-shrink: 0;
+            object-fit: cover;
+            height: 260px;
+            display: block;
+            background: #eef2f5;
+        }
+        .slider-prev, .slider-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            font-size: 20px;
+            transition: all 0.2s;
+        }
+        .slider-prev { left: 12px; }
+        .slider-next { right: 12px; }
+        .slider-prev:hover, .slider-next:hover {
+            background: rgba(0,0,0,0.75);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 0 16px;
+            background: #fff;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 10px;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .dot.active {
+            width: 24px;
+            background: #c4272c;
+        }
+        @media (max-width: 480px) {
+            .slider-wrapper img {
+                height: 200px;
+            }
+            .slider-prev, .slider-next {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+        }
+
+        /* 評論區 - 真人頭像，名字隱藏中間，無行程日期 */
+        .review-list {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 8px 0 12px 0;
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+            margin: 20px 0 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .review-card {
+            background: #fff;
+            padding: 18px 20px;
+            border-radius: 24px;
+            transition: all 0.2s;
+            border: 1px solid #f0f2f8;
+            margin: 0 6px;
+        }
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .avatar-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #e2e8f0;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .reviewer-info {
+            flex: 1;
+        }
+        .reviewer-name {
+            font-weight: 800;
+            font-size: 16px;
+            color: #1f2937;
+            letter-spacing: 1px;
+        }
+        .stars {
+            color: #f5b042;
+            letter-spacing: 2px;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        .review-text {
+            font-size: 14px;
+            line-height: 1.55;
+            color: #2c3e50;
+            margin-top: 6px;
+        }
+
+        /* 底部懸浮按鈕 */
+        .sticky-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(20px);
+            padding: 12px 16px 24px;
+            display: flex;
+            gap: 14px;
+            box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.08);
+            z-index: 2000;
+            border-top: 1px solid rgba(0,0,0,0.02);
+        }
+        .cta-btn {
+            flex: 1;
+            border: none;
+            border-radius: 60px;
+            padding: 12px 6px;
+            font-weight: 800;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            white-space: nowrap;
+            flex-wrap: nowrap;
+            transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+            animation: breath 2.7s ease-in-out infinite;
+            color: white;
+            line-height: 1.2;
+        }
+        .cta-btn i {
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .cta-btn .btn-text {
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+        .cta-btn .btn-discount {
+            flex-shrink: 0;
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            border-radius: 40px;
+            padding: 2px 8px;
+            font-size: 12px;
+            margin-left: 2px;
+        }
+        .btn-line { background: #06C755; }
+        .btn-wa { background: #25D366; }
+        .cta-btn:active {
+            transform: scale(0.96);
+            animation: none;
+        }
+        @keyframes breath {
+            0% { transform: scale(1); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);}
+            50% { transform: scale(1.02); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);}
+            100% { transform: scale(1); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);}
+        }
+        @media (max-width: 400px) {
+            .cta-btn {
+                font-size: 12px;
+                padding: 10px 4px;
+                gap: 4px;
+            }
+            .cta-btn i { font-size: 16px; }
+            .cta-btn .btn-discount {
+                font-size: 10px;
+                padding: 1px 6px;
+                margin-left: 2px;
+            }
+            .sticky-footer {
+                padding: 10px 12px 22px;
+                gap: 8px;
+            }
+        }
+        @media (max-width: 480px) {
+            .main-container {
+                padding: 0 16px;
+            }
+            .service-grid {
+                gap: 14px;
+            }
+            .hero-card {
+                padding: 20px 18px;
+            }
+            .headline {
+                font-size: 21px;
+            }
+            .section-title {
+                font-size: 20px;
+                margin: 36px 0 18px;
+            }
+            .service-item {
+                padding: 16px 12px;
+            }
+            .service-item h3 {
+                font-size: 16px;
+            }
+            .promo-banner h2 {
+                font-size: 20px;
+            }
+            .promo-row {
+                font-size: 14px;
+            }
+            .price-tag {
+                font-size: 13px;
+                padding: 4px 12px;
+            }
+            .avatar-img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <img src="img/logo.png" alt="中國國旅｜CITS 官方標誌">
+</header>
+
+<!-- 首屏輪播 -->
+<div class="hero-slider">
+    <div class="slider-track">
+        <img src="img/1.jpg" alt="壯麗山河">
+        <img src="img/2.jpg" alt="文化古蹟">
+        <img src="img/3.jpg" alt="現代都市">
+        <img src="img/4.jpg" alt="自然風光">
+        <img src="img/5.jpg" alt="地道美食">
+        <img src="img/6.jpg" alt="歷史遺產">
+        <img src="img/7.jpg" alt="仙境九寨">
+    </div>
+</div>
+
+<div class="main-container">
+    <!-- 核心品牌卡片 -->
+    <div class="hero-card">
+        <h1 class="headline">語言不通？行程混亂？隱形消費？</h1>
+        <p class="sub-headline">🇨🇳 別擔心！我們是專注外國遊客的中國入境遊團隊</p>
+        <div class="trust-tags">
+            <div class="tag-item"><b>10年+</b> 行業經驗</div>
+            <div class="tag-item"><b>20+</b> 服務國家</div>
+            <div class="tag-item"><b>99%</b> 好評率 ✅</div>
+        </div>
+    </div>
+
+    <!-- 4大核心服務 -->
+    <div class="section-title"><span>✨ 4大核心服務，省心到底 ✨</span></div>
+    <div class="service-grid">
+        <div class="service-item">
+            <h3><i class="fas fa-map-marked-alt"></i> 1v1定制行程</h3>
+            <p>重慶，解放碑，洪崖洞，成都，九寨溝，黃龍，等等，我們按時間、人數、預算量身打造，拒絕千篇一律！</p>
+        </div>
+        <div class="service-item">
+            <h3><i class="fas fa-chalkboard-user"></i> 雙語持證導遊</h3>
+            <p>中英文流利，深度講解歷史文化，全程貼心陪伴，問題隨時解決！</p>
+        </div>
+        <div class="service-item">
+            <h3><i class="fas fa-car-side"></i> 住宿交通全包</h3>
+            <p>機場專車接機，星級酒店入住，景點往返交通無憂，不用拎行李奔波！</p>
+        </div>
+        <div class="service-item">
+            <h3><i class="fas fa-utensils"></i> 地道美食體驗</h3>
+            <p>帶你吃四川火鍋、本地特色，體驗中國歷史文化</p>
+        </div>
+    </div>
+
+    <!-- 早鳥優惠 -->
+    <div class="promo-banner">
+        <h2><i class="fas fa-gift"></i> 兩人同行 / 最高省 $1,000</h2>
+        <div class="promo-row">
+            <span>📅 出發前 1 個月報名</span>
+            <span class="price-tag">第二人省 $300</span>
+        </div>
+        <div class="promo-row">
+            <span>⏰ 出發前 2 個月報名</span>
+            <span class="price-tag">第二人省 $500</span>
+        </div>
+        <div class="promo-row">
+            <span>🚀 出發前 3 個月報名</span>
+            <span class="price-tag">第二人省 $1,000</span>
+        </div>
+    </div>
+
+    <!-- 選擇我們的3個理由 -->
+    <div class="section-title"><span>💡 選擇我們的 3 個理由</span></div>
+    <div class="reason-list">
+        <div class="reason-item">
+            <span class="reason-icon">✓</span>
+            <p>價格透明，簽訂正規合同，無隱形消費</p>
+        </div>
+        <div class="reason-item">
+            <span class="reason-icon">✓</span>
+            <p>24小時應急服務，出行超安心</p>
+        </div>
+        <div class="reason-item">
+            <span class="reason-icon">✓</span>
+            <p>小眾路線定制，避開人山人海</p>
+        </div>
+    </div>
+
+    <!-- 3大優勢 -->
+    <div class="section-title"><span>🎯 3 大優勢，戳中你的心巴！</span></div>
+    <div class="advantage-card">
+        <p><b>🌍 行程超靈活：</b>1 - 15天任選，單人/情侶/家庭/團建遊，統統滿足！</p>
+    </div>
+    <div class="advantage-card">
+        <p><b>💰 性價比拉滿：</b>比自己做攻略省錢30%，花少錢玩得更好！</p>
+    </div>
+    <div class="advantage-card">
+        <p><b>📱 操作超簡單：</b>全程線上溝通，行程表一鍵存手機，隨時查看！</p>
+    </div>
+
+    <!-- 精彩旅途瞬間輪播 -->
+    <div class="section-title"><span>📸 精彩旅途瞬間</span></div>
+    <div class="gallery-slider">
+        <div class="slider-container">
+            <div class="slider-wrapper" id="dynamicSliderWrapper">
+                <img src="img/c1.jpg" alt="旅途風采1">
+                <img src="img/c2.jpg" alt="旅途風采2">
+                <img src="img/c3.jpg" alt="旅途風采3">
+                <img src="img/c4.jpg" alt="旅途風采4">
+                <img src="img/c5.jpg" alt="旅途風采5">
+                <img src="img/c6.jpg" alt="旅途風采6">
+            </div>
+            <button class="slider-prev" id="prevSlideBtn"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-next" id="nextSlideBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="slider-dots" id="sliderDots"></div>
+    </div>
+
+    <!-- 旅友真實評價 (全部繁體中文，無日文) -->
+    <div class="section-title"><span>⭐ 旅友真實評價 ⭐</span></div>
+    <div class="review-list">
+        <div class="review-card">
+            <div class="review-header">
+                <img class="avatar-img" src="img/a1.jpg" alt="頭像">
+                <div class="reviewer-info">
+                    <div class="reviewer-name">張**</div>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <div class="review-text">“絕對專業的團隊！從行程規劃到導遊講解都非常細膩，九寨溝的私房路線讓我們避開人潮，還吃到最道地的藏式火鍋。全程無隱藏費用，下次去新疆還要找他們！”</div>
+        </div>
+        <div class="review-card">
+            <div class="review-header">
+                <img class="avatar-img" src="img/a2.jpg" alt="頭像">
+                <div class="reviewer-info">
+                    <div class="reviewer-name">李**</div>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <div class="review-text">“第一次去中國很擔心語言障礙，但國旅的雙語導遊簡直是天使。在重慶洪崖洞和解放碑的講解生動有趣，交通住宿無縫銜接，極力推薦給所有外國朋友！”</div>
+        </div>
+        <div class="review-card">
+            <div class="review-header">
+                <img class="avatar-img" src="img/a3.jpg" alt="頭像">
+                <div class="reviewer-info">
+                    <div class="reviewer-name">王**</div>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <div class="review-text">“客製化行程非常貼心！我們一家四口喜歡熊貓和歷史，旅行社不僅安排VIP熊貓基地體驗，還預訂了三星堆博物館的英文導覽。性價比超高，省心又驚喜！”</div>
+        </div>
+        <div class="review-card">
+            <div class="review-header">
+                <img class="avatar-img" src="img/a4.jpg" alt="頭像">
+                <div class="reviewer-info">
+                    <div class="reviewer-name">陳**</div>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <div class="review-text">“非常出色的體驗！導遊的語言能力相當流利，對中國歷史文化的解說深入淺出。而且24小時客服順利解決了我們臨時更改行程的需求，非常值得信賴！”</div>
+        </div>
+        <div class="review-card">
+            <div class="review-header">
+                <img class="avatar-img" src="img/a5.jpg" alt="頭像">
+                <div class="reviewer-info">
+                    <div class="reviewer-name">林**</div>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <div class="review-text">“物超所值！比我們自己規劃節省了至少30%的費用，但住宿和用車都是高標準。特別感謝定制師推薦的小眾攝影點，張家界的雲海太震撼，會推薦給所有旅友！”</div>
+        </div>
+    </div>
+</div>
+
+<!-- 底部懸浮按鈕 -->
+<div class="sticky-footer">
+    <button onclick="k1()" class="cta-btn btn-line">
+        <i class="fab fa-line"></i>
+        <span class="btn-text">Line 諮詢</span>
+        <span class="btn-discount">立減$100</span>
+    </button>
+    <button onclick="k2()" class="cta-btn btn-wa">
+        <i class="fab fa-whatsapp"></i>
+        <span class="btn-text">WhatsApp 諮詢</span>
+        <span class="btn-discount">立減$100</span>
+    </button>
+</div>
+
+<script>
+    function k1() { window.location.href = "https://line.com"; }
+    function k2() { window.location.href = "https://wa.me/12313"; }
+
+    // 精彩旅途瞬間輪播控制
+    const sliderWrapper = document.getElementById('dynamicSliderWrapper');
+    const prevBtn = document.getElementById('prevSlideBtn');
+    const nextBtn = document.getElementById('nextSlideBtn');
+    const dotsContainer = document.getElementById('sliderDots');
+    let slides = Array.from(document.querySelectorAll('#dynamicSliderWrapper img'));
+    let currentIndex = 0;
+    let autoInterval;
+    const totalSlides = slides.length;
+
+    function buildDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === currentIndex) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+    function updateDots() {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, idx) => {
+            if (idx === currentIndex) dot.classList.add('active');
+            else dot.classList.remove('active');
+        });
+    }
+    function goToSlide(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        currentIndex = index;
+        sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateDots();
+        resetAutoPlay();
+    }
+    function nextSlide() { goToSlide(currentIndex + 1); }
+    function prevSlide() { goToSlide(currentIndex - 1); }
+    function resetAutoPlay() {
+        if (autoInterval) clearInterval(autoInterval);
+        autoInterval = setInterval(() => { nextSlide(); }, 5000);
+    }
+    sliderWrapper.style.transition = 'transform 0.5s ease-in-out';
+    buildDots();
+    goToSlide(0);
+    prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
+    nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
+    const gallery = document.querySelector('.gallery-slider');
+    gallery.addEventListener('mouseenter', () => { if (autoInterval) clearInterval(autoInterval); });
+    gallery.addEventListener('mouseleave', () => { resetAutoPlay(); });
+    gallery.addEventListener('touchstart', () => { if (autoInterval) clearInterval(autoInterval); });
+    gallery.addEventListener('touchend', () => { resetAutoPlay(); });
+</script>
+</body>
+</html>
