@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>中國國旅 | 尊享入境遊定制專家 · 外賓高端旅行首選</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            background: #fafbfc;
+            color: #1e2a3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            padding-bottom: 105px;
+        }
+
+        /* Remotion 风格：全局动画定义 */
+        @keyframes remotion-pop {
+            0% { transform: scale(0.8); opacity: 0; }
+            70% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes float-badge {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        /* 導航欄 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+        .navbar img {
+            height: 34px;
+            object-fit: contain;
+        }
+        @media (max-width: 768px) { .navbar img { height: 44px; } }
+
+        /* 首屏輪播 */
+        .hero-slider {
+            width: 100%;
+            height: 360px;
+            overflow: hidden;
+            position: relative;
+            background: #1e2a32;
+        }
+        .slider-track {
+            display: flex;
+            width: 700%;
+            height: 100%;
+            animation: slide 28s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+        }
+        .slider-track img {
+            width: 14.2857%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @keyframes slide {
+            0%, 10% { transform: translateX(0); }
+            12%, 22% { transform: translateX(-14.2857%); }
+            24%, 34% { transform: translateX(-28.5714%); }
+            36%, 46% { transform: translateX(-42.8571%); }
+            48%, 58% { transform: translateX(-57.1428%); }
+            60%, 70% { transform: translateX(-71.4285%); }
+            72%, 82% { transform: translateX(-85.7142%); }
+            84%, 100% { transform: translateX(0); }
+        }
+
+        /* Remotion 风格悬浮窗 */
+        .remotion-float-badge {
+            position: fixed;
+            right: 15px;
+            top: 100px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #c4272c, #ff4d4d);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(196, 39, 44, 0.3);
+            text-align: center;
+            animation: remotion-pop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, float-badge 3s ease-in-out infinite 0.8s;
+            pointer-events: none;
+        }
+        .remotion-float-badge b { display: block; font-size: 20px; line-height: 1; margin-bottom: 2px; }
+        .remotion-float-badge span { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* 主容器 */
+        .main-container {
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+            margin-top: -20px;
+        }
+
+        /* 核心品牌卡片 */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 28px 24px;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255,255,255,0.6);
+            margin-bottom: 20px;
+        }
+        .headline {
+            font-size: 24px;
+            font-weight: 800;
+            color: #c4272c;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .sub-headline {
+            font-size: 15px;
+            color: #546e7a;
+            text-align: center;
+            margin-bottom: 26px;
+            background: #fef3e9;
+            display: inline-block;
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 60px;
+        }
+        .trust-tags {
+            display: flex;
+            justify-content: space-around;
+            gap: 12px;
+            padding-top: 18px;
+            border-top: 1.5px solid #f0f2f5;
+        }
+        .tag-item {
+            text-align: center;
+            font-size: 13px;
+            color: #2c3e4e;
+            background: #f8fafc;
+            padding: 8px 10px;
+            border-radius: 28px;
+            flex: 1;
+        }
+        .tag-item b { display: block; font-size: 20px; color: #c4272c; }
+
+        /* 服务网格 (带动画预设) */
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 44px 0 22px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .section-title:before, .section-title:after {
+            content: ""; flex: 1; height: 2px;
+            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .service-item {
+            background: #fff;
+            padding: 22px 16px;
+            border-radius: 26px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            /* 动画初始状态 */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .service-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .service-item h3 {
+            font-size: 18px;
+            color: #c4272c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .service-item h3 i {
+            color: #ff7a2f;
+            background: #fff0e5;
+            width: 34px; height: 34px;
+            display: inline-flex;
+            align-items: center; justify-content: center;
+            border-radius: 18px;
+        }
+
+        /* 促銷模塊 */
+        .promo-banner {
+            background: linear-gradient(135deg, #142b3c 0%, #1e3a4d 100%);
+            border-radius: 32px;
+            padding: 28px 24px;
+            margin: 40px 0 32px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .promo-banner h2 { color: #FFE8C5; text-align: center; margin-bottom: 20px; }
+        .promo-row {
+            display: flex; justify-content: space-between;
+            padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .price-tag {
+            background: #fff9e8; color: #c4272c;
+            padding: 6px 16px; border-radius: 40px; font-weight: 800;
+        }
+
+        /* 優勢/理由 */
+        .reason-list { background: #fff; border-radius: 32px; padding: 24px; margin-bottom: 20px; }
+        .reason-item { display: flex; gap: 14px; margin-bottom: 20px; align-items: center; }
+        .reason-icon {
+            background: #e9f7ef; color: #2b8c5e;
+            width: 32px; height: 32px; border-radius: 30px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .advantage-card {
+            background: #fff; padding: 18px 20px; border-radius: 20px;
+            margin-bottom: 14px; border-left: 5px solid #ff8c42;
+        }
+
+        /* 輪播控制 */
+        .gallery-slider { margin-bottom: 40px; border-radius: 28px; overflow: hidden; position: relative; }
+        .slider-container { position: relative; width: 100%; overflow: hidden; }
+        .slider-wrapper { display: flex; transition: transform 0.5s ease; }
+        .slider-wrapper img { width: 100%; flex-shrink: 0; height: 260px; object-fit: cover; }
+        
+        .slider-prev, .slider-next {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.5); color: white; border: none;
+            width: 40px; height: 40px; border-radius: 40px; z-index: 20;
+        }
+        .slider-prev { left: 12px; } .slider-next { right: 12px; }
+        .slider-dots { display: flex; justify-content: center; gap: 8px; padding: 15px; }
+        .dot { width: 8px; height: 8px; background: #cbd5e1; border-radius: 10px; }
+        .dot.active { width: 24px; background: #c4272c; }
+
+        /* 評價 */
+        .review-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
+        .review-card { background: #fff; padding: 20px; border-radius: 24px; border: 1px solid #f0f2f8; }
+        .review-header { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+        .avatar-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+        .stars { color: #f5b042; font-size: 14px; }
+
+        /* 底部懸浮 */
+        .sticky-footer {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(20px);
+            padding: 12px 16px 20px; display: flex; flex-direction: column; gap: 10px;
+            box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.08); z-index: 2000;
+        }
+        .promo-merger {
+            background: #fff5e6; border-radius: 60px; padding: 8px;
+            text-align: center; font-size: 14px; color: #b13b2c; border: 1px solid #ffd9b5;
+        }
+        .promo-merger strong { color: #c4272c; background: #fff; padding: 2px 10px; border-radius: 20px; }
+        .countdown-box {
+            background: #1e2a3e; color: #ffe6c7; border-radius: 60px;
+            padding: 6px 15px; display: flex; justify-content: space-between; align-items: center;
+        }
+        .countdown-timer { font-family: monospace; font-size: 18px; font-weight: 800; }
+        
+        .footer-buttons { display: flex; gap: 8px; }
+        .cta-btn {
+            flex: 1; border: none; border-radius: 60px; padding: 12px 5px;
+            color: white; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 4px;
+            animation: breath 2.7s ease-in-out infinite;
+        }
+        .btn-line { background: #06C755; }
+        .btn-wa { background: #25D366; }
+        .btn-wx { background: #07C160; }
+        @keyframes breath {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        @media (max-width: 480px) {
+            .hero-slider { height: 220px; }
+            .headline { font-size: 21px; }
+            .service-grid { grid-template-columns: 1fr; }
+            .slider-wrapper img { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <img src="img/logo.png" alt="中國國旅">
+</header>
+
+<!-- Remotion 风格浮动优惠券 -->
+<div class="remotion-float-badge">
+    <span>Limited Offer</span>
+    <b>-$100</b>
+    <span>Special Bonus</span>
+</div>
+
+<div class="hero-slider">
+    <div class="slider-track">
+        <img src="img/1.jpg" alt="1">
+        <img src="img/2.jpg" alt="2">
+        <img src="img/3.jpg" alt="3">
+        <img src="img/4.jpg" alt="4">
+        <img src="img/5.jpg" alt="5">
+        <img src="img/6.jpg" alt="6">
+        <img src="img/7.jpg" alt="7">
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="hero-card">
+        <h1 class="headline">語言不通？行程混亂？隱形消費？</h1>
+        <p class="sub-headline">🇨🇳 別擔心！我們是專注外國遊客的中國入境遊團隊</p>
+        <div class="trust-tags">
+            <div class="tag-item"><b>10年+</b> 經驗</div>
+            <div class="tag-item"><b>20+</b> 國家</div>
+            <div class="tag-item"><b>99%</b> 好評 ✅</div>
+        </div>
+    </div>
+
+    <div class="section-title"><span>✨ 4大核心服務 ✨</span></div>
+    <div class="service-grid">
+        <div class="service-item">
+            <h3><i class="fas fa-map-marked-alt"></i> 1v1定制行程</h3>
+            <p>按時間、人數、預算量身打造，拒絕千篇一律！</p>
+        </div>
+        <div class="service-item">
+            <h3><i class="fas fa-chalkboard-user"></i> 雙語持證導遊</h3>
+            <p>中英文流利，深度講解，全程貼心陪伴！</p>
+        </div>
+        <div class="service-item">
+            <h3><i class="fas fa-car-side"></i> 住宿交通全包</h3>
+            <p>機場專車接機，星級酒店，景點往返無憂！</p>
+        </div>
+        <div class="service-item">
+            <h3><i class="fas fa-utensils"></i> 地道美食體驗</h3>
+            <p>帶你吃地道火鍋、特色川菜，體驗中國文化。</p>
+        </div>
+    </div>
+
+    <div class="promo-banner">
+        <h2><i class="fas fa-gift"></i> 兩人同行 / 最高省 $1,000</h2>
+        <div class="promo-row"><span>📅 出發前 1 個月報名</span> <span class="price-tag">省 $300</span></div>
+        <div class="promo-row"><span>⏰ 出發前 2 個月報名</span> <span class="price-tag">省 $500</span></div>
+        <div class="promo-row"><span>🚀 出發前 3 個月報名</span> <span class="price-tag">省 $1,000</span></div>
+    </div>
+
+    <div class="section-title"><span>📸 精彩旅途瞬間</span></div>
+    <div class="gallery-slider">
+        <div class="slider-container">
+            <div class="slider-wrapper" id="dynamicSliderWrapper">
+                <img src="img/c1.jpg" alt="c1"><img src="img/c2.jpg" alt="c2"><img src="img/c3.jpg" alt="c3">
+                <img src="img/c4.jpg" alt="c4"><img src="img/c5.jpg" alt="c5"><img src="img/c6.jpg" alt="c6">
+            </div>
+            <button class="slider-prev" id="prevSlideBtn"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-next" id="nextSlideBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="slider-dots" id="sliderDots"></div>
+    </div>
+
+    <div class="section-title"><span>⭐ 旅友真實評價 ⭐</span></div>
+    <div class="review-list">
+        <div class="review-card">
+            <div class="review-header">
+                <img class="avatar-img" src="img/a1.jpg" alt="a1">
+                <div class="reviewer-info"><b>張**</b> <div class="stars">★★★★★</div></div>
+            </div>
+            <p class="review-text">“專業團隊！避開人潮的私房路線太讚了，全程無隱形費用。”</p>
+        </div>
+        <div class="review-card">
+            <div class="review-header">
+                <img class="avatar-img" src="img/a2.jpg" alt="a2">
+                <div class="reviewer-info"><b>Lee**</b> <div class="stars">★★★★★</div></div>
+            </div>
+            <p class="review-text">“雙語導遊講解很專業，對外國遊客非常友好，強烈推薦！”</p>
+        </div>
+    </div>
+</div>
+
+<div class="sticky-footer">
+    <div class="promo-merger">
+        🎁 諮詢任一渠道 即享 <strong>立減 $100 USD</strong>
+    </div>
+    <div class="countdown-box">
+        <span><i class="far fa-hourglass-half"></i> 限時優惠倒計時</span>
+        <span class="countdown-timer" id="dynamicCountdown">30:00</span>
+    </div>
+    <div class="footer-buttons">
+        <button onclick="k1()" class="cta-btn btn-line"><i class="fab fa-line"></i> Line</button>
+        <button onclick="k2()" class="cta-btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+        <button onclick="we()" class="cta-btn btn-wx"><i class="fab fa-weixin"></i> WeChat</button>
+    </div>
+</div>
+
+<script>
+    // ========== Remotion 风格：元素入场动画脚本 ==========
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const items = entry.target.querySelectorAll('.service-item');
+                items.forEach((item, index) => {
+                    // Staggering 错开效果：每个元素比前一个延迟 150ms 弹出
+                    setTimeout(() => {
+                        item.classList.add('show');
+                    }, index * 150);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    observer.observe(document.querySelector('.service-grid'));
+
+    // ========== 基礎逻辑 ==========
+    function k1() { window.location.href = "https://line.com"; }
+    function k2() { window.location.href = "https://wa.me/12313"; }
+    function we() { alert("✅ 客服微信: CITS_VIP_01\n添加備註【入境遊】領取$100優惠！"); }
+
+    // 輪播逻辑
+    const sliderWrapper = document.getElementById('dynamicSliderWrapper');
+    let currentIndex = 0;
+    const totalSlides = 6;
+
+    function buildDots() {
+        const dotsContainer = document.getElementById('sliderDots');
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function goToSlide(index) {
+        currentIndex = (index + totalSlides) % totalSlides;
+        sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+    }
+
+    document.getElementById('prevSlideBtn').onclick = () => goToSlide(currentIndex - 1);
+    document.getElementById('nextSlideBtn').onclick = () => goToSlide(currentIndex + 1);
+    buildDots();
+    setInterval(() => goToSlide(currentIndex + 1), 5000);
+
+    // 倒計時
+    let timeLeft = 30 * 60;
+    setInterval(() => {
+        if (timeLeft <= 0) return;
+        timeLeft--;
+        const m = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+        const s = (timeLeft % 60).toString().padStart(2, '0');
+        document.getElementById('dynamicCountdown').innerText = `${m}:${s}`;
+    }, 1000);
+</script>
+
+</body>
+</html>
