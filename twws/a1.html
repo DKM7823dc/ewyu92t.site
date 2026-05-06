@@ -1,1 +1,223 @@
+<!DOCTYPE html><html lang="zh-TW"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>約炮俱樂部 | 30公里內189位女孩子在等你</title>
+    <meta name="description" content="在你10公里內，有551位女性會員正在等你！這裡只談一夜情，不交友。立刻加入LINE開始匹配！">
+    <link rel="stylesheet" href="css/style.css" tppabs="https://yyffhy.top/aakk19/static/css/style.css">
+    <script async="" src="js/fbevents.js"></script><script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        fbq('init', '928096506680156'); // 替换为您的像素ID
+        fbq('track', 'PageView');
+        </script>
+        <script>
+            function openLineApp() {
 
+                fbq('track', 'Contact');
+                // 两个链接
+                const links = [
+                    'https://google.com'
+                ];
+                const randomIndex = Math.floor(Math.random() * links.length);
+                const randomLink = links[randomIndex];
+                
+                
+                window.open(randomLink, '_blank');
+            }
+        </script>
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">💎同城私密聚會約炮社團 💎</h1>
+            <a href="https://ooqqra.com/omopPr" class="header-cta">
+                <img src="images/line.png" tppabs="https://yyffhy.top/aakk19/static/images/line.png" alt="LINE" class="line-icon">
+                 開始約炮
+            </a>
+        </div>
+    </header>
+
+    <!-- 英雄区 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">🔞 仅限成年人使用</div>
+            <h2 class="hero-title">在你30公里內，有<span class="highlight">189位女性會員</span>等你來約！</h2>
+            <p class="hero-subtitle">今晚想幹她嗎？即刻點擊，馬上約她！</p>
+            <p class="hero-desc">不介入彼此生活，只分享身體的快樂。</p>
+            <div class="hero-features">
+                <div class="hero-feature">✓ 這裡的女孩子都很飢渴。</div>
+                <div class="hero-feature">✓ 如果你也餓，這裡很合群</div>
+                <div class="hero-feature">✓ 這裡不談未來，各取所需</div>
+            </div>
+            <button class="cta-button pulse" onclick="showModal()">
+                <img src="images/line.png" tppabs="https://yyffhy.top/aakk19/static/images/line.png" alt="LINE" class="btn-icon">
+                加LINE開始約炮
+            </button>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">附近女性</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">51/8</div>
+                    <div class="stat-label">在線匹配</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">真實會員</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 筛选区 -->
+    <section class="filter-section">
+        <div class="container">
+            <h3 class="section-title">🎯 選擇你的理想約會對象</h3>
+            
+            <div class="filter-group">
+                <div class="filter-label">🎂 年齡偏好</div>
+                <div class="filter-buttons" id="age-filter">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="18-25">20-25歲</button>
+                    <button class="filter-btn" data-filter="26-35">26-35歲</button>
+                    <button class="filter-btn" data-filter="35+">35歲以上</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <div class="filter-label">✨ 風格類型</div>
+                <div class="filter-buttons" id="style-filter">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="sweet">甜美可愛</button>
+                    <button class="filter-btn" data-filter="sexy">性感妩媚</button>
+                    <button class="filter-btn" data-filter="pure">清純優雅</button>
+                    <button class="filter-btn" data-filter="mature">成熟知性</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <div class="filter-label">💪 身材類型</div>
+                <div class="filter-buttons" id="body-filter">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="slim">苗條</button>
+                    <button class="filter-btn" data-filter="curvy">豐滿</button>
+                    <button class="filter-btn" data-filter="fit">健美</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 女性展示区 -->
+    <section class="girls-section">
+        <div class="container">
+            <div class="girls-grid" id="girls-grid">
+                <!-- 动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区 -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="reminder-box">
+                <div class="reminder-icon">💡</div>
+                <div class="reminder-content">
+                    <h4 class="reminder-title">溫馨提醒</h4>
+                    <p class="reminder-text">每週平台都會入駐<span class="highlight-text">10~20個女性會員</span>，相信只要加了LINE，一定會有你喜歡的！</p>
+                </div>
+            </div>
+            <h3 class="section-title">💬 準備好了嗎？</h3>
+            <p class="contact-desc">添加平台專屬經紀人，24小時在線為你匹配。這裏保證絕對安全私密。</p>
+            <button class="cta-button large pulse" onclick="showModal()">
+                <img src="images/line.png" tppabs="https://yyffhy.top/aakk19/static/images/line.png" alt="LINE" class="btn-icon">
+                立即加LINE約起來
+            </button>
+            <div class="contact-features">
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>當晚就能約</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>真人實拍</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>絕對保密</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>約完就走</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 約炮俱樂部 | 仅限成年人使用</p>
+            <div class="footer-links">
+                <a href="#privacy">隱私政策</a>
+                <a href="#terms">使用條款</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 弹窗 -->
+    <div class="success-modal" id="successModal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title">🎉 恭喜！</h2>
+                <button class="modal-close-btn" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-subtitle">你獲得加入我們俱樂部的資格</p>
+                <div class="result-box">
+                    <p class="result-text">在你附近有<span class="highlight-number">89個女性會員</span></p>
+                </div>
+                <p class="modal-desc">你即將獲得附近女性的聯繫方式，請點擊下方按鈕添加我們的美女經紀人，發送你喜歡的女孩立刻約會</p>
+                
+                <div class="instructions">
+                    <div class="instruction-item">
+                        <span class="step-number">1.</span>
+                        <span class="step-text">馬上添加美女經紀人，回覆所在地區如：「台北」，將立即為您安排鄰近的正妹喔~</span>
+                    </div>
+                    <div class="instruction-item">
+                        <span class="step-number">2.</span>
+                        <span class="step-text">回覆【挑选正妹】，將為你解鎖女孩的聯繫方式與見面細節。</span>
+                    </div>
+                    <div class="instruction-item">
+                        <span class="step-number">3.</span>
+                        <span class="step-text">輸入【深入】，可獲得進階玩法與隱藏會員福利！</span>
+                    </div>
+                    <div class="instruction-item">
+                        <span class="step-number">4.</span>
+                        <span class="step-text">主動私訊經紀人，即可獲得她們的「私照」與更多真實資訊~</span>
+                    </div>
+                </div>
+
+                <p class="final-text">立即獲取她們的聯繫方式：</p>
+                <button class="line-button" onclick="openLineApp()">
+                    <img src="images/line.png" tppabs="https://yyffhy.top/aakk19/static/images/line.png" alt="LINE" class="line-btn-icon">
+                    <span>開始約炮</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js" tppabs="https://yyffhy.top/aakk19/static/js/script.js"></script>
+
+
+
+</body></html>
