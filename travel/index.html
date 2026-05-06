@@ -2,6 +2,22 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
+
+    <!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+
+  ttq.load('D7TBFGRC77U02PK9VKV0');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>中國國旅 | 尊享入境遊定制專家 · 外賓高端旅行首選</title>
     <!-- Font Awesome 6 -->
@@ -758,17 +774,17 @@
     </div>
 
     <!-- 精彩旅途瞬間輪播 -->
-    <div class="section-title"><span>📸 精彩旅途瞬間</span></div>
+    <div class="section-title"><span>公司資質</span></div>
     <div class="gallery-slider">
         <div class="slider-container">
             <div class="slider-wrapper" id="dynamicSliderWrapper">
-                <img src="img/c1.png" alt="旅途風采1">
-                <img src="img/c2.png" alt="旅途風采2">
-                <img src="img/c3.png" alt="旅途風采3">
-                <img src="img/c4.png" alt="旅途風采4">
-                <img src="img/c5.png" alt="旅途風采5">
-                <img src="img/c6.png" alt="旅途風采6">
-                <img src="img/c7.png" alt="旅途風采7">
+                <img src="img/s1.png" alt="旅途風采1">
+                <img src="img/s2.png" alt="旅途風采2">
+                <img src="img/s3.png" alt="旅途風采3">
+                <img src="img/s4.png" alt="旅途風采4">
+                <img src="img/s5.png" alt="旅途風采5">
+                <img src="img/s6.png" alt="旅途風采6">
+                <img src="img/s7.png" alt="旅途風采7">
             </div>
             <button class="slider-prev" id="prevSlideBtn"><i class="fas fa-chevron-left"></i></button>
             <button class="slider-next" id="nextSlideBtn"><i class="fas fa-chevron-right"></i></button>
@@ -862,10 +878,30 @@
 </div>
 
 <script>
-    function k1() { window.location.href = "https://line.com"; }
-    function k2() { window.location.href = "https://wa.me/12313"; }
+    function k1() { 
+        
+        // 追踪事件
+      ttq.track('ClickButton');
+      ttq.track('Contact');
+      ttq.track('AddToCart');
+      ttq.track('CompleteRegistration');
+        window.location.href = "https://line.com"; }
+    function k2() { 
+        
+        // 追踪事件
+      ttq.track('ClickButton');
+      ttq.track('Contact');
+      ttq.track('AddToCart');
+      ttq.track('CompleteRegistration');
+        window.location.href = "https://wa.me/12313"; }
     // 微信咨询方法 - 引导添加客服微信号
     function we() {
+        // 追踪事件
+      ttq.track('ClickButton');
+      ttq.track('Contact');
+      ttq.track('AddToCart');
+      ttq.track('CompleteRegistration');
+        
         alert("✅ 請添加國旅客服微信: CITS_VIP_01\n📌 添加時備註【入境遊】可額外領取$100優惠及行程禮包！\n專業定制師1v1為您服務。");
     }
 
